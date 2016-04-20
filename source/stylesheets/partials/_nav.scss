@@ -16,15 +16,6 @@ $horizontal-bar-mode: $medium-screen;
   z-index: 999;
   box-shadow: 0 2px 10px -5px darken($medium-gray, 10%);
   @include position(fixed);
-  // @include transform(translateY(-110%));
-
-  // &.transition {
-  //   @include transition(all 0.15s linear);
-  // }
-  //
-  // &.is-visible {
-  //   @include transform(translateY(0));
-  // }
 
   @include media ($horizontal-bar-mode) {
     min-height: $navigation-height;
@@ -46,13 +37,13 @@ $horizontal-bar-mode: $medium-screen;
     @include media ($horizontal-bar-mode) {
       margin-left: 0.7em;
       max-height: $navigation-height - 1;
-      width: 52px;
+      width: 83px;
     }
 
     @include media ($tablet-portrait) {
       margin-left: 0.7em;
       max-height: $navigation-height - 1;
-      width: 52px;
+      width: 83px;
     }
 
     @include media ($phone-landscape) {
@@ -149,7 +140,10 @@ $horizontal-bar-mode: $medium-screen;
     display: block;
     line-height: $navigation-height-mobile;
     overflow: hidden;
+    text-transform: uppercase;
     text-align: center;
+    font-weight: 700;
+    font-size: 0.8em;
     width: 100%;
     z-index: 9999;
     border-bottom: 1px solid transparentize($navigation-color, 0.8);
@@ -179,11 +173,11 @@ $horizontal-bar-mode: $medium-screen;
       text-decoration: none;
 
       @include media ($horizontal-bar-mode) {
-        color: $navigation-color;
+        color: $light-gray;
 
         &:focus,
         &:hover {
-          border-top: 7px solid $navigation-color;
+          color: $primary-blue;
         }
       }
     }
