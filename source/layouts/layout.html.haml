@@ -3,4 +3,6 @@
   %head
     = partial "head-contents"
   %body{ class: page_classes }
-    = yield
+    = partial "header"
+    #content-wrapper
+      = yield
