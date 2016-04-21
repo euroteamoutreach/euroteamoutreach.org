@@ -18,3 +18,57 @@
 //////////////////////// SANDBOX ////////////////////////
 //// Try out new code here, then extract to partial. ////
 /////////////////////////////////////////////////////////
+
+.alpha {
+  background-image: url(#{$assets-images-path}eto-team.jpg);
+  background-position: top center;
+  background-size: cover;
+  // height: 97vh;
+  text-align: center;
+  width: 100%;
+  padding-top: 14em;
+
+  h1 {
+    color: $white;
+    font-size: 3.5em;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+
+  ul.mission-statement {
+    margin-bottom: 4em;
+
+    .ms-item {
+      position: relative;
+      display: inline;
+      color: $white;
+      margin-right: 30px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  button {
+    border: 1px solid $white;
+    background: none;
+    padding: 0.5em 0.9em 0.7em;
+    font-size: 1em;
+    margin-bottom: 4em;
+
+    &:hover,
+    &:focus {
+      background-color: shade($white, 50%);
+      color: $white;
+    }
+  }
+
+  // .scroll {
+  //   bottom: 2em;
+  //   left: 0;
+  //   margin-top: 0;
+  //   position: absolute;
+  //   width: 100%;
+  // }
+}
