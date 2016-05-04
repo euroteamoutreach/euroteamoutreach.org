@@ -171,13 +171,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bitters (~> 1.0)
-  bourbon (~> 4.0)
+  bitters (~> 1.2.0)
+  bourbon (~> 4.2)
   middleman (~> 4.0)
   middleman-minify-html (~> 3.4)
   middleman-pry
   middleman-s3_sync (~> 4.0)
-  neat (~> 1.0)
+  neat (~> 1.7)
   sassc (~> 1.8)
 
 BUNDLED WITH
