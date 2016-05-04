@@ -1,0 +1,137 @@
+.universal-footer {
+  $footer-background: desaturate(darken($action-color, 10%), 30%);
+  $footer-color: $white;
+  $footer-link-color: transparentize($footer-color, 0.6);
+  $footer-disclaimer-color: transparentize($footer-color, 0.6);
+
+  background: $footer-background;
+  padding: ($base-spacing * 2) $gutter 1.6em;
+  width: 100%;
+
+  @include media($phone-landscape) {
+    padding: 1.6em;
+  }
+
+  .footer-content {
+    @include outer-container;
+    width: em(400);
+
+    @include media($phone-landscape) {
+      width: 100%;
+    }
+  }
+
+  .footer-links-left {
+    @include span-columns(4 of 12);
+
+    @include media($tablet-portrait) {
+      @include span-columns(3 of 8);
+      @include shift(1);
+    }
+
+    @include media($phone-portrait) {
+      @include shift(0);
+      width: 100%;
+    }
+  }
+
+  .footer-links-right {
+    @include span-columns(4 of 12);
+
+    @include media($tablet-portrait) {
+      @include span-columns(3 of 8);
+    }
+
+    @include media($phone-portrait) {
+      width: 100%;
+    }
+  }
+
+  .footer-logo {
+    @include span-columns(4 of 12);
+    padding: 0;
+    text-align: right;
+
+    @include media($tablet-portrait) {
+      @include span-columns(8);
+      text-align: center;
+    }
+
+    .logo {
+      height: 70%;
+      width: 150px;
+
+      @include media($phone-portrait) {
+        width: 120px;
+      }
+    }
+  }
+
+  ul {
+    @include flex-basis(11em);
+    @include flex-shrink(0);
+    margin-bottom: $base-spacing;
+    padding: 0;
+  }
+
+  li {
+    line-height: 1.5em;
+    list-style: none;
+    text-align: left;
+
+    @include media($tablet-portrait) {
+      text-align: center;
+    }
+
+    a {
+      color: $footer-link-color;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        color: transparentize($footer-color, 0);
+      }
+    }
+
+    h3 {
+      color: $footer-color;
+      font-size: 1em;
+      font-weight: 400;
+      margin-bottom: 0.4em;
+    }
+  }
+
+  hr {
+    border: 1px solid transparentize($footer-disclaimer-color, 0.3);
+    margin: 2em auto $base-spacing;
+    width: 12em;
+  }
+
+  p {
+    color: $footer-disclaimer-color;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    margin: auto;
+    max-width: 35em;
+    text-align: center;
+
+    a {
+      border-bottom: 1px solid $footer-disclaimer-color;
+      color: inherit;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  .link-break {
+    display: none;
+
+    @include media($phone-portrait) {
+      display: block;
+    }
+  }
+}

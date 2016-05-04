@@ -17,12 +17,6 @@ module CustomHelpers
     end
   end
 
-  def add_visible_class
-    unless !!(current_page.path =~ /index/)
-      " is-visible"
-    end
-  end
-
   def page_description
     current_page.data.description || data.site.description
   end
