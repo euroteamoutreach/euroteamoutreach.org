@@ -61,6 +61,7 @@
     height: 70%;
     padding-top: 0.2em;
     width: 140px;
+    opacity: 0.4;
 
     @include media($phone-portrait) {
       width: 120px;
@@ -68,10 +69,8 @@
 
     &:focus,
     &:hover {
-      .screen {
-        fill: $white;
-        transition: fill $base-duration $base-timing;
-      }
+      opacity: 1;
+      transition: opacity $base-duration $base-timing;
     }
   }
 
