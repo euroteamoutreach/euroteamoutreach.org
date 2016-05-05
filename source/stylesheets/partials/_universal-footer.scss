@@ -1,7 +1,6 @@
 .universal-footer {
   $footer-background: desaturate(darken($action-color, 10%), 30%);
   $footer-color: $white;
-  $footer-link-color: transparentize($footer-color, 0.6);
   $footer-disclaimer-color: transparentize($footer-color, 0.6);
 
   background: $footer-background;
@@ -56,14 +55,23 @@
       @include span-columns(8);
       text-align: center;
     }
+  }
 
-    .logo {
-      height: 70%;
-      width: 150px;
+  .logo {
+    height: 70%;
+    padding-top: 0.2em;
+    width: 140px;
 
-      @include media($phone-portrait) {
-        width: 120px;
+    &:focus,
+    &:hover {
+      .screen {
+        fill: $white;
+        transition: fill $base-duration $base-timing;
       }
+    }
+
+    @include media($phone-portrait) {
+      width: 120px;
     }
   }
 

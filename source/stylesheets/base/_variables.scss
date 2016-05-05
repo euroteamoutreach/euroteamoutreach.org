@@ -1,6 +1,8 @@
 // Typography
-$heading-font-family: 'PT Sans', $helvetica;
-$base-font-family: 'Oxygen', $helvetica;
+// $heading-font-family: 'PT Sans', $helvetica;
+$heading-font-family: 'Source Sans Pro', $helvetica;
+// $base-font-family: 'Roboto', $helvetica;
+$base-font-family: 'Lato', $helvetica;
 
 // Font Sizes
 $base-font-size: 1.313em;
@@ -26,12 +28,14 @@ $primary-blue: #0d47a1;
 $primary-red: #d32f2f;
 $primary-blue-light: #bbdefb;
 $white: #fff;
+$black: #000;
 $accent-yellow: #f9a825;
 $dark-gray: #212121;
 $medium-gray: #616161;
 $light-gray: #b6b6b6;
 $subtle-gray: #e6e6e6;
 $background-gray: #f7f7f7;
+$footer-link-color: #71819b;
 
 // Font Colors
 $base-font-color: $medium-gray;
