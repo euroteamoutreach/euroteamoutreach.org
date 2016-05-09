@@ -5,3 +5,35 @@
     padding-top: 54px;
   }
 }
+
+.page-content {
+  @include outer-container;
+  padding: 3em 2em;
+  width: em(700);
+
+  @include media($tablet-portrait) {
+    padding: 2em;
+    width: 100%;
+  }
+
+  @include media($phone-landscape) {
+    padding: 1em;
+
+    h1 {
+      font-size: 2em;
+    }
+
+    p,
+    li {
+      font-size: 0.95em;
+    }
+  }
+
+  @include media($phone-portrait) {
+    font-size: 0.8em;
+  }
+
+  > p {
+    margin-bottom: 2em;
+  }
+}
