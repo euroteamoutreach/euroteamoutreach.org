@@ -2,14 +2,22 @@
   .footer-content
     .footer-links-left
       %ul
-        %li= link_to "Ministries", "/ministries"
+        %li= link_to "Ministries", ministries_smart_path(current_page.path),
+          class: "scroll scroll-on-page-link"
         %li= link_to "Our Team", "/team"
-        %li= link_to "Contact", "/contact"
+        %li= link_to "Meet Jesus", "/jesus"
+        %li= link_to "Doctrine", "/doctrine"
     .footer-links-right
       %ul
         %li= link_to "About", "/about"
-        %li= link_to "Doctrine", "/doctrine"
+        %li= link_to "Contact", "/contact"
         %li= link_to "Donate", "/donate"
     .footer-logo
-      = link_to home_smart_path(current_page.path), class: "home-back-to-top" do
+      = link_to home_smart_path(current_page.path), class: "back-to-top" do
         = inline_svg "logo-full-white.svg", class: "logo"
+  %hr
+  %p
+    Have you met Jesus? We'd love to
+    %br.link-break
+    = succeed "." do
+      = link_to "introduce you", "/jesus"

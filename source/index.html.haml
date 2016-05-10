@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Welcome
 ---
 
 %section.alpha
@@ -10,11 +10,43 @@ title: Home
     %br.line-break
     %li.ms-item.third Discipling Men in Missions
 
-  = link_to("#", class: "button") do
+  = link_to("#ministries", class: "button scroll scroll-on-page-link") do
     = content_tag :button, "Learn More"
 
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%section.welcome
+  %span.link-target#ministries
+  .welcome-inner
+    %h2 Welcome!
+    %p
+      We are a group of missionaries serving Christ in Western Ukraine.
+      %br Formed in 2004, our team strives to reach others with the message that
+      Jesus Christ has made the perfect sacrifice for sin.
+    %p
+      ETO has two primary ministries, which are summarized below.
+
+%section.biblefirst
+  .hero-inner
+    %aside
+      = image_tag "volume1-500w.jpg"
+    %article
+      = partial "markdown/bible-first"
+      = link_to("http://getbiblefirst.com/", target: "_blank",
+        class: "button") do
+        = content_tag :button do
+          %span
+            Learn more at
+            %strong getbiblefirst.com
+          %i.fa.fa-external-link
+
+%section.cmo
+  .hero-inner
+    %aside
+      = inline_svg "cmo-logo.svg", class: "cmo-logo"
+    %article
+      = partial "markdown/cmo"
+      = link_to("http://cmoproject.org/", target: "_blank", class: "button") do
+        = content_tag :button do
+          %span
+            Learn more at
+            %strong cmoproject.org
+          %i.fa.fa-external-link

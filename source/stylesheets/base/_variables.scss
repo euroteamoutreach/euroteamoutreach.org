@@ -6,12 +6,12 @@ $base-font-family: 'Lato', $helvetica;
 
 // Font Sizes
 $base-font-size: 1.313em;
-$h1-font-size: 3.998em;
-$h2-font-size: 2.827em;
-$h3-font-size: 1.999em;
-$h4-font-size: 1.414em;
+$h1-font-size: 4em;
+$h2-font-size: 2.8em;
+$h3-font-size: 2em;
+$h4-font-size: 1.4em;
 $h5-font-size: 1em;
-$h6-font-size: 0.707em;
+$h6-font-size: 0.7em;
 
 // Line height
 $base-line-height: 1.45;
@@ -34,8 +34,11 @@ $dark-gray: #212121;
 $medium-gray: #616161;
 $light-gray: #b6b6b6;
 $subtle-gray: #e6e6e6;
-$background-gray: #f7f7f7;
+$background-gray: #f9fafb;
 $footer-link-color: #76869f;
+$hero-default-background: #324766;
+$shadow-border: rgba(0, 0, 0, 0.06);
+$shadow-fade: rgba(0, 0, 0, 0.03);
 
 // Font Colors
 $base-font-color: $medium-gray;
@@ -50,7 +53,7 @@ $base-background-color: $background-gray;
 $secondary-background-color: tint($base-border-color, 75%);
 
 // Forms
-$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow: inset 0 1px 3px rgba($black, 0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color,
 $lightness: -5%, $alpha: -0.3);
 

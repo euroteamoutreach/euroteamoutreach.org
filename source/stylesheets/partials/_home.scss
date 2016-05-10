@@ -1,0 +1,111 @@
+.welcome {
+  $hero-background-top: #002b69;
+  $hero-background-bottom: #20392b;
+  $hero-color: #d6d6d6;
+  $gradient-angle: 10deg;
+  $hero-image: "#{$assets-images-path}lviv-panorama.png";
+
+  background: url($hero-image),
+              linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top),
+              no-repeat $hero-background-top scroll;
+  background-color: $hero-default-background;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid $subtle-gray;
+  border-top: 1px solid $white;
+  position: relative;
+  text-align: center;
+
+  .link-target {
+    position: absolute;
+    top: -68px;
+
+    @include media($phone-landscape) {
+      top: -53px;
+    }
+  }
+
+  h2 {
+    color: $white;
+    font-size: $h1-font-size;
+    font-weight: 300;
+  }
+
+  p {
+    color: $hero-color;
+  }
+}
+
+.welcome-inner {
+  @include outer-container;
+  padding: 3em 6em;
+  width: em(700);
+}
+
+.biblefirst,
+.cmo {
+  border-bottom: 1px solid $subtle-gray;
+}
+
+.cmo {
+  background-color: $white;
+}
+
+.hero-inner {
+  @include outer-container;
+  display: table;
+  padding: 4em 0;
+  width: em(700);
+
+  h3 {
+    color: $dark-gray;
+    font-weight: 600;
+    margin-bottom: 0.3em;
+  }
+
+  aside {
+    @include span-columns(3);
+    padding-right: 1em;
+    padding-top: 0.5em;
+
+    > img {
+      border-radius: $base-border-radius;
+      box-shadow: 1px 2px 6px darken($light-gray, 10%);
+    }
+  }
+
+  article {
+    @include span-columns(9);
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid $primary-blue;
+    color: $primary-blue;
+    font-weight: 300;
+    margin-top: 1em;
+
+    &:hover,
+    &:focus {
+      background-color: transparentize($primary-blue, 0.7);
+    }
+
+    span {
+      float: left;
+    }
+
+    i {
+      margin-bottom: -2px;
+      padding: 3px 0 0 15px;
+    }
+  }
+}
+
+.cmo-logo {
+  border-radius: 50%;
+  box-shadow: 1px 2px 6px darken($light-gray, 10%);
+  height: 100%;
+  width: 100%;
+}
+

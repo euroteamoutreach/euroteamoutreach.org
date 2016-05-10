@@ -10,6 +10,8 @@
 // Partials
 @import "partials/layout";
 @import "partials/nav";
+@import "partials/alpha";
+@import "partials/home";
 @import "partials/copyright-footer";
 @import "partials/universal-footer";
 
@@ -19,98 +21,3 @@
 //// Try out new code here, then extract to partial. ////
 /////////////////////////////////////////////////////////
 
-.alpha {
-  background-image: url(#{$assets-images-path}eto-team.jpg);
-  background-position: top center;
-  background-size: cover;
-  padding-top: 12em;
-  text-align: center;
-  width: 100%;
-
-  h1 {
-    color: $white;
-    font-size: 3.5em;
-    font-weight: 600;
-    margin-bottom: 0.1em;
-  }
-
-  .mission-statement {
-    font-weight: 100;
-    margin-bottom: 3em;
-
-    .ms-item {
-      color: $white;
-      display: inline;
-      margin-right: 13px;
-
-      @include media($phone-portrait) {
-        display: block;
-        margin-right: 0;
-      }
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-
-    .second {
-      @include media($phone-landscape) {
-        margin-right: 0;
-      }
-    }
-
-    .second::before {
-      content: "\2022";
-      padding-right: 15px;
-
-      @include media($phone-portrait) {
-        content: unset;
-        padding-right: 0;
-      }
-    }
-
-    .third::before {
-      content: "\2022";
-      padding-right: 15px;
-
-      @include media($phone-landscape) {
-        content: unset;
-        padding-right: 0;
-      }
-    }
-
-    .line-break {
-      display: none;
-
-      @include media($phone-landscape) {
-        display: block;
-      }
-
-      @include media($phone-portrait) {
-        display: none;
-      }
-    }
-  }
-
-  button {
-    background: none;
-    border: 1px solid $white;
-    font-size: 1em;
-    margin-bottom: 4em;
-    padding: 0.5em 0.9em 0.7em;
-
-    &:hover,
-    &:focus {
-      background-color: shade($white, 50%);
-      color: $white;
-    }
-  }
-
-  // .scroll {
-    //   bottom: 2em;
-    //   left: 0;
-    //   margin-top: 0;
-    //   position: absolute;
-    //   width: 100%;
-  // }
-}
