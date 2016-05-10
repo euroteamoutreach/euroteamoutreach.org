@@ -105,10 +105,20 @@
     border: 1px solid $primary-blue;
     color: $primary-blue;
     margin-top: 1em;
+    font-weight: 300;
 
     &:hover,
     &:focus {
       background-color: transparentize($primary-blue, 0.7);
+    }
+
+    span {
+      float: left;
+    }
+
+    i {
+      padding: 3px 0 0 10px;
+      margin-bottom: -2px;
     }
   }
 }

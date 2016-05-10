@@ -44,8 +44,12 @@ title: Home
         and Ukrainian, and you can use them in your own ministry to point
         others to Christ.
 
-      = link_to("#", class: "button") do
-        = content_tag :button, "Learn more at getbiblefirst.com"
+      = link_to("http://getbiblefirst.com/", target: "_blank", class: "button") do
+        = content_tag :button do
+          %span
+            Learn more at
+            %strong getbiblefirst.com
+          %i.fa.fa-external-link
 
 %section.cmo
   .hero-inner
@@ -66,5 +70,9 @@ title: Home
         in tents, and often walk many miles a day. On weekdays, we conduct
         large-scale literature outreaches in L’viv and other urban centers.
 
-      = link_to("#", class: "button") do
-        = content_tag :button, "Learn more at cmoproject.org"
+      = link_to("http://cmoproject.org/", target: "_blank", class: "button") do
+        = content_tag :button do
+          %span
+            Learn more at
+            %strong cmoproject.org
+          %i.fa.fa-external-link
