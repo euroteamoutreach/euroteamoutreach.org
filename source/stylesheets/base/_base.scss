@@ -14,6 +14,19 @@
 @import "tables";
 @import "typography";
 
+// Omega Reset. Awesome. :)
+// http://www.ryanscherler.com/notes/entry/omega-reset-for-bourbon-neat/
+// http://www.joshfry.me/blog/2013/05/13/omega-reset-for-bourbon-neat
+// https://github.com/thoughtbot/neat/issues/107
+@mixin omega-reset($nth, $context: null) {
+  @if $context == null {
+    &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  } @else {
+    &:nth-child(#{$nth}) { margin-right: flex-gutter($context); }
+  }
+  &:nth-child(#{$nth}+1) { clear: none; }
+}
+
 body {
   background-color: $background-gray;
 }
