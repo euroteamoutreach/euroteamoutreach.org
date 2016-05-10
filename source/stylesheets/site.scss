@@ -21,19 +21,35 @@
 /////////////////////////////////////////////////////////
 
 .welcome {
-  background-color: $white;
+  $hero-background-top: #002b69;
+  $hero-background-bottom: #20392b;
+  $hero-color: #d6d6d6;
+  $gradient-angle: 10deg;
+  $hero-image: "#{$assets-images-path}lviv-panorama.png";
+
+  background: url($hero-image),
+              linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top),
+              no-repeat $hero-background-top scroll;
+  background-color: $hero-default-background;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-bottom: 1px solid $subtle-gray;
+  border-top: 1px solid $white;
   text-align: center;
 
   h2 {
-    color: $primary-blue;
+    color: $white;
     font-size: $h1-font-size;
     font-weight: 300;
+  }
+
+  p {
+    color: $hero-color;
   }
 }
 
 .welcome-inner {
-  // border: 1px solid green;
   @include outer-container;
   padding: 3em 6em;
   width: em(700);
@@ -63,19 +79,25 @@
   aside,
   article {
     // border: 1px solid green;
-    display: table-cell;
-    vertical-align: top;
+    // display: table-cell;
+    // float: left;
+    // display: block;
+    // vertical-align: top;
   }
 
   aside {
-    padding-right: 2em;
+    @include span-columns(3);
+    padding-right: 1em;
     padding-top: 0.5em;
-    width: 12em;
 
     > img {
       border-radius: $base-border-radius;
       box-shadow: 1px 2px 6px darken($light-gray, 10%);
     }
+  }
+
+  article {
+    @include span-columns(9);
   }
 
   button {
@@ -94,7 +116,7 @@
 .cmo-logo {
   border-radius: 50%;
   box-shadow: 1px 2px 6px darken($light-gray, 10%);
-  height: 42%;
+  height: 100%;
   width: 100%;
 }
 
