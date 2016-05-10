@@ -17,6 +17,14 @@ module CustomHelpers
     end
   end
 
+  def ministries_smart_path(path)
+    if !!(path =~ /index/)
+      "#ministries"
+    else
+      "/#ministries"
+    end
+  end
+
   def page_description
     current_page.data.description || data.site.description
   end

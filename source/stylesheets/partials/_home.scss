@@ -14,7 +14,17 @@
   background-size: cover;
   border-bottom: 1px solid $subtle-gray;
   border-top: 1px solid $white;
+  position: relative;
   text-align: center;
+
+  .link-target {
+    position: absolute;
+    top: -68px;
+
+    @include media($phone-landscape) {
+      top: -53px;
+    }
+  }
 
   h2 {
     color: $white;
