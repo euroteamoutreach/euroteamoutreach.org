@@ -1,6 +1,6 @@
-%li.nav-link= link_to "Ministries", "#"
-%li.nav-link= link_to "Our Team", "#"
-%li.nav-link= link_to "Doctrine", "#"
-%li.nav-link= link_to "About", "#"
-%li.nav-link= link_to "Contact", "#"
-%li.nav-link= link_to "Donate", "#"
+%li.nav-link= link_to "Ministries", ministries_smart_path(current_page.path),
+  class: "scroll-on-page-link"
+%li.nav-link= link_to "Our Team", "/team"
+%li.nav-link= link_to "Meet Jesus", "/jesus"
+%li.nav-link= link_to "About", "/about"
+%li.nav-link= link_to "Donate", "/donate"
