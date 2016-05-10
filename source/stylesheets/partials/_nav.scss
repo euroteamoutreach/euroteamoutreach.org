@@ -1,11 +1,10 @@
-$base-border-radius: 3px !default;
 $navigation-padding: 1em;
 $navigation-background: $white;
 $navigation-color: $primary-blue;
 $navigation-color-hover: $primary-blue;
 $navigation-height: 70px;
 $navigation-height-mobile: 55px;
-$navigation-active-link-color: red;
+$navigation-active-link-color: $navigation-color;
 $horizontal-bar-mode: $medium-screen;
 
 .navigation {
@@ -30,8 +29,8 @@ $horizontal-bar-mode: $medium-screen;
 
   .logo {
     float: left;
-    position: absolute;
     left: 0;
+    position: absolute;
     top: 0;
 
     @include media ($horizontal-bar-mode) {
@@ -58,9 +57,11 @@ $horizontal-bar-mode: $medium-screen;
       @include media ($horizontal-bar-mode) {
         max-height: $navigation-height;
       }
+
       @include media ($tablet-portrait) {
         max-height: $navigation-height;
       }
+
       @include media ($phone-landscape) {
         max-height: $navigation-height-mobile;
       }
@@ -73,11 +74,11 @@ $horizontal-bar-mode: $medium-screen;
     color: $navigation-color;
     display: block;
     float: right;
+    font-size: 1.5em;
     line-height: $navigation-height-mobile;
     margin: 0;
     padding: 0 1em;
     text-decoration: none;
-    font-size: 1.5em;
 
     @include media ($horizontal-bar-mode) {
       display: none;
@@ -105,16 +106,15 @@ $horizontal-bar-mode: $medium-screen;
     z-index: 9999999;
 
     @include media ($horizontal-bar-mode) {
-      min-height: $navigation-height;
       float: right;
+      min-height: $navigation-height;
     }
   }
 
-  ul.navigation-menu {
+  .navigation-menu {
     clear: both;
     display: none;
     font-family: $base-font-family;
-    // font-weight: 400;
     font-size: 0.9em;
     margin: 0 auto;
     overflow: visible;
@@ -122,14 +122,14 @@ $horizontal-bar-mode: $medium-screen;
     width: 100%;
     z-index: 9999;
 
-    &.show {
-      display: block;
-    }
-
     @include media ($horizontal-bar-mode) {
       display: inline;
       margin: 0;
       padding: 0;
+    }
+
+    &.show {
+      display: block;
     }
   }
 
@@ -137,16 +137,16 @@ $horizontal-bar-mode: $medium-screen;
 
   ul li.nav-link {
     background: $navigation-background;
+    border-bottom: 1px solid transparentize($navigation-color, 0.8);
     display: block;
+    font-size: 0.8em;
+    font-weight: 700;
     line-height: $navigation-height-mobile;
     overflow: hidden;
-    text-transform: uppercase;
     text-align: center;
-    font-weight: 700;
-    font-size: 0.8em;
+    text-transform: uppercase;
     width: 100%;
     z-index: 9999;
-    border-bottom: 1px solid transparentize($navigation-color, 0.8);
 
     @include media ($horizontal-bar-mode) {
       background: transparent;
