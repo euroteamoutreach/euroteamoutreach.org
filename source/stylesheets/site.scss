@@ -10,6 +10,7 @@
 // Partials
 @import "partials/layout";
 @import "partials/nav";
+@import "partials/alpha";
 @import "partials/copyright-footer";
 @import "partials/universal-footer";
 
@@ -19,99 +20,81 @@
 //// Try out new code here, then extract to partial. ////
 /////////////////////////////////////////////////////////
 
-.alpha {
-  background-image: url(#{$assets-images-path}eto-team.jpg);
-  background-position: top center;
-  background-size: cover;
-  padding-top: 12em;
-  height: 100vh;
+.welcome {
+  background-color: $white;
+  border-bottom: 1px solid $subtle-gray;
   text-align: center;
-  width: 100%;
 
-  h1 {
-    color: $white;
-    font-size: 3.5em;
+  h2 {
+    color: $primary-blue;
+    font-size: $h1-font-size;
+    font-weight: 300;
+  }
+}
+
+.welcome-inner {
+  // border: 1px solid green;
+  @include outer-container;
+  padding: 3em 6em;
+  width: em(700);
+}
+
+.biblefirst,
+.cmo {
+  border-bottom: 1px solid $subtle-gray;
+}
+
+.cmo {
+  background-color: $white;
+}
+
+.hero-inner {
+  @include outer-container;
+  display: table;
+  padding: 4em 0;
+  width: em(700);
+
+  h3 {
+    color: $dark-gray;
     font-weight: 600;
-    margin-bottom: 0.1em;
+    margin-bottom: 0.3em;
   }
 
-  .mission-statement {
-    font-weight: 100;
-    margin-bottom: 3em;
+  aside,
+  article {
+    // border: 1px solid green;
+    display: table-cell;
+    vertical-align: top;
+  }
 
-    .ms-item {
-      color: $white;
-      display: inline;
-      margin-right: 13px;
+  aside {
+    padding-right: 2em;
+    padding-top: 0.5em;
+    width: 12em;
 
-      @include media($phone-portrait) {
-        display: block;
-        margin-right: 0;
-      }
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-
-    .second {
-      @include media($phone-landscape) {
-        margin-right: 0;
-      }
-    }
-
-    .second::before {
-      content: "\2022";
-      padding-right: 15px;
-
-      @include media($phone-portrait) {
-        content: unset;
-        padding-right: 0;
-      }
-    }
-
-    .third::before {
-      content: "\2022";
-      padding-right: 15px;
-
-      @include media($phone-landscape) {
-        content: unset;
-        padding-right: 0;
-      }
-    }
-
-    .line-break {
-      display: none;
-
-      @include media($phone-landscape) {
-        display: block;
-      }
-
-      @include media($phone-portrait) {
-        display: none;
-      }
+    > img {
+      border-radius: $base-border-radius;
+      box-shadow: 1px 2px 6px darken($light-gray, 10%);
     }
   }
 
   button {
-    background: none;
-    border: 1px solid $white;
-    font-size: 1em;
-    margin-bottom: 4em;
-    padding: 0.5em 0.9em 0.7em;
+    background: transparent;
+    border: 1px solid $primary-blue;
+    color: $primary-blue;
+    margin-top: 1em;
 
     &:hover,
     &:focus {
-      background-color: shade($white, 50%);
-      color: $white;
+      background-color: transparentize($primary-blue, 0.7);
     }
   }
-
-  // .scroll {
-    //   bottom: 2em;
-    //   left: 0;
-    //   margin-top: 0;
-    //   position: absolute;
-    //   width: 100%;
-  // }
 }
+
+.cmo-logo {
+  border-radius: 50%;
+  box-shadow: 1px 2px 6px darken($light-gray, 10%);
+  height: 42%;
+  width: 100%;
+}
+

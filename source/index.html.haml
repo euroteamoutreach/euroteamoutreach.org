@@ -13,8 +13,58 @@ title: Home
   = link_to("#", class: "button") do
     = content_tag :button, "Learn More"
 
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%section.welcome
+  .welcome-inner
+    %h2 Welcome!
+    %p
+      We are a group of missionaries serving Christ in Western Ukraine.
+      %br Formed in 2004, our team strives to reach others with the message that
+      Jesus Christ has made the perfect sacrifice for sin.
+    %p
+      ETO has two primary ministries, which are summarized below.
+
+%section.biblefirst
+  .hero-inner
+    %aside
+      = image_tag "volume1-500w.jpg"
+    %article
+      %h3 Bible First
+      %p
+        Bible First is an evangelistic correspondence course designed to reach
+        unbelievers by involving them in a chronological study of the book of
+        Genesis. Over the course of 20 lessons, students are presented not only
+        with the Gospel, but every major doctrine in Scripture. The lessons
+        point to Jesus, drawing on the types and parallels that God Himself
+        built into Genesis.
+      %p
+        Our team began developing the Bible First program in 2004, and our
+        first students enrolled in 2006. Today, Bible First in Ukraine reaches
+        several hundred students living in every one of the country's 24
+        oblasts. Bible First materials are currently available in both English
+        and Ukrainian, and you can use them in your own ministry to point
+        others to Christ.
+
+      = link_to("#", class: "button") do
+        = content_tag :button, "Learn more at getbiblefirst.com"
+
+%section.cmo
+  .hero-inner
+    %aside
+      = inline_svg "cmo-logo.svg", class: "cmo-logo"
+    %article
+      %h3 Carpathian Mountain Outreach
+      %p
+        Carpathian Mountain Outreach (CMO) is a short-term missions project
+        hosted every summer by ETO. The goal of this project is two-fold:
+        to preach the Gospel in Ukraine and to train young men in foreign
+        missions.
+      %p
+        Each CMO project lasts about two months, during which time our team
+        makes weekly trips into the Carpathians, showing Christian films and
+        preaching Christ in the villages. While in the mountains, team members
+        live on a fairly primitive level. We cook meals on camp stoves, sleep
+        in tents, and often walk many miles a day. On weekdays, we conduct
+        large-scale literature outreaches in L’viv and other urban centers.
+
+      = link_to("#", class: "button") do
+        = content_tag :button, "Learn more at cmoproject.org"
