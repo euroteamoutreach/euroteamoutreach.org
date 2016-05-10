@@ -9,13 +9,13 @@ $navigation-active-link-color: red;
 $horizontal-bar-mode: $medium-screen;
 
 .navigation {
-
+  @include position(fixed);
   background-color: $navigation-background;
+  border-bottom: 1px solid $shadow-border;
+  box-shadow: 0 1px 2px $shadow-fade;
   min-height: $navigation-height-mobile;
   width: 100%;
   z-index: 999;
-  box-shadow: 0 2px 10px -5px darken($medium-gray, 10%);
-  @include position(fixed);
 
   @include media ($horizontal-bar-mode) {
     min-height: $navigation-height;
