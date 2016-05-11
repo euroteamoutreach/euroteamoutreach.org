@@ -1,4 +1,4 @@
-.title-hero {
+.team-hero {
   $hero-color: #d6d6d6;
   $hero-image: "#{$assets-images-path}team-blur.jpg";
   background: url($hero-image), no-repeat scroll;
@@ -11,7 +11,7 @@
   .title-inner {
     @include outer-container;
     color: $white;
-    padding: 3em 6em;
+    padding: 5em 6em;
     text-align: center;
 
     h1 {
