@@ -52,12 +52,12 @@
         transition: opacity $base-duration $base-timing;
       }
     }
+  }
 
-    h4 {
-      font-weight: 300;
-    }
+  h4 {
+    font-weight: 300;
 
-    h4 > a {
+    a {
       color: $medium-gray;
 
       &:focus,
