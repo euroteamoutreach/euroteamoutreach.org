@@ -1,13 +1,8 @@
 .welcome {
-  $hero-background-top: #002b69;
-  $hero-background-bottom: #20392b;
   $hero-color: #d6d6d6;
-  $gradient-angle: 10deg;
-  $hero-image: "#{$assets-images-path}lviv-panorama.png";
+  $hero-image: "#{$assets-images-path}lviv-panorama.jpg";
 
-  background: url($hero-image),
-              linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top),
-              no-repeat $hero-background-top scroll;
+  background: url($hero-image), no-repeat scroll;
   background-color: $hero-default-background;
   background-position: top;
   background-repeat: no-repeat;
