@@ -49,7 +49,6 @@
 
 .hero-inner {
   @include outer-container;
-  display: table;
   padding: 4em 0;
   width: em(700);
 

@@ -14,6 +14,7 @@
 @import "partials/home";
 @import "partials/team";
 @import "partials/about";
+@import "partials/approach";
 @import "partials/copyright-footer";
 @import "partials/universal-footer";
 
@@ -23,25 +24,3 @@
 //// Try out new code here, then extract to partial. ////
 /////////////////////////////////////////////////////////
 
-.approach-hero {
-  $hero-color: #d6d6d6;
-  $hero-image: "#{$assets-images-path}approach-blur.jpg";
-  background: url($hero-image), no-repeat scroll;
-  background-color: $hero-default-background;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-bottom: 1px solid $subtle-gray;
-
-  .approach-inner {
-    @include outer-container;
-    color: $white;
-    padding: 3em 6em;
-    text-align: center;
-
-    h1 {
-      color: $white;
-      margin-bottom: 0.3em;
-    }
-  }
-}

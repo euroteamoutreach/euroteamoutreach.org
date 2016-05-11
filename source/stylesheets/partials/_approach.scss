@@ -1,0 +1,112 @@
+.approach-hero {
+  $hero-color: #d6d6d6;
+  $hero-image: "#{$assets-images-path}approach-blur.jpg";
+  background: url($hero-image), no-repeat scroll;
+  background-color: $hero-default-background;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid $subtle-gray;
+
+  .approach-inner {
+    @include outer-container;
+    color: $white;
+    padding: 5em 6em;
+    text-align: center;
+
+    h1 {
+      color: $white;
+      margin-bottom: 0.3em;
+    }
+  }
+}
+
+.approach-intro {
+  border-bottom: 1px solid $subtle-gray;
+
+  .intro-inner {
+    @include outer-container;
+    padding: 2em 0 1em;
+    text-align: center;
+    width: em(600);
+  }
+}
+
+.preach,
+.teach,
+.disciple {
+  padding: 3em 0;
+  text-align: center;
+
+  .inner {
+    @include outer-container;
+  }
+
+  h1 {
+    color: $dark-gray;
+    font-size: $h2-font-size;
+    margin-bottom: 1em;
+  }
+}
+
+.preach-image,
+.teach-image,
+.disciple-image {
+  padding-top: 7px;
+
+  > img {
+    border-radius: 5px;
+    box-shadow: 1px 2px 6px darken($light-gray, 10%);
+  }
+}
+
+.preach {
+  background-color: $white;
+  border-bottom: 1px solid $subtle-gray;
+  position: relative;
+
+  .preach-image {
+    @include span-columns(6 of 12);
+    @include shift(1);
+    padding-right: 1em;
+  }
+
+  .preach-content {
+    @include span-columns(4 of 12);
+    padding-left: 1em;
+    text-align: left;
+  }
+
+}
+
+.teach {
+  border-bottom: 1px solid $subtle-gray;
+
+  .teach-content {
+    @include span-columns(4 of 12);
+    @include shift(1);
+    padding-right: 1em;
+    text-align: left;
+  }
+
+  .teach-image {
+    @include span-columns(6 of 12);
+    padding-left: 1em;
+  }
+}
+
+.disciple {
+  background-color: $white;
+
+  .disciple-image {
+    @include span-columns(6 of 12);
+    @include shift(1);
+    padding-right: 1em;
+  }
+
+  .disciple-content {
+    @include span-columns(4 of 12);
+    padding-left: 1em;
+    text-align: left;
+  }
+}
