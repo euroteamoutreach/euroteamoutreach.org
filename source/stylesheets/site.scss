@@ -12,6 +12,7 @@
 @import "partials/nav";
 @import "partials/alpha";
 @import "partials/home";
+@import "partials/team";
 @import "partials/copyright-footer";
 @import "partials/universal-footer";
 
@@ -20,64 +21,3 @@
 //////////////////////// SANDBOX ////////////////////////
 //// Try out new code here, then extract to partial. ////
 /////////////////////////////////////////////////////////
-
-.title-hero {
-  $hero-color: #d6d6d6;
-  $hero-image: "#{$assets-images-path}team-blur.jpg";
-  background: url($hero-image), no-repeat scroll;
-  background-color: $hero-default-background;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-bottom: 1px solid $subtle-gray;
-
-  .title-inner {
-    @include outer-container;
-    padding: 3em 6em;
-    text-align: center;
-    color: $white;
-
-    h1 {
-      color: $white;
-      margin-bottom: 0.3em;
-    }
-  }
-}
-
-.team-photos {
-  background-color: $white;
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 3em;
-
-  .photo-blocks {
-    @include outer-container;
-    padding: 0 2em;
-  }
-
-  .block {
-    @include span-columns(4 of 12);
-    @include omega(3n);
-
-    margin-bottom: 4em;
-    padding: 0 2em;
-    text-align: center;
-
-    a > img {
-      border-radius: 50%;
-      margin-bottom: 1em;
-      opacity: 0.8;
-
-      &:focus,
-      &:hover {
-        opacity: 1;
-        transition: opacity $base-duration $base-timing;
-      }
-    }
-
-    h4 {
-      font-weight: 300;
-    }
-  }
-}

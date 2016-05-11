@@ -56,5 +56,14 @@
     h4 {
       font-weight: 300;
     }
+
+    h4 > a {
+      color: $medium-gray;
+
+      &:focus,
+      &:hover {
+        border-bottom: 1px solid $medium-gray;
+      }
+    }
   }
 }
