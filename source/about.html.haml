@@ -4,4 +4,42 @@ title: About
 
 .page-content
   %h1 About
-  %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  %p
+    Euro Team Outreach, Inc. (ETO) is a Christian organization dedicated to the
+    advancement of the Gospel of Jesus Christ. We believe that God has called
+    all Christians to proclaim the Gospel to the world, and as missionaries, we
+    strive to obey that call by introducing people to the Jesus through the
+    pages of Scripture.
+
+  .our-approach-button
+    = link_to "/approach", class: "button" do
+      = content_tag :button do
+        Learn more about
+        %strong Our Approach
+
+  %h3 Our Board of Directors
+  %p
+    Euro Team Outreach, Inc. is a 501(c)(3) public charity registered in the
+    State of Texas and overseen by a board of directors. Each member of our
+    board has extensive ministry experience overseas, and each serves as a
+    missionary sent by a local church.
+
+  %ul.director-photos
+    %li.block
+      = image_tag "joshua-500w.jpg"
+      %h5
+        Joshua Steele
+        %br
+          %small President
+    %li.block
+      = image_tag "jessie-500w.jpg"
+      %h5
+        Jessie Beal
+        %br
+          %small Vice President
+    %li.block
+      = image_tag "nathan-500w.jpg"
+      %h5
+        Nathan Day
+        %br
+          %small Treasurer

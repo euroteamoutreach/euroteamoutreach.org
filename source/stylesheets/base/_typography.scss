@@ -11,13 +11,13 @@ h1,h2,h3,h4,h5,h6 {
   line-height: $heading-line-height;
   margin: 0 0 $small-spacing;
   color: $medium-gray;
+  font-weight: 300;
 }
 
 h1 {
   color: $primary-blue;
   font-size: $h1-font-size;
-  font-weight: 300;
-  padding-bottom: 0.1em;
+  margin-bottom: 0.3em;
 }
 h2 { font-size: $h2-font-size; }
 h3 { font-size: $h3-font-size; }
