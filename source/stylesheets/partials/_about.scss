@@ -1,0 +1,44 @@
+.our-approach-button {
+  text-align: center;
+  margin: 3em 0;
+
+  button {
+    background: transparent;
+    border: 1px solid $primary-blue;
+    color: $primary-blue;
+    font-weight: 300;
+
+    &:hover,
+    &:focus {
+      background-color: transparentize($primary-blue, 0.7);
+    }
+  }
+}
+
+.director-photos {
+  @include outer-container;
+  margin-top: 3em;
+  padding: 0 2em;
+}
+
+.block {
+  @include span-columns(4 of 12);
+  @include omega(3n);
+
+  margin-bottom: 2em;
+  padding: 0 2em;
+  text-align: center;
+
+  h5 {
+    font-weight: 600;
+    margin: 0.5em 0 0;
+
+    small {
+      font-weight: 300;
+    }
+  }
+
+  img {
+    border-radius: 50%;
+  }
+}
