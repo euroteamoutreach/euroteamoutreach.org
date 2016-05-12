@@ -1,3 +1,4 @@
+require('_contact-modal');
 require('_copyright');
 require('_nav');
 require('_scroll');

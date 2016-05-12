@@ -16,7 +16,5 @@ title: The Steele Family
       %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
       top
   .bio-contact
-    = link_to "#", class: "button" do
-      = content_tag :button do
-        Contact the Steeles
+    = partial "contact-modal"
     = partial "markdown/steele-meta"
