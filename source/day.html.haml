@@ -1,0 +1,23 @@
+---
+title: The Day Family
+---
+
+%section.bio-image-hero
+  .image-wrapper
+    = image_tag "team-day-1000w.jpg", class: "landscape"
+
+%section.bio-title
+  %h1 The Day Family
+
+%section.bio-content
+  .bio-text
+    = partial "markdown/day-bio"
+    = link_to("#", class: "back-to-top") do
+      %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+      top
+  .bio-contact
+    = link_to "http://www.daysinukraine.com/contact/", target: "_blank",
+      class: "button" do
+      = content_tag :button do
+        Contact the Days
+    = partial "markdown/day-meta"

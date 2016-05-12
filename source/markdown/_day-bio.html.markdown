@@ -1,0 +1,5 @@
+Nathan and Katelin are serving as missionaries to Ukraine.  Nathan began ministering in L&apos;viv, Ukraine in 2004.  He met Katelin in 2008, they were married one year later, and shortly thereafter returned to L&apos;viv as a couple.
+
+One of Nathan&apos;s primary responsibilities is the management of the Ukrainian branch of Bible First, ETO&apos;s Bible correspondence course.  Being a fluent speaker of Ukrainian, Nathan plays an important role in the translation of materials into Ukrainian.  As the numbers man, he keeps track of statistics that help ETO refine its methods to become more effective, and he also takes care of the ministry&apos;s finances as its Treasurer.  Nathan is also heavily involved in ETO&apos;s summer project, Carpathian Mountain Outreach.
+
+Katelin&apos;s main goal is to fulfill her calling as a wife and mother.  She enjoys grocery shopping at the open-air markets, taking the children on outings in L&apos;viv&apos;s beautiful parks, creating in the kitchen, and homeschooling the children.
