@@ -4,4 +4,4 @@ Jessie and Teresa are founding members of Euro Team Outreach (ETO). For severa
 
 Jessie and Teresa Beal ministered full-time in Ukraine for 16 years. They have been an integral part of home Bible studies, marriage conferences, church planting, literature campaigns, English Clubs, as well as extensive outreach in Ukraine&apos;s cities, villages and mountain communities. They now divide their time between Ukraine and the US where they raise support to further Bible First and ETO&apos;s additional ministry projects.
 
-They have been married twenty-seven years and have two daughters, Cassia Elisabeth, age 20, and Alexandria Marie, age 17.
+They have been married <span class="beal-years-married"></span> years and have two daughters, Cassia Elisabeth, age <span class="cassia-age"></span>, and Alexandria Marie, age <span class="alexandria-age"></span>.
