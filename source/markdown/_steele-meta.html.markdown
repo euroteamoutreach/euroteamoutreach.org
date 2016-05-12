@@ -1,7 +1,7 @@
 **Blog**  
 [www.OFReport.com](http://www.ofreport.com/){:target="_blank"}
 
-**Sending church**  
+**Sending Church**  
 Fairpark Baptist Church  
 6000 Crowley Road  
 Fort Worth, TX 76134  

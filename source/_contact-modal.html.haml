@@ -1,6 +1,6 @@
 .contact-modal
   %label{ for: "modal-1" }
-    .modal-trigger #{button_title}
+    .modal-trigger= button_title.to_s
   %input.modal-state#modal-1{ type: "checkbox" }
   .modal-fade-screen
     .modal-inner
