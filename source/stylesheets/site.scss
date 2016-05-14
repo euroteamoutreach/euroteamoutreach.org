@@ -16,6 +16,7 @@
 @import "partials/about";
 @import "partials/approach";
 @import "partials/contact-modal";
+@import "partials/bio-pages";
 @import "partials/copyright-footer";
 @import "partials/universal-footer";
 
@@ -24,89 +25,3 @@
 //////////////////////// SANDBOX ////////////////////////
 //// Try out new code here, then extract to partial. ////
 /////////////////////////////////////////////////////////
-
-
-.bio-image-hero {
-  background-color: $dark-gray;
-  text-align: center;
-  width: 100%;
-
-  .image-wrapper {
-    @include outer-container;
-    overflow: hidden;
-  }
-
-  .landscape {
-    margin-bottom: -10px;
-    width: em(500);
-  }
-
-  .portrait {
-    margin-bottom: -10px;
-    width: em(250);
-  }
-}
-
-.bio-title {
-  padding: 1em;
-  text-align: center;
-}
-
-.bio-content {
-  @include outer-container;
-  // border: 1px solid green;
-  padding-bottom: 2em;
-  width: em(700);
-
-
-  a {
-    border-bottom: 1px solid $action-color;
-    text-decoration: none;
-
-    &:focus,
-    &:hover {
-      border-bottom: 0;
-    }
-  }
-
-  .button { border: 0; }
-
-  .bio-text {
-    @include span-columns(8 of 12);
-    // border: 1px solid blue;
-    .back-to-top {
-      border: 0;
-      display: block;
-      font-size: 80%;
-      margin-top: 2em;
-    }
-  }
-
-  .bio-contact {
-    @include span-columns(4 of 12);
-    // border: 1px solid blue;
-    padding: 7px 0 0 2em;
-
-    button {
-      background-color: transparent;
-      border: 1px solid $primary-blue;
-      color: $primary-blue;
-      font-size: 1.1em;
-      font-weight: 400;
-      margin-bottom: 3em;
-      padding: 0.6em 0;
-      width: 100%;
-
-      &:hover,
-      &:focus {
-        background-color: transparentize($primary-blue, 0.7);
-      }
-    }
-  }
-
-  .bio-patricia {
-    @include span-columns(8 of 12);
-    @include shift(2 of 12);
-    text-align: center;
-  }
-}
