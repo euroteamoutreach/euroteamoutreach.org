@@ -1,0 +1,1 @@
+We are very blessed to have Patricia Rebsch serving as our secretary. Pat handles the majority of all ETO mailouts, application processing, and many other office tasks. Since most of our staff live overseas, Patricia also plays an extremely important role as our State-side liason. She donates her time freely as a service to ETO, and ultimately to the Lord.

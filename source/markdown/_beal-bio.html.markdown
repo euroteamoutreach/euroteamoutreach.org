@@ -1,0 +1,7 @@
+Jessie and Teresa Beal began full-time ministry in 1991 by supplying missionaries on the foreign field with gospel literature. The Beal&apos;s then commenced working with teams of young people, preparing them for future missionary endeavors. Their first six-month project was in Hong Kong in 1995; their next project in 1997 took them to Ukraine where the Lord called them to minister full-time. Currently, seven of the Beal&apos;s former team members are serving in China, Mongolia, Thailand, Ukraine, Australia and the United States.
+
+Jessie and Teresa are founding members of Euro Team Outreach (ETO). For several years they dedicated themselves to the completion of ETO&apos;s correspondence course, writing and editing lessons. Currently, Bible First has an enrollment of several hundred students, reaching into every region in Ukraine. Bible First is available in English as well as Ukrainian.
+
+Jessie and Teresa Beal ministered full-time in Ukraine for 16 years. They have been an integral part of home Bible studies, marriage conferences, church planting, literature campaigns, English Clubs, as well as extensive outreach in Ukraine&apos;s cities, villages and mountain communities. They now divide their time between Ukraine and the US where they raise support to further Bible First and ETO&apos;s additional ministry projects.
+
+They have been married <span class="beal-years-married"></span> years and have two daughters, Cassia Elisabeth, age <span class="cassia-age"></span>, and Alexandria Marie, age <span class="alexandria-age"></span>.

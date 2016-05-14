@@ -1,0 +1,26 @@
+.contact-modal
+  %label{ for: "modal-1" }
+    .modal-trigger= button_title.to_s
+  %input.modal-state#modal-1{ type: "checkbox" }
+  .modal-fade-screen
+    .modal-inner
+      .modal-close{ for: "modal-1" }
+      %h3 Need to get in touch?
+      %p
+        Please use the form below to send your message.
+      %form{ action: "https://formspree.io/#{email}",
+             method: "POST" }
+        %input{ name: "full_name", type: "text", required: "",
+                placeholder: "Your Name", maxlength: "100" }
+        %input{ name: "_replyto", type: "email", required: "",
+                placeholder: "Your Email", maxlength: "100" }
+        %textarea{ name: "message", cols: "30", rows: "4", required: "",
+                placeholder: "Your message", maxlength: "3000" }
+        %input{ name: "_subject", type: "hidden",
+                value: "[euroteamoutreach.org] New Contact Request" }
+        %input{ name: "_next", type: "hidden",
+                value: "//#{data.site.human_url}/thanks" }
+        %input{ name: "_gotcha", style: "display:none", type: "text" }
+        %input{ name: "_format", style: "display:none", type: "text",
+                value: "plain" }
+        %input{ type: "submit", value: "Send" }

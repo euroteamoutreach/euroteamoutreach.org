@@ -1,0 +1,21 @@
+---
+title: Denise Hutchison
+---
+
+%section.bio-image-hero
+  .image-wrapper
+    = image_tag "team-denise-portrait-500w.jpg", class: "portrait"
+
+%section.bio-title
+  %h1 Denise Hutchison
+
+%section.bio-content
+  .bio-text
+    = partial "markdown/denise-bio"
+    = link_to("#", class: "back-to-top") do
+      %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+      top
+  .bio-contact
+    = partial "contact-modal", locals: { button_title: "Contact Denise",
+      email: data.site.denise_email }
+    = partial "markdown/denise-meta"

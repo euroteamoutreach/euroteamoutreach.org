@@ -1,0 +1,21 @@
+---
+title: The Steele Family
+---
+
+%section.bio-image-hero
+  .image-wrapper
+    = image_tag "team-steele-1000w.jpg", class: "landscape"
+
+%section.bio-title
+  %h1 The Steele Family
+
+%section.bio-content
+  .bio-text
+    = partial "markdown/steele-bio"
+    = link_to("#", class: "back-to-top") do
+      %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+      top
+  .bio-contact
+    = partial "contact-modal", locals: { button_title: "Contact the Steeles",
+      email: data.site.steele_email }
+    = partial "markdown/steele-meta"
