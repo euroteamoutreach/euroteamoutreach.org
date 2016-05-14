@@ -11,7 +11,7 @@
   .approach-inner {
     @include outer-container;
     color: $white;
-    padding: 5em 6em;
+    padding: 4em 6em;
     text-align: center;
 
     h1 {
@@ -28,7 +28,7 @@
     @include outer-container;
     padding: 2em 0 1em;
     text-align: center;
-    width: em(600);
+    width: em(500);
   }
 }
 
@@ -42,9 +42,8 @@
     @include outer-container;
   }
 
-  h1 {
+  h2 {
     color: $dark-gray;
-    font-size: $h2-font-size;
     margin-bottom: 1em;
   }
 }
