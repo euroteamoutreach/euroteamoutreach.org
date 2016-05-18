@@ -48,3 +48,14 @@
     }
   }
 }
+
+.meet-jesus-intro {
+  border-bottom: 1px solid $subtle-gray;
+
+  .inner {
+    @include outer-container;
+    padding: 2em 0 1em;
+    text-align: left;
+    width: em(500);
+  }
+}
