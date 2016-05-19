@@ -22,7 +22,7 @@ title: Meet Jesus
   .inner-row
     %h2 The Bible says ALL have sinned.
     .image-1
-      = inline_svg "gods-standard.svg", class: "gods-standard"
+      = inline_svg "gods-standard.svg", class: "meet-jesus-svg"
       %p.rom-323
         For all have sinned and
         %span.come-short come short
@@ -34,11 +34,20 @@ title: Meet Jesus
     .content-2
       = partial "markdown/all-have-sinned-2"
     .image-2
-      = inline_svg "tablets.svg", class: "tablets"
+      = inline_svg "tablets.svg", class: "meet-jesus-svg"
 
 %section.your-verdict
   .inner-row
-    = partial "markdown/your-verdict"
+    %h2 What is your verdict?
+    .content-1
+      = partial "markdown/your-verdict-1"
+    .image-1
+      = inline_svg "verdict-hammer.svg", class: "meet-jesus-svg"
+  .inner-row
+    .image-2
+      = inline_svg "hell.svg", class: "meet-jesus-svg"
+    .content-2
+      = partial "markdown/your-verdict-2"
 
 %section.who-is-jesus
   .inner-row

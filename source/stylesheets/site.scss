@@ -83,6 +83,11 @@
   background-color: $white;
 }
 
+.meet-jesus-svg {
+  height: 100%;
+  width: 100%;
+}
+
 .meet-jesus-intro {
   .content {
     @include span-columns(8 of 12);
@@ -149,14 +154,29 @@
   .come-short {
     text-decoration: underline;
   }
+}
 
-  .gods-standard {
-    height: 100%;
-    width: 100%;
+.your-verdict {
+  .content-1 {
+    border: 1px solid green;
+    @include span-columns(5 of 12);
+    @include shift(2);
   }
 
-  .tablets {
-    height: 100%;
-    width: 100%;
+  .image-1 {
+    border: 1px solid green;
+    @include span-columns(3 of 12);
   }
+
+  .image-2 {
+    border: 1px solid green;
+    @include span-columns(3 of 12);
+    @include shift(2);
+  }
+
+  .content-2 {
+    border: 1px solid green;
+    @include span-columns(5 of 12);
+  }
+
 }
