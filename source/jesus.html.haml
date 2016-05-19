@@ -13,14 +13,41 @@ title: Meet Jesus
       Him?
 
 %section.meet-jesus-intro
-  .inner
-    = partial "markdown/meet-jesus-intro"
+  .inner-row
+    .content
+      = partial "markdown/meet-jesus-intro"
 
 
 %section.all-have-sinned
+  .inner-row
+    %h2 The Bible says ALL have sinned.
+    .image-1
+      = inline_svg "gods-standard.svg", class: "gods-standard"
+      %p.rom-323
+        For all have sinned and
+        %span.come-short come short
+        of the glory of God.
+        %small Romans 3:23
+    .content-1
+      = partial "markdown/all-have-sinned-1"
+  .inner-row
+    .content-2
+      = partial "markdown/all-have-sinned-2"
+    .image-2
+      = inline_svg "tablets.svg", class: "tablets"
 
 %section.your-verdict
+  .inner-row
+    = partial "markdown/your-verdict"
 
 %section.who-is-jesus
+  .inner-row
+    = partial "markdown/who-is-jesus"
 
 %section.sins-paid
+  .inner-row
+    = partial "markdown/sins-paid"
+
+%section.conclusion
+  .inner-row
+    = partial "markdown/conclusion"

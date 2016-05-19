@@ -49,13 +49,114 @@
   }
 }
 
-.meet-jesus-intro {
+.meet-jesus-intro,
+.all-have-sinned,
+.your-verdict,
+.who-is-jesus,
+.sins-paid,
+.conclusion {
   border-bottom: 1px solid $subtle-gray;
 
-  .inner {
+  .inner-row {
+    border: 1px solid red;
     @include outer-container;
     padding: 2em 0 1em;
+    text-align: center;
+
+    .content,
+    .content-1,
+    .content-2 {
+      text-align: left;
+    }
+  }
+
+  h2 {
+    color: $dark-gray;
+    font-size: $h3-font-size;
+    margin-bottom: 1em;
+  }
+}
+
+.meet-jesus-intro,
+.your-verdict,
+.sins-paid {
+  background-color: $white;
+}
+
+.meet-jesus-intro {
+  .content {
+    @include span-columns(8 of 12);
+    @include shift(2);
+  }
+
+  .quote {
+    position: relative;
+    font-size: smaller;
+    margin: 2em 3em;
+  }
+
+  .quote::before {
+    color: $subtle-gray;
+    content: "\201C";
+    display: block;
+    font-size: 130px;
+    font-weight: normal;
+    font-family: $heading-font-family;
+    left: -58px;
+    position: absolute;
+    top: -50px;
+
+    @include media($phone-landscape) {
+      font-size: 100px;
+      left: -55px;
+      top: -20px;
+    }
+  }
+}
+
+.all-have-sinned {
+  .image-1 {
+    border: 1px solid green;
+    @include span-columns(2 of 12);
+    @include shift(2);
+    padding-right: 1em;
+  }
+
+  .content-1 {
+    border: 1px solid green;
+    @include span-columns(6 of 12);
+  }
+
+  .content-2 {
+    border: 1px solid green;
+    @include span-columns(5 of 12);
+    @include shift(2);
+  }
+
+  .image-2 {
+    border: 1px solid green;
+    @include span-columns(3 of 12);
+  }
+
+  .rom-323 {
+    color: $primary-red;
+    text-transform: uppercase;
     text-align: left;
-    width: em(500);
+    font-size: 0.7em;
+    font-weight: bold;
+  }
+
+  .come-short {
+    text-decoration: underline;
+  }
+
+  .gods-standard {
+    height: 100%;
+    width: 100%;
+  }
+
+  .tablets {
+    height: 100%;
+    width: 100%;
   }
 }
