@@ -1,0 +1,224 @@
+.jesus-hero {
+  $hero-color: #d6d6d6;
+  $hero-image: "#{$assets-images-path}jesus-hero-1000w.jpg";
+  background: url($hero-image), no-repeat scroll;
+  background-color: $hero-default-background;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid $subtle-gray;
+
+  .jesus-inner {
+    @include outer-container;
+    color: $white;
+    padding: 4em 6em;
+    text-align: center;
+
+    h1 {
+      color: $white;
+      margin-bottom: 0.3em;
+    }
+  }
+}
+
+.meet-jesus-intro,
+.all-have-sinned,
+.your-verdict,
+.who-is-jesus,
+.sins-paid,
+.conclusion {
+  border-bottom: 1px solid $subtle-gray;
+
+  .inner-row {
+    @include outer-container;
+    padding: 2em 0;
+    text-align: center;
+
+    .content,
+    .content-1,
+    .content-2,
+    .content-3 {
+      text-align: left;
+    }
+  }
+
+  h2 {
+    color: $dark-gray;
+    font-size: $h3-font-size;
+    margin-bottom: 1em;
+  }
+}
+
+.meet-jesus-intro,
+.your-verdict,
+.sins-paid {
+  background-color: $white;
+}
+
+.quote {
+  margin: 2em 3em;
+  position: relative;
+}
+
+.quote::before {
+  color: $subtle-gray;
+  content: "\201C";
+  display: block;
+  font-family: $heading-font-family;
+  font-size: 100px;
+  font-weight: normal;
+  left: -45px;
+  position: absolute;
+  top: -40px;
+
+  @include media($phone-landscape) {
+    font-size: 100px;
+    left: -55px;
+    top: -20px;
+  }
+}
+
+.meet-jesus-svg {
+  height: 100%;
+  width: 100%;
+}
+
+.meet-jesus-intro {
+  .content {
+    @include span-columns(8 of 12);
+    @include shift(2);
+    padding: 0 4em;
+  }
+
+}
+
+.all-have-sinned {
+  .image-1 {
+    @include span-columns(2 of 12);
+    @include shift(2);
+    padding: 9px 1em 0 0;
+  }
+
+  .content-1 {
+    @include span-columns(6 of 12);
+    padding-left: 2em;
+  }
+
+  .content-2 {
+    @include span-columns(5 of 12);
+    @include shift(2);
+    padding-right: 2em;
+  }
+
+  .image-2 {
+    @include span-columns(3 of 12);
+  }
+
+  .rom-323 {
+    color: $primary-red;
+    font-size: 0.7em;
+    font-weight: bold;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .come-short {
+    text-decoration: underline;
+  }
+}
+
+.your-verdict {
+  .content-1 {
+    @include span-columns(5 of 12);
+    @include shift(2);
+    padding-right: 2em;
+  }
+
+  .image-1 {
+    @include span-columns(3 of 12);
+    padding-top: 9px;
+  }
+
+  .image-2 {
+    @include span-columns(3 of 12);
+    @include shift(2);
+    padding-top: 9px;
+  }
+
+  .content-2 {
+    @include span-columns(5 of 12);
+    padding-left: 2em;
+  }
+
+  .content-3 {
+    @include span-columns(8 of 12);
+    @include shift(2);
+    padding: 0 4em;
+  }
+}
+
+.who-is-jesus {
+  .content {
+    @include span-columns(8 of 12);
+    @include shift(2);
+    padding: 0 4em;
+
+    p {
+      margin-bottom: 2em;
+    }
+  }
+}
+
+.sins-paid {
+  .image-1 {
+    @include span-columns(3 of 12);
+    @include shift(2);
+    padding-top: 9px;
+  }
+
+  .content-1 {
+    @include span-columns(5 of 12);
+  }
+
+  .content-2 {
+    @include span-columns(8 of 12);
+    @include shift(2);
+    padding: 0 4em;
+
+    h3 {
+      color: $primary-red;
+      font-family: $cinzel;
+      font-size: $h2-font-size;
+      margin: 0.725em 0;
+      text-align: center;
+    }
+  }
+
+  .image-2 {
+    @include span-columns(8 of 12);
+    @include shift(2);
+    padding: 0 6em;
+  }
+}
+
+.conclusion {
+  .content {
+    @include span-columns(8 of 12);
+    @include shift(2);
+    padding: 0 4em 2em;
+
+    blockquote > p {
+      font-weight: bold;
+    }
+
+    a {
+      border-bottom: 1px solid $action-color;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        border-bottom: 0;
+      }
+    }
+  }
+}
