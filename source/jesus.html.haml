@@ -17,7 +17,6 @@ title: Meet Jesus
     .content
       = partial "markdown/meet-jesus-intro"
 
-
 %section.all-have-sinned
   .inner-row
     %h2 The Bible says ALL have sinned.
@@ -48,15 +47,31 @@ title: Meet Jesus
       = inline_svg "hell.svg", class: "meet-jesus-svg"
     .content-2
       = partial "markdown/your-verdict-2"
+  .inner-row
+    .content-3
+      = partial "markdown/your-verdict-3"
 
 %section.who-is-jesus
   .inner-row
-    = partial "markdown/who-is-jesus"
+    %h2 Who is Jesus Christ?
+    .content
+      = partial "markdown/who-is-jesus"
 
 %section.sins-paid
   .inner-row
-    = partial "markdown/sins-paid"
+    %h2 Jesus has paid for all of your sins.
+    .image-1
+      = inline_svg "christ-on-cross-landscape.svg", class: "meet-jesus-svg"
+    .content-1
+      = partial "markdown/sins-paid-1"
+  .inner-row
+    .image-2
+      = inline_svg "imputed-righteousness.svg", class: "meet-jesus-svg"
+  .inner-row
+    .content-2
+      = partial "markdown/sins-paid-2"
 
 %section.conclusion
   .inner-row
-    = partial "markdown/conclusion"
+    .content
+      = partial "markdown/conclusion"
