@@ -55,26 +55,12 @@
   background-color: $white;
 }
 
-.quote {
+blockquote {
   margin: 2em 3em;
-  position: relative;
-}
 
-.quote::before {
-  color: $subtle-gray;
-  content: "\201C";
-  display: block;
-  font-family: $heading-font-family;
-  font-size: 100px;
-  font-weight: normal;
-  left: -45px;
-  position: absolute;
-  top: -40px;
-
-  @include media($phone-landscape) {
-    font-size: 100px;
-    left: -55px;
-    top: -20px;
+  p {
+    color: lighten($base-font-color, 15%);
+    font-family: $serif;
   }
 }
 
@@ -88,6 +74,10 @@
     @include span-columns(8 of 12);
     @include shift(2);
     padding: 0 4em;
+
+    p {
+      text-align: center;
+    }
   }
 
 }
@@ -154,6 +144,10 @@
     @include span-columns(8 of 12);
     @include shift(2);
     padding: 0 4em;
+
+    > p {
+      text-align: center;
+    }
   }
 }
 
@@ -163,8 +157,15 @@
     @include shift(2);
     padding: 0 4em;
 
+    h4 {
+      font-weight: 400;
+      margin-bottom: 0.3em;
+      text-align: center;
+    }
+
     p {
       margin-bottom: 2em;
+      text-align: center;
     }
   }
 }
@@ -192,6 +193,10 @@
       margin: 0.725em 0;
       text-align: center;
     }
+
+    p {
+      text-align: center;
+    }
   }
 
   .image-2 {
@@ -207,8 +212,14 @@
     @include shift(2);
     padding: 0 4em 2em;
 
-    blockquote > p {
+    .address > p {
+      color: $base-font-color;
+      font-family: $base-font-family;
       font-weight: bold;
+    }
+
+    p {
+      text-align: center;
     }
 
     a {
