@@ -10,7 +10,7 @@
       <KeyPrefixEquals>abouteto</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>about/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>about</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -20,7 +20,7 @@
       <KeyPrefixEquals>index.php?p=about</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>about/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>about</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -30,7 +30,7 @@
       <KeyPrefixEquals>index.php?p=approach</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>approach/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>approach</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -40,7 +40,7 @@
       <KeyPrefixEquals>bftv</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/bftv/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/bftv</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -50,7 +50,7 @@
       <KeyPrefixEquals>index.php?p=bftv</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/bftv/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/bftv</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -60,7 +60,7 @@
       <KeyPrefixEquals>index.php?p=video</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/bftv/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/bftv</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -70,7 +70,7 @@
       <KeyPrefixEquals>biblefirst</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/biblefirst/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/biblefirst</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -80,7 +80,7 @@
       <KeyPrefixEquals>index.php?p=biblefirst</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/biblefirst/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/biblefirst</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -90,7 +90,7 @@
       <KeyPrefixEquals>biblefirstcourses</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/biblefirst/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/biblefirst</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -100,7 +100,7 @@
       <KeyPrefixEquals>cbc</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/biblefirst/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/biblefirst</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -120,7 +120,7 @@
       <KeyPrefixEquals>index.php?p=etoblogs</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>team/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>team</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -130,7 +130,7 @@
       <KeyPrefixEquals>cmo</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/cmo/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/cmo</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -140,7 +140,7 @@
       <KeyPrefixEquals>index.php?p=cmo</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/cmo/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/cmo</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -150,7 +150,7 @@
       <KeyPrefixEquals>cmomovie</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/cmomovie/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/movie</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -160,7 +160,7 @@
       <KeyPrefixEquals>cmotrailer</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/cmotrailer/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/trailer</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -170,7 +170,7 @@
       <KeyPrefixEquals>index.php?p=donations</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>donate/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>donate</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -180,7 +180,7 @@
       <KeyPrefixEquals>donations</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>donate/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>donate</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -190,7 +190,7 @@
       <KeyPrefixEquals>good-and-evil</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/good-and-evil/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/good-and-evil</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -200,7 +200,7 @@
       <KeyPrefixEquals>index.php?p=goodevil</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/good-and-evil/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/good-and-evil</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -210,7 +210,7 @@
       <KeyPrefixEquals>pictures</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -220,7 +220,7 @@
       <KeyPrefixEquals>index.php?p=pictures</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -230,7 +230,7 @@
       <KeyPrefixEquals>index.php?p=album2006</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -240,7 +240,7 @@
       <KeyPrefixEquals>index.php?p=album2007</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -250,7 +250,7 @@
       <KeyPrefixEquals>index.php?p=album2007</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -260,7 +260,7 @@
       <KeyPrefixEquals>index.php?p=album2008</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -270,7 +270,7 @@
       <KeyPrefixEquals>index.php?p=album2009</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -280,7 +280,7 @@
       <KeyPrefixEquals>index.php?p=album2010</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -290,7 +290,7 @@
       <KeyPrefixEquals>index.php?p=album2011</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -300,7 +300,7 @@
       <KeyPrefixEquals>index.php?p=album2012</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -310,7 +310,7 @@
       <KeyPrefixEquals>index.php?p=album2013</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -320,7 +320,7 @@
       <KeyPrefixEquals>index.php?p=contact</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>contact/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>contact</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -330,7 +330,7 @@
       <KeyPrefixEquals>index.php?p=privacy</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>privacy/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>privacy</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -340,7 +340,7 @@
       <KeyPrefixEquals>index.php?p=meet</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>team/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>team</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -350,7 +350,7 @@
       <KeyPrefixEquals>index.php?p=believe</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>doctrine/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>doctrine</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -360,7 +360,7 @@
       <KeyPrefixEquals>index.php?p=meetjesus</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>jesus/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>jesus</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -370,7 +370,7 @@
       <KeyPrefixEquals>index.php?p=bf-lesson-overview</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/bf-lesson-overview/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/bf-lesson-overview</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -380,7 +380,7 @@
       <KeyPrefixEquals>index.php?p=bf-faq</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/bf-faq/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/bf-faq</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -390,7 +390,7 @@
       <KeyPrefixEquals>index.php?p=bf-downloads</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/bf-downloads/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/bf-downloads</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -400,7 +400,7 @@
       <KeyPrefixEquals>index.php?p=bf-purchase</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/bf-purchase/</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/bf-purchase</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
