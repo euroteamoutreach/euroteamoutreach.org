@@ -150,7 +150,7 @@
       <KeyPrefixEquals>cmomovie</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/movie</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/cmomovie</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
@@ -160,7 +160,7 @@
       <KeyPrefixEquals>cmotrailer</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>redirects/trailer</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/cmotrailer</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
