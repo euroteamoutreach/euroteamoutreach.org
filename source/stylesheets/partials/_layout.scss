@@ -9,7 +9,7 @@
 .page-content {
   @include outer-container;
   padding: 3em 2em;
-  width: em(700);
+  width: em(600);
 
   @include media($tablet-portrait) {
     padding: 2em;
