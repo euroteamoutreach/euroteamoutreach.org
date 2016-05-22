@@ -1,0 +1,50 @@
+.contact {
+
+  > h1,
+  > p {
+    text-align: center;
+  }
+
+  > p {
+    font-size: smaller;
+    margin-bottom: 2em;
+  }
+}
+
+.contact-form {
+  @include span-columns(8 of 12);
+  @include shift(2);
+  background-color: $white;
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+  padding: 1em;
+
+  @include media($tablet-portrait) {
+    width: 100%;
+  }
+
+  @include media($phone-landscape) {
+    padding: 1em;
+  }
+
+  input,
+  textarea {
+    background-color: $white;
+  }
+}
+
+.contact_thanks {
+  .page-content {
+    padding: 6em 2em;
+    text-align: center;
+
+    @include media($phone-landscape) {
+      padding: 3.2em 1em 1.7em;
+    }
+
+    h1 {
+      color: $action-color;
+      padding-bottom: 0.5em;
+    }
+  }
+}
