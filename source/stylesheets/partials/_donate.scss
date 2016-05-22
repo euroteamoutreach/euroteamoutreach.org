@@ -27,6 +27,14 @@
       border-bottom: 0;
     }
   }
+
+  .paypal-button {
+    form {
+      margin: 2em auto 3em;
+      max-height: 47px;
+      width: 147px;
+    }
+  }
 }
 
 .donate-thanks {
