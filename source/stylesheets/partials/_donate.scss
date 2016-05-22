@@ -1,0 +1,28 @@
+.donate {
+  h1 {
+    margin-left: -7px;
+  }
+
+  h3 {
+    margin-bottom: 0.4em;
+  }
+
+
+  blockquote {
+    margin: -1em 2em 3em;
+
+    p {
+      font-weight: 400;
+    }
+  }
+
+  p > a {
+    border-bottom: 1px solid $action-color;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      border-bottom: 0;
+    }
+  }
+}
