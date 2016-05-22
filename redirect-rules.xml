@@ -1,0 +1,426 @@
+<!-- Reference: -->
+<!-- http://docs.aws.amazon.com/AmazonS3/latest/dev/HowDoIWebsiteConfiguration.html#configure-bucket-as-website-routing-rule-syntax -->
+<!-- http://stackoverflow.com/a/17856520/655204 -->
+
+<RoutingRules>
+
+  <!-- http://www.euroteamoutreach.org/abouteto -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>abouteto</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>about</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=about -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=about</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>about</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=approach -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=approach</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>approach</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/bftv -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>bftv</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/bftv</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=bftv -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=bftv</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/bftv</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=video -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=video</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/bftv</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/biblefirst -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>biblefirst</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/biblefirst</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=biblefirst -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=biblefirst</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/biblefirst</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/biblefirstcourses -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>biblefirstcourses</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/biblefirst</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/cbc -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>cbc</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/biblefirst</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/blogs -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>blogs</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>team/</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=etoblogs -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=etoblogs</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>team</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/cmo -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>cmo</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/cmo</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=cmo -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=cmo</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/cmo</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/cmomovie -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>cmomovie</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/cmomovie</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/cmotrailer -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>cmotrailer</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/cmotrailer</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=donations -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=donations</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>donate</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/donations -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>donations</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>donate</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/good-and-evil -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>good-and-evil</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/good-and-evil</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=goodevil -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=goodevil</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/good-and-evil</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/pictures -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>pictures</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=pictures -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=pictures</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=album2006 -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=album2006</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=album2007 -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=album2007</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=album2007 -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=album2007</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=album2008 -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=album2008</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=album2009 -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=album2009</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=album2010 -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=album2010</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=album2011 -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=album2011</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=album2012 -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=album2012</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=album2013 -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=album2013</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=contact -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=contact</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>contact</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=privacy -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=privacy</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>privacy</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=meet -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=meet</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>team</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=believe -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=believe</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>doctrine</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=meetjesus -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=meetjesus</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>jesus</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=bf-lesson-overview -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=bf-lesson-overview</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/bf-lesson-overview</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=bf-faq -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=bf-faq</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/bf-faq</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=bf-downloads -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=bf-downloads</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/bf-downloads</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=bf-purchase -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=bf-purchase</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/bf-purchase</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/subscribe -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>subscribe</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/subscribe</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+
+  <!-- http://www.euroteamoutreach.org/index.php?p=ereport -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=ereport</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/subscribe</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+</RoutingRules>
