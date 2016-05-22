@@ -4,4 +4,4 @@ Euro Team Outreach, Inc. (ETO) is a 501(c)(3) nonprofit corporation registered i
 
 ### Option 1 – Donate online
 
-Click the button below to make a donation online using your credit card or PayPal account. NOTE: A PayPal account is *not required* to use this option.
+Click the button below to make a donation online using your credit card or PayPal account. **NOTE: A PayPal account is *not required* to use this option.**

@@ -12,6 +12,8 @@
     margin: -1em 2em 3em;
 
     p {
+      color: $base-font-color;
+      font-family: $base-font-family;
       font-weight: 400;
     }
   }
@@ -24,5 +26,14 @@
     &:hover {
       border-bottom: 0;
     }
+  }
+}
+
+.donate-thanks {
+  width: em(450);
+
+  h1,
+  p {
+    text-align: center;
   }
 }
