@@ -52,6 +52,10 @@
       outline: none;
       padding: ($base-spacing / 2) 0;
 
+      &:first-child {
+        padding-top: 0.3em;
+      }
+
       &:last-child {
         margin-bottom: $base-spacing;
       }
