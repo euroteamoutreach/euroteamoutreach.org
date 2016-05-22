@@ -404,11 +404,23 @@
     </Redirect>
   </RoutingRule>
 
-</RoutingRules>
+  <!-- http://www.euroteamoutreach.org/subscribe -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>subscribe</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/subscribe</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
 
-<!-- http://www.euroteamoutreach.org/subscribe -->
-<!-- http://www.euroteamoutreach.org/index.php?p=ereport -->
-<!-- http://www.euroteamoutreach.org/faq -->
-<!-- http://www.euroteamoutreach.org/index.php?p=faq -->
-<!-- http://www.euroteamoutreach.org/index.php?p=linketo -->
-<!-- http://www.euroteamoutreach.org/eto -->
+  <!-- http://www.euroteamoutreach.org/index.php?p=ereport -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>index.php?p=ereport</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/subscribe</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
+</RoutingRules>
