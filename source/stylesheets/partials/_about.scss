@@ -1,6 +1,12 @@
+.about {
+  > p {
+    margin-bottom: 2em;
+  }
+}
+
 .our-approach-button {
-  text-align: center;
   margin: 3em 0;
+  text-align: center;
 
   button {
     background: transparent;

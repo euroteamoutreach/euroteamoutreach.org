@@ -1,0 +1,155 @@
+---
+title: Doctrine
+---
+
+.page-content.doctrine
+  %h1 Doctrine
+  %p
+    The following statement is a summary of the Biblical doctrines which we
+    hold as fundamental to the Christian faith.
+  %p.download
+    %i.fa.fa-fw.fa-file-pdf-o
+    = link_to "Download PDF", "/pdf/doctrine.pdf"
+
+  .scroll-on-page
+    %aside#scroll-on-page-top
+      %a.scroll-on-page-link{ href: "#scripture" } Scripture
+      %a.scroll-on-page-link{ href: "#god" } God
+      %a.scroll-on-page-link{ href: "#sin" } Sin
+      %a.scroll-on-page-link{ href: "#man" } Man
+      %a.scroll-on-page-link{ href: "#jesus-christ" } Jesus Christ
+      %a.scroll-on-page-link{ href: "#salvation" } Salvation
+      %a.scroll-on-page-link{ href: "#security-of-the-believer" }
+        Security of the Believer
+      %a.scroll-on-page-link{ href: "#sanctification-of-the-believer" }
+        Sanctification of the Believer
+      %a.scroll-on-page-link{ href: "#future-judgment" } Future Judgment
+      %a.scroll-on-page-link{ href: "#creation" } Creation
+      %a.scroll-on-page-link{ href: "#holy-spirit" } The Holy Spirit
+      %a.scroll-on-page-link{ href: "#church" } The Church
+      %a.scroll-on-page-link{ href: "#baptism" } Baptism
+      %a.scroll-on-page-link{ href: "#heaven" } Heaven
+      %a.scroll-on-page-link{ href: "#hell" } Hell
+
+    %article
+      %section.content-block
+        %span.link-target#scripture
+        = partial "markdown/doctrine-scripture"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#god
+        = partial "markdown/doctrine-god"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#sin
+        = partial "markdown/doctrine-sin"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#man
+        = partial "markdown/doctrine-man"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#jesus-christ
+        = partial "markdown/doctrine-jesus-christ"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#salvation
+        = partial "markdown/doctrine-salvation"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#security-of-the-believer
+        = partial "markdown/doctrine-security"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#sanctification-of-the-believer
+        = partial "markdown/doctrine-sanctification"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#future-judgment
+        = partial "markdown/doctrine-future-judgment"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#creation
+        = partial "markdown/doctrine-creation"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#holy-spirit
+        = partial "markdown/doctrine-holy-spirit"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#church
+        = partial "markdown/doctrine-church"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#baptism
+        = partial "markdown/doctrine-baptism"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#heaven
+        = partial "markdown/doctrine-heaven"
+        .top-link
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      %section.content-block
+        %span.link-target#hell
+        = partial "markdown/doctrine-hell"
+        .top-link-last
+          = link_to("#", class: "back-to-top") do
+            %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+            top
+
+      = partial "reftagger"

@@ -1,5 +1,6 @@
 .subscribe {
-  background-color: $subtle-gray;
+  background-color: lighten($subtle-gray, 5%);
+  border-top: 1px solid $subtle-gray;
   padding: 1em;
 
   .wrap {

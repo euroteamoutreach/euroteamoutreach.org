@@ -9,7 +9,7 @@
 .page-content {
   @include outer-container;
   padding: 3em 2em;
-  width: em(600);
+  width: em(650);
 
   @include media($tablet-portrait) {
     padding: 2em;
@@ -31,9 +31,5 @@
 
   @include media($phone-portrait) {
     font-size: 0.8em;
-  }
-
-  > p {
-    margin-bottom: 2em;
   }
 }
