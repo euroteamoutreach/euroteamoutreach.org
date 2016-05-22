@@ -1,6 +1,12 @@
-%li.nav-link= link_to "Ministries", ministries_smart_path(current_page.path),
-  class: "scroll-on-page-link"
-%li.nav-link= link_to "Our Team", "/team"
-%li.nav-link= link_to "Meet Jesus", "/jesus"
-%li.nav-link= link_to "About", "/about"
-%li.nav-link= link_to "Donate", "/donate"
+%li.nav-link
+  = link_to "Ministries", ministries_smart_path(current_page.path),
+    class: "scroll-on-page-link", alt: "Ministries", title: "Ministries"
+%li.nav-link
+  = link_to "Our Team", "/team", alt: "Our Team", title: "Our Team"
+%li.nav-link
+  = link_to "Meet Jesus", "/jesus", alt: "Meet Jesus", title: "Meet Jesus"
+%li.nav-link
+  = link_to "About", "/about", alt: "About", title: "About"
+%li.nav-link
+  = link_to "/donate", class: "donate", alt: "Donate", title: "Donate" do
+    %i.fa.fa-heart

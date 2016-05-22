@@ -48,7 +48,7 @@ $horizontal-bar-mode: $medium-screen;
     @include media ($phone-landscape) {
       margin-left: 7px;
       max-height: $navigation-height-mobile;
-      width: 40px;
+      width: 69px;
     }
 
     .svg-logo {
@@ -109,6 +109,10 @@ $horizontal-bar-mode: $medium-screen;
       float: right;
       min-height: $navigation-height;
     }
+
+    i {
+      font-size: 1.2em;
+    }
   }
 
   .navigation-menu {
@@ -139,7 +143,7 @@ $horizontal-bar-mode: $medium-screen;
     background: $navigation-background;
     border-bottom: 1px solid transparentize($navigation-color, 0.8);
     display: block;
-    font-size: 0.8em;
+    font-size: 0.9em;
     font-weight: 700;
     line-height: $navigation-height-mobile;
     overflow: hidden;
@@ -151,8 +155,9 @@ $horizontal-bar-mode: $medium-screen;
     @include media ($horizontal-bar-mode) {
       background: transparent;
       border-bottom: 0;
-      display: inline;
+      display: inline-block;
       line-height: $navigation-height;
+      margin: 2px 0 -10px;
       padding-right: 2em;
       text-decoration: none;
       width: auto;
@@ -179,6 +184,13 @@ $horizontal-bar-mode: $medium-screen;
         &:hover {
           color: $primary-blue;
         }
+      }
+    }
+
+    .donate {
+      &:focus,
+      &:hover {
+        color: $primary-red;
       }
     }
   }
