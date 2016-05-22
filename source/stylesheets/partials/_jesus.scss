@@ -25,10 +25,16 @@
 .all-have-sinned,
 .your-verdict,
 .who-is-jesus,
+.sins-paid {
+  border-bottom: 1px solid $subtle-gray;
+}
+
+.meet-jesus-intro,
+.all-have-sinned,
+.your-verdict,
+.who-is-jesus,
 .sins-paid,
 .conclusion {
-  border-bottom: 1px solid $subtle-gray;
-
   .inner-row {
     @include outer-container;
     padding: 2em 0;
@@ -49,9 +55,9 @@
   }
 }
 
-.meet-jesus-intro,
-.your-verdict,
-.sins-paid {
+.all-have-sinned,
+.who-is-jesus,
+.conclusion {
   background-color: $white;
 }
 

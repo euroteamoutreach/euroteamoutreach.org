@@ -1,0 +1,115 @@
+.doctrine {
+
+  p > a {
+    border-bottom: 1px solid $action-color;
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      border-bottom: 0;
+    }
+  }
+
+  .fa-file-pdf-o {
+    color: $primary-red;
+  }
+
+  .download {
+    margin-bottom: 3em;
+  }
+
+  .scroll-on-page {
+    display: inline-block;
+
+    a {
+      color: $action-color;
+      text-decoration: none;
+    }
+
+    aside {
+      @include media($large-screen) {
+        @include span-columns(4 of 12);
+      }
+
+      > a {
+        font-size: 1em;
+      }
+    }
+
+    .link-target {
+      position: absolute;
+      top: -78px;
+
+      @include media($phone-landscape) {
+        top: -53px;
+      }
+    }
+
+    .scroll-on-page-link {
+      border-bottom: 1px solid transparentize($action-color, 0.8);
+      display: block;
+      margin-right: $base-spacing;
+      outline: none;
+      padding: ($base-spacing / 2) 0;
+
+      &:last-child {
+        margin-bottom: $base-spacing;
+      }
+    }
+
+    article {
+      @include media($large-screen) {
+        @include span-columns(8 of 12);
+      }
+
+      h4 {
+        font-weight: 400;
+        margin: 0 0 0.5em;
+      }
+
+      p {
+        color: $base-font-color;
+        line-height: $base-line-height;
+      }
+
+      p > a,
+      li > a,
+      em > a {
+        border-bottom: 1px solid $action-color;
+        text-decoration: none;
+
+        &:focus,
+        &:hover {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    .content-block {
+      position: relative;
+
+      ul {
+        list-style-type: disc;
+        margin: 0 0 1em 2em;
+      }
+
+      .top-link {
+        @include clearfix;
+        border-bottom: 1px solid $subtle-gray;
+        margin-bottom: 2em;
+      }
+
+      .top-link-last {
+        @include clearfix;
+        border-bottom: 0;
+      }
+
+      .back-to-top {
+        display: inline-block;
+        float: right;
+        font-size: smaller;
+        margin-bottom: 1em;
+      }
+    }
+  }
+}

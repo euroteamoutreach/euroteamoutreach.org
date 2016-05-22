@@ -14,7 +14,7 @@ var $ = require("jquery");
       return $(options.selector).click(function (e) {
         var jumpobj = $(this);
         var target = jumpobj.attr("href");
-        var thespeed = 500;
+        var thespeed = 300;
         var offset = $(target).offset().top;
         $("html,body").animate({
           scrollTop: offset
