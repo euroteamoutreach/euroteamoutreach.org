@@ -1,0 +1,45 @@
+.subscribe {
+  background-color: $subtle-gray;
+  padding: 1em;
+
+  .wrap {
+    @include outer-container;
+    text-align: center;
+
+    h4 {
+      color: $primary-blue;
+      font-weight: 700;
+      margin-bottom: 0.3em;
+    }
+
+    p {
+      font-size: smaller;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+.mc-embed-signup {
+  .mc-embed-signup-scroll {
+    @include outer-container;
+    margin: 0 auto;
+    width: em(700);
+  }
+
+  input {
+    font-size: 1em;
+    line-height: normal;
+  }
+
+  .email {
+    @include span-columns(6 of 12);
+    @include shift(2);
+    background-color: $white;
+    padding: 0.43em;
+  }
+
+  .button {
+    @include span-columns(2 of 12);
+    padding: 0.4em 0 0.46em;
+  }
+}
