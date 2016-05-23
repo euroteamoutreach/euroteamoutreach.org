@@ -9,12 +9,12 @@
   label {
     cursor: pointer;
     margin-bottom: 0;
-  }
 
-  label img {
-    border-radius: $modal-trigger-image-width / 2;
-    display: block;
-    max-width: $modal-trigger-image-width;
+    img {
+      border-radius: $modal-trigger-image-width / 2;
+      display: block;
+      max-width: $modal-trigger-image-width;
+    }
   }
 
   .modal-state {
@@ -28,8 +28,8 @@
     color: $primary-blue;
     display: inline-block;
     font-size: 1.1em;
-    font-weight: 400;
     -webkit-font-smoothing: antialiased;
+    font-weight: 400;
     line-height: 1;
     margin-bottom: 3em;
     padding: 0.6em 0;
@@ -37,6 +37,16 @@
     vertical-align: middle;
     white-space: nowrap;
     width: 100%;
+
+    @include media($tablet-portrait) {
+      font-size: 0.9em;
+      margin-bottom: 2em;
+    }
+
+    @include media($phone-landscape) {
+      font-size: 0.7em;
+      margin-bottom: 1.5em;
+    }
 
     &:hover,
     &:focus {
@@ -112,19 +122,31 @@
       width: 50%;
     }
 
-    h1 {
-      color: $base-font-color;
-      text-align: left;
-      text-transform: capitalize;
+    @include media($small-screen) {
+      input[type="submit"] {
+        font-size: 1em;
+      }
+    }
+
+    @include media($phone-landscape) {
+      input,
+      textarea,
+      p {
+        font-size: 0.7em;
+      }
+    }
+
+    @include media($phone-small) {
+      h3 { font-size: 1.6em; }
+    }
+
+    @include media($phone-portrait) {
+      h3 { font-size: 1.1em; }
     }
 
     p {
       color: $base-font-color;
       line-height: $base-line-height;
-    }
-
-    input[type="submit"] {
-      font-size: 1em;
     }
 
     .modal-intro {

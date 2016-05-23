@@ -11,6 +11,9 @@
   .landscape {
     margin-bottom: -10px;
     width: em(500);
+
+    @include media($tablet-small) {
+    }
   }
 
   .portrait {
@@ -22,13 +25,29 @@
 .bio-title {
   padding: 1em;
   text-align: center;
+
+  @include media($phone-landscape) {
+    h1 { font-size: 2.7em; }
+  }
+
+  @include media($phone-portrait) {
+    h1 { font-size: 1.8em; }
+  }
 }
 
 .bio-content {
   @include outer-container;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
   width: em(700);
 
+  @include media($tablet-mid) {
+    padding: 0 2em 1em;
+    width: 100%;
+  }
+
+  @include media($phone-landscape) {
+    padding: 0 1em 1em;
+  }
 
   a {
     border-bottom: 1px solid $action-color;
@@ -44,7 +63,26 @@
 
   .bio-text {
     @include span-columns(8 of 12);
-    // border: 1px solid blue;
+    text-align: justify;
+
+    @include media($tablet-portrait) {
+      > p { font-size: smaller; }
+    }
+
+    @include media($tablet-small) {
+      padding-right: 1em;
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(5 of 8);
+      padding-right: 0;
+    }
+
+    @include media($phone-small) {
+      @include span-columns(8 of 8);
+      padding-bottom: 1em;
+    }
+
     .back-to-top {
       border: 0;
       display: block;
@@ -57,8 +95,34 @@
     @include span-columns(4 of 12);
     padding: 7px 0 0 2em;
 
+    @include media($tablet-small) {
+      padding: 7px 0 0;
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(3 of 8);
+      padding: 7px 0 0 1em;
+    }
+
+    @include media($phone-small) {
+      @include span-columns(4 of 8);
+      padding: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+    }
+
     .meta-contact-block {
       margin-bottom: 1.5em;
+
+      @include media($tablet-mid) {
+        > p { font-size: smaller; }
+      }
+
+      @include media($phone-landscape) {
+        > p { font-size: 0.6em; }
+      }
 
       p {
         margin: 0;
@@ -75,6 +139,16 @@
       padding: 0.6em 0;
       width: 100%;
 
+      @include media($tablet-portrait) {
+        font-size: 0.9em;
+        margin-bottom: 2em;
+      }
+
+      @include media($phone-landscape) {
+        font-size: 0.7em;
+        margin-bottom: 1.5em;
+      }
+
       &:hover,
       &:focus {
         background-color: transparentize($primary-blue, 0.7);
@@ -86,5 +160,35 @@
     @include span-columns(8 of 12);
     @include shift(2 of 12);
     text-align: center;
+
+    @include media($phone-landscape) {
+      @include span-columns(8 of 8);
+      @include shift(0);
+      padding: 0 2em;
+    }
+
+    @include media($phone-portrait) {
+      padding: 0;
+    }
+  }
+}
+
+.top-link-wrap {
+  @include outer-container;
+  padding-bottom: 2em;
+  width: em(700);
+
+  @include media($tablet-mid) {
+    padding: 0 2em 2em;
+    width: 100%;
+  }
+
+  @include media($tablet-portrait) {
+    font-size: smaller;
+    padding: 0 2.5em 2em;
+  }
+
+  @include media($phone-landscape) {
+    padding: 0 1.4em 1em;
   }
 }
