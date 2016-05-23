@@ -3,15 +3,16 @@ title: Welcome
 ---
 
 %section.alpha
-  %h1 Euro Team Outreach
-  %ul.mission-statement
-    %li.ms-item Preaching the Gospel
-    %li.ms-item.second Teaching the Bible
-    %br.line-break
-    %li.ms-item.third Discipling Men in Missions
+  .title-wrapper
+    %h1 Euro Team Outreach
+    %ul.mission-statement
+      %li.ms-item Preaching the Gospel
+      %li.ms-item.second Teaching the Bible
+      %br.line-break
+      %li.ms-item.third Discipling Men in Missions
 
-  = link_to("#ministries", class: "button scroll scroll-on-page-link") do
-    = content_tag :button, "Learn More"
+    = link_to("#ministries", class: "button scroll scroll-on-page-link") do
+      = content_tag :button, "Learn More"
 
 %section.welcome
   %span.link-target#ministries

@@ -2,21 +2,54 @@
   background-image: url(#{$assets-images-path}eto-team.jpg);
   background-position: top center;
   background-size: cover;
-  padding-top: 12em;
-  height: 96vh;
+  height: 95vh;
   text-align: center;
   width: 100%;
 
-  h1 {
-    color: $white;
-    font-size: 3.5em;
-    font-weight: 400;
-    margin-bottom: 0.1em;
+  .title-wrapper {
+    left: 0;
+    padding: 0 0.5em;
+    position: absolute;
+    top: 45%;
+    width: 100%;
+
+    @include media($medium-screen) {
+      h1 {
+        color: $white;
+        font-size: 3.5em;
+        font-weight: 400;
+        margin-bottom: 0.1em;
+      }
+    }
+
+    @include media($tablet-portrait) {
+      top: 50%;
+
+      h1 {
+        color: $white;
+        font-size: 2.7em;
+        font-weight: 400;
+        margin-bottom: 0.1em;
+      }
+    }
+
+    @include media($phone-small) {
+      h1 { font-size: 2em; }
+    }
+
+    @include media($phone-portrait) {
+      h1 { font-size: 1.6em; }
+    }
   }
+
 
   .mission-statement {
     font-weight: 100;
     margin-bottom: 3em;
+
+    @include media($phone-landscape) {
+      margin-bottom: 1.5em;
+    }
 
     .ms-item {
       color: $white;
@@ -75,10 +108,15 @@
   button {
     background: none;
     border: 1px solid $white;
-    font-size: 1em;
     color: $white;
+    font-size: 1em;
     margin-bottom: 4em;
     padding: 0.5em 0.9em 0.7em;
+
+    @include media($phone-landscape) {
+      font-size: 0.8em;
+      padding: 0.5em 0.9em 0.7em;
+    }
 
     &:hover,
     &:focus {
@@ -86,12 +124,4 @@
       color: $white;
     }
   }
-
-  // .scroll {
-    //   bottom: 2em;
-    //   left: 0;
-    //   margin-top: 0;
-    //   position: absolute;
-    //   width: 100%;
-  // }
 }
