@@ -26,14 +26,14 @@
     h3 {
       font-size: 1.4em;
     }
-
-    p,
-    li {
-      font-size: 0.95em;
-    }
   }
 
   @include media($phone-portrait) {
     font-size: 0.8em;
   }
+}
+
+@include media($phone-landscape) {
+  p,
+  li { font-size: smaller; }
 }
