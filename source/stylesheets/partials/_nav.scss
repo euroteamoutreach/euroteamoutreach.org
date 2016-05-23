@@ -48,7 +48,7 @@ $horizontal-bar-mode: $medium-screen;
     @include media ($phone-landscape) {
       margin-left: 7px;
       max-height: $navigation-height-mobile;
-      width: 69px;
+      width: 65px;
     }
 
     .svg-logo {
