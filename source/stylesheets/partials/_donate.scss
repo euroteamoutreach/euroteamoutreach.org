@@ -1,6 +1,10 @@
 .donate {
   h1 {
     margin-left: -7px;
+
+    @include media($phone-landscape) {
+      margin-left: -1px;
+    }
   }
 
   h3 {
