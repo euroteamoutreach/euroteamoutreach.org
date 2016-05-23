@@ -14,6 +14,20 @@
     padding: 4em 6em;
     text-align: center;
 
+    @include media($tablet-portrait) {
+      padding: 3em 4em;
+      h1 { font-size: 3em; }
+    }
+
+    @include media($phone-landscape) {
+      padding: 2em;
+    }
+
+    @include media($phone-portrait) {
+      padding: 1em;
+      h1 { font-size: 2em; }
+    }
+
     h1 {
       color: $white;
       margin-bottom: 0.3em;
@@ -40,6 +54,23 @@
     margin-bottom: 4em;
     padding: 0 2em;
     text-align: center;
+
+    @include media($tablet-portrait) {
+      padding: 0 1em;
+    }
+
+    @include media($tablet-small) {
+      @include span-columns(4 of 8);
+      @include omega-reset(3n, 8);
+      @include omega(2n);
+      margin-bottom: 3em;
+    }
+
+    @include media($phone-portrait) {
+      margin-bottom: 2em;
+      padding: 0 1.8em;
+      width: 100%;
+    }
 
     a > img {
       border-radius: 50%;
