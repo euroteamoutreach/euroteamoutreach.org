@@ -25,6 +25,14 @@ module CustomHelpers
     end
   end
 
+  def smart_robots
+    if !!(current_page.path =~ /thanks/)
+      "noindex, nofollow"
+    else
+      "index, follow"
+    end
+  end
+
   def page_description
     current_page.data.description || data.site.description
   end
