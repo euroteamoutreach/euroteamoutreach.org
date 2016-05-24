@@ -1,0 +1,15 @@
+.donate_thanks,
+.contact_thanks {
+  .page-content {
+    padding: 6em 2em;
+    text-align: center;
+
+    @include media($phone-landscape) {
+      padding: 3.2em 1em 1.7em;
+    }
+
+    h1 {
+      padding-bottom: 0.5em;
+    }
+  }
+}

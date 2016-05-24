@@ -1,6 +1,7 @@
 .about {
   > p {
     margin-bottom: 2em;
+    text-align: justify;
   }
 }
 
@@ -13,6 +14,10 @@
     border: 1px solid $primary-blue;
     color: $primary-blue;
     font-weight: 300;
+
+    @include media($phone-landscape) {
+      font-size: 1em;
+    }
 
     &:hover,
     &:focus {
@@ -34,9 +39,21 @@
   padding: 0 1.5em;
   text-align: center;
 
+  @include media($phone-landscape) {
+    padding: 0 0.7em;
+  }
+
+  @include media($phone-portrait) {
+    padding: 0 0.4em;
+  }
+
   h5 {
     font-weight: 600;
     margin: 0.5em 0 0;
+
+    @include media($phone-landscape) {
+      font-size: 0.8em;
+    }
 
     small {
       font-weight: 300;

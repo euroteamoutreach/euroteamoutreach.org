@@ -1,7 +1,7 @@
 @import "../neat/neat-helpers"; // or "../neat/neat-helpers" when not in Rails
 
 $visual-grid: false;
-$visual-grid-color: cyan;
+$visual-grid-color: #0ff;
 $visual-grid-index: front;
 $visual-grid-opacity: 0.1;
 
@@ -13,11 +13,17 @@ $visual-grid-opacity: 0.1;
 
 // Neat Breakpoints
 $large-screen: 1100px;
+$lg-md-screen: 1000px;
 $medium-screen: 900px;
+$md-sm-screen: 800px;
 $small-screen: 740px;
-$tiny-screen: 430px;
+$sm-tn-screen: 600px;
+$tiny-screen: 450px;
 
-$tablet-landscape: new-breakpoint(max-width $large-screen 12);
-$tablet-portrait: new-breakpoint(max-width $medium-screen 8);
-$phone-landscape: new-breakpoint(max-width $small-screen 8);
-$phone-portrait: new-breakpoint(max-width $tiny-screen 4);
+$tablet-landscape: new-breakpoint(max-width $large-screen 12); // 1100px
+$tablet-mid: new-breakpoint(max-width $lg-md-screen 12); // 1000px
+$tablet-portrait: new-breakpoint(max-width $medium-screen 8); // 900px
+$tablet-small: new-breakpoint(max-width $md-sm-screen 8); // 800px
+$phone-landscape: new-breakpoint(max-width $small-screen 8); // 740px
+$phone-small: new-breakpoint(max-width $sm-tn-screen 8); // 600px
+$phone-portrait: new-breakpoint(max-width $tiny-screen 4); // 450px

@@ -27,12 +27,22 @@
     }
 
     aside {
-      @include media($large-screen) {
+      @include media($lg-md-screen) {
         @include span-columns(4 of 12);
+
+        > a {
+          font-size: 1em;
+        }
       }
 
-      > a {
-        font-size: 1em;
+      @include media($small-screen) {
+        @include span-columns(2 of 8);
+      }
+
+      @include media($tablet-portrait) {
+        > a {
+          font-size: 0.8em;
+        }
       }
     }
 
@@ -41,7 +51,7 @@
       top: -78px;
 
       @include media($phone-landscape) {
-        top: -53px;
+        top: -63px;
       }
     }
 
@@ -62,8 +72,12 @@
     }
 
     article {
-      @include media($large-screen) {
+      @include media($lg-md-screen) {
         @include span-columns(8 of 12);
+      }
+
+      @include media($small-screen) {
+        @include span-columns(6 of 8);
       }
 
       h4 {
@@ -74,6 +88,7 @@
       p {
         color: $base-font-color;
         line-height: $base-line-height;
+        text-align: justify;
       }
 
       p > a,

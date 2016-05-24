@@ -3,15 +3,18 @@ title: Welcome
 ---
 
 %section.alpha
-  %h1 Euro Team Outreach
-  %ul.mission-statement
-    %li.ms-item Preaching the Gospel
-    %li.ms-item.second Teaching the Bible
-    %br.line-break
-    %li.ms-item.third Discipling Men in Missions
+  .title-wrapper
+    %h1 Euro Team Outreach
+    %ul.mission-statement
+      %li.ms-item Preaching the Gospel
+      %li.ms-item.second Teaching the Bible
+      %li.ms-item.third Discipling Men in Missions
 
-  = link_to("#ministries", class: "button scroll scroll-on-page-link") do
-    = content_tag :button, "Learn More"
+    = link_to("#ministries", class: "button scroll scroll-on-page-link") do
+      = content_tag :button, "Learn More"
+
+  %a.chevron.scroll.scroll-on-page-link{ href: "#ministries" }
+    %i.fa.fa-chevron-down.fa-2x.animated
 
 %section.welcome
   %span.link-target#ministries
@@ -19,8 +22,9 @@ title: Welcome
     %h2 Welcome!
     %p
       We are a group of missionaries serving Christ in Western Ukraine.
-      %br Formed in 2004, our team strives to reach others with the message that
-      Jesus Christ has made the perfect sacrifice for sin.
+      %br.welcome-break
+        Formed in 2004, our team strives to reach others with the message that
+        Jesus Christ has made the perfect sacrifice for sin.
     %p
       ETO has two primary ministries, which are summarized below.
 
@@ -32,9 +36,13 @@ title: Welcome
       = partial "markdown/bible-first"
       = link_to("http://getbiblefirst.com/", target: "_blank",
         class: "button") do
-        = content_tag :button do
+        = content_tag :button, class: "long-button" do
           %span
             Learn more at
+            %strong getbiblefirst.com
+          %i.fa.fa-external-link
+        = content_tag :button, class: "short-button" do
+          %span
             %strong getbiblefirst.com
           %i.fa.fa-external-link
 
@@ -45,8 +53,12 @@ title: Welcome
     %article
       = partial "markdown/cmo"
       = link_to("http://cmoproject.org/", target: "_blank", class: "button") do
-        = content_tag :button do
+        = content_tag :button, class: "long-button" do
           %span
             Learn more at
+            %strong cmoproject.org
+          %i.fa.fa-external-link
+        = content_tag :button, class: "short-button" do
+          %span
             %strong cmoproject.org
           %i.fa.fa-external-link

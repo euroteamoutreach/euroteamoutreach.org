@@ -24,23 +24,38 @@
   .mc-embed-signup-scroll {
     @include outer-container;
     margin: 0 auto;
-    width: em(700);
+    width: em(400);
+
+    @include media($tablet-portrait) {
+      width: 80%;
+    }
+
+    @include media($phone-landscape) {
+      width: 100%;
+    }
   }
 
   input {
     font-size: 1em;
     line-height: normal;
+
+    @include media($phone-landscape) {
+      font-size: 0.8em;
+    }
+
+    @include media($phone-portrait) {
+      font-size: 0.6em;
+    }
   }
 
   .email {
-    @include span-columns(6 of 12);
-    @include shift(2);
+    @include span-columns(9 of 12);
     background-color: $white;
     padding: 0.43em;
   }
 
   .button {
-    @include span-columns(2 of 12);
+    @include span-columns(3 of 12);
     padding: 0.4em 0 0.46em;
   }
 }

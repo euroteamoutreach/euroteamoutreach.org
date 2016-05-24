@@ -1,6 +1,10 @@
 .donate {
   h1 {
     margin-left: -7px;
+
+    @include media($phone-landscape) {
+      margin-left: -1px;
+    }
   }
 
   h3 {
@@ -9,6 +13,7 @@
 
   > p {
     margin-bottom: 2em;
+    text-align: justify;
   }
 
   blockquote {
@@ -37,14 +42,5 @@
       max-height: 47px;
       width: 147px;
     }
-  }
-}
-
-.donate-thanks {
-  width: em(450);
-
-  h1,
-  p {
-    text-align: center;
   }
 }

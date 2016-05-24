@@ -12,10 +12,11 @@ title: Denise Hutchison
 %section.bio-content
   .bio-text
     = partial "markdown/denise-bio"
-    = link_to("#", class: "back-to-top") do
-      %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
-      top
   .bio-contact
     = partial "contact-modal", locals: { button_title: "Contact Denise",
       email: data.site.denise_email }
     = partial "markdown/denise-meta"
+.top-link-wrap
+  = link_to("#", class: "back-to-top") do
+    %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+    top

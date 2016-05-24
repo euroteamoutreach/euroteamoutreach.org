@@ -122,6 +122,14 @@
     max-width: 35em;
     text-align: center;
 
+    @include media($phone-landscape) {
+      font-size: smaller;
+    }
+
+    @include media($phone-portrait) {
+      font-size: 0.7em;
+    }
+
     a {
       border-bottom: 1px solid $footer-disclaimer-color;
       color: inherit;

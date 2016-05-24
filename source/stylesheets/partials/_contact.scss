@@ -15,11 +15,12 @@
   @include span-columns(8 of 12);
   @include shift(2);
   background-color: $white;
-  border: 1px solid $light-gray;
+  border: 1px solid $subtle-gray;
   border-radius: 5px;
   padding: 1em;
 
   @include media($tablet-portrait) {
+    @include shift(0);
     width: 100%;
   }
 
@@ -30,21 +31,9 @@
   input,
   textarea {
     background-color: $white;
-  }
-}
-
-.contact_thanks {
-  .page-content {
-    padding: 6em 2em;
-    text-align: center;
 
     @include media($phone-landscape) {
-      padding: 3.2em 1em 1.7em;
-    }
-
-    h1 {
-      color: $action-color;
-      padding-bottom: 0.5em;
+      font-size: 0.8em;
     }
   }
 }

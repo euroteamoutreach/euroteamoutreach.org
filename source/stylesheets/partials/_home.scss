@@ -36,20 +36,59 @@
   @include outer-container;
   padding: 3em 6em;
   width: em(700);
+
+  @include media($tablet-portrait) {
+    padding: 3em 4em;
+    width: 100%;
+
+    h2 { font-size: 3em; }
+  }
+
+  @include media($phone-landscape) {
+    padding: 1em;
+    h2 { margin: 0 0 0.4em; }
+    p { font-size: 0.8em; }
+  }
+
+  @include media($phone-small) {
+    .welcome-break { display: none; }
+    h2 { font-size: 2.5em; }
+  }
+
+  @include media($phone-portrait) {
+    padding: 2em 1em 1em;
+  }
 }
 
 .biblefirst {
   border-bottom: 1px solid $subtle-gray;
+
+  @include media($phone-landscape) {
+    padding: 1em 0.8em;
+  }
 }
 
 .cmo {
   background-color: $white;
+
+  @include media($phone-landscape) {
+    padding: 1em 0.8em;
+  }
 }
 
 .hero-inner {
   @include outer-container;
   padding: 4em 0;
   width: em(700);
+
+  @include media($tablet-mid) {
+    padding: 4em 2em;
+    width: 100%;
+  }
+
+  @include media($phone-landscape) {
+    padding: 0;
+  }
 
   h3 {
     color: $dark-gray;
@@ -58,9 +97,23 @@
   }
 
   aside {
-    @include span-columns(3);
+    @include span-columns(3 of 12);
     padding-right: 1em;
     padding-top: 0.5em;
+
+    @include media($tablet-small) {
+      @include span-columns(4 of 12);
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(2 of 8);
+      padding-right: 0.2em;
+      padding-top: 0.3em;
+    }
+
+    @include media($phone-landscape) {
+      padding-top: 0.2em;
+    }
 
     > img {
       border-radius: $base-border-radius;
@@ -69,7 +122,21 @@
   }
 
   article {
-    @include span-columns(9);
+    @include span-columns(9 of 12);
+
+    @include media($tablet-small) {
+      @include span-columns(8 of 12);
+      h3 { font-size: 1.6em; }
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(6 of 8);
+      h3 { font-size: 1.3em; }
+    }
+
+    @include media($phone-portrait) {
+      h3 { font-size: 1em; }
+    }
   }
 
   button {
@@ -78,6 +145,19 @@
     color: $primary-blue;
     font-weight: 300;
     margin-top: 1em;
+
+    @include media($tablet-small) {
+      font-size: 1em;
+    }
+
+    @include media($phone-landscape) {
+      font-size: 0.8em;
+      padding: 0.8em 0.8em 0.725em;
+    }
+
+    @include media($phone-portrait) {
+      font-size: 0.7em;
+    }
 
     &:hover,
     &:focus {
@@ -91,6 +171,25 @@
     i {
       margin-bottom: -2px;
       padding: 3px 0 0 15px;
+
+      @include media($phone-portrait) {
+        padding: 1px 0 0 10px;
+      }
+    }
+  }
+
+  .long-button {
+    @include media($phone-portrait) {
+      display: none;
+    }
+  }
+
+  .short-button {
+    display: none;
+
+    @include media($phone-portrait) {
+      display: block;
+      margin-top: 2em;
     }
   }
 }
@@ -101,4 +200,3 @@
   height: 100%;
   width: 100%;
 }
-

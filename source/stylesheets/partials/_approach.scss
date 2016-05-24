@@ -14,6 +14,20 @@
     padding: 4em 6em;
     text-align: center;
 
+    @include media($tablet-portrait) {
+      padding: 3em 4em;
+      h1 { font-size: 3em; }
+    }
+
+    @include media($phone-landscape) {
+      padding: 2em;
+    }
+
+    @include media($phone-portrait) {
+      padding: 1em;
+      h1 { font-size: 2em; }
+    }
+
     h1 {
       color: $white;
       margin-bottom: 0.3em;
@@ -29,6 +43,11 @@
     padding: 2em 0 1em;
     text-align: center;
     width: em(500);
+
+    @include media($phone-landscape) {
+      padding: 2em 1em 1em;
+      width: 100%;
+    }
   }
 }
 
@@ -38,6 +57,15 @@
   padding: 3em 0;
   text-align: center;
 
+  @include media($phone-landscape) {
+    padding: 1em;
+    h2 { font-size: 2em; }
+  }
+
+  @include media($phone-portrait) {
+    h2 { font-size: 1.3em; }
+  }
+
   .inner {
     @include outer-container;
   }
@@ -45,6 +73,10 @@
   h2 {
     color: $dark-gray;
     margin-bottom: 1em;
+
+    @include media($phone-landscape) {
+      margin-bottom: 0.4em;
+    }
   }
 }
 
@@ -68,14 +100,44 @@
     @include span-columns(6 of 12);
     @include shift(1);
     padding-right: 1em;
+
+    @include media($tablet-mid) {
+      @include span-columns(4 of 12);
+      @include shift(1);
+      padding-right: 0.5em;
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(3 of 8);
+      @include shift(0);
+      padding-right: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+      padding-bottom: 1em;
+    }
   }
 
   .preach-content {
     @include span-columns(4 of 12);
     padding-left: 1em;
     text-align: left;
-  }
 
+    @include media($tablet-mid) {
+      @include span-columns(6 of 12);
+      padding-left: 0.5em;
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(5 of 8);
+      padding-left: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+    }
+  }
 }
 
 .teach {
@@ -86,11 +148,42 @@
     @include shift(1);
     padding-right: 1em;
     text-align: left;
+
+    @include media($tablet-mid) {
+      @include span-columns(6 of 12);
+      @include shift(1);
+      padding-right: 0.5em;
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(5 of 8);
+      @include shift(0);
+      padding-right: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+    }
   }
 
   .teach-image {
     @include span-columns(6 of 12);
     padding-left: 1em;
+
+    @include media($tablet-mid) {
+      @include span-columns(4 of 12);
+      padding-left: 0.5em;
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(3 of 8);
+      padding-left: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+      padding-bottom: 1em;
+    }
   }
 }
 
@@ -101,11 +194,42 @@
     @include span-columns(6 of 12);
     @include shift(1);
     padding-right: 1em;
+
+    @include media($tablet-mid) {
+      @include span-columns(4 of 12);
+      @include shift(1);
+      padding-right: 0.5em;
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(3 of 8);
+      @include shift(0);
+      padding-right: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+      padding-bottom: 1em;
+    }
   }
 
   .disciple-content {
     @include span-columns(4 of 12);
     padding-left: 1em;
     text-align: left;
+
+    @include media($tablet-mid) {
+      @include span-columns(6 of 12);
+      padding-left: 0.5em;
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(5 of 8);
+      padding-left: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+    }
   }
 }
