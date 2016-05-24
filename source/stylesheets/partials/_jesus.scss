@@ -54,7 +54,7 @@
 
   .inner-row {
     @include outer-container;
-    padding: 0;
+    padding: 0 0 2em;
     text-align: center;
 
     @include media ($tablet-mid) {
