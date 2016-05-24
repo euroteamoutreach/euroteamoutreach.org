@@ -27,10 +27,9 @@ configure :build do
     source: ".tmp",
     latency: 1
 
-  # activate :asset_hash
-  # activate :asset_host,
-  #   host: "//cdn.cloudfront.net",
-  #   rewrite_ignore: ["*.js"]
+  activate :asset_hash
+  activate :asset_host,
+    host: "//d2amb9pccla9r3.cloudfront.net"
 
   # https://github.com/Aupajo/middleman-search_engine_sitemap
   set :url_root, "http://euroteamoutreach.org"
