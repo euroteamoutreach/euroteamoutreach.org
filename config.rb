@@ -21,6 +21,8 @@ configure :build do
     html.remove_intertag_spaces = true
   end
 
+  activate :gzip
+
   activate :external_pipeline,
     name: :gulp,
     command: "npm run production",
