@@ -330,7 +330,7 @@
       <KeyPrefixEquals>index.php?p=meetjesus</KeyPrefixEquals>
     </Condition>
     <Redirect>
-      <ReplaceKeyPrefixWith>jesus</ReplaceKeyPrefixWith>
+      <ReplaceKeyPrefixWith>redirects/jesus</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
