@@ -33,6 +33,10 @@
       }
     }
 
+    @include media($phone-landscape) {
+      .button { display: none; }
+    }
+
     @include media($phone-small) {
       h1 { font-size: 2em; }
     }
@@ -42,13 +46,12 @@
     }
   }
 
-
   .mission-statement {
     font-weight: 100;
     margin-bottom: 3em;
 
     @include media($phone-landscape) {
-      margin-bottom: 1.5em;
+      display: none;
     }
 
     .ms-item {
@@ -56,18 +59,7 @@
       display: inline;
       margin-right: 13px;
 
-      @include media($phone-portrait) {
-        display: block;
-        margin-right: 0;
-      }
-
       &:last-child {
-        margin-right: 0;
-      }
-    }
-
-    .second {
-      @include media($phone-landscape) {
         margin-right: 0;
       }
     }
@@ -75,33 +67,11 @@
     .second::before {
       content: "\2022";
       padding-right: 15px;
-
-      @include media($phone-portrait) {
-        content: unset;
-        padding-right: 0;
-      }
     }
 
     .third::before {
       content: "\2022";
       padding-right: 15px;
-
-      @include media($phone-landscape) {
-        content: unset;
-        padding-right: 0;
-      }
-    }
-
-    .line-break {
-      display: none;
-
-      @include media($phone-landscape) {
-        display: block;
-      }
-
-      @include media($phone-portrait) {
-        display: none;
-      }
     }
   }
 
@@ -122,6 +92,25 @@
     &:focus {
       background-color: shade($white, 50%);
       color: $white;
+    }
+  }
+
+  .chevron {
+    bottom: 2em;
+    color: $white;
+    display: none;
+    left: 0;
+    margin-top: 0;
+    position: absolute;
+    width: 100%;
+
+    @include media($phone-landscape) {
+      bottom: 1em;
+      display: block;
+
+      i {
+        font-size: 1.5em;
+      }
     }
   }
 }
