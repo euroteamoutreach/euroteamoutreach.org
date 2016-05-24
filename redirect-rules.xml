@@ -244,16 +244,6 @@
     </Redirect>
   </RoutingRule>
 
-  <!-- http://www.euroteamoutreach.org/index.php?p=album2007 -->
-  <RoutingRule>
-    <Condition>
-      <KeyPrefixEquals>index.php?p=album2007</KeyPrefixEquals>
-    </Condition>
-    <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
-    </Redirect>
-  </RoutingRule>
-
   <!-- http://www.euroteamoutreach.org/index.php?p=album2008 -->
   <RoutingRule>
     <Condition>
@@ -278,16 +268,6 @@
   <RoutingRule>
     <Condition>
       <KeyPrefixEquals>index.php?p=album2010</KeyPrefixEquals>
-    </Condition>
-    <Redirect>
-      <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
-    </Redirect>
-  </RoutingRule>
-
-  <!-- http://www.euroteamoutreach.org/index.php?p=album2011 -->
-  <RoutingRule>
-    <Condition>
-      <KeyPrefixEquals>index.php?p=album2011</KeyPrefixEquals>
     </Condition>
     <Redirect>
       <ReplaceKeyPrefixWith>redirects/pictures</ReplaceKeyPrefixWith>
@@ -321,16 +301,6 @@
     </Condition>
     <Redirect>
       <ReplaceKeyPrefixWith>contact</ReplaceKeyPrefixWith>
-    </Redirect>
-  </RoutingRule>
-
-  <!-- http://www.euroteamoutreach.org/index.php?p=privacy -->
-  <RoutingRule>
-    <Condition>
-      <KeyPrefixEquals>index.php?p=privacy</KeyPrefixEquals>
-    </Condition>
-    <Redirect>
-      <ReplaceKeyPrefixWith>privacy</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
 
