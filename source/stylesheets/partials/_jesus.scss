@@ -49,17 +49,20 @@
 .who-is-jesus,
 .sins-paid,
 .conclusion {
+
+  padding-top: 2em;
+
   .inner-row {
     @include outer-container;
-    padding: 2em 0;
+    padding: 0;
     text-align: center;
 
     @include media ($tablet-mid) {
-      padding: 2em;
+      padding: 0 2em 2em;
     }
 
     @include media ($phone-small) {
-      padding: 1em;
+      padding: 0 1em 1em;
     }
 
     .content,
@@ -203,7 +206,7 @@ blockquote {
 
     @include media($phone-portrait) {
       @include span-columns(4 of 4);
-      padding: 1em 2em 0;
+      padding: 1em 2em;
     }
   }
 
@@ -447,8 +450,12 @@ blockquote {
       color: $primary-red;
       font-family: $cinzel;
       font-size: $h2-font-size;
-      margin: 0.725em 0;
+      margin: 0.725em 0 0;
       text-align: center;
+
+      @include media($phone-landscape) {
+        margin: 0.5em 0 0.2em;
+      }
 
       @include media($phone-portrait) {
         font-size: $h3-font-size;
@@ -465,7 +472,7 @@ blockquote {
   .content {
     @include span-columns(8 of 12);
     @include shift(2);
-    padding: 0 4em 2em;
+    padding: 0 4em;
 
     @include media($tablet-mid) {
       padding: 0;
