@@ -118,6 +118,9 @@ GEM
       parallel
       ruby-progressbar
       unf
+    middleman-search_engine_sitemap (1.4.0)
+      builder
+      middleman-core (~> 4.0)
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
@@ -177,6 +180,7 @@ DEPENDENCIES
   middleman-minify-html (~> 3.4)
   middleman-pry
   middleman-s3_sync (~> 4.0)
+  middleman-search_engine_sitemap (~> 1.4)
   neat (~> 1.7)
   sassc (~> 1.8)
 

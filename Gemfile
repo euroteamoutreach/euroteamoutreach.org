@@ -15,7 +15,7 @@ gem "bitters", "~> 1.2.0"
 gem "middleman-pry"
 
 # https://github.com/Aupajo/middleman-search_engine_sitemap
-# gem "middleman-search_engine_sitemap", "~> 1.4"
+gem "middleman-search_engine_sitemap", "~> 1.4"
 
 # https://github.com/fredjean/middleman-s3_sync
 gem "middleman-s3_sync", "~> 4.0"
