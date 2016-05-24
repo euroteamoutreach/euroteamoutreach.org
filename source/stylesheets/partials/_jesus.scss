@@ -14,6 +14,20 @@
     padding: 4em 6em;
     text-align: center;
 
+    @include media($tablet-portrait) {
+      padding: 3em 4em;
+      h1 { font-size: 3em; }
+    }
+
+    @include media($phone-landscape) {
+      padding: 2em;
+    }
+
+    @include media($phone-portrait) {
+      padding: 1em;
+      h1 { font-size: 2em; }
+    }
+
     h1 {
       color: $white;
       margin-bottom: 0.3em;
@@ -40,6 +54,14 @@
     padding: 2em 0;
     text-align: center;
 
+    @include media ($tablet-mid) {
+      padding: 2em;
+    }
+
+    @include media ($phone-small) {
+      padding: 1em;
+    }
+
     .content,
     .content-1,
     .content-2,
@@ -52,6 +74,10 @@
     color: $dark-gray;
     font-size: $h3-font-size;
     margin-bottom: 1em;
+
+    @include media ($phone-small) {
+      font-size: $h4-font-size;
+    }
   }
 }
 
@@ -81,11 +107,31 @@ blockquote {
     @include shift(2);
     padding: 0 4em;
 
+    @include media($tablet-mid) {
+      @include span-columns(10 of 12);
+      @include shift(1);
+    }
+
+    @include media($tablet-small) {
+      @include shift(0);
+      padding: 0 2em;
+      width: 100%;
+    }
+
+    @include media($phone-landscape) {
+      padding: 0 1em;
+    }
+
+    @include media($phone-portrait) {
+      blockquote {
+        margin: 1em;
+      }
+    }
+
     p {
       text-align: center;
     }
   }
-
 }
 
 .all-have-sinned {
@@ -93,21 +139,72 @@ blockquote {
     @include span-columns(2 of 12);
     @include shift(2);
     padding: 9px 1em 0 0;
+
+    @include media($tablet-mid) {
+      @include span-columns(2 of 8);
+      @include shift(0);
+    }
+
+    @include media($phone-small) {
+      padding-right: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(2 of 4);
+      @include shift(1);
+      padding: 0 1em 1em;
+    }
   }
 
   .content-1 {
     @include span-columns(6 of 12);
     padding-left: 2em;
+
+    @include media($tablet-mid) {
+      @include span-columns(6 of 8);
+      padding-left: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+    }
   }
 
   .content-2 {
     @include span-columns(5 of 12);
     @include shift(2);
     padding-right: 2em;
+
+    @include media($tablet-portrait) {
+      padding-right: 1em;
+    }
+
+    @include media($tablet-mid) {
+      @include span-columns(6 of 8);
+      @include shift(0);
+      padding-right: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+    }
   }
 
   .image-2 {
     @include span-columns(3 of 12);
+
+    @include media($tablet-mid) {
+      @include span-columns(2 of 8);
+    }
+
+    @include media($phone-small) {
+      padding-left: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+      padding: 1em 2em 0;
+    }
   }
 
   .rom-323 {
@@ -116,6 +213,10 @@ blockquote {
     font-weight: bold;
     text-align: left;
     text-transform: uppercase;
+
+    @include media($phone-small) {
+      font-size: 0.5em;
+    }
   }
 
   .come-short {
@@ -128,28 +229,103 @@ blockquote {
     @include span-columns(5 of 12);
     @include shift(2);
     padding-right: 2em;
+
+    @include media($tablet-mid) {
+      @include span-columns(6 of 8);
+      @include shift(0);
+      padding-right: 0;
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(5 of 8);
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+    }
   }
 
   .image-1 {
     @include span-columns(3 of 12);
     padding-top: 9px;
-  }
 
-  .image-2 {
-    @include span-columns(3 of 12);
-    @include shift(2);
-    padding-top: 9px;
+    @include media($tablet-mid) {
+      @include span-columns(2 of 8);
+    }
+
+    @include media($phone-small) {
+      padding-left: 0;
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(3 of 8);
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+      padding: 1em 2em 0;
+    }
   }
 
   .content-2 {
     @include span-columns(5 of 12);
-    padding-left: 2em;
+    @include shift(2);
+    padding-right: 2em;
+
+    @include media($tablet-portrait) {
+      padding-right: 1em;
+    }
+
+    @include media($tablet-small) {
+      @include span-columns(6 of 8);
+      @include shift(0);
+      padding-right: 0;
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(5 of 8);
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+    }
+  }
+
+  .image-2 {
+    @include span-columns(3 of 12);
+    padding-top: 9px;
+
+    @include media($tablet-small) {
+      @include span-columns(2 of 8);
+    }
+
+    @include media($phone-landscape) {
+      @include span-columns(3 of 8);
+    }
+
+    @include media($phone-small) {
+      padding-right: 0;
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+      padding: 1em 2em 0;
+    }
   }
 
   .content-3 {
     @include span-columns(8 of 12);
     @include shift(2);
     padding: 0 4em;
+
+    @include media($tablet-mid) {
+      padding: 0;
+    }
+
+    @include media($tablet-small) {
+      @include span-columns(8 of 8);
+      @include shift(0);
+    }
 
     > p {
       text-align: center;
@@ -163,10 +339,23 @@ blockquote {
     @include shift(2);
     padding: 0 4em;
 
+    @include media($tablet-mid) {
+      padding: 0;
+    }
+
+    @include media($tablet-small) {
+      @include span-columns(8 of 8);
+      @include shift(0);
+    }
+
     h4 {
       font-weight: 400;
       margin-bottom: 0.3em;
       text-align: center;
+
+      @include media($phone-landscape) {
+        font-size: 1em;
+      }
     }
 
     p {
@@ -181,27 +370,36 @@ blockquote {
     @include span-columns(3 of 12);
     @include shift(2);
     padding-top: 9px;
+
+    @include media($tablet-mid) {
+      @include span-columns(4 of 12);
+      @include shift(1);
+    }
+
+    @include media($tablet-portrait) {
+      @include span-columns(3 of 8);
+      @include shift(0);
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
+      padding: 0 2em 1em;
+    }
   }
 
   .content-1 {
     @include span-columns(5 of 12);
-  }
 
-  .content-2 {
-    @include span-columns(8 of 12);
-    @include shift(2);
-    padding: 0 4em;
-
-    h3 {
-      color: $primary-red;
-      font-family: $cinzel;
-      font-size: $h2-font-size;
-      margin: 0.725em 0;
-      text-align: center;
+    @include media($tablet-mid) {
+      @include span-columns(6 of 12);
     }
 
-    p {
-      text-align: center;
+    @include media($tablet-portrait) {
+      @include span-columns(5 of 8);
+    }
+
+    @include media($phone-portrait) {
+      @include span-columns(4 of 4);
     }
   }
 
@@ -209,6 +407,57 @@ blockquote {
     @include span-columns(8 of 12);
     @include shift(2);
     padding: 0 6em;
+
+    @include media($tablet-mid) {
+      padding: 0 2em;
+    }
+
+    @include media($tablet-small) {
+      @include span-columns(8 of 8);
+      @include shift(0);
+      padding: 0 4em;
+    }
+
+    @include media($phone-portrait) {
+      padding: 0;
+    }
+  }
+
+  .content-2 {
+    @include span-columns(8 of 12);
+    @include shift(2);
+    padding: 0 4em;
+
+    @include media($tablet-mid) {
+      padding: 0;
+    }
+
+    @include media($tablet-small) {
+      @include span-columns(8 of 8);
+      @include shift(0);
+    }
+
+    @include media($phone-portrait) {
+      blockquote {
+        margin: 1em;
+      }
+    }
+
+    h3 {
+      color: $primary-red;
+      font-family: $cinzel;
+      font-size: $h2-font-size;
+      margin: 0.725em 0;
+      text-align: center;
+
+      @include media($phone-portrait) {
+        font-size: $h3-font-size;
+      }
+    }
+
+    p {
+      text-align: center;
+    }
   }
 }
 
@@ -217,6 +466,21 @@ blockquote {
     @include span-columns(8 of 12);
     @include shift(2);
     padding: 0 4em 2em;
+
+    @include media($tablet-mid) {
+      padding: 0;
+    }
+
+    @include media($tablet-small) {
+      @include span-columns(8 of 8);
+      @include shift(0);
+    }
+
+    @include media($phone-portrait) {
+      blockquote {
+        margin: 1em;
+      }
+    }
 
     .address > p {
       color: $base-font-color;
