@@ -21,21 +21,21 @@ configure :build do
     html.remove_intertag_spaces = true
   end
 
+  activate :gzip
+
   activate :external_pipeline,
     name: :gulp,
     command: "npm run production",
     source: ".tmp",
     latency: 1
 
-  # activate :asset_hash
-  # activate :asset_host,
-  #   host: "//cdn.cloudfront.net",
-  #   rewrite_ignore: ["*.js"]
-
-  # set :url_root, "http://example.com"
+  activate :asset_hash
+  activate :asset_host,
+    host: "//d2amb9pccla9r3.cloudfront.net"
 
   # https://github.com/Aupajo/middleman-search_engine_sitemap
-  # activate :search_engine_sitemap
+  set :url_root, "http://euroteamoutreach.org"
+  activate :search_engine_sitemap
 
   ignore "stylesheets/site"
 end
