@@ -1,0 +1,48 @@
+.x404 {
+  .not-found {
+    padding: 5em;
+    text-align: center;
+
+    @include media ($tablet-portrait) {
+      padding: 5em 2em;
+    }
+
+    @include media ($phone-landscape) {
+      padding: 2.7em 1em 7em;
+    }
+
+    @include media ($phone-portrait) {
+      padding: 5em 1em;
+    }
+
+    .svg-image {
+      margin-bottom: 2em;
+
+      @include media ($tablet-portrait) {
+        height: 60%;
+        margin-bottom: 1em;
+        width: 60%;
+      }
+
+      @include media ($phone-portrait) {
+        height: 100%;
+        margin-bottom: 1em;
+        width: 100%;
+      }
+    }
+
+    h1 {
+      border-bottom: 0;
+      color: $primary-blue;
+      font-size: $h2-font-size;
+
+      @include media ($tablet-portrait) {
+        font-size: $h3-font-size;
+      }
+
+      @include media ($phone-portrait) {
+        font-size: $h4-font-size;
+      }
+    }
+  }
+}
