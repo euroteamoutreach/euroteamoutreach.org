@@ -6,7 +6,7 @@
 
 This site was built using [Middleman 4](https://middlemanapp.com/).
 
-![euroteamoutreach.org screenshot](http://d2otinza4e5x22.cloudfront.net/euroteamoutreach-org-screenshot.jpg)
+![euroteamoutreach.org screenshot](https://s3.amazonaws.com/images.euroteamoutreach.org/eto-screenshot.jpg)
 
 ### Setup
 
