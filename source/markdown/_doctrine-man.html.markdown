@@ -4,7 +4,7 @@ We believe that man was created by God, in God&apos;s image, for God&apos;s glor
 
 We furthermore believe that while all are separated from God because of Adam&apos;s sin, they do not bear responsibility for his decision. Adam acted alone. Although separation is universal, guilt is personal, based on the daily choices of the individual. God holds every person individually accountable for his own actions, inasmuch as every person has retained his free will to choose between good and evil, guided by his own conscience. When a sinner is condemned to hell, he is not condemned for the state in which he was born, but because he chose to follow evil, as did his father Adam.
 
-Finally, we believe that all have sinned through personal choice with the exception of One. Man&apos;s **only** hope of reconciliation to God is through faith in the perfect sacrifice of Jesus Christ.
+Finally, we believe that all have sinned through personal choice with the exception of One. Man&apos;s only hope of reconciliation to God is through faith in the perfect sacrifice of Jesus Christ.
 
 * Genesis 2:1-3:24
 * Romans 3:23

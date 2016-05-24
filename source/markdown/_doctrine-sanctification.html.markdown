@@ -1,6 +1,6 @@
 #### Sanctification of the Believer
 
-We believe that sanctification &mdash; that is the separation of a believer to holy living &mdash; is by faith in the finished work of Jesus Christ. **All** believers, regardless of their understanding or experience, are forever free from all sin based on the death, burial, and resurrection of Jesus Christ.
+We believe that sanctification &mdash; that is the separation of a believer to holy living &mdash; is by faith in the finished work of Jesus Christ. All believers, regardless of their understanding or experience, are forever free from all sin based on the death, burial, and resurrection of Jesus Christ.
 
 We furthermore hold that all believers, based on their freedom in Christ and the clear commands of Scripture, are both able and obligated to walk in complete holiness before God, and to refrain from all acts of sin.
 
