@@ -36,9 +36,13 @@ title: Welcome
       = partial "markdown/bible-first"
       = link_to("http://getbiblefirst.com/", target: "_blank",
         class: "button") do
-        = content_tag :button do
+        = content_tag :button, class: "long-button" do
           %span
             Learn more at
+            %strong getbiblefirst.com
+          %i.fa.fa-external-link
+        = content_tag :button, class: "short-button" do
+          %span
             %strong getbiblefirst.com
           %i.fa.fa-external-link
 
@@ -49,8 +53,12 @@ title: Welcome
     %article
       = partial "markdown/cmo"
       = link_to("http://cmoproject.org/", target: "_blank", class: "button") do
-        = content_tag :button do
+        = content_tag :button, class: "long-button" do
           %span
             Learn more at
+            %strong cmoproject.org
+          %i.fa.fa-external-link
+        = content_tag :button, class: "short-button" do
+          %span
             %strong cmoproject.org
           %i.fa.fa-external-link

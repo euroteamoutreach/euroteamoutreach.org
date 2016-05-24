@@ -62,10 +62,18 @@
 
 .biblefirst {
   border-bottom: 1px solid $subtle-gray;
+
+  @include media($phone-landscape) {
+    padding: 1em 0.8em;
+  }
 }
 
 .cmo {
   background-color: $white;
+
+  @include media($phone-landscape) {
+    padding: 1em 0.8em;
+  }
 }
 
 .hero-inner {
@@ -79,11 +87,7 @@
   }
 
   @include media($phone-landscape) {
-    padding: 2em 1em;
-  }
-
-  @include media($phone-portrait) {
-    padding: 1em 0.4em;
+    padding: 0;
   }
 
   h3 {
@@ -103,7 +107,7 @@
 
     @include media($phone-landscape) {
       @include span-columns(2 of 8);
-      padding-right: 0;
+      padding-right: 0.2em;
       padding-top: 0.3em;
     }
 
@@ -147,12 +151,12 @@
     }
 
     @include media($phone-landscape) {
-      font-size: 0.9em;
+      font-size: 0.8em;
+      padding: 0.8em 0.8em 0.725em;
     }
 
     @include media($phone-portrait) {
-      font-size: 0.6em;
-      padding: 0.9em 1em 0.725em;
+      font-size: 0.7em;
     }
 
     &:hover,
@@ -171,6 +175,21 @@
       @include media($phone-portrait) {
         padding: 1px 0 0 10px;
       }
+    }
+  }
+
+  .long-button {
+    @include media($phone-portrait) {
+      display: none;
+    }
+  }
+
+  .short-button {
+    display: none;
+
+    @include media($phone-portrait) {
+      display: block;
+      margin-top: 2em;
     }
   }
 }
