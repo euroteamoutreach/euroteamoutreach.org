@@ -20,10 +20,10 @@ $small-screen: 740px;
 $sm-tn-screen: 600px;
 $tiny-screen: 450px;
 
-$tablet-landscape: new-breakpoint(max-width $large-screen 12);
-$tablet-mid: new-breakpoint(max-width $lg-md-screen 12);
-$tablet-portrait: new-breakpoint(max-width $medium-screen 8);
-$tablet-small: new-breakpoint(max-width $md-sm-screen 8);
-$phone-landscape: new-breakpoint(max-width $small-screen 8);
-$phone-small: new-breakpoint(max-width $sm-tn-screen 8);
-$phone-portrait: new-breakpoint(max-width $tiny-screen 4);
+$tablet-landscape: new-breakpoint(max-width $large-screen 12); // 1100px
+$tablet-mid: new-breakpoint(max-width $lg-md-screen 12); // 1000px
+$tablet-portrait: new-breakpoint(max-width $medium-screen 8); // 900px
+$tablet-small: new-breakpoint(max-width $md-sm-screen 8); // 800px
+$phone-landscape: new-breakpoint(max-width $small-screen 8); // 740px
+$phone-small: new-breakpoint(max-width $sm-tn-screen 8); // 600px
+$phone-portrait: new-breakpoint(max-width $tiny-screen 4); // 450px
