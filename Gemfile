@@ -4,7 +4,7 @@ gem "middleman", "~> 4.0"
 gem "middleman-minify-html", "~> 3.4"
 
 # https://rubygems.org/gems/sassc
-gem "sassc", "~> 1.8"
+gem "sassc", "~> 1.9"
 
 # See http://bourbon.io/ for installation instructions
 gem "bourbon", "~> 4.2"
