@@ -2,4 +2,4 @@
 
 The Bible says that *&ldquo;...the wages of sin is death.&rdquo;* (Romans 6:23) Not just the wages of *a lot* of sin, or of *terrible* sins - ANY sin.
 
-The book of James in the New Testament says this about the importance of God&apos;s Law: *&ldquo;For whosoever shall keep the whole law, and yet offend in one point, he is guilty of all.&rdquo;*
+The book of James in the New Testament says this about the importance of God&apos;s Law: *&ldquo;For whosoever shall keep the whole law, and yet offend in one point, he is guilty of all.&rdquo; (James 2:10)*
