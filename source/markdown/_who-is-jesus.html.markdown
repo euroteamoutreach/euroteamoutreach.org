@@ -13,7 +13,7 @@ Consider what the Bible says about the identity of the greatest Man who ever wal
 <cite>&mdash; John 8:12</cite>
 
 #### He is the only begotten Son of God.
-&ldquo;He that believeth on [Jesus] is not judged: he that believeth not hath been judged already, because he hath not believed on the name of the only begotten Son of God.&rdquo;  
+&ldquo;He that believeth on [Jesus] is not condemned: but he that believeth not is condemned already, because he hath not believed in the name of the only begotten Son of God.&rdquo;  
 <cite>&mdash; John 3:18</cite>
 
 #### He is the Savior of all that believe on His name.
