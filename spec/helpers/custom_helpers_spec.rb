@@ -17,24 +17,6 @@ describe CustomHelpers do
     end
   end
 
-  describe "#ministries_smart_path" do
-    context "when on home page" do
-      it "returns the Ministries path without a leading slash" do
-        current_page = double("Sitemap")
-        allow(current_page).to receive(:path).and_return("index")
-        expect(ministries_smart_path(current_page.path)).to eq("#ministries")
-      end
-    end
-
-    context "when not on home page" do
-      it "returns the Ministries path *with* a leading slash" do
-        current_page = double("Sitemap")
-        allow(current_page).to receive(:path).and_return("other-page")
-        expect(ministries_smart_path(current_page.path)).to eq("/#ministries")
-      end
-    end
-  end
-
   describe "#home_smart_path" do
     context "when on home page" do
       it "returns '#'" do
@@ -49,6 +31,24 @@ describe CustomHelpers do
         current_page = double("Sitemap")
         allow(current_page).to receive(:path).and_return("other-page")
         expect(home_smart_path(current_page.path)).to eq("/")
+      end
+    end
+  end
+
+  describe "#ministries_smart_path" do
+    context "when on home page" do
+      it "returns the Ministries path without a leading slash" do
+        current_page = double("Sitemap")
+        allow(current_page).to receive(:path).and_return("index")
+        expect(ministries_smart_path(current_page.path)).to eq("#ministries")
+      end
+    end
+
+    context "when not on home page" do
+      it "returns the Ministries path *with* a leading slash" do
+        current_page = double("Sitemap")
+        allow(current_page).to receive(:path).and_return("other-page")
+        expect(ministries_smart_path(current_page.path)).to eq("/#ministries")
       end
     end
   end
