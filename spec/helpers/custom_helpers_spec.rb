@@ -52,4 +52,14 @@ describe CustomHelpers do
       end
     end
   end
+
+  describe "#smart_robots" do
+    context "when on 'thanks' page" do
+      it "returns 'noindex, nofollow'" do
+        current_page = double("Sitemap")
+        allow(current_page).to receive(:path).and_return("contact/thanks.html")
+        expect(smart_robots).to eq("noindex, nofollow")
+      end
+    end
+  end
 end
