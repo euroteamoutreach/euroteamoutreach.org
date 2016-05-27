@@ -20,3 +20,9 @@ gem "middleman-search_engine_sitemap", "~> 1.4"
 # https://github.com/fredjean/middleman-s3_sync
 gem "middleman-s3_sync", "~> 4.0"
 gem "mime-types", "~> 3.0"
+
+group :development do
+  gem "rspec", "~> 3.4"
+  gem "capybara", "~> 2.7"
+  gem "launchy", "~> 2.4"
+end
