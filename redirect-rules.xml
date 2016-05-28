@@ -393,4 +393,14 @@
       <ReplaceKeyPrefixWith>redirects/subscribe</ReplaceKeyPrefixWith>
     </Redirect>
   </RoutingRule>
+
+  <!-- http://euroteamoutreach.org/eto/ereport.php -->
+  <RoutingRule>
+    <Condition>
+      <KeyPrefixEquals>eto/ereport.php</KeyPrefixEquals>
+    </Condition>
+    <Redirect>
+      <ReplaceKeyPrefixWith>redirects/subscribe</ReplaceKeyPrefixWith>
+    </Redirect>
+  </RoutingRule>
 </RoutingRules>
