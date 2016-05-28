@@ -25,16 +25,12 @@ module CustomHelpers
     end
   end
 
-  def smart_robots
-    if !!(current_page.path =~ /thanks/)
+  def smart_robots(path)
+    if !!(path =~ /thanks/)
       "noindex, nofollow"
     else
       "index, follow"
     end
-  end
-
-  def page_description
-    current_page.data.description || data.site.description
   end
 
   # https://robots.thoughtbot.com/organized-workflow-for-svg

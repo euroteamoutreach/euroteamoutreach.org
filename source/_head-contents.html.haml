@@ -2,12 +2,13 @@
 = tag "meta", content: "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"
 = tag "meta", content: "width=device-width, initial-scale=1.0", name: "viewport"
 = tag "meta", name: "author", content: "Euro Team Outreach, Inc."
-= tag "meta", name: "robots", content: smart_robots.to_s
-= tag "meta", name: "description", content: page_description.to_s
-= tag "meta", name: "google-site-verification", content: "XnApiOPGYAi9EElvNM_Xj7gs8NVYZmlM_rbooCJ1ens"
+= tag "meta", name: "robots", content: smart_robots(current_page.path).to_s
+= tag "meta", name: "description", content: data.site.description
+= tag "meta", name: "google-site-verification",
+  content: "XnApiOPGYAi9EElvNM_Xj7gs8NVYZmlM_rbooCJ1ens"
 = tag "meta", property: "og:url", content: data.site.url
 = tag "meta", property: "og:title", content: data.site.title
-= tag "meta", property: "og:description", content: page_description.to_s
+= tag "meta", property: "og:description", content: data.site.description
 = tag "meta", property: "og:image", content: data.site.facebook_og_image_url
 
 %title= full_title(current_page.data.title)
