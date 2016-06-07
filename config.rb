@@ -29,7 +29,8 @@ configure :build do
     source: ".tmp",
     latency: 1
 
-  activate :asset_hash
+  activate :asset_hash, ignore: %r{^files/.*}
+
   activate :asset_host,
     host: "//d2amb9pccla9r3.cloudfront.net"
 
