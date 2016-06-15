@@ -1,7 +1,7 @@
 module CustomHelpers
   def full_title(page_title=nil)
     page_title ||= ""
-    base_title = "Euro Team Outreach"
+    base_title = "Euro Team Outreach - Missionaries serving Christ in Ukraine"
     if page_title.empty?
       base_title
     else
