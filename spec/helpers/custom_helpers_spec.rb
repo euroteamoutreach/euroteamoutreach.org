@@ -5,14 +5,14 @@ describe CustomHelpers do
     context "when no custom page title is provided" do
       it "provides only the base title" do
         title = nil
-        expect(full_title(title)).to eq("Euro Team Outreach")
+        expect(full_title(title)).to eq("Euro Team Outreach - Missionaries serving Christ in Ukraine")
       end
     end
 
     context "when a custom title is provided" do
       it "displays the custom title and the base title separated by a pipe" do
         title = "Custom"
-        expect(full_title(title)).to eq("Custom | Euro Team Outreach")
+        expect(full_title(title)).to eq("Custom | Euro Team Outreach - Missionaries serving Christ in Ukraine")
       end
     end
   end
