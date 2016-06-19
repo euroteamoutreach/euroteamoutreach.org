@@ -1,10 +1,10 @@
-%header{ class: "navigation", role: "banner" }
+%header.navigation
   .navigation-wrapper
     = link_to home_smart_path(current_page.path),
       class: "logo home-back-to-top" do
       = inline_svg "logo-full.svg", class: "svg-logo"
     %a.navigation-menu-button#js-mobile-menu{ href: "javascript:void(0)" }
       %i.fa.fa-bars
-    %nav{ role: "navigation" }
+    %nav
       %ul.navigation-menu.show#js-navigation-menu
         = partial "nav-links"

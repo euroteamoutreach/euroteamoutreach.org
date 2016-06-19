@@ -5,6 +5,7 @@ set :js_dir, "javascripts"
 set :images_dir, "images"
 set :relative_links, true
 set :haml, { ugly: true, format: :html5 }
+set :markdown, auto_ids: false
 
 page "/*.xml", layout: false
 page "/*.json", layout: false
