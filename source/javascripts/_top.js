@@ -1,11 +1,11 @@
-var $ = require("jquery");
+var $ = require('jquery');
 
 $(document).ready(function() {
 
   var scrollTop = $(window).scrollTop();
-  $(".back-to-top").on("click", function (e) {
+  $('.back-to-top').on('click', function (e) {
     e.preventDefault();
-    $("html,body").animate({
+    $('html,body').animate({
       scrollTop: 0
     }, 700);
   });

@@ -1,8 +1,5 @@
 activate :directory_indexes
 
-set :css_dir, "stylesheets"
-set :js_dir, "javascripts"
-set :images_dir, "images"
 set :relative_links, true
 set :haml, { ugly: true, format: :html5 }
 set :markdown, auto_ids: false
@@ -12,26 +9,16 @@ page "/*.json", layout: false
 page "/*.txt", layout: false
 page "/404.html", directory_index: false
 
-configure :development do
-  activate :pry
-end
-
 configure :build do
-  activate :minify_html do |html|
-    html.remove_quotes = false
-    html.remove_intertag_spaces = true
-  end
-
-  activate :gzip
-
   activate :external_pipeline,
     name: :gulp,
     command: "npm run production",
     source: ".tmp",
     latency: 1
 
-  activate :asset_hash, ignore: %r{^files/.*}
+  activate :gzip
 
+  activate :asset_hash, ignore: %r{^files/.*}
   activate :asset_host,
     host: "//d2amb9pccla9r3.cloudfront.net"
 
@@ -39,7 +26,13 @@ configure :build do
   set :url_root, "http://euroteamoutreach.org"
   activate :search_engine_sitemap
 
+  ignore "javascripts/all.js"
   ignore "stylesheets/site"
+
+  activate :minify_html do |html|
+    html.remove_quotes = false
+    html.remove_intertag_spaces = true
+  end
 end
 
 # https://github.com/fredjean/middleman-s3_sync
