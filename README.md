@@ -1,7 +1,7 @@
 euroteamoutreach.org
 ====================
 
-[![Build Status](https://travis-ci.org/joshukraine/euroteamoutreach.org.svg?branch=master)](https://travis-ci.org/joshukraine/euroteamoutreach.org)
+[![Build Status](https://travis-ci.org/joshukraine/euroteamoutreach.org.svg?branch=master)](https://travis-ci.org/joshukraine/euroteamoutreach.org) [![Dependency Status](https://gemnasium.com/badges/github.com/joshukraine/euroteamoutreach.org.svg)](https://gemnasium.com/github.com/joshukraine/euroteamoutreach.org)
 
 [euroteamoutreach.org](http://euroteamoutreach.org/) is the official web site for Euro Team Outreach, Inc., a Christian organization dedicated to the advancement of the Gospel of Jesus Christ.
 
