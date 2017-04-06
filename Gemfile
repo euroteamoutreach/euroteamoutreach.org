@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # https://github.com/middleman/middleman#middleman---makes-developing-websites-simple
-gem "middleman", "~> 4.1"
+gem "middleman", "~> 4.2"
 
 # https://github.com/middleman/middleman-minify-html#middleman-minify-html
 gem "middleman-minify-html", "~> 3.4"
@@ -23,7 +23,7 @@ gem "mime-types", "~> 3.0"
 
 group :development do
   gem "rspec", "~> 3.5"
-  gem "capybara", "~> 2.9"
+  gem 'capybara', '~> 2.13'
   gem "launchy", "~> 2.4"
 end
 
@@ -31,4 +31,4 @@ end
 gem "haml_lint"
 
 # https://github.com/brigade/scss-lint
-gem "scss_lint"
+gem 'scss_lint', '~> 0.52.0'
