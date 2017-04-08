@@ -31,4 +31,4 @@ end
 gem "haml_lint"
 
 # https://github.com/brigade/scss-lint
-gem 'scss_lint', '~> 0.52.0'
+gem "scss_lint"
