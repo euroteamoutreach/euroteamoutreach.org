@@ -226,7 +226,7 @@ DEPENDENCIES
   mime-types (~> 3.0)
   neat (~> 1.8)
   rspec (~> 3.5)
-  scss_lint (~> 0.52.0)
+  scss_lint
 
 BUNDLED WITH
-   1.13.6
+   1.14.6
