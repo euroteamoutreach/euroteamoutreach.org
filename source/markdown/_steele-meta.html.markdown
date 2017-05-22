@@ -2,7 +2,7 @@
 
 <div class="meta-contact-block">
 **Blog**  
-[www.OFReport.com](http://www.ofreport.com/){:target="_blank"}
+[www.OFReport.com](https://OFReport.com/){:target="_blank"}
 </div>
 
 <div class="meta-contact-block">
