@@ -1,12 +1,12 @@
 !!!
 %html
   %head
-    = partial "head_contents"
+    = partial "partials/head_contents"
 
   %body{ class: page_classes }
-    = partial "header"
+    = partial "partials/header"
     #content-wrapper
       = yield
-    = partial "subscribe-footer"
-    = partial "universal-footer"
-    = partial "copyright-footer"
+    = partial "partials/subscribe-footer"
+    = partial "partials/universal-footer"
+    = partial "partials/copyright-footer"
