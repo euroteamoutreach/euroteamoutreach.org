@@ -2,7 +2,7 @@
 
 <div class="meta-contact-block">
 **Website**  
-[www.DaysInUkraine.com](http://www.daysinukraine.com/){:target="_blank"}
+[www.DaysInUkraine.com](http://daysinukraine.com/){:target="_blank"}
 </div>
 
 <div class="meta-contact-block">
