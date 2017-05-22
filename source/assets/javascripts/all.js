@@ -1,6 +1,7 @@
 require('./_beal-dates');
 require('./_contact-modal');
 require('./_copyright');
+require('./_font-loader.js');
 require('./_nav');
 require('./_scroll');
 require('./_top-home');
