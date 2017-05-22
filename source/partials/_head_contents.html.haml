@@ -12,8 +12,8 @@
 %title= full_title(current_page.data.title)
 = favicon_tag "images/favicon.png"
 
+= javascript_include_tag "https://use.fontawesome.com/97bd42fe73.js"
 = tag "link", rel: "apple-touch-icon", href: "images/apple-touch-icon.png"
 = stylesheet_link_tag :site
-= javascript_include_tag :bundle
-= javascript_include_tag "https://use.fontawesome.com/97bd42fe73.js"
+= javascript_include_tag :bundle, async: !development?
 = partial "partials/analytics"
