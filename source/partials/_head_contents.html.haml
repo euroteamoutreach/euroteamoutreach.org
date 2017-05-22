@@ -4,16 +4,17 @@
 = tag "meta", name: "author", content: "Euro Team Outreach, Inc."
 = tag "meta", name: "robots", content: smart_robots(current_page.path).to_s
 = tag "meta", name: "description", content: data.site.description
+
 = tag "meta", property: "og:url", content: data.site.url
 = tag "meta", property: "og:title", content: data.site.title
 = tag "meta", property: "og:description", content: data.site.description
 = tag "meta", property: "og:image", content: data.site.facebook_og_image_url
 
 %title= full_title(current_page.data.title)
-= favicon_tag "images/favicon.png"
 
-= javascript_include_tag "https://use.fontawesome.com/97bd42fe73.js"
+= partial "partials/analytics" if production?
+= favicon_tag "images/favicon.png"
 = tag "link", rel: "apple-touch-icon", href: "images/apple-touch-icon.png"
 = stylesheet_link_tag :site
 = javascript_include_tag :bundle, async: !development?
-= partial "partials/analytics"
+= javascript_include_tag "https://use.fontawesome.com/97bd42fe73.js"
