@@ -1,4 +1,4 @@
-// gulpfile.js - http://jsua.co/mm-gulp
+// gulpfile.js - https://jsua.co/mm-gulp
 
 'use strict'; // http://www.w3schools.com/js/js_strict.asp
 
@@ -25,12 +25,12 @@ var
   production = p.environments.production,
 
   css = {
-    in: src + 'stylesheets/**/*.{css,scss,sass}',
-    out: dest + 'stylesheets/',
+    in: src + 'assets/stylesheets/**/*.{css,scss,sass}',
+    out: dest + 'assets/stylesheets/',
   },
 
   sassOpts = {
-    imagePath: '../images',
+    imagePath: '../assets/images',
     errLogToConsole: true
   },
 
@@ -39,8 +39,8 @@ var
   },
 
   js = {
-    in: src + 'javascripts/*.{js,coffee}',
-    out: dest + 'javascripts/'
+    in: src + 'assets/javascripts/*.{js,coffee}',
+    out: dest + 'assets/javascripts/'
   },
 
   uglifyOpts = {
@@ -48,8 +48,8 @@ var
   },
 
   images = {
-    in: src + 'images/*',
-    out: dest + 'images/'
+    in: src + 'assets/images/*',
+    out: dest + 'assets/images/'
   },
 
   serverOpts = {
@@ -75,7 +75,7 @@ gulp.task('css', function() {
 // Javascript Bundling
 gulp.task('js', function() {
   var b = p.browserify({
-    entries: src + 'javascripts/all.js',
+    entries: src + 'assets/javascripts/all.js',
     debug: true
   });
 
