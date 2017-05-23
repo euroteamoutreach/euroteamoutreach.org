@@ -1,21 +1,21 @@
 euroteamoutreach.org
 ====================
 
-[![Build Status](https://travis-ci.org/joshukraine/euroteamoutreach.org.svg?branch=master)](https://travis-ci.org/joshukraine/euroteamoutreach.org) [![Dependency Status](https://gemnasium.com/badges/github.com/joshukraine/euroteamoutreach.org.svg)](https://gemnasium.com/github.com/joshukraine/euroteamoutreach.org)
+[![Build Status][travis-svg]][travis] [![Dependency Status][gemnasium-svg]][gemnasium]
 
-[euroteamoutreach.org](http://euroteamoutreach.org/) is the official web site for Euro Team Outreach, Inc., a Christian organization dedicated to the advancement of the Gospel of Jesus Christ.
+[euroteamoutreach.org][eto] is the official web site for Euro Team Outreach, Inc., a Christian organization dedicated to the advancement of the Gospel of Jesus Christ.
 
-This site was built using [Middleman 4](https://middlemanapp.com/).
+This site was built using [Middleman][middleman].
 
-![euroteamoutreach.org screenshot](https://s3.amazonaws.com/images.euroteamoutreach.org/eto-screenshot.jpg)
+![euroteamoutreach.org screenshot][screenshot]
 
 Requirements
 ------------
 
-* [Middleman 4.x](https://middlemanapp.com/basics/install/)
-* [Ruby 2.x](https://github.com/rbenv/rbenv#readme)
-* [Node 6.x](https://github.com/creationix/nvm#readme)
-* [Gulp CLI](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started)
+* [Middleman 4.x][middleman-docs]
+* [Ruby 2.x][rbenv]
+* [Node 6.x][nvm]
+* [Gulp CLI][gulp-cli]
 
 
 Setup
@@ -30,7 +30,7 @@ $ bin/setup
 Development
 -----------
 
-This project uses [Gulp](http://gulpjs.com/) with Middleman's new [`external_pipeline`](https://middlemanapp.com/advanced/external-pipeline/) feature introduced in v4.
+This project uses [Gulp][gulp] with Middleman's new [`external_pipeline`][external-pipeline] feature introduced in v4.
 
     # Run the development server with Gulp
     $ bundle exec middleman server
@@ -82,9 +82,28 @@ mms='bundle exec middleman server'
 Deployment
 ----------
 
-euroteamoutreach.org is currently deployed on Amazon S3. [Detailed instructions](http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html) are available from Amazon.
+euroteamoutreach.org is currently deployed on Amazon S3. [Detailed instructions][aws-s3-deployment] are available from Amazon.
+
+**BONUS: If you deploy with Amazon, you can get a [free ssl certificate][aws-cert-manager] for your site!**
 
 Legal
 -----
 
-Site content is copyrighted (c) 2016 by Euro Team Outreach, Inc. Software is under the [MIT license](https://github.com/joshukraine/euroteamoutreach.org/blob/master/LICENSE).
+Copyright &copy; 2017 by Euro Team Outreach, Inc. Software is licensed under [MIT][license].
+
+[travis-svg]: https://travis-ci.org/joshukraine/euroteamoutreach.org.svg?branch=master
+[travis]: https://travis-ci.org/joshukraine/euroteamoutreach.org
+[gemnasium-svg]: https://gemnasium.com/badges/github.com/joshukraine/euroteamoutreach.org.svg
+[gemnasium]: https://gemnasium.com/github.com/joshukraine/euroteamoutreach.org
+[eto]: https://euroteamoutreach.org/
+[screenshot]: https://s3.amazonaws.com/images.euroteamoutreach.org/eto-screenshot.jpg
+[middleman]: https://middlemanapp.com/
+[middleman-docs]: https://middlemanapp.com/basics/install/
+[rbenv]: https://github.com/rbenv/rbenv#readme
+[nvm]: https://github.com/creationix/nvm#readme
+[gulp-cli]: https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started
+[gulp]: http://gulpjs.com/
+[external-pipeline]: https://middlemanapp.com/advanced/external-pipeline/
+[aws-s3-deployment]: http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html
+[aws-cert-manager]: https://aws.amazon.com/blogs/aws/new-aws-certificate-manager-deploy-ssltls-based-apps-on-aws/
+[license]: https://github.com/joshukraine/euroteamoutreach.org/blob/master/LICENSE
