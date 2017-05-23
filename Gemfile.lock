@@ -11,10 +11,6 @@ GEM
     ansi (1.5.0)
     ast (2.3.0)
     backports (3.8.0)
-    bitters (1.2.0)
-      bourbon (>= 4.2)
-      sass (>= 3.4)
-      thor
     bourbon (4.3.4)
       sass (~> 3.4)
       thor (~> 0.19)
@@ -59,8 +55,7 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.2.5)
-    haml (5.0.1)
-      temple (>= 0.8.0)
+    haml (4.0.7)
       tilt
     haml_lint (0.25.1)
       haml (>= 4.0, < 5.1)
@@ -189,14 +184,13 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
-    sass (3.4.23)
+    sass (3.4.24)
     scss_lint (0.53.0)
       rake (>= 0.9, < 13)
       sass (~> 3.4.20)
     servolux (0.13.0)
     slop (3.6.0)
     sysexits (1.2.0)
-    temple (0.8.0)
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
@@ -215,9 +209,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bitters (~> 1.2.0)
   bourbon (~> 4.2)
   capybara (~> 2.14)
+  haml (~> 4.0)
   haml_lint
   launchy (~> 2.4)
   middleman (~> 4.2)
@@ -225,9 +219,8 @@ DEPENDENCIES
   middleman-pry (~> 1.0)
   middleman-s3_sync (~> 4.0)
   middleman-search_engine_sitemap (~> 1.4)
-  mime-types (~> 3.0)
   neat (~> 1.8)
-  nokogiri (~> 1.7)
+  nokogiri (~> 1.7, >= 1.7.2)
   rspec (~> 3.6)
   scss_lint
 
