@@ -2,6 +2,7 @@
   site_url = data.site.url
   site_title = data.site.title
   site_desc = data.site.description
+  site_author = data.site.author
   page_title = current_page.data.title.to_s
   page_path = current_page.path
   current_env = config[:environment].to_s
@@ -13,7 +14,7 @@
 = tag "meta", charset: "utf-8"
 = tag "meta", content: "IE=edge", "http-equiv" => "X-UA-Compatible"
 = tag "meta", content: "width=device-width, initial-scale=1.0", name: "viewport"
-= tag "meta", name: "author", content: "Euro Team Outreach, Inc."
+= tag "meta", name: "author", content: site_author
 = tag "meta", name: "robots", content: smart_robots(page_path).to_s
 = tag "meta", name: "description", content: site_desc
 
