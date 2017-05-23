@@ -6,7 +6,7 @@ title: Contact
   %h1 Contact
   %p
     Need to get in touch? Drop us a line!
-    We&rsquo;ll do our best to answer you quickly.
+    We'll do our best to answer you quickly.
 
   .contact-form
     %form{ action: "https://formspree.io/#{data.site.contact_email}",
@@ -20,7 +20,7 @@ title: Contact
       %input{ name: "_subject", type: "hidden",
               value: "[euroteamoutreach.org] New Contact Request" }
       %input{ name: "_next", type: "hidden",
-              value: "http://#{data.site.human_url}/contact/thanks/" }
+              value: "#{data.site.url}/contact/thanks/" }
       %input{ name: "_gotcha", style: "display:none", type: "text" }
       %input{ name: "_format", style: "display:none", type: "text",
               value: "plain" }
