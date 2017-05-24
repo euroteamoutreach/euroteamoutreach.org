@@ -91,7 +91,7 @@ describe "footer nav links", type: :feature do
     visit "/doctrine"
     within "footer.copyright-footer" do
       find("a.github").click
-      expect(current_url).to eq("https://github.com/joshukraine/euroteamoutreach.org")
+      expect(current_url).to eq("https://github.com/euroteamoutreach/euroteamoutreach.org")
     end
   end
 
