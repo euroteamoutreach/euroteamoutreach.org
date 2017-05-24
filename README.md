@@ -91,8 +91,8 @@ Legal
 
 Copyright &copy; 2017 by Euro Team Outreach, Inc. Software is licensed under [MIT][license].
 
-[travis-svg]: https://travis-ci.org/joshukraine/euroteamoutreach.org.svg?branch=master
-[travis]: https://travis-ci.org/joshukraine/euroteamoutreach.org
+[travis-svg]: https://travis-ci.org/euroteamoutreach/euroteamoutreach.org.svg?branch=master
+[travis]: https://travis-ci.org/euroteamoutreach/euroteamoutreach.org
 [gemnasium-svg]: https://gemnasium.com/badges/github.com/joshukraine/euroteamoutreach.org.svg
 [gemnasium]: https://gemnasium.com/github.com/joshukraine/euroteamoutreach.org
 [eto]: https://euroteamoutreach.org/
