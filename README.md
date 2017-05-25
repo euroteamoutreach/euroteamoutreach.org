@@ -106,4 +106,4 @@ Copyright &copy; 2017 by Euro Team Outreach, Inc. Software is licensed under [MI
 [external-pipeline]: https://middlemanapp.com/advanced/external-pipeline/
 [aws-s3-deployment]: http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html
 [aws-cert-manager]: https://aws.amazon.com/blogs/aws/new-aws-certificate-manager-deploy-ssltls-based-apps-on-aws/
-[license]: https://github.com/joshukraine/euroteamoutreach.org/blob/master/LICENSE
+[license]: https://github.com/euroteamoutreach/euroteamoutreach.org/blob/master/LICENSE
