@@ -89,7 +89,7 @@ euroteamoutreach.org is currently deployed on Amazon S3. [Detailed instructions]
 Legal
 -----
 
-Copyright &copy; 2017 by Euro Team Outreach, Inc. Software is licensed under [MIT][license].
+Copyright &copy; 2017 Euro Team Outreach, Inc. Software is licensed under [MIT][license].
 
 [travis-svg]: https://travis-ci.org/euroteamoutreach/euroteamoutreach.org.svg?branch=master
 [travis]: https://travis-ci.org/euroteamoutreach/euroteamoutreach.org
