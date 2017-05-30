@@ -1,0 +1,5 @@
+Anatoli and Anastasia met each other in the church as teenagers. They studied together in Bible school, and graduated in 2005 (Anatoli) and 2006 (Anastasia). As a part of their study, they participated in mission trips to different Ukrainian towns, including Ternopil, Truskavets, Kyiv and Uzhhorod. They were married in 2006, and in 2007 they moved to Uzhhorod as missionaries. There they led a group of faithful Christians who wanted to have regular meetings and study the Bible. They served in Uzhhorod for three and a half years, and then returned to their home town of L’viv.
+
+Today, Anatoli is actively involved in the church music ministry, leading the congregation in worship, translating songs, and even writing his own songs. He has also taught classes in the Bible school and led home groups. From time to time he is given the privilege of preaching at church. In 2010 Anatoli graduated from Ivan Franko National University of L’viv with a degree in Ukrainian philology and remains active in editing and translation work.
+
+Anastasia is a faithful wife and mother to their four children: Kateryna, Valentyna, Hanna and Lukian.

@@ -1,22 +1,23 @@
 ---
-title: The Zhylavyi Family
+title: The Zhylavy Family
 ---
 
 %section.bio-image-hero
   .image-wrapper
     = image_tag "http://placehold.it/650x340", class: "landscape",
-      alt: "The Zhylavyi Family"
+      alt: "The Zhylavy Family"
 
 %section.bio-title
-  %h1 The Zhylavyi Family
+  %h1 The Zhylavy Family
 
 %section.bio-content
   .bio-text
-    = partial "markdown/zhylavyi-bio"
+    = partial "markdown/zhylavy-bio"
   .bio-contact
-    = partial "partials/contact-modal", locals: { button_title: "Contact the Zhylavyis",
-      email: data.site.zhylavyi_email }
-    = partial "markdown/zhylavyi-meta"
+    = partial "partials/contact-modal",
+      locals: { button_title: "Contact the Zhylavys",
+      email: data.site.zhylavy_email }
+    = partial "markdown/zhylavy-meta"
 .top-link-wrap
   = link_to("#", class: "back-to-top") do
     %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
