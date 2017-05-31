@@ -93,8 +93,8 @@ Copyright &copy; 2017 Euro Team Outreach, Inc. Software is licensed under [MIT][
 
 [travis-svg]: https://travis-ci.org/euroteamoutreach/euroteamoutreach.org.svg?branch=master
 [travis]: https://travis-ci.org/euroteamoutreach/euroteamoutreach.org
-[gemnasium-svg]: https://gemnasium.com/badges/github.com/joshukraine/euroteamoutreach.org.svg
-[gemnasium]: https://gemnasium.com/github.com/joshukraine/euroteamoutreach.org
+[gemnasium-svg]: https://gemnasium.com/badges/github.com/euroteamoutreach/euroteamoutreach.org.svg
+[gemnasium]: https://gemnasium.com/github.com/euroteamoutreach/euroteamoutreach.org
 [eto]: https://euroteamoutreach.org/
 [screenshot]: https://s3.amazonaws.com/images.euroteamoutreach.org/eto-screenshot.jpg
 [middleman]: https://middlemanapp.com/
