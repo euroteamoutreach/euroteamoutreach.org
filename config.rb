@@ -4,6 +4,9 @@ set :relative_links, true
 set :haml, { format: :html5 }
 set :markdown, auto_ids: false
 
+# Disable Haml warnings
+Haml::TempleEngine.disable_option_validator!
+
 page "/*.xml", layout: false
 page "/*.json", layout: false
 page "/*.txt", layout: false
