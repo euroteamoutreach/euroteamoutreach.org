@@ -29,4 +29,9 @@
 
 body {
   background-color: $background-gray;
+  display: flex;
+  flex-direction: column;
+}
+body, html {
+  height: 100%;
 }

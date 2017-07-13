@@ -1,5 +1,6 @@
 #content-wrapper {
   padding-top: 68px;
+  flex: 1 0 auto;
 
   @include media ($phone-landscape) {
     padding-top: 54px;
