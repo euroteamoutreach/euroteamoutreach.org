@@ -16,6 +16,12 @@ set :css_dir, "assets/stylesheets"
 set :images_dir, "assets/images"
 set :js_dir, "assets/javascripts"
 
+activate :blog do |blog|
+  blog.permalink = "blog/{year}/{month}/{title}.html"
+  blog.sources = "articles/{year}-{month}-{title}.html"
+  blog.summary_separator = /(READMORE)/
+end
+
 configure :build do
   activate :external_pipeline,
     name: :gulp,
@@ -32,12 +38,5 @@ configure :build do
     html.remove_quotes = false
     html.remove_intertag_spaces = true
   end
-
-  activate :blog do |blog|
-    blog.permalink = "blog/{year}/{month}/{title}.html"
-    blog.sources = "articles/{year}-{month}-{title}.html"
-    blog.summary_separator = /(READMORE)/
-  end
 end
-
 
