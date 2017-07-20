@@ -1,5 +1,8 @@
 ---
 title: My Middleman Blog Post
+date: 2017/07/20
 ---
 
-Hello World
+This is a sample blog post without any formatting.
+
+Default footer below:
