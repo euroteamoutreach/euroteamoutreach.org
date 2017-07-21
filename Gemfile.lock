@@ -63,7 +63,7 @@ GEM
       sysexits (~> 1.1)
     hamster (3.0.0)
       concurrent-ruby (~> 1.0)
-    hashie (3.5.5)
+    hashie (3.5.6)
     htmlcompressor (0.2.0)
     i18n (0.7.0)
     ipaddress (0.8.3)
@@ -135,7 +135,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
-    minitest (5.10.2)
+    minitest (5.10.3)
     multi_json (1.12.1)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -155,8 +155,8 @@ GEM
       slop (~> 3.4)
     public_suffix (2.0.5)
     rack (2.0.3)
-    rack-test (0.6.3)
-      rack (>= 1.0)
+    rack-test (0.7.0)
+      rack (>= 1.0, < 3)
     rainbow (2.2.2)
       rake
     rake (12.0.0)
@@ -184,7 +184,7 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
-    sass (3.4.24)
+    sass (3.4.25)
     scss_lint (0.54.0)
       rake (>= 0.9, < 13)
       sass (~> 3.4.20)
@@ -215,7 +215,7 @@ DEPENDENCIES
   haml_lint
   launchy (~> 2.4)
   middleman (~> 4.2)
-  middleman-blog
+  middleman-blog (~> 4.0, >= 4.0.2)
   middleman-minify-html (~> 3.4)
   middleman-pry (~> 1.0)
   middleman-s3_sync (~> 4.0)
@@ -225,4 +225,4 @@ DEPENDENCIES
   scss_lint
 
 BUNDLED WITH
-   1.15.1
+   1.15.2
