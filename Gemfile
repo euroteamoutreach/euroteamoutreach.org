@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "middleman", "~> 4.2"
+gem "middleman-blog", "~> 4.0", ">= 4.0.2"
 gem "middleman-minify-html", "~> 3.4"
 gem "middleman-s3_sync", "~> 4.0"
 gem "middleman-search_engine_sitemap", "~> 1.4"
@@ -9,7 +10,6 @@ gem "haml", "~> 5.0", ">= 5.0.1"
 gem "nokogiri", "~> 1.8"
 gem "haml_lint"
 gem "scss_lint"
-gem "middleman-blog"
 
 group :development do
   gem "rspec", "~> 3.6"
