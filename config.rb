@@ -17,7 +17,8 @@ set :images_dir, "assets/images"
 set :js_dir, "assets/javascripts"
 
 activate :blog do |blog|
-  blog.permalink = "blog/{year}/{month}/{title}.html"
+  blog.prefix = "blog"
+  blog.permalink = "{year}/{month}/{title}.html"
   blog.sources = "articles/{year}-{month}-{title}.html"
   blog.summary_separator = /(READMORE)/
 end
