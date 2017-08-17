@@ -24,6 +24,18 @@ module CustomHelpers
     end
   end
 
+  def social_link_for(author)
+    if author.to_s.include?("@tw") # We have a Twitter handle
+      "<a href=\"https://twitter.com/#{author[1]}\">#{author[0]}</a>"
+    elsif author.to_s.include?("@ig") # We have an Instagram handle
+      "<a href=\"https://instagram.com/#{author[1]}\">#{author[0]}</a>"
+    elsif author.to_s.include?("@fb") # We have an Facebook handle
+      "<a href=\"https://facebook.com/#{author[1]}\">#{author[0]}</a>"
+    else
+      author.to_s
+    end
+  end
+
   def smart_robots(path)
     if !!(path =~ /thanks/)
       "noindex, nofollow"
