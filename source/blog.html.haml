@@ -1,20 +1,18 @@
 ---
 title: Blog
-pageable: true
-per_page: 5
 ---
 
-%h2.blog_heading
+%h2.blog-heading
   Euro Team Outreach Blog Articles
 
-%section.narrow_container
+%section.container
   - page_articles.each_with_index do |article, i|
     - pretty_date = article.date.strftime("%b %d, %Y")
 
     %article.article-preview
       .article-preview__title
-        %h3
-          = link_to article.title, article
+        %h2
+          = link_to article.title, article.url
 
       .article-preview__meta
         - if article.data.author?
@@ -25,8 +23,4 @@ per_page: 5
 
       .article-preview__content
         = article.summary
-        = link_to "Read more", article
-
-  - if paginate && num_pages > 1
-    = partial "partials/pagination", locals: { first_page: "/",
-      last_page: "/page/#{num_pages}/" }
+        = link_to "Read more", article.url
