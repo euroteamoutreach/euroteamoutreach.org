@@ -2,10 +2,6 @@
 
 title: "Recap of Bukovets and Kozakivka"
 date: "2010-06-28 19:43:42"
-tags:
-- ministry
-- video
-- cmo
 author: ["Joshua Steele", "joshukraine", "@tw"]
 
 ---
