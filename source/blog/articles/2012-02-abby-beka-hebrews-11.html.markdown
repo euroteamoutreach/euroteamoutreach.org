@@ -2,9 +2,6 @@
 
 title: "Abby & Beka – Hebrews 11"
 date: "2012-02-09 19:53:09"
-tags:
-- family
-- video
 author: ["Joshua Steele", "joshukraine", "@tw"]
 
 ---
