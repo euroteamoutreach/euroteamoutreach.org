@@ -2,9 +2,6 @@
 
 title: "February Ministry Report"
 date: "2011-02-05 11:54:30"
-tags:
-- ministry
-- video
 author: ["Joshua Steele", "joshukraine", "@tw"]
 
 ---
