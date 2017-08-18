@@ -1,16 +1,16 @@
-.blog_heading {
+.blog-heading {
   text-align: center;
 }
 
-.narrow_container {
+section.container {
   max-width: 700px;
   margin: 50px auto 0 auto;
 }
 
 .article-preview {
-  border-bottom: 1px solid $base-border-color;
-  margin-bottom: $base-spacing * 1.5;
-  padding-bottom: $base-spacing * 1.5;
+  border-bottom: 1px solid $subtle-gray;
+  margin-bottom: 2em;
+  padding-bottom: 2em;
 
   &:last-of-type {
     border-bottom: 0;
