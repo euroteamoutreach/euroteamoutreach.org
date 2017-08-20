@@ -2,9 +2,9 @@
   text-align: center;
 }
 
-section.container {
+.blog-container {
+  @include margin(3em auto);
   max-width: 700px;
-  margin: 50px auto 0 auto;
 }
 
 .article-preview {
@@ -22,7 +22,6 @@ section.container {
   h2 {
     line-height: 1;
     margin-bottom: 7px;
-
   }
 
   a {
@@ -36,7 +35,8 @@ section.container {
 }
 
 .article-preview__meta {
-  font-size: .8rem;
+  font-size: 0.9rem;
+  margin-bottom: $base-spacing;
   padding-left: 3px;
 
   .meta-author {
@@ -44,8 +44,7 @@ section.container {
   }
 
   .meta-date {
-    margin-right: $base-spacing;
-
+    margin-left: $small-spacing;
   }
 }
 
