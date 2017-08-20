@@ -2,10 +2,7 @@
 title: Blog
 ---
 
-%h2.blog-heading
-  Euro Team Outreach Blog Articles
-
-%section.container
+%section.blog-container
   - page_articles.each_with_index do |article, i|
     - pretty_date = article.date.strftime("%b %d, %Y")
 
