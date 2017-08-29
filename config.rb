@@ -21,6 +21,7 @@ activate :blog do |blog|
   blog.permalink = "{year}/{month}/{title}.html"
   blog.sources = "articles/{year}-{month}-{title}.html"
   blog.summary_separator = /(READMORE)/
+  blog.layout = "article_layout"
 end
 
 configure :build do
