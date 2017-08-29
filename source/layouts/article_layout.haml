@@ -1,0 +1,43 @@
+:ruby
+  site_content_server = data.site.content_server_url
+  / site_asset_server = data.site.asset_server_url
+  article_title = current_article.data.title
+  article_author = current_article.data.author
+  article_date = current_article.date
+  article_image = current_article.data.image.to_s
+  article_image_lg = current_article.data.image_lg.to_s
+  article_caption = current_article.data.caption.to_s
+
+= wrap_layout :layout do
+  - content_for :meta_desc do
+    = tag "meta", name: "description", content: article_title
+
+  %article
+    %section.container.navbar-top-spacing
+      .column.container--title-area
+        .article-title
+          %h1= article_title
+
+        .article-meta
+          - if article_author
+            .meta-author
+              = social_link_for(article_author)
+
+          %time.meta-date{ datetime: "#{article_date}" }
+            = article_date.strftime("%b %d, %Y")
+
+    - unless article_image.blank?
+      %section.wide-container.container--spacing
+        .article-hero.hero-image.column
+          - if !article_image_lg.blank?
+            = link_to site_content_server + article_image_lg do
+              = image_tag site_content_server + article_image
+          - else
+            = image_tag site_content_server + article_image
+          - unless article_caption.blank?
+            .hero-image__caption
+              %p.caption-text= article_caption
+
+    %section.container.container--spacing
+      .article-body.column
+        = yield
