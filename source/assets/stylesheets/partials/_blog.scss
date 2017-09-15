@@ -2,9 +2,16 @@
   text-align: center;
 }
 
-.blog-container {
+.container {
   @include margin(3em auto);
   max-width: 700px;
+  position: relative;
+}
+
+.wide-container {
+  @include margin(null auto);
+  max-width: 900px;
+  position: relative;
 }
 
 .article-preview {
@@ -50,4 +57,101 @@
 
 .article-preview__content {
   p { margin-bottom: 0.5em; }
+}
+
+.article-title {
+  h1 {
+    text-align: center;
+  }
+}
+
+.article-meta {
+  text-align: center;
+
+  .meta-author {
+    display: inline-block;
+
+   @media only screen and (min-width: 500px) {
+      &::after {
+        content: "–";
+        display: inline;
+        margin: 0 0.5rem;
+      }
+    }
+  }
+}
+
+.article-body {
+  h2,
+  h3,
+  h4 {
+    @include margin($base-spacing null $small-spacing)
+  }
+
+  ul {
+    @include margin(null null $base-spacing $base-spacing * 1.5);
+    list-style-type: disc;
+  }
+
+  ol {
+    @include margin(null null $base-spacing $base-spacing * 1.5);
+    list-style-type: decimal;
+  }
+
+  li {
+    font-size: $base-font-size * 1.2;
+    font-weight: 300;
+
+    @media only screen and (max-width: 500px) {
+      font-size: $base-font-size;
+    }
+  }
+
+  iframe {
+    @include margin($base-spacing * 2 auto);
+    display: block;
+  }
+
+  video {
+    @include margin($base-spacing * 2 auto);
+    border: 1px solid $base-border-color;
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+}
+
+.article-image,
+.article-button {
+  @include padding($small-spacing null);
+  text-align: center;
+
+  @media only screen and (min-width: 500px) {
+    img { max-width: 80%; }
+  }
+}
+
+.hero-image {
+  margin-bottom: $small-spacing;
+  text-align: center;
+
+  @media only screen and (max-width: 700px) {
+    margin-bottom: 0;
+  }
+
+  img {
+    border-radius: 15px;
+
+    @media only screen and (max-width: 500px) {
+      border-radius: 10px;
+    }
+  }
+}
+
+.hero-image__caption {
+  @include padding(null 2em);
+
+  @media only screen and (max-width: 500px) {
+    padding: 0;
+  }
 }

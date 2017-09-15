@@ -2,7 +2,7 @@
 title: Blog
 ---
 
-%section.blog-container
+%section.container
   - page_articles.each_with_index do |article, i|
     - pretty_date = article.date.strftime("%b %d, %Y")
 
