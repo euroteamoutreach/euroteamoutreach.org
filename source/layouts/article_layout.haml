@@ -13,22 +13,21 @@
     = tag "meta", name: "description", content: article_title
 
   %article
-    %section.container.navbar-top-spacing
-      .column.container--title-area
-        .article-title
-          %h1= article_title
+    %section.container
+      .article-title
+        %h1= article_title
 
-        .article-meta
-          - if article_author
-            .meta-author
-              = social_link_for(article_author)
+      .article-meta
+        - if article_author
+          .meta-author
+            = social_link_for(article_author)
 
-          %time.meta-date{ datetime: "#{article_date}" }
-            = article_date.strftime("%b %d, %Y")
+        %time.meta-date{ datetime: "#{article_date}" }
+          = article_date.strftime("%b %d, %Y")
 
     - unless article_image.blank?
-      %section.wide-container.container--spacing
-        .article-hero.hero-image.column
+      %section.wide-container
+        .hero-image
           - if !article_image_lg.blank?
             = link_to site_content_server + article_image_lg do
               = image_tag site_content_server + article_image
@@ -38,6 +37,6 @@
             .hero-image__caption
               %p.caption-text= article_caption
 
-    %section.container.container--spacing
-      .article-body.column
+    %section.container
+      .article-body
         = yield
