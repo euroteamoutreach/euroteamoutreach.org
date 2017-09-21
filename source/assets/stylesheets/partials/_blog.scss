@@ -3,15 +3,11 @@
 }
 
 .container {
-  @include margin(3em auto);
   max-width: 700px;
-  position: relative;
 }
 
 .wide-container {
-  @include margin(null auto);
   max-width: 900px;
-  position: relative;
 }
 
 .article-preview {
@@ -71,11 +67,17 @@
   .meta-author {
     display: inline-block;
 
-   @media only screen and (min-width: 500px) {
-      &::after {
-        content: "–";
-        display: inline;
-        margin: 0 0.5rem;
+    &::after {
+      content: "–";
+      display: inline;
+      margin: 0 0.5rem;
+    }
+
+    @include media($phone-portrait){
+      display: block;
+
+      &:after {
+        display: none;
       }
     }
   }
@@ -99,12 +101,7 @@
   }
 
   li {
-    font-size: $base-font-size * 1.2;
     font-weight: 300;
-
-    @media only screen and (max-width: 500px) {
-      font-size: $base-font-size;
-    }
   }
 
   iframe {
@@ -126,23 +123,28 @@
   @include padding($small-spacing null);
   text-align: center;
 
-  @media only screen and (min-width: 500px) {
-    img { max-width: 80%; }
+  img {
+    max-width: 80%;
+
+    @include media($phone-portrait) {
+      max-width: 100%;
+    }
   }
+
 }
 
 .hero-image {
   margin-bottom: $small-spacing;
   text-align: center;
 
-  @media only screen and (max-width: 700px) {
+  @include media($phone-small) {
     margin-bottom: 0;
   }
 
   img {
     border-radius: 15px;
 
-    @media only screen and (max-width: 500px) {
+    @include media($phone-portrait) {
       border-radius: 10px;
     }
   }
@@ -151,7 +153,14 @@
 .hero-image__caption {
   @include padding(null 2em);
 
-  @media only screen and (max-width: 500px) {
+  @include media($phone-portrait) {
     padding: 0;
   }
+}
+
+.caption-text {
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
 }
