@@ -30,7 +30,7 @@ Let's start with an email which I received from Ralph in February...
 >
 > However, I have a burden for the East European countries, and I want to offer you my help for this summer if you need it. I am ready to go to Ukraine and do whatever you'll ask me. I already have collected some funds for this and my parents and church are willing to support me as they did in prayer in the last months.
 >
-> Blessings,  
+> Blessings,
 > Raphael
 
 At the time I was hesitant to commit, but I have learned by experience that God often brings blessing and direction in ways we cannot anticipate. I therefore agreed to a Skype call so we could discuss the possibilities.
@@ -65,7 +65,7 @@ As you have likely inferred by now, we needed to move the text of *Bible First* 
 
 Ralph's first task would be to take every English lesson in the *Bible First* program and convert it into a plain-text format called [Markdown][md title]. From there he would go through the entire lesson, paragraph by paragraph, and ensure that all the content was present and displayed in its proper order. This also involved adding special formatting markers that would indicate which text should be bold or italic, which headings should be primary or secondary, and so on.
 
-[![Comparing Spanish and English versions of Bible First in Vim.](https://d21yo20tm8bmc2.cloudfront.net/2017/vim-markdown-550w.png)](https://d21yo20tm8bmc2.cloudfront.net/2017/vim-markdown-2300w.png)
+[![Comparing Spanish and English versions of Bible First in Vim.](/assets/images/blog/2017/vim-markdown-550w.png)](/assets/images/blog/2017/vim-markdown-2300w.png)
 {: .article-image .article-image--has-caption}
 Comparing Spanish and English versions of Bible First in Vim.
 {: .caption-text .article-image__caption}
@@ -97,7 +97,7 @@ Initially, we worked together formatting one of our Ukrainian lessons until Ralp
 
 Now, as new material is completed and placed under version control, Ralph has the skills to complete the cycle by formatting the lessons for print.
 
-[![Laying out pages for Bible First in Ukrainian](https://d21yo20tm8bmc2.cloudfront.net/2017/ralph-computer-550w.jpg)](https://d21yo20tm8bmc2.cloudfront.net/2017/ralph-computer-2000w.jpg)
+[![Laying out pages for Bible First in Ukrainian](/assets/images/blog/2017/ralph-computer-550w.jpg)](/assets/images/blog/2017/ralph-computer-2000w.jpg)
 {: .article-image .article-image--has-caption}
 Laying out pages for Bible First in Ukrainian.
 {: .caption-text .article-image__caption}
@@ -122,11 +122,11 @@ Make no mistake: the God who searched the globe to find Abraham, David, Samuel, 
 ---
 {: .hr--bold}
 
-[![Be like Ralph.](https://d21yo20tm8bmc2.cloudfront.net/2017/rope-course-04-550w.jpg)](https://d21yo20tm8bmc2.cloudfront.net/2017/rope-course-04-2000w.jpg)
+[![Be like Ralph.](/assets/images/blog/2017/rope-course-04-550w.jpg)](/assets/images/blog/2017/rope-course-04-2000w.jpg)
 {: .article-image}
 
-**This is Ralph.  
-Ralph is happy because he's chosen to follow God.  
+**This is Ralph.
+Ralph is happy because he's chosen to follow God.
 Be like Ralph.**
 {: .article-text--centered}
 
