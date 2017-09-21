@@ -1,6 +1,5 @@
 :ruby
-  site_content_server = data.site.content_server_url
-  -# site_asset_server = data.site.asset_server_url
+  blog_images_path = "/assets/images/blog"
   article_title = current_article.data.title
   article_author = current_article.data.author
   article_date = current_article.date
@@ -13,7 +12,7 @@
     = tag "meta", name: "description", content: article_title
 
   %article
-    %section.container
+    %section.container.page-content
       .article-title
         %h1= article_title
 
@@ -26,17 +25,17 @@
           = article_date.strftime("%b %d, %Y")
 
     - unless article_image.blank?
-      %section.wide-container
+      %section.wide-container.page-content
         .hero-image
           - if !article_image_lg.blank?
-            = link_to site_content_server + article_image_lg do
-              = image_tag site_content_server + article_image
+            = link_to blog_images_path + article_image_lg do
+              = image_tag blog_images_path + article_image
           - else
-            = image_tag site_content_server + article_image
+            = image_tag blog_images_path + article_image
           - unless article_caption.blank?
             .hero-image__caption
               %p.caption-text= article_caption
 
-    %section.container
+    %section.container.page-content
       .article-body
         = yield
