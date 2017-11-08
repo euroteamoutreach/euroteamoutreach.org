@@ -1,6 +1,8 @@
 # Use this file for staging-specific deployment configs.
 # https://middlemanapp.com/basics/upgrade-v4/#environments-and-changes-to-configure-blocks
 
+activate :asset_hash, ignore: %r{^files/.*}
+
 # https://github.com/fredjean/middleman-s3_sync
 activate :s3_sync do |s3|
   # http://staging.euroteamoutreach.org.s3-website-us-east-1.amazonaws.com
