@@ -11,8 +11,8 @@
   - content_for :meta_desc do
     = tag "meta", name: "description", content: article_title
 
-  %article
-    %section.container.page-content
+  %article.article
+    %section.article-container
       .article-title
         %h1= article_title
 
@@ -25,7 +25,7 @@
           = article_date.strftime("%b %d, %Y")
 
     - unless article_image.blank?
-      %section.wide-container.page-content
+      %section.article-container-wide
         .hero-image
           - if !article_image_lg.blank?
             = link_to blog_images_path + article_image_lg do
@@ -36,6 +36,6 @@
             .hero-image__caption
               %p.caption-text= article_caption
 
-    %section.container.page-content
+    %section.article-container
       .article-body
         = yield
