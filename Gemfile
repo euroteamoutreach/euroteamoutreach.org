@@ -8,6 +8,7 @@ gem "middleman-search_engine_sitemap", "~> 1.4"
 gem "middleman-pry", "~> 1.0"
 gem "haml", "~> 5.0", ">= 5.0.1"
 gem "nokogiri", "~> 1.8"
+gem "mime-types", "~> 3.1"
 gem "haml_lint"
 gem "scss_lint"
 
