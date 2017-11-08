@@ -1,4 +1,7 @@
 :ruby
+  site_url = data.site.url
+  site_desc = data.site.description
+  site_photo = data.site.facebook_og_image_url
   blog_images_path = "/assets/images/blog"
   article_title = current_article.data.title
   article_author = current_article.data.author
@@ -7,9 +10,25 @@
   article_image_lg = current_article.data.image_lg.to_s
   article_caption = current_article.data.caption.to_s
 
+  og_url = site_url + current_page.url
+  og_desc = article_og_desc_for(current_article.data, site_desc)
+  og_article_image = blog_images_path + article_image
+  og_default_image = blog_images_path + image_path(site_photo)
+
 = wrap_layout :layout do
   - content_for :meta_desc do
     = tag "meta", name: "description", content: article_title
+
+  - content_for :og_tags do
+    = tag "meta", property: "og:url", content: og_url
+    = tag "meta", property: "og:type", content: "article"
+    = tag "meta", property: "og:title", content: article_title
+    = tag "meta", property: "og:description", content: og_desc
+
+    - if !article_image.blank?
+      = tag "meta", property: "og:image", content: og_article_image
+    - else
+      = tag "meta", property: "og:image", content: og_default_image
 
   %article.article
     %section.article-container

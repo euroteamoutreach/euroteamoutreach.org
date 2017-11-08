@@ -61,4 +61,18 @@ module CustomHelpers
       "file not found: #{file_path}"
     end
   end
+
+  def article_og_desc_for(article, site_desc)
+    if caption_or_desc_for(article)
+      caption_or_desc_for(article)
+    else
+      site_desc.to_s
+    end
+  end
+
+  private
+
+    def caption_or_desc_for(article)
+      !article.caption.nil? ? article.caption : article.desc
+    end
 end
