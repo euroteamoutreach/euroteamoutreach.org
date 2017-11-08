@@ -36,7 +36,7 @@ module CustomHelpers
     end
   end
 
-  def smart_robots(path)
+  def smart_robots(path, env)
     if !!(path =~ /thanks/) || env != "production"
       "noindex, nofollow"
     else
