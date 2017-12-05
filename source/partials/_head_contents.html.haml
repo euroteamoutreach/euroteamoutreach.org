@@ -6,6 +6,7 @@
   page_title = current_page.data.title.to_s
   page_path = current_page.path
   current_env = config[:environment].to_s
+
   og_url = site_url
   og_title = site_title
   og_desc = site_desc
@@ -21,7 +22,7 @@
 - if content_for?(:og_tags)
   = yield_content :og_tags
 - else
-  = tag "meta", property: "og:url", content: site_url
+  = tag "meta", property: "og:url", content: og_url
   = tag "meta", property: "og:title", content: og_title
   = tag "meta", property: "og:description", content: og_desc
   = tag "meta", property: "og:image", content: og_default_image
