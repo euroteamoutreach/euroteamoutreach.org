@@ -22,6 +22,7 @@ activate :blog do |blog|
   blog.sources = "articles/{year}-{month}-{title}.html"
   blog.summary_separator = /(READMORE)/
   blog.layout = "article_layout"
+  blog.new_article_template = File.expand_path("article-template.erb", File.dirname(__FILE__))
 end
 
 configure :build do
