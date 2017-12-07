@@ -14,6 +14,9 @@ caption: "Raphaël \"Ralph\" Villeneuve is our tri-lingual summer intern with a 
 
 Over the years, I've corresponded with many young men about ministering in Ukraine. The ones who come here usually do so to participate in our [CMO project][cmo title]. This year, we decided to skip CMO so we could focus on some behind-the-scenes work, but God sent us a young man anyway. His name is Ralph, and I'd like for you to meet him. READMORE
 
+[Learn more about Bible First](https://getbiblefirst.com/){: .article-button}
+{: .has-article-button .article-item-center}
+
 ---
 {: .hr--bold}
 
