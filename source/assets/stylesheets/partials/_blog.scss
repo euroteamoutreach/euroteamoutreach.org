@@ -209,12 +209,23 @@
       border-bottom: 0;
     }
   }
-
 }
 
-.article-image,
 .article-button {
   @include padding($small-spacing null);
+  margin: $base-spacing 0;
+  text-align: center;
+}
+
+.has-article-button {
+  a:hover {
+    border-bottom: 1px solid $action-color;
+  }
+}
+
+.article-image {
+  @include padding($small-spacing null);
+  margin: $base-spacing 0;
   text-align: center;
 
   a { border: 0; }
@@ -262,5 +273,9 @@
 .caption-text {
   font-style: italic;
   font-weight: 400;
+  text-align: center;
+}
+
+.article-item-center {
   text-align: center;
 }
