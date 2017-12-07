@@ -36,6 +36,14 @@ module CustomHelpers
     end
   end
 
+  def feed_author_name(author)
+    if author.is_a? Array
+      author[0].to_s
+    else
+      author.to_s
+    end
+  end
+
   def smart_robots(path, env)
     if !!(path =~ /thanks/) || env != "production"
       "noindex, nofollow"
