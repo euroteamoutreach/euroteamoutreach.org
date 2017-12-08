@@ -1,9 +1,0 @@
----
-title: My Middleman Blog Post
-date: 2017/07/20
-author: ["Joshua Steele", "joshukraine", "@tw"]
----
-
-This is a sample blog post without any formatting.
-
-Default footer below:
