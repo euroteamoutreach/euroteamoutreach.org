@@ -213,6 +213,7 @@
 
 .article-button {
   @include padding($small-spacing null);
+  font-size: 1em;
   margin: $base-spacing 0;
   text-align: center;
 }
