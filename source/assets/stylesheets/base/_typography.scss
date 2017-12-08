@@ -12,7 +12,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: $medium-gray;
+  color: $dark-gray;
   font-family: $heading-font-family;
   font-weight: 300;
   line-height: $heading-line-height;
@@ -77,4 +77,8 @@ cite {
   font-style: italic;
   font-weight: 400;
   text-align: center;
+}
+
+.hr--bold {
+  border-bottom: 5px solid $subtle-gray;
 }
