@@ -1,31 +1,90 @@
 ---
 
 title: "CMO is Back!"
-date: "2017-12-08"
+date: "2017-12-09"
 author: ["Joshua Steele", "joshukraine", "@tw"]
 image: "blog/2017/cmo-is-back-1200w.jpg"
-caption: "CAPTION TEXT HERE"
+caption: "Today we're excited to announce that CMO is coming back in the summer of 2018! Read on to get the details and learn how to apply."
 
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Carpathian Mountain Outreach 2018 will be our eleventh project — a few weeks of intense evangelism and hands-on missions training. To date, more than 40 men have trekked with our team through the mountains of western Ukraine, bringing the Gospel to multitudes. Listen to what they've been saying...READMORE
 
-READMORE
+> This is missions without the training wheels. Learning and working alongside the missionaries was a great blessing and learning opportunity.  
+— Samuel Henderson, CMO 2013
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+> I would give my highest recommendation for young men, who are already soul winners, to pursue this opportunity with great fervor.  
+— Ben Sargent, CMO 2015
 
-### Subheader
+> Racing my son from mailbox to mailbox to deliver the Gospel message and seeing how much he enjoys doing mission work is a memory worth all the cost and difficulties to be here.  
+— Jeff Rhoades, CMO 2006
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+> As an aspiring missionary abroad, the knowledge and experience gained during CMO was priceless.  
+— Emanuel Schrock, CMO 2015
 
-- Item
-- Item
-- Item
+Now it's your turn. Young man, if you're ready to obey God's call to preach the Gospel, CMO 2018 is a training opportunity you don't want to miss.
 
-[![Description](/assets/images/blog/2017/SM)](/assets/images/blog/2017/LG)
+### A quick refresher...
+
+Ready for a taste of CMO? Take one minute and watch this video:
+
+<iframe src="https://player.vimeo.com/video/56083375" width="700" height="394" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+### Ok, just give me the gist.
+
+Here's a quick blow-by-blow on CMO 2018.
+
+#### What are the dates?
+
+CMO 2018 will begin on **July 12**, 2018 and end on **August 6, 2018**.
+
+#### What is the registration deadline?
+
+If you want to participate in CMO 2018, we need to have your application in hand no later than **April 1, 2018**.
+
+#### How much does it cost?
+
+**$650** personal support (recommended) and **$600** for the Operations Fee. Total cost (not including airfare) is **$1,250**.
+
+#### What's the age limit?
+
+17.
+
+#### What kinds of ministry activities are planned?
+
+Tract distribution, film showings in the mountains, chalk art, street preaching, personal evangelism. There may be other things too - Ukraine is full of surprises!
+
+#### Is Ben Sargent coming?
+
+I thought you'd never ask. Yes he is. :) 
+
+[![Description](/assets/images/blog/2017/mountain-man-ben-550w.jpg)](/assets/images/blog/2017/mountain-man-ben-2000w.jpg)
 {: .article-image .article-image--has-caption}
-My caption text.
+Ben Sargent on Mount Parashka, 2015
 {: .caption-text .article-image__caption}
 
-[![Description](/assets/images/blog/2017/SM)](/assets/images/blog/2017/LG)
-{: .article-image}
+### Sign me up!
+
+The application process is fairly straightforward, and we've included everything you need to know on the CMO web site, [cmoproject.org](http://www.cmoproject.org/).
+
+Ready to get started? You know what to do. Click the button!
+
+[Apply for CMO 2018](http://www.cmoproject.org/apply/){: .article-button}
+{: .has-article-button .article-item-center}
+
+
+---
+{: .hr--bold}
+
+**"Go ye, therefore, and teach all nations..."  
+Matthew 28:19**
+{: .article-item-center}
+
+---
+{: .hr--bold}
+
+
+[![Description](/assets/images/blog/2017/cmo-2016-parashka-group-550w.jpg)](/assets/images/blog/2017/cmo-2016-parashka-group-2000w.jpg)
+{: .article-image .article-image--has-caption}
+The CMO 2016 team on Mount Parashka
+{: .caption-text .article-image__caption}
