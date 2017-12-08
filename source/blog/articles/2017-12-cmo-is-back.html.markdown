@@ -3,8 +3,7 @@
 title: "CMO is Back!"
 date: "2017-12-08"
 author: ["Joshua Steele", "joshukraine", "@tw"]
-image: "blog/2017/image-name.jpg"
-image_lg: "blog/2017/image-name.jpg"
+image: "blog/2017/cmo-is-back-1200w.jpg"
 caption: "CAPTION TEXT HERE"
 
 ---
