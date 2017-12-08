@@ -6,13 +6,13 @@
   article_title = current_article.data.title
   article_author = current_article.data.author
   article_date = current_article.date
-  article_image = image_path(current_article.data.image.to_s)
-  article_image_lg = image_path(current_article.data.image_lg.to_s)
+  article_image = current_article.data.image.to_s
+  article_image_lg = current_article.data.image_lg.to_s
   article_caption = current_article.data.caption.to_s
 
   og_url = site_url + current_page.url
   og_desc = article_og_desc_for(current_article.data, site_desc)
-  og_article_image = site_url + article_image
+  og_article_image = site_url + image_path(article_image)
   og_default_image = site_url + image_path(site_photo)
 
 = wrap_layout :layout do
