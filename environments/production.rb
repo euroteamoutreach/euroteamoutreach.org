@@ -18,6 +18,10 @@ activate :s3_sync do |s3|
   s3.error_document = "404.html"
 end
 
+data.redirects.each do |redirect|
+  redirect "#{redirect.original}/index.html", to: redirect.new
+end
+
 # https://github.com/fredjean/middleman-s3_sync#http-caching
 default_caching_policy max_age: (60 * 60 * 24 * 365)
 caching_policy "text/html", public: true, max_age: 0, must_revalidate: true

@@ -1,0 +1,55 @@
+# Internal
+
+# https://www.euroteamoutreach.org/abouteto
+- original: abouteto
+  new: /about
+
+# https://www.euroteamoutreach.org/blogs
+- original: blogs
+  new: /blog
+
+# https://www.euroteamoutreach.org/donations
+- original: donations
+  new: /donate
+
+# External
+
+# https://www.euroteamoutreach.org/cmo
+- original: cmo
+  new: https://www.cmoproject.org/
+
+# https://www.euroteamoutreach.org/cmomovie
+- original: cmomovie
+  new: https://www.cmoproject.org/movie/
+
+# https://www.euroteamoutreach.org/cmotrailer
+- original: cmotrailer
+  new: https://www.cmoproject.org/movie-trailer/
+
+# https://www.euroteamoutreach.org/bftv
+- original: bftv
+  new: https://getbiblefirst.com/
+
+# https://www.euroteamoutreach.org/biblefirst
+- original: biblefirst
+  new: https://getbiblefirst.com/
+
+# https://www.euroteamoutreach.org/cbc
+- original: cbc
+  new: https://getbiblefirst.com/
+
+# https://www.euroteamoutreach.org/biblefirstcourses
+- original: biblefirstcourses
+  new: https://getbiblefirst.com/
+
+# https://www.euroteamoutreach.org/good-and-evil
+- original: good-and-evil
+  new: http://goodandevilbook.com/
+
+# https://www.euroteamoutreach.org/pictures
+- original: pictures
+  new: https://www.facebook.com/pg/euroteamoutreach/photos/
+
+# https://www.euroteamoutreach.org/subscribe
+- original: subscribe
+  new: https://euroteamoutreach.us6.list-manage.com/subscribe/post?u=672df31cd6d0e7132c9c4c7d1&amp;id=d107e57061
