@@ -14,13 +14,14 @@ h5,
 h6 {
   color: $dark-gray;
   font-family: $heading-font-family;
-  font-weight: 300;
+  font-weight: 600;
   line-height: $heading-line-height;
   margin: 0 0 $small-spacing;
 }
 
 h1 {
   color: $primary-blue;
+  font-weight: 300;
   font-size: $h1-font-size;
   margin-bottom: 0.3em;
 }
