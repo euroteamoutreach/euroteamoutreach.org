@@ -1,7 +1,7 @@
 ---
 
 title: "CMO is Back!"
-date: "2017-12-09"
+date: "2017-12-08"
 author: ["Joshua Steele", "joshukraine", "@tw"]
 image: "blog/2017/cmo-is-back-1200w.jpg"
 caption: "Today we're excited to announce that CMO is coming back in the summer of 2018! Read on to get the details and learn how to apply."
@@ -28,7 +28,9 @@ Now it's your turn. Young man, if you're ready to obey God's call to preach the 
 
 Ready for a taste of CMO? Take one minute and watch this video:
 
-<iframe src="https://player.vimeo.com/video/56083375" width="700" height="394" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<div class="video-wrapper">
+<iframe src="https://player.vimeo.com/video/56083375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
 
 ### Ok, just give me the gist.
 
@@ -36,7 +38,7 @@ Here's a quick blow-by-blow on CMO 2018.
 
 #### What are the dates?
 
-CMO 2018 will begin on **July 12**, 2018 and end on **August 6, 2018**.
+CMO 2018 will begin on **July 12, 2018** and end on **August 6, 2018**.
 
 #### What is the registration deadline?
 
@@ -53,15 +55,6 @@ If you want to participate in CMO 2018, we need to have your application in hand
 #### What kinds of ministry activities are planned?
 
 Tract distribution, film showings in the mountains, chalk art, street preaching, personal evangelism. There may be other things too - Ukraine is full of surprises!
-
-#### Is Ben Sargent coming?
-
-I thought you'd never ask. Yes he is. :) 
-
-[![Description](/assets/images/blog/2017/mountain-man-ben-550w.jpg)](/assets/images/blog/2017/mountain-man-ben-2000w.jpg)
-{: .article-image .article-image--has-caption}
-Ben Sargent on Mount Parashka, 2015
-{: .caption-text .article-image__caption}
 
 ### Sign me up!
 
