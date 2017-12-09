@@ -1,7 +1,7 @@
 language: "en-us"
 name: "Euro Team Outreach"
-url: "http://staging.euroteamoutreach.org.s3-website-us-east-1.amazonaws.com"
-human_url: "staging.euroteamoutreach.org.s3-website-us-east-1.amazonaws.com"
+url: "http://euroteamoutreach.org"
+human_url: "euroteamoutreach.org"
 title: "Euro Team Outreach - Missionaries serving Christ in Ukraine"
 description: >
   Euro Team Outreach is a Christian organization dedicated to the
