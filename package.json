@@ -22,14 +22,14 @@
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
-    "browserify": "^14.4.0",
+    "browserify": "^14.5.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
-    "gulp-changed": "^3.1.0",
+    "gulp-changed": "^3.1.1",
     "gulp-clean-css": "^3.9.0",
     "gulp-environments": "^0.1.2",
-    "gulp-imagemin": "^3.3.0",
+    "gulp-imagemin": "^4.0.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-sass": "^3.1.0",
     "gulp-sizereport": "^1.2.0",
@@ -45,7 +45,7 @@
     "bourbon": "^4.3.4",
     "bourbon-neat": "^1.9.0",
     "jquery": "^3.2.1",
-    "moment": "^2.18.1",
+    "moment": "^2.19.3",
     "webfontloader": "^1.6.28"
   },
   "engines": {
