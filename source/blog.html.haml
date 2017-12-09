@@ -3,6 +3,10 @@ title: Blog
 ---
 
 %section.container.page-content
+  - if blog.articles.count == 0
+    .no-articles-yet
+      %h4 No articles yet. Please check back soon!
+
   - page_articles.each_with_index do |article, i|
     - pretty_date = article.date.strftime("%b %d, %Y")
 
