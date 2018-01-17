@@ -47,7 +47,7 @@
       %section.article-container-wide
         .hero-image
           - if !article_image_lg.blank?
-            = link_to article_image_lg do
+            = link_to "/assets/images/" + article_image_lg do
               = image_tag article_image
           - else
             = image_tag article_image
