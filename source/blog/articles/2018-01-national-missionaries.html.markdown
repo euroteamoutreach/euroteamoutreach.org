@@ -11,11 +11,16 @@ caption: "This summer, ETO welcomed our first Ukrainian family as full-time staf
 
 Meet Anatoli and Anastasia! Or, as we've known them for many years, Tolik and Nastia. I was first introduced to Tolik and Nastia back in 2001 before they were married. They were teenagers then, both actively involved in their local Greater Grace church here in L'viv — the same church we attend today. Over the years I've watched them grow and mature in Christ, marry and start a family, and remain active in ministry.READMORE
 
-In recent blog posts, both Nathan and I have announced that the Zhylavy's are now ministering as full-time missionaries with ETO. We are thrilled to have them on board, and in this post I'd like introduce their family more fully. I'd also like to point out some of the reasons we are so excited to have them on staff. If you'd like to learn more about how you can pray for and support these Ukrainian national missionaries, read on!
+In recent blog posts, both Nathan and I have announced that the Zhylavy's are now ministering as full-time missionaries with ETO. We are thrilled to have them on board, and in this post I'd like to introduce their family more fully. I'd also like to point out some of the reasons we are so excited to have them on staff. If you'd like to learn more about how you can pray for and support these Ukrainian national missionaries, read on!
 
 ### Proven Gospel Ministers
 
-In 2007, the Zhylavy's were sent out from Greater Grace Church as missionaries to the city of Uzhhorod. There, Tolik took over the pastorate of a young local church and helped it to grow. He and Nastia lived on a shoestring budget, and the church gathered each week in their home.
+In 2007, the Zhylavy's were sent out from Greater Grace Church as missionaries to the city of Uzhhorod. There, Tolik took over the pastorate of a young local church and helped it to grow. He and Nastia lived on a shoestring budget, and the church gathered each week in homes.
+
+[![Description](/assets/images/blog/2018/uzhhorod-550w.jpg)](/assets/images/blog/2018/uzhhorod-2000w.jpg)
+{: .article-image .article-image--has-caption}
+The early days in Uzhhorod
+{: .caption-text .article-image__caption}
 
 During their years in Uzhhorod, Tolik and Nastia proved themselves faithful and diligent missionaries. They returned to L'viv in 2011 where they have continued to be active in ministry both within the church and in reaching out to the lost.
 
