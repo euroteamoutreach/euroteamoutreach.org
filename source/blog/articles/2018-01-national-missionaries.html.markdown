@@ -1,7 +1,7 @@
 ---
 
 title: "National Missionaries"
-date: "2018-01-13"
+date: "2018-01-18"
 author: ["Joshua Steele", "joshukraine", "@tw"]
 image: "blog/2018/zhylavy-family-1200w.jpg"
 image_lg: "blog/2018/zhylavy-family-2000w.jpg"
