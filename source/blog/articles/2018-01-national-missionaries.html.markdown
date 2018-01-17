@@ -67,10 +67,9 @@ The Zhylavy's live in a small village just outside L'viv. And village life has i
 
 When the Zhylavy's joined ETO last August, Tolik left a well-paid position as a professional translator working with the U.S. Military. Their family is living by faith, trusting God to meet their needs while they minister full-time with ETO. ETO is providing what help it can, but we would love to see their support base expand.
 
-Tolik and Nastia are faithful missionaries, and we believe they have the potential to do great things for God's kingdom. If you would like to contribute to the Zhylavys' family and ministry, please send a check, payable to Euro Team Outreach, Inc., to this address:
+Tolik and Nastia are faithful missionaries, and we believe they have the potential to do great things for God's kingdom. If you would like to contribute to the Zhylavys' family and ministry, please send a check payable to Euro Team Outreach, Inc., to the address below. Write "National Missionaries" in the memo line on the check.  
 
 **Euro Team Outreach  
-ATTN: National Missionaries  
 16723 Britford  
 Houston, TX 77084**
 {: .article-item-center}
