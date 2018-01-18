@@ -37,7 +37,7 @@ Translating chapter 11 of Good and Evil into Ukrainian
 
 ### The Ukrainian Touch
 
-Although every Ukraine-based ETO staff member reads, writes, and speaks fluent Ukrainian, we are nonetheless Americans. There are times in ministry when just knowing the right words is not enough. This is one of the reasons why we are so excited to have the Zhylavy's on board! As Ukrainians, they can pickup nuances of language and culture which we believe will provide a strategic advantage as we expand Bible First, CMO, and our other outreaches in Ukraine.
+Although every Ukraine-based ETO staff member reads, writes, and speaks fluent Ukrainian, we are nonetheless Americans. There are times in ministry when just knowing the right words is not enough. This is one of the reasons why we are so excited to have the Zhylavy's on board! As Ukrainians, they can pick up nuances of language and culture which we believe will provide a strategic advantage as we expand Bible First, CMO, and our other outreaches in Ukraine.
 
 ### The Family Example
 
