@@ -29,7 +29,7 @@ Joshua and Nathan spent hours on Skype, reading through every word of Good and E
 
 [![Description](/assets/images/blog/2018/tolik-translating-550w.jpg)](/assets/images/blog/2018/tolik-translating-2000w.jpg)
 {: .article-image .article-image--has-caption}
-Anatoliy did an outstanding job with the Ukrainian translation. We couldn't be happier with the finished product!
+Tolik did an outstanding job with the Ukrainian translation. We couldn't be happier with the finished product!
 {: .caption-text .article-image__caption}
 
 ### What's left to do?
