@@ -1,7 +1,7 @@
 ---
 
 title: "Translation Complete!"
-date: "2018-03-08"
+date: "2018-03-10"
 author: ["Joshua Steele", "joshukraine", "@tw"]
 image: "blog/2018/ge-shiny-1200w.jpg"
 image_lg: "blog/2018/ge-shiny-2000w.jpg"
