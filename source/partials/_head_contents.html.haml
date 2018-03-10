@@ -13,8 +13,9 @@
   og_default_image = data.site.facebook_og_image_url
 
 = tag "meta", charset: "utf-8"
-= tag "meta", content: "IE=edge", "http-equiv" => "X-UA-Compatible"
-= tag "meta", content: "width=device-width, initial-scale=1.0", name: "viewport"
+= tag "meta", "http-equiv": "X-UA-Compatible", content: "IE=edge"
+= tag "meta", name: "viewport",
+  content: "width=device-width, initial-scale=1.0", "shrink-to-fit": "no"
 = tag "meta", name: "author", content: site_author
 = tag "meta", name: "robots", content: smart_robots(page_path, current_env).to_s
 = tag "meta", name: "description", content: site_desc
