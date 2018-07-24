@@ -1,7 +1,7 @@
 ---
 
 title: "Go Forward"
-date: "2018-07-23"
+date: "2018-07-24"
 author: "Andrew Joyner"
 image: "blog/2018/image-name.jpg"
 image_lg: "blog/2018/image-name.jpg"
