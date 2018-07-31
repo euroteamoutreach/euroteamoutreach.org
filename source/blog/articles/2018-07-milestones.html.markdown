@@ -107,7 +107,7 @@ The week went by quickly and we are thankful to God for his continued protection
 * Pray for those who heard the Gospel preached this week, both in L'viv and in Smil'na.
 * Pray for our final showing of the project next week in Tur'ye.
 * Praise the Lord the for the new responses which are already coming in as a result of our literature campaigns in Lutsk, Sykheev, and Rivne.
-* Pray for a speedy recovery for Ben Sargent's wife, Karen. She was recently in a car accident and suffered a stroke.
+* Pray for a speedy recovery for Ben Sargent's wife, Karen. She was recently in a car accident and suffered a concussion.
 * Pray that God would continue to keep our vehicles running.
 * Pray for health and safety for the team.
 
