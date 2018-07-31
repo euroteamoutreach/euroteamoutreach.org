@@ -215,6 +215,14 @@
       border-bottom: 0;
     }
   }
+
+  video {
+    @include margin($base-spacing * 2 auto);
+    display: block;
+    height: auto;
+    margin: $small-spacing auto;
+    width: 100%;
+  }
 }
 
 .article-button {

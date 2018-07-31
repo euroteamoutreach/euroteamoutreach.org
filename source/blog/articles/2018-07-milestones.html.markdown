@@ -58,6 +58,14 @@ Elliot Shupe had the first message with Tolik translating and Nathan drawing the
 For the second message, Ben Sargent preached and Joshua translated. Nathan drew the Three Crosses scene.
 {: .caption-text .article-image__caption}
 
+<video style="max-width: 300px;" controls>
+  <source src="https://d2ppgd6w5akw3v.cloudfront.net/video/andrew-joyner-street-preaching-lviv-2018.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+{: .article-image .article-image--has-caption}
+For the third and final message of the day, Andrew Joyner preached while Joshua translated. Nathan again drew the Higher Ground scene.
+{: .caption-text .article-image__caption}
+
 The next day we packed the van for the weekend and left for Church around 9:45am. Unfortunately we had to leave Ben behind because he needed to return home early for a family emergency. Following church we left for the Carpathian Mountains to the village of Smil'na. We had a very successful film showing and a very positive response from the villagers. There were 20 people in attendance to which we were able to share the gospel and give literature too. That evening we set up camp in the same location we camped the previous weekend and got some rest. 
 
 [![Description](assets/images/blog/2018/film-showing-smilna-550w.jpg)](assets/images/blog/2018/film-showing-smilna-2000w.jpg)
