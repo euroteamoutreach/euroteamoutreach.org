@@ -83,7 +83,7 @@ As usual, Joshua preached the Gospel after the film had ended.
 William West and Andrew Howard hand out copies of Good and Evil books as well as starter packets for our Bible First course.
 {: .caption-text .article-image__caption}
 
-Monday morning we broke camp and went into the village of Tur'ye to pass out invites for the film showing next weekend. After confirming the details of the showing with the village head, we quickly stamped invites with the date, time and location. In two's we trekked through the village putting film invitations on gates, front doors and mail boxes. We finished in good time, packed into the van and went straight to the airport in hopes of catching Ben before he departed. We arrived long before his flight was set to depart and were able to bid him farewell as he heads back to the States. 
+Monday morning we broke camp and went into the village of Tur'ye to pass out invites for the film showing next weekend. After confirming the details of the showing with the village head, we quickly stamped invites with the date, time and location. In twos we trekked through the village putting film invitations on gates, front doors and mail boxes. We finished in good time, packed into the van and went straight to the airport in hopes of catching Ben before he departed. We arrived long before his flight was set to depart and were able to bid him farewell as he heads back to the States. 
 
 [![Description](assets/images/blog/2018/stamping-in-turye-550w.jpg)](assets/images/blog/2018/stamping-in-turye-2000w.jpg)
 {: .article-image .article-image--has-caption}
