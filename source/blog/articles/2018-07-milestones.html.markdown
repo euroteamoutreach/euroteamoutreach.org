@@ -9,7 +9,7 @@ caption: "At the conclusion of the Rivne campaign, the CMO men paused to celebra
 
 ---
 
-*"Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark for the prize of the high calling of God in Christ Jesus."  (Philippians 3:13-14)*
+*"Brethren, I count not myself to have apprehended: but this one thing I do, forgetting those things which are behind, and reaching forth unto those things which are before, I press toward the mark for the prize of the high calling of God in Christ Jesus." (Philippians 3:13-14)*
 
 After returning from last week's village, we prepared for the following week on Tuesday and enjoyed a day off. Some of us spent the morning talking at a coffee shop in downtown L'viv while others had lunch with the Day family. After finishing laundry and drying out our camp gear, we younger guys had dinner together at one of the apartments. Andrew Howard and William were nice enough to make myself (Elliot) and Andrew Joyner pasta for dinner. After finishing we headed back to the Ministry Center and got some sleep. 
 
