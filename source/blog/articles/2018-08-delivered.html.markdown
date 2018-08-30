@@ -20,7 +20,7 @@ There were five pallets of books on the truck — 1000 per pallet.
 
 [![Description](assets/images/blog/2018/unloading-550w.jpg)](assets/images/blog/2018/unloading-2000w.jpg)
 {: .article-image .article-image--has-caption}
-Sasha and the truck driver guide the first pallet onto lift.
+Sasha and the truck driver guide the first pallet onto the lift.
 {: .caption-text .article-image__caption}
 
 We don't have a warehouse, and so the shipment had to be divided up amongst a couple of apartments. This meant placing the pallets in the parking lot, and then passing the boxes man to man into the building and eventually up the stairs.
@@ -30,7 +30,7 @@ We don't have a warehouse, and so the shipment had to be divided up amongst a co
 We had a great crew of volunteers who worked late into the night unloading the books, passing them along like a bucket brigade!
 {: .caption-text .article-image__caption}
 
-After unloading the first few pallets at one location and stashing them just inside the first floor stairwell, we immediately departed with the truck driver to deliver the remaining pallets at a second location. Denise and Sasha's wife, Alla, stayed behind to guard the first group of books until we could return and finish taking the up the stairs to their final storage area.
+After unloading the first few pallets at one location and stashing them just inside the first floor stairwell, we immediately departed with the truck driver to deliver the remaining pallets at a second location. Denise and Sasha's wife, Alla, stayed behind to guard the first group of books until we could return and finish taking them up the stairs to their final storage area.
 
 Upon arriving at the second location, the truck driver unloaded the remaining pallets near the curb (as close as his truck could get) and we began the long and arduous task of passing the boxes one-by-one up the stairs to their storage area on the sixth floor!
 
