@@ -259,6 +259,12 @@
   padding-bottom: 0;
 }
 
+.article-image--has-border {
+  img {
+    border: 1px solid $medium-gray;
+  }
+}
+
 .article-image__caption {
   @include margin(null auto $base-spacing);
   max-width: 500px;
