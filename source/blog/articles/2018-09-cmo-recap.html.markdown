@@ -30,6 +30,8 @@ No CMO project would be complete without the stats. If you've followed our minis
 - Total attendance for all showings combined was **96**.
 - Average attendance per showing was **19**.
 - The CMO guys conducted **95 Bible surveys** in L'viv. (More on that in a moment.)
+- We conducted **16 open-air outreaches** with street preaching and chalk art.
+- **7** of the men took a turn preaching via interpreter, several for the first time.
 - We conducted literature campaigns in **3 major cities**: L'viv, Rivne, and Lutsk.
 - The total number of tracts distributed was **113,000**.
 - Our tract output per day was **18,600**.
