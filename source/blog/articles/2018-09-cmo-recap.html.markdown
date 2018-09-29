@@ -34,7 +34,7 @@ No CMO project would be complete without the stats. If you've followed our minis
 - **7** of the men took a turn preaching via interpreter, several for the first time.
 - We conducted literature campaigns in **3 major cities**: L'viv, Rivne, and Lutsk.
 - The total number of tracts distributed was **113,000**.
-- Our tract output per day was **18,600**.
+- Our average tract output per day was **18,600**.
 - As of August 23rd (when these stats were compiled) we had received **81 responses**. That number has continued to increase in the weeks following.
 - There were 4 first-timers on the CMO 2018 team. This brings us to a total of **47 CMO alumni**!
 
