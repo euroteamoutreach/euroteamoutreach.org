@@ -15,6 +15,7 @@ Requirements
 * [Middleman 4.x][middleman-docs]
 * [Ruby 2.x][rbenv]
 * [Node 6.x][nvm]
+* [Yarn][yarn]
 * [Gulp CLI][gulp-cli]
 
 
@@ -105,3 +106,4 @@ Copyright &copy; 2017 Euro Team Outreach, Inc. Software is licensed under [MIT][
 [aws-s3-deployment]: http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html
 [aws-cert-manager]: https://aws.amazon.com/blogs/aws/new-aws-certificate-manager-deploy-ssltls-based-apps-on-aws/
 [license]: https://github.com/euroteamoutreach/euroteamoutreach.org/blob/master/LICENSE
+[yarn]: https://yarnpkg.com/en/
