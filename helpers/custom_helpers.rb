@@ -71,16 +71,6 @@ module CustomHelpers
   end
 
   def article_og_desc_for(article, site_desc)
-    if caption_or_desc_for(article)
-      caption_or_desc_for(article)
-    else
-      site_desc.to_s
-    end
+    !article.summary.nil? ? strip_tags(article.summary) : site_desc.to_s
   end
-
-  private
-
-    def caption_or_desc_for(article)
-      !article.caption.nil? ? article.caption : article.desc
-    end
 end
