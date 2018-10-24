@@ -53,7 +53,7 @@ a {
 }
 
 ul,
-ol { font-weight: 300; }
+ol { font-weight: 400; }
 
 hr {
   border-bottom: $base-border;
@@ -75,12 +75,16 @@ cite {
 
 .caption-text {
   font-size: 1.1rem;
-  font-style: italic;
-  font-weight: 400;
+  font-weight: 700;
   text-align: center;
   color: $dark-gray;
 }
 
 .hr--bold {
   border-bottom: 5px solid $subtle-gray;
+}
+
+strong {
+  color: $dark-gray;
+  font-weight: 700;
 }
