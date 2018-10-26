@@ -156,10 +156,9 @@
     }
   }
 
-  .bio-patricia {
+  .bio-text-simple {
     @include span-columns(8 of 12);
     @include shift(2 of 12);
-    text-align: center;
 
     @include media($phone-landscape) {
       @include span-columns(8 of 8);
@@ -170,6 +169,10 @@
     @include media($phone-portrait) {
       padding: 0;
     }
+  }
+
+  .bio-center {
+    text-align: center;
   }
 }
 
