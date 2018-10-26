@@ -4,6 +4,6 @@ describe "Sargent bio page", type: :feature do
   end
 
   it "displays the correct heading" do
-    expect(page).to have_selector("h1", text: "The Sargent Family")
+    expect(page).to have_selector("h1", text: "Ben and Karen Sargent")
   end
 end
