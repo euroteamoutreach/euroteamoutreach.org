@@ -203,10 +203,6 @@
     list-style-type: decimal;
   }
 
-  li {
-    font-weight: 300;
-  }
-
   a {
     border-bottom: 1px solid $action-color;
     text-decoration: none;
@@ -289,12 +285,6 @@
   @include media($phone-portrait) {
     padding: 0;
   }
-}
-
-.caption-text {
-  font-style: italic;
-  font-weight: 400;
-  text-align: center;
 }
 
 .article-item-center {

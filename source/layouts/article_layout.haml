@@ -11,7 +11,7 @@
   article_caption = current_article.data.caption.to_s
 
   og_url = site_url + current_page.url
-  og_desc = article_og_desc_for(current_article.data, site_desc)
+  og_desc = article_og_desc_for(current_article, site_desc)
   og_article_image = site_url + image_path(article_image)
   og_default_image = site_url + image_path(site_photo)
 

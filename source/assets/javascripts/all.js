@@ -1,4 +1,3 @@
-require('./_beal-dates');
 require('./_contact-modal');
 require('./_copyright');
 require('./_font-loader.js');

@@ -90,20 +90,20 @@ euroteamoutreach.org is currently deployed on Amazon S3. [Detailed instructions]
 Legal
 -----
 
-Copyright &copy; 2017 Euro Team Outreach, Inc. Software is licensed under [MIT][license].
+Copyright &copy; 2018 Euro Team Outreach, Inc. Software is licensed under [MIT][license].
 
-[travis-svg]: https://travis-ci.org/euroteamoutreach/euroteamoutreach.org.svg?branch=master
-[travis]: https://travis-ci.org/euroteamoutreach/euroteamoutreach.org
+[aws-cert-manager]: https://aws.amazon.com/blogs/aws/new-aws-certificate-manager-deploy-ssltls-based-apps-on-aws/
+[aws-s3-deployment]: http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html
 [eto]: https://euroteamoutreach.org/
-[screenshot]: https://s3.amazonaws.com/images.euroteamoutreach.org/eto-screenshot.jpg
-[middleman]: https://middlemanapp.com/
-[middleman-docs]: https://middlemanapp.com/basics/install/
-[rbenv]: https://github.com/rbenv/rbenv#readme
-[nvm]: https://github.com/creationix/nvm#readme
+[external-pipeline]: https://middlemanapp.com/advanced/external-pipeline/
 [gulp-cli]: https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started
 [gulp]: http://gulpjs.com/
-[external-pipeline]: https://middlemanapp.com/advanced/external-pipeline/
-[aws-s3-deployment]: http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html
-[aws-cert-manager]: https://aws.amazon.com/blogs/aws/new-aws-certificate-manager-deploy-ssltls-based-apps-on-aws/
 [license]: https://github.com/euroteamoutreach/euroteamoutreach.org/blob/master/LICENSE
+[middleman-docs]: https://middlemanapp.com/basics/install/
+[middleman]: https://middlemanapp.com/
+[nvm]: https://github.com/creationix/nvm#readme
+[rbenv]: https://github.com/rbenv/rbenv#readme
+[screenshot]: https://s3.amazonaws.com/images.euroteamoutreach.org/eto-screenshot-2018-1200w.jpg
+[travis-svg]: https://travis-ci.org/euroteamoutreach/euroteamoutreach.org.svg?branch=master
+[travis]: https://travis-ci.org/euroteamoutreach/euroteamoutreach.org
 [yarn]: https://yarnpkg.com/en/
