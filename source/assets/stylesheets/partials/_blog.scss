@@ -242,7 +242,7 @@
   a { border: 0; }
 
   img {
-    max-width: 80%;
+    max-width: 700px;
 
     @include media($phone-portrait) {
       max-width: 100%;
