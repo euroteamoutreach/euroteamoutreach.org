@@ -9,7 +9,9 @@ caption: "The CMO 2018 team"
 
 ---
 
-Today we're excited to announce that registration for Carpathian Mountain Outreach 2019 is now open! In past years, CMO has begun in mid-July, but this year we're moving things up a bit with a **start date of June 13**. READMORE Before we dive into the details, I'd like to bring back a classic quote from CMO alumni Bryan Shufelt:
+Today we're excited to announce that registration for Carpathian Mountain Outreach 2019 is now open! In past years, CMO has begun in mid-July, but this year, due to some unusual scheduling needs, we're moving things up a bit with a **start date of June 13**. READMORE
+
+Before we dive into the details of the 2019 project, I'd like to bring back a classic quote from CMO alumni Bryan Shufelt:
 
 > How can you summarize CMO 2006? In one word: life-changing. ... I would highly recommend CMO to all young men who are wanting to be men of God. Not just those who are interested in foreign missions, but even those who are going to stay in the States for the rest of their lives. CMO 2006 changed my perspective. I now understand the world-wide need for the Gospel. I have met people I would have never met before, who challenged me in my beliefs. They forced me to reevaluate; to decide what I believe and why I believe it; to research the Bible to prove it, not rely on faulty human reasoning. CMO 2006 was an amazing experience for me and I pray that the lessons I have learned will never fall away.  
 — Bryan Shufelt, CMO 2006, 2009, 2010
@@ -54,7 +56,7 @@ If you want to participate in CMO 2019, we need to have your application in hand
 
 #### What kinds of ministry activities are planned?
 
-Tract distribution, film showings in the mountains, chalk art, street preaching, personal evangelism. In addition, we're bringing back a new ministry that we introduced last year: Bible Surveys! Many of the men from CMO 2018 said this was one of their favorite ministries of the project!
+Tract distribution, film showings in the mountains, chalk art, open-air preaching. In addition, we're bringing back a new ministry that we introduced last year: Bible Surveys. Many of the men from CMO 2018 said this was one of their favorite ministries of the project!
 
 [![Description](assets/images/blog/2019/tracting-rivne-700w.jpg)](assets/images/blog/2019/tracting-rivne-3000w.jpg)
 {: .article-image .article-image--has-caption}
