@@ -61,7 +61,7 @@ Ben, Rebekah, and I's team was the "English team"  which means that we didn't ha
 Open-air ministry in L'viv on Saturday afternoon.
 {: .caption-text .article-image__caption}
 
-Saturday in the morning we went touring! We went to the Armory Museum and then up to a lookout observatory on top of the highest point in L'viv. That was REALLY cool! In the afternoon we did street preaching, music, and chalk art. We also were able to hand out a lot of Good and Evil book tracts. Sunday we went and showed two film showings at the villages that we had handed out the invitations at on Thursday. Josh got sick Saturday night and was not able to go with us to show the films. We left at 10:30am Sunday morning to head to the villages. Since Josh always drives the van and he was sick, Ben drove. He only ran one red-light. 😆
+Saturday in the morning we went touring! We went to the Armory Museum and then up to a lookout observatory on top of the highest point in L'viv. That was REALLY cool! In the afternoon we did street preaching, music, and chalk art. We also were able to hand out a lot of Good and Evil book tracts. Sunday we went and showed two film showings at the villages that we had handed out the invitations at on Thursday. Josh got sick Saturday night and was not able to go with us to show the films. We left at 10:30am Sunday morning to head to the villages. Since Josh always drives the van and he was sick, Ben drove.
 
 [![Description](/assets/images/blog/2019/nathan-preaching-700h.jpg)](/assets/images/blog/2019/nathan-preaching-3000h.jpg)
 {: .article-image .article-image--has-caption}
