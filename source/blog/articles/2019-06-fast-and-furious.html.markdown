@@ -77,7 +77,7 @@ Something cool that happened at the second village we showed the film at was tha
 * Praise the Lord for those who heard the Gospel Sunday in the villages of Strilky and Lopushanka-Khomyna!
 * Pray for a successful showing next weekend in Rozluch.
 * Pray for open hearts and salvation for those who heard the Gospel during our survey and chalk-art outreaches on Friday and Saturday.
-* Pray for safety as we travel to the city of Rivne for a three-day outreach beginning tomorrow (June 20).
+* Pray for safety as we travel to the city of Rivne for a three-day outreach beginning tomorrow (June 19).
 * Pray for health for team. Specifically, this would include Karen's ankle, Ben's knee, and Joshua's recovery from a stomach illness. All appear to be on the mend, but prayers are appreciated all the same! And of course, pray that those who are healthy will stay that way!
 * Pray for good weather for our surveys and open-air preaching this Saturday. There is rain in the forecast.
 
