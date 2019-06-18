@@ -2,7 +2,7 @@
 
 title: "Fast and Furious"
 date: "2019-06-18"
-author: ["Joshua Steele", "joshukraine", "@tw"]
+author: "Kade Bloom"
 image: "blog/2019/good-and-evil-bundles-1200w.jpg"
 image_lg: "blog/2019/good-and-evil-bundles-3000w.jpg"
 caption: "Ralph prepares shrink-wrapped Good and Evil books for the survey outreach on Friday. Each book was bundled with a starter packet for our Bible First correspondence course."
