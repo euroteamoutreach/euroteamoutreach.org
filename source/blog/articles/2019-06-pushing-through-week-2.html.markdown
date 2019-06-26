@@ -83,7 +83,7 @@ Monday morning we packed our tents in a drizzle, but that didn't stop the team f
 View the full Week 2 photo album on our Facebook page!
 {: .article-item-center}
 
-[Week 2 Photo Album](https://www.facebook.com/pg/euroteamoutreach/photos/?tab=album&album_id=10156556333552123){: .article-button target="blank"}
+[Week 2 Photo Album](https://facebook.com/media/set/?set=a.10156556333552123&type=3){: .article-button target="blank"}
 {: .has-article-button .article-item-center}
 
 ---
