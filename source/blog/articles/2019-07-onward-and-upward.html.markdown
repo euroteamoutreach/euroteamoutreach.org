@@ -26,7 +26,7 @@ Each of us had a pack weighing from 20 to 30 pounds, so the hike was no small ch
 
 On our way down we met up with a group of 11 teenage girls who had all but run out of water. They still had a good bit of hiking ahead of them so we were able to share some of our water with them which they were very thankful for.
 
-After coming off the top we set up camp and started a fire to make us some super on, then afterwards we sat around the fire and had a good time of fellowship. By the time we got in our tents the sleeping bag felt like a bed of feathers.
+After coming off the top we set up camp and started a fire to make us some supper on, then afterwards we sat around the fire and had a good time of fellowship. By the time we got in our tents the sleeping bag felt like a bed of feathers.
 
 [![Description](/assets/images/blog/2019/camp-fire-parashka-700w.jpg)](/assets/images/blog/2019/camp-fire-parashka-3000w.jpg)
 {: .article-image .article-image--has-caption}
@@ -51,14 +51,14 @@ Serhii Chepara and Nelson Shirk conduct Bible surveys in central L'viv.
 New for this year's street outreach, Abby and Joshua have been singing an English/Ukrainian rendition of "In Christ Alone". Abby's solo on her recorder turns a lot of heads! 🙂
 {: .caption-text .article-image__caption}
 
-[![Description](/assets/images/blog/2019/kade-preach-700w.jpg)](/assets/images/blog/2019/kade-preach-3000w.jpg)
-{: .article-image .article-image--has-caption}
-Kade Bloom preaches the Gospel in central L'viv.
-{: .caption-text .article-image__caption}
-
 [![Description](/assets/images/blog/2019/ralph-preach-700h.jpg)](/assets/images/blog/2019/ralph-preach-3000h.jpg)
 {: .article-image .article-image--has-caption}
-Ralph Villeneuve preached the second message.
+Ralph Villeneuve preaches the Gospel in central L'viv.
+{: .caption-text .article-image__caption}
+
+[![Description](/assets/images/blog/2019/kade-preach-700w.jpg)](/assets/images/blog/2019/kade-preach-3000w.jpg)
+{: .article-image .article-image--has-caption}
+Kade Bloom preached the second message.
 {: .caption-text .article-image__caption}
 
 In the evening Joshua and Kelsie had everyone over for dinner as Ben was leaving for the States in the morning.
@@ -70,7 +70,7 @@ The night before Ben left, we had a team dinner at the Steele's house. It was a 
 
 [![Description](/assets/images/blog/2019/praying-for-ben-700w.jpg)](/assets/images/blog/2019/praying-for-ben-3000w.jpg)
 {: .article-image .article-image--has-caption}
-At the conclusion of the evening, we all laid hands on Ben and prayer for a safe trip. We are so blessed to have this man and his wife ministering with us!
+At the conclusion of the evening, we all laid hands on Ben and prayed for a safe trip. We are so blessed to have this man and his wife ministering with us!
 {: .caption-text .article-image__caption}
 
 The next morning Nathan had devotion with the topic of being a good steward with our finances and with the time and talents God has given us to serve Him.  
@@ -100,7 +100,7 @@ After we finished with the invites we crawled on to another town where we found 
 Cornelius and the guys work to install the new brake cylinder.
 {: .caption-text .article-image__caption}
 
-Over and over again it has been amazing to see the hand of God at work while we have been over here in Ukraine! For me it has been an great experience to work with a team alongside Joshua and Nathan and be able to learn about missions. I've especially enjoyed learning how they us the correspondence course to reach people and how they are incorporating the use of the internet to preach the Gospel! Onwards for Christ! 
+Over and over again it has been amazing to see the hand of God at work while we have been over here in Ukraine! For me it has been an great experience to work with a team alongside Joshua and Nathan and be able to learn about missions. I've especially enjoyed learning how they use the correspondence course to reach people and how they are incorporating the use of the internet to preach the Gospel! Onwards for Christ! 
 
 May God bless y'all.
 
@@ -113,7 +113,7 @@ May God bless y'all.
 * Pray for Oleg — a man that Joshua spoke to at length after a Bible survey. He's been reading the Scriptures on his own and is searching. He seemed quite open to the Gospel, and gladly took a Bible First starter packet along with a copy of Good and Evil.
 * Pray for our two-day literature outreach in Lutsk. The team departs for Lutsk Wednesday morning, returning Thursday evening.
 * Pray for a successful open-air outreach this Friday in L'viv.
-* Pray for health for team.
+* Pray for health for the team.
 
 [![Description](/assets/images/blog/2019/cmo-2019-team-photo-700w.jpeg)](/assets/images/blog/2019/cmo-2019-team-photo-3000w.jpeg)
 {: .article-image .article-image--has-caption}
