@@ -15,7 +15,7 @@ READMORE
 
 [![Description](/assets/images/blog/2019/parashka-hiker-700w.jpg)](/assets/images/blog/2019/parashka-hiker-3000w.jpg)
 {: .article-image .article-image--has-caption}
-My caption text.
+Nathan and the guys hike near Parashka.
 {: .caption-text .article-image__caption}
 
 All went quite well. The dog managed to board without a ticket (which by the looks of him he couldn't afford one anyway) until one of the attendants came along and wasn't at all enthusiastic about the idea of having a stray dog on board. So it seemed that the dog must have got booted off at the next station as by the time we arrived at Parashka he was nowhere to be seen. 
