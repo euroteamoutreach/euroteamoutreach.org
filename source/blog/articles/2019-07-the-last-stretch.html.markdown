@@ -99,3 +99,24 @@ Nelson and Ralph accompany Cornelius to the airport to see him off.
 {: .article-image .article-image--has-caption}
 The next morning, Nelson and Kade flew out.
 {: .caption-text .article-image__caption}
+
+### How you can pray
+
+* Praise the Lord for those who heard the Gospel last Sunday in Yasenytsya-Zamkova!
+* Pray that God would open the hearts and minds of those who heard the Gospel this summer. This would include audiences at film showings in the Carpathians, open-air outreaches in L'viv, and those who received literature in the cities of Rivne, Lutsk, Truskavets, Stebnyk, and Boryslav.
+* Pray for strength and wisdom for our staff team as we continue to process the many responses that are now coming in.
+* Pray that God would use the *Good and Evil* books and *Bible First* lessons to bring many to salvation.
+* Pray for wisdom and direction for the CMO men as they continue to minister the Gospel in the United States, Canada, and around the world.
+* Pray that even now, God would begin raising up the team for CMO 2020!
+
+---
+{: .hr--bold}
+
+View the full Week 4 photo album on our Facebook page!
+{: .article-item-center}
+
+[Week 4 Photo Album](https://www.facebook.com/media/set/?set=a.10156588229237123&type=3){: .article-button target="blank"}
+{: .has-article-button .article-item-center}
+
+---
+{: .hr--bold}
