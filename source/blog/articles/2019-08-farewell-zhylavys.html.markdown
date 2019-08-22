@@ -5,7 +5,7 @@ date: "2019-08-22"
 author: ["Joshua Steele", "joshukraine", "@tw"]
 image: "blog/2019/zhylavy-family-1200w.jpg"
 image_lg: "blog/2018/zhylavy-family-2-2000w.jpg"
-caption: "CAPTION TEXT HERE"
+caption: "The Zhylavy Family: Anatoli, Anastasia, Kateryna, Valentyna, Hanna and Lukian"
 
 ---
 
