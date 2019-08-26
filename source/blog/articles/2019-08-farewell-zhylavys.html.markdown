@@ -1,7 +1,7 @@
 ---
 
 title: "Farewell to the Zhylavy's"
-date: "2019-08-22"
+date: "2019-08-26"
 author: ["Joshua Steele", "joshukraine", "@tw"]
 image: "blog/2019/zhylavy-family-1200w.jpg"
 image_lg: "blog/2018/zhylavy-family-2-2000w.jpg"
