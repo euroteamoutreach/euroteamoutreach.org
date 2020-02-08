@@ -1,3 +1,5 @@
+*NOTE: PayPal deducts a small percentage from online contributions made via the button above. For larger donations, you may prefer to donate by mail.*
+
 ### Option 2 - Donate by mail
 
 Mail a check to the address below, payable to Euro Team Outreach, Inc.
