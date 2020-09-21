@@ -34,8 +34,8 @@ configure :build do
 
   activate :gzip
 
-  ignore "javascripts/all.js"
-  ignore "stylesheets/site"
+  ignore "assets/javascripts/all.js"
+  ignore "assets/stylesheets/site"
 
   activate :minify_html do |html|
     html.remove_quotes = false
