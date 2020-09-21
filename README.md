@@ -90,7 +90,7 @@ euroteamoutreach.org is currently deployed on Amazon S3. [Detailed instructions]
 Legal
 -----
 
-Copyright &copy; 2019 Euro Team Outreach, Inc. Software is licensed under [MIT][license].
+Copyright &copy; 2020 Euro Team Outreach, Inc. Software is licensed under [MIT][license].
 
 [aws-cert-manager]: https://aws.amazon.com/blogs/aws/new-aws-certificate-manager-deploy-ssltls-based-apps-on-aws/
 [aws-s3-deployment]: http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html

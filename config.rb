@@ -27,19 +27,18 @@ end
 
 configure :build do
   activate :external_pipeline,
-    name: :gulp,
-    command: "npm run production",
-    source: ".tmp",
-    latency: 1
+           name: :gulp,
+           command: "yarn production",
+           source: ".tmp",
+           latency: 1
 
   activate :gzip
 
-  ignore "javascripts/all.js"
-  ignore "stylesheets/site"
+  ignore "assets/javascripts/all.js"
+  ignore "assets/stylesheets/site"
 
   activate :minify_html do |html|
     html.remove_quotes = false
     html.remove_intertag_spaces = true
   end
 end
-

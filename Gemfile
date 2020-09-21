@@ -3,7 +3,7 @@
 source "https://rubygems.org"
 
 gem "haml", "~> 5.0", ">= 5.0.4"
-gem "middleman", "4.3.0"
+gem "middleman", "~> 4.3", ">= 4.3.11"
 gem "middleman-blog", "4.0.3"
 gem "middleman-minify-html", "3.4.1"
 gem "middleman-pry", "~> 1.0"
