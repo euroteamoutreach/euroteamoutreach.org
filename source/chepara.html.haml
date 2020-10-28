@@ -14,7 +14,7 @@ title: The Chepara Family
   .bio-text
     = partial "markdown/chepara-bio"
   .bio-contact
-    = link_to "mailto:serhii.chepara@gmail.com", class: "button" do
+    = link_to "mailto:#{data.site.chepara_email}", class: "button" do
       = content_tag :button do
         Contact the Cheparas
     = partial "markdown/chepara-meta"
