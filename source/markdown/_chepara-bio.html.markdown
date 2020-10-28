@@ -1,0 +1,7 @@
+Serhii, Natallia and Francishka Chepara are a Christian family that lives in L’viv. Serhii and Natallia were married on March 5, 2016, and Francishka was born on January 8, 2017.
+
+Natallia comes from Belarus. She believed in Christ in 2005 when she was a student of the Belarusian State University in Minsk, through a Christian student organization called Credo. After her graduation, Natallia moved to Germany where she lived and worked for seven years. There she was part of an international church. Now Natallia is teaching German and English and helps with the Sunday school as well as English clubs in a local church in L’viv.
+
+Serhii believed in Jesus Christ as his Savior in 2004 through the ministry of Campus Crusade for Christ. After his graduation in 2009 from the L’viv National University of Ivan Franko, he studied for two years at the Kyiv Bible College. In 2011, he received his BA in Theology. Serhii has written a few books, one of them, entitled *What do Christians believe in?*, gives answers to 100 typical questions about the life and beliefs of Christians. Serhii serves in his local church in L’viv, sometimes preaching in Sunday services or leading Bible study groups. He also has his own blog and a YouTube channel. Serhii also teaches Ukrainian and Russian for foreigners, and leads guided tours in L’viv.
+
+Serhii has known Joshua and Nathan for over 10 years. A few times, he took part in the ministry of CMO. Serhii joined ETO in September of  2019. He is responsible for leading the Ukrainian arm of ETO’s correspondence course, *Bible First*.

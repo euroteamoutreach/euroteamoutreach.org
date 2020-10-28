@@ -1,0 +1,24 @@
+---
+title: The Chepara Family
+---
+
+%section.bio-image-hero
+  .image-wrapper
+    = image_tag "team-chepara-1000w.jpg", class: "landscape",
+      alt: "The Chepara Family"
+
+%section.bio-title
+  %h1 The Chepara Family
+
+%section.bio-content
+  .bio-text
+    = partial "markdown/chepara-bio"
+  .bio-contact
+    = link_to "mailto:#{data.site.chepara_email}", class: "button" do
+      = content_tag :button do
+        Contact the Cheparas
+    = partial "markdown/chepara-meta"
+.top-link-wrap
+  = link_to("#", class: "back-to-top") do
+    %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+    top
