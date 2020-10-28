@@ -11,5 +11,14 @@ title: The Chepara Family
   %h1 The Chepara Family
 
 %section.bio-content
-  .bio-text-simple
+  .bio-text
     = partial "markdown/chepara-bio"
+  .bio-contact
+    = link_to "mailto:serhii.chepara@gmail.com", class: "button" do
+      = content_tag :button do
+        Contact the Cheparas
+    = partial "markdown/chepara-meta"
+.top-link-wrap
+  = link_to("#", class: "back-to-top") do
+    %i.fa.fa-sort-asc{ "aria-hidden" => "true" }
+    top
