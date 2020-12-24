@@ -19,8 +19,6 @@ title: Contact
               placeholder: "Your message", maxlength: "3000" }
       %input{ name: "_subject", type: "hidden",
               value: "[euroteamoutreach.org] New Contact Request" }
-      %input{ name: "_next", type: "hidden",
-              value: "#{data.site.url}/contact/thanks/" }
       %input{ name: "_gotcha", style: "display:none", type: "text" }
       %input{ type: "submit", value: "Send", id: "my-form-button" }
       %p#my-form-status
