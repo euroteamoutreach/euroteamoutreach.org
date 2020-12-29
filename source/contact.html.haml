@@ -9,8 +9,8 @@ title: Contact
     We'll do our best to answer you quickly.
 
   .contact-form
-    %form{ action: "https://formspree.io/#{data.site.contact_email}",
-           method: "POST" }
+    %form{ action: "https://formspree.io/f/xaylljpd", method: "POST",
+           id: "my-form" }
       %input{ name: "full_name", type: "text", required: "",
               placeholder: "Name", maxlength: "100" }
       %input{ name: "_replyto", type: "email", required: "",
@@ -19,7 +19,6 @@ title: Contact
               placeholder: "Your message", maxlength: "3000" }
       %input{ name: "_subject", type: "hidden",
               value: "[euroteamoutreach.org] New Contact Request" }
-      %input{ name: "_next", type: "hidden",
-              value: "#{data.site.url}/contact/thanks/" }
       %input{ name: "_gotcha", style: "display:none", type: "text" }
-      %input{ type: "submit", value: "Send" }
+      %input{ type: "submit", value: "Send", id: "my-form-button" }
+      %p#my-form-status

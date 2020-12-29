@@ -14,8 +14,10 @@ title: The Steele Family
   .bio-text
     = partial "markdown/steele-bio"
   .bio-contact
-    = partial "partials/contact-modal", locals: { button_title: "Contact the Steeles",
-      email: data.site.steele_email }
+    = link_to "https://ofreport.com/contact/", target: "_blank",
+      class: "button" do
+      = content_tag :button do
+        Contact the Steeles
     = partial "markdown/steele-meta"
 .top-link-wrap
   = link_to("#", class: "back-to-top") do
