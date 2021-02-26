@@ -45,17 +45,15 @@ RMO 2021 will begin on **June 12, 2021** and end on **June 20, 2021**.
 
 #### What is the registration deadline?
 
-If you want to participate in RMO 2021, we need to have your application in hand no later than [DATE].
+If you want to participate in RMO 2021, the deadline to send in your application is **May 30, 2021**.
 
 #### How much does it cost?
 
-[COST DESCRIPTION]
-
-**$600** personal support (recommended) and **$700** for the Operations Fee. Total cost (not including airfare) is **$1,300**.
+**$225** for the Operations Fee, plus a recommended **$150** for meal expenses.
 
 #### What's the age limit?
 
-[AGE] years old.
+18 years old
 
 #### Can ladies participate?
 
