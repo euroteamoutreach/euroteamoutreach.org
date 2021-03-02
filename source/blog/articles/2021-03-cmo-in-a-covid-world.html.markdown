@@ -1,7 +1,7 @@
 ---
 
 title: "CMO in a COVID-19 World"
-date: "2021-01-28"
+date: "2021-03-02"
 author: ["Joshua Steele", "joshukraine", "@tw"]
 image: "blog/2021/mountain-pointing-1200.jpg"
 image_lg: "blog/2021/mountain-pointing.jpg"
@@ -16,6 +16,9 @@ COVID-19 exploded onto the world stage, and we began to realize that our plans w
 ### Colorado Mountain Outreach 2020
 
 Despite the cancellation of CMO 2020 in Ukraine, God opened the door to a new project, affectionately known as Colorado Mountain Outreach (CMO) 2020! Led by CMO alumni Ben Sargent and Elliot Schupe, this one-week project was a short, focused outreach executed with many of the same outreach methods we use here. While I was not personally involved in the project, the testimonies we heard were exciting and encouraging.
+
+[![Description](/assets/images/blog/2021/colorado-mo-700w.jpg)](/assets/images/blog/2021/colorado-mo-1024w.jpg)
+{: .article-image}
 
 ### What about CMO in Ukraine?
 
@@ -59,44 +62,49 @@ If you want to participate in RMO 2021, the deadline to send in your application
 
 Yes! RMO 2021 will be open to guys and gals alike. 🙂
 
-[![Description](/assets/images/blog/2020/van-huddle-700w.jpg)](/assets/images/blog/2020/van-huddle.jpg)
-{: .article-image .article-image--has-caption}
-Nathan assigns teams different sections of a village for passing out invites.
-{: .caption-text .article-image__caption}
-
-[![Description](/assets/images/blog/2020/gate-invite-700w.jpg)](/assets/images/blog/2020/gate-invite.jpg)
-{: .article-image .article-image--has-caption}
-Ralph Villeneuve hands out film invites during CMO 2019.
-{: .caption-text .article-image__caption}
-
-[![Description](/assets/images/blog/2020/film-showing-700w.jpg)](/assets/images/blog/2020/film-showing.jpg)
-{: .article-image .article-image--has-caption}
-A film showing in the village of Rozluch.
-{: .caption-text .article-image__caption}
-
-[![Description](/assets/images/blog/2020/film-showing-2-700w.jpg)](/assets/images/blog/2020/film-showing-2.jpg)
-{: .article-image .article-image--has-caption}
-Another film showing, village of Yavora.
-{: .caption-text .article-image__caption}
-
-[![Description](/assets/images/blog/2020/prayer-tracting-700w.jpg)](/assets/images/blog/2020/prayer-tracting.jpg)
-{: .article-image .article-image--has-caption}
-The team huddle for prayer before a day of city tracting.
-{: .caption-text .article-image__caption}
-
-[![Description](/assets/images/blog/2020/apartments-700w.jpg)](/assets/images/blog/2020/apartments.jpg)
-{: .article-image .article-image--has-caption}
-Kade Bloom rings in to a "pidyeezd" in order to place tracts in the PO boxes.
-{: .caption-text .article-image__caption}
-
 ---
 {: .hr--bold}
 
-Make this the year you come to CMO!
+Ready to answer the call?
 {: .article-item-center}
 
-[Apply Now](https://cmoproject.org/apply/){: .article-button target="blank"}
+[Apply Now for RMO 2021](https://www.onwardforchrist.org/colorado-mountain-outreach-2020){: .article-button target="blank"}
 {: .has-article-button .article-item-center}
 
 ---
 {: .hr--bold}
+
+[![Description](/assets/images/blog/2021/ben-n-friends-sidewalk-700w.jpg)](/assets/images/blog/2021/ben-n-friends-sidewalk-1600w.jpg)
+{: .article-image}
+
+[![Description](/assets/images/blog/2021/hikers-lake-700w.jpg)](/assets/images/blog/2021/hikers-lake-1600w.jpg)
+{: .article-image}
+
+[![Description](/assets/images/blog/2021/hands-in-rubber-bands-700w.jpg)](/assets/images/blog/2021/hands-in-rubber-bands-1024w.jpg)
+{: .article-image}
+
+[![Description](/assets/images/blog/2021/beach-2-700w.jpg)](/assets/images/blog/2021/beach-2-2000w.jpg)
+{: .article-image}
+
+[![Description](/assets/images/blog/2021/hillside-group-700w.jpg)](/assets/images/blog/2021/hillside-group-1600w.jpg)
+{: .article-image}
+
+[![Description](/assets/images/blog/2021/isaiah-selfie-group-700w.jpg)](/assets/images/blog/2021/isaiah-selfie-group-1600w.jpg)
+{: .article-image}
+
+[![Description](/assets/images/blog/2021/mountain-view-700w.jpg)](/assets/images/blog/2021/mountain-view-1600w.jpg)
+{: .article-image}
+
+[![Description](/assets/images/blog/2021/beach-1-700w.jpg)](/assets/images/blog/2021/beach-1-2000w.jpg)
+{: .article-image}
+
+[![Description](/assets/images/blog/2021/outreach-prayer-700h.jpg)](/assets/images/blog/2021/outreach-prayer-1600h.jpg)
+{: .article-image}
+
+[![Description](/assets/images/blog/2021/sargents-schupes-group-700w.jpg)](/assets/images/blog/2021/sargents-schupes-group-1600w.jpg)
+{: .article-image}
+
+[![Description](/assets/images/blog/2021/tents-mountain-side-700w.jpg)](/assets/images/blog/2021/tents-mountain-side-1600w.jpg)
+{: .article-image}
+
+
