@@ -15,7 +15,7 @@ COVID-19 exploded onto the world stage, and we began to realize that our plans w
 
 ### Colorado Mountain Outreach 2020
 
-Despite the cancellation of CMO 2020 in Ukraine, God opened the door to a new project, affectionately known as Colorado Mountain Outreach (CMO) 2020! Led by CMO alumni Ben Sargent and Elliot Schupe, this one-week project was a short, focused outreach executed with many of the same outreach methods we use here. While I was not personally involved in the project, the testimonies we heard were exciting and encouraging.
+Despite the cancellation of CMO 2020 in Ukraine, God opened the door to a new project, affectionately known as Colorado Mountain Outreach (CMO) 2020! Led by CMO alumni Ben Sargent and Elliot Shupe, this one-week project was a short, focused outreach executed with many of the same outreach methods we use here. While I was not personally involved in the project, the testimonies we heard were exciting and encouraging.
 
 [![Description](/assets/images/blog/2021/colorado-mo-700w.jpg)](/assets/images/blog/2021/colorado-mo-1024w.jpg)
 {: .article-image}
@@ -103,7 +103,7 @@ Ready to answer the call?
 [![Description](/assets/images/blog/2021/outreach-prayer-700h.jpg)](/assets/images/blog/2021/outreach-prayer-1600h.jpg)
 {: .article-image}
 
-[![Description](/assets/images/blog/2021/sargents-schupes-group-700w.jpg)](/assets/images/blog/2021/sargents-schupes-group-1600w.jpg)
+[![Description](/assets/images/blog/2021/sargents-shupes-group-700w.jpg)](/assets/images/blog/2021/sargents-shupes-group-1600w.jpg)
 {: .article-image}
 
 [![Description](/assets/images/blog/2021/tents-mountain-side-700w.jpg)](/assets/images/blog/2021/tents-mountain-side-1600w.jpg)
