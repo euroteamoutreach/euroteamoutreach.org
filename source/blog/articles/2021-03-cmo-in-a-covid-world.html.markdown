@@ -36,7 +36,9 @@ We know. You had your hopes set on CMO 2021. You’ve been collecting that campi
 
 Once again our good friends Ben and Elliot have been hard at work to organize a State-side version of CMO. This year it’s been dubbed “RMO” for *Rocky Mountain Outreach*. We fully endorse this project, and if you’re excited to get your hands dirty with real, front-line ministry, you need to check it out.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/M72rgzTxvd0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+<iframe width="700" height="394" src="https://www.youtube.com/embed/M72rgzTxvd0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
 
 ### RMO 2021 Project Overview
 
