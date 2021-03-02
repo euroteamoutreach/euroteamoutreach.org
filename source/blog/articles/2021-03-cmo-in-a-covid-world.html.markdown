@@ -106,5 +106,3 @@ Ready to answer the call?
 
 [![Description](/assets/images/blog/2021/tents-mountain-side-700w.jpg)](/assets/images/blog/2021/tents-mountain-side-1600w.jpg)
 {: .article-image}
-
-
