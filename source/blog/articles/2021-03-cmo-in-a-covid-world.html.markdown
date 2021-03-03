@@ -15,7 +15,7 @@ COVID-19 exploded onto the world stage, and we began to realize that our plans w
 
 ### Colorado Mountain Outreach 2020
 
-Despite the cancellation of CMO 2020 in Ukraine, God opened the door to a new project, affectionately known as Colorado Mountain Outreach (CMO) 2020! Led by CMO alumni Ben Sargent and Elliot Schupe, this one-week project was a short, focused outreach executed with many of the same outreach methods we use here. While I was not personally involved in the project, the testimonies we heard were exciting and encouraging.
+Despite the cancellation of CMO 2020 in Ukraine, God opened the door to a new project, affectionately known as Colorado Mountain Outreach (CMO) 2020! Led by CMO alumni Ben Sargent and Elliot Shupe, this one-week project was a short, focused outreach executed with many of the same outreach methods we use here. While I was not personally involved in the project, the testimonies we heard were exciting and encouraging.
 
 [![Description](/assets/images/blog/2021/colorado-mo-700w.jpg)](/assets/images/blog/2021/colorado-mo-1024w.jpg)
 {: .article-image}
@@ -36,9 +36,9 @@ We know. You had your hopes set on CMO 2021. You’ve been collecting that campi
 
 Once again our good friends Ben and Elliot have been hard at work to organize a State-side version of CMO. This year it’s been dubbed “RMO” for *Rocky Mountain Outreach*. We fully endorse this project, and if you’re excited to get your hands dirty with real, front-line ministry, you need to check it out.
 
-<br>
-<iframe width="700" height="394" src="https://www.youtube.com/embed/M72rgzTxvd0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br>
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/M72rgzTxvd0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 ### RMO 2021 Project Overview
 
@@ -103,7 +103,7 @@ Ready to answer the call?
 [![Description](/assets/images/blog/2021/outreach-prayer-700h.jpg)](/assets/images/blog/2021/outreach-prayer-1600h.jpg)
 {: .article-image}
 
-[![Description](/assets/images/blog/2021/sargents-schupes-group-700w.jpg)](/assets/images/blog/2021/sargents-schupes-group-1600w.jpg)
+[![Description](/assets/images/blog/2021/sargents-shupes-group-700w.jpg)](/assets/images/blog/2021/sargents-shupes-group-1600w.jpg)
 {: .article-image}
 
 [![Description](/assets/images/blog/2021/tents-mountain-side-700w.jpg)](/assets/images/blog/2021/tents-mountain-side-1600w.jpg)
