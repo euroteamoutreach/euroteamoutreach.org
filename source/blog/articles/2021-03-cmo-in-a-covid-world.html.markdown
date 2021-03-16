@@ -70,7 +70,7 @@ Yes! RMO 2021 will be open to guys and gals alike. 🙂
 Ready to answer the call?
 {: .article-item-center}
 
-[Apply Now for RMO 2021](https://www.onwardforchrist.org/colorado-mountain-outreach-2020){: .article-button target="blank"}
+[Apply Now for RMO 2021](https://www.onwardforchrist.org/rocky-mountain-outreach-2021){: .article-button target="blank"}
 {: .has-article-button .article-item-center}
 
 ---
