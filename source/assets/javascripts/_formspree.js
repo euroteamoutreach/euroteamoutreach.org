@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
   function success() {
     form.reset();
-    window.location = "https://getbiblefirst.com/contact/thanks/";
+    window.location = "https://euroteamoutreach.org/contact/thanks/";
   }
 
   function error() {
