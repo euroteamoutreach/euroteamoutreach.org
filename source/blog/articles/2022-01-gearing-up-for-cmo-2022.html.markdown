@@ -56,7 +56,7 @@ Here are a few things we know right now:
 
 ### 🇷🇺 What about Russia?
 
-We’re not the only ones who love outdoor adventures, apparently. Russia has been holding a little camping project of their own lately, with tens of thousands of troops positioned along the border with Ukraine. And the big question on everyone’s mind: *will Putin invade?* *Again?*
+We’re not the only ones who love outdoor adventures, apparently. Russia has been holding a little camping project of their own lately, with tens of thousands of troops positioned along the border with Ukraine. And the big question on everyone’s mind: *will Putin invade? Again?*
 
 The U.S. has a poor track record when it comes to guessing Russia’s intentions. Maybe Putin is serious? Maybe he’s just saber-rattling? If you read about Ukraine and Russia on major news outlets, then you know about as much as anyone does, save perhaps for insiders in the government.
 
