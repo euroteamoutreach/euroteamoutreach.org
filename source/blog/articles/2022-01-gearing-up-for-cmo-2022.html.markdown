@@ -5,7 +5,7 @@ date: "2022-01-10"
 author: ["Joshua Steele", "joshukraine", "@tw"]
 image: "blog/2022/cmo-2022-ann-cover-1200x630.jpg"
 image_lg: "blog/2022/cmo-2022-ann-cover-1200x630-lg.jpg"
-caption: "Descending from Mt. Parashka — CMO 2019"
+caption: "Descending from Mt. Parashka, CMO 2019"
 
 ---
 
@@ -52,7 +52,7 @@ Here are a few things we know right now:
 - Regular flights to Ukraine are open, and tourists are welcome.
 - You *don’t* need to be vaccinated to enter the country.
 - You *do* need a negative COVID test. Both PCR and rapid antigen tests are accepted.
-- You can learn more about travel to Ukraine here: [https://visitukraine.today/](https://visitukraine.today/){: target="blank"}
+- You can learn more about travel to Ukraine here: [https://visitukraine.today](https://visitukraine.today/){: target="blank"}
 
 ### 🇷🇺 What about Russia?
 
