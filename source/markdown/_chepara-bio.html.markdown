@@ -1,4 +1,4 @@
-Serhii, Natallia and Francishka Chepara are a Christian family that lives in L’viv. Serhii and Natallia were married on March 5, 2016, and Francishka was born on January 8, 2017.
+Serhii, Natallia, Francishka, and Julian Chepara are a Christian family that lives in L’viv. Serhii and Natallia were married on March 5, 2016. Francishka was born on January 8, 2017, and Julian was born on June 2, 2021.
 
 Natallia comes from Belarus. She believed in Christ in 2005 when she was a student of the Belarusian State University in Minsk, through a Christian student organization called Credo. After her graduation, Natallia moved to Germany where she lived and worked for seven years. There she was part of an international church. Now Natallia is teaching German and English and helps with the Sunday school as well as English clubs in a local church in L’viv.
 
