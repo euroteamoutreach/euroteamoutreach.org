@@ -18,7 +18,7 @@ Therefore, after prayerfully considering various options, we have decided to mov
 
 ### 📅 Project Dates
 
-Lord willing, CMO 2023 will begin on **July 18, 2023** and end on **August XX, 2023**.
+Lord willing, CMO 2023 will begin on **July 25, 2023** and end on **August 16, 2023**.
 
 ### 🙋🏻‍♀️What about ladies?
 
@@ -48,7 +48,7 @@ If you are interested in participating in CMO 2023, please fill out our pre-regi
 
 This post is our latest in a string of project announcements couched in caveats and disclaimers. With that in mind, I’ll close with same conclusion I wrote for the CMO 2022 announcement:
 
-> We live in an era of questions and uncertainty. We can hide in a hole and try to “stay safe”, or we can stand up and do our best to serve God. Prudence is needed, but fear is to be avoided. We think CMO [2023] has a good chance of getting off the ground, and we’re working hard to make that a reality. Young men... we hope you’ll join us!
+> We live in an era of questions and uncertainty. We can hide in a hole and try to “stay safe”, or we can stand up and do our best to serve God. Prudence is needed, but fear is to be avoided. We think CMO has a good chance of getting off the ground, and we’re working hard to make that a reality. Young men... we hope you’ll join us!
 
 ---
 
