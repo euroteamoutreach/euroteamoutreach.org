@@ -11,6 +11,18 @@ caption: "CMO is back! In the mountains, on the streets, and even on the stage �
 
 Despite the fact that we have been doing Carpathian Mountain Outreach (CMO) for many years, every year is a little different. CMO 2023, however, is shaping up to be not just a little different, but a lot different!
 
+---
+{: .hr--bold}
+
+**View the full Week 1 photo album on our Facebook page!**
+{: .article-item-center}
+
+[Week 1 Photo Album](https://www.facebook.com/media/set/?set=a.275241695213855&type=3){: .article-button target="blank"}
+{: .has-article-button .article-item-center}
+
+---
+{: .hr--bold}
+
 For starters, before CMO begins, the Day and Steele families are usually comfortably settled in Lviv, Ukraine, and making preparations for CMO. Not so this year! The Steeles have recently returned from Slovakia, where they had evacuated when the war began, and barely had time to get their feet under them before CMO started. And my family is still in the States on furlough, so I was flying in at the last minute as if I was one of the CMO Guys!
 
 Furthermore, because of the war with Russia, Ukrainian airspace is closed, so no one could fly into Lviv. Instead, we flew into Krakow, Poland, and Josh and Kelsie came to pick us up. I was the first to arrive, and Bill Thompson arrived a few hours later. Because one of Bill’s bags got lost in transit, we had no choice but to stay an extra night in Krakow. The next morning, having claimed Bill’s “lost sheep” at the airport, we departed for Ukraine, and arrived around suppertime.
@@ -39,15 +51,3 @@ So, continue to pray for Ukraine, for safety and victory in the war against thei
 * Pray for fruitful conversations as we share the Gospel one-on-one with Ukrainians.
 * Pray for safety as we minister in Ukraine during a time of war.
 * Pray that Ukrainians everywhere would turn to Jesus Christ and receive the gift of everlasting life through His name.
-
----
-{: .hr--bold}
-
-View the full Week 1 photo album on our Facebook page!
-{: .article-item-center}
-
-[Week 1 Photo Album](#){: .article-button target="blank"}
-{: .has-article-button .article-item-center}
-
----
-{: .hr--bold}
