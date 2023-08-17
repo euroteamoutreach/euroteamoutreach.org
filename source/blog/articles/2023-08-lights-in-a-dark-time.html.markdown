@@ -11,6 +11,8 @@ caption: "CMO is back! In the mountains, on the streets, and even on the stage �
 
 Despite the fact that we have been doing Carpathian Mountain Outreach (CMO) for many years, every year is a little different. CMO 2023, however, is shaping up to be not just a little different, but a lot different!
 
+For starters, before CMO begins, the Day and Steele families are usually comfortably settled in Lviv, Ukraine, and making preparations for CMO. Not so this year! The Steeles have recently returned from Slovakia, where they had evacuated when the war began, and barely had time to get their feet under them before CMO started. And my family is still in the States on furlough, so I was flying in at the last minute as if I was one of the CMO Guys!
+
 ---
 {: .hr--bold}
 
@@ -22,8 +24,6 @@ Despite the fact that we have been doing Carpathian Mountain Outreach (CMO) for 
 
 ---
 {: .hr--bold}
-
-For starters, before CMO begins, the Day and Steele families are usually comfortably settled in Lviv, Ukraine, and making preparations for CMO. Not so this year! The Steeles have recently returned from Slovakia, where they had evacuated when the war began, and barely had time to get their feet under them before CMO started. And my family is still in the States on furlough, so I was flying in at the last minute as if I was one of the CMO Guys!
 
 Furthermore, because of the war with Russia, Ukrainian airspace is closed, so no one could fly into Lviv. Instead, we flew into Krakow, Poland, and Josh and Kelsie came to pick us up. I was the first to arrive, and Bill Thompson arrived a few hours later. Because one of Bill’s bags got lost in transit, we had no choice but to stay an extra night in Krakow. The next morning, having claimed Bill’s “lost sheep” at the airport, we departed for Ukraine, and arrived around suppertime.
 
