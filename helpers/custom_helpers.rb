@@ -1,10 +1,10 @@
 module CustomHelpers
-  def full_title(page_title=nil, site_title)
+  def full_title(site_title, page_title = nil)
     page_title ||= ""
     if page_title.empty?
       site_title
     else
-      page_title + " | " + site_title
+      "#{page_title} | #{site_title}"
     end
   end
 
@@ -57,13 +57,11 @@ module CustomHelpers
   def inline_svg(filename, options = {})
     root = Middleman::Application.root
     file_path = "#{root}/source/assets/images/#{filename}"
-    if File.exists?(file_path)
+    if File.exist?(file_path)
       file = File.read(file_path).force_encoding("UTF-8")
       doc = Nokogiri::HTML::DocumentFragment.parse file
       svg = doc.at_css "svg"
-      if options[:class].present?
-        svg["class"] = options[:class]
-      end
+      svg["class"] = options[:class] if options[:class].present?
       doc
     else
       "file not found: #{file_path}"

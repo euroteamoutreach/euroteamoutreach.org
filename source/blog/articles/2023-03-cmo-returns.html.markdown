@@ -18,7 +18,7 @@ Therefore, after prayerfully considering various options, we have decided to mov
 
 ### 📅 Project Dates
 
-Lord willing, CMO 2023 will begin on **July 25, 2023** and end on **August 16, 2023**.
+Lord willing, CMO 2023 will begin on **August 8, 2023** and end on **August 30, 2023**.
 
 ### 🙋🏻‍♀️What about ladies?
 
