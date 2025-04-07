@@ -2,9 +2,8 @@
 title: "When Is Daddy Coming Home?"
 date: "2025-04-07"
 author: "Joshua Steele"
-image: "blog/2023/cmo-2023-parashka-hike-1200-630.jpg"
-image_lg: "blog/2023/cmo-2023-parashka-hike-LG.jpg"
-caption: "CAPTION"
+image: "blog/2025/chepara-cover-1200w.jpg"
+image_lg: "blog/2025/chepara-cover-2300w.jpg"
 ---
 
 “When is Daddy coming home?” This is a question all children ask, and it points to a promise all good parents make. Kelsie and I have said it countless times to our children: “Mommy and Daddy will always come back.”
