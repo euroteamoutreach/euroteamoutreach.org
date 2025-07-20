@@ -2,15 +2,15 @@
 
 source "https://rubygems.org"
 
-gem "haml", "~> 5.0", ">= 5.0.4"
-gem "middleman", "~> 4.3", ">= 4.3.11"
+gem "haml", "~> 6.0"
+gem "middleman", "~> 4.5"
 gem "middleman-blog", "4.0.3"
 gem "middleman-minify-html", "3.4.1"
-gem "middleman-pry", "~> 1.0"
+# gem "middleman-pry", "~> 1.0"  # Temporarily disabled for Ruby 3.1 compatibility
 gem "middleman-s3_sync", "~> 4.0"
 gem "middleman-search_engine_sitemap", "~> 1.4"
 gem "mime-types", "~> 3.1"
-gem "nokogiri", "~> 1.14"
+gem "nokogiri", "~> 1.15"
 
 group :development do
   gem "capybara", "~> 3.2", ">= 3.2.1"
