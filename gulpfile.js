@@ -70,7 +70,7 @@ gulp.task('css', function() {
     .pipe(gulpSass(sassOpts).on('error', gulpSass.logError))
     .pipe(p.autoprefixer()).on('error', handleError)
     .pipe(production(p.cleanCss()))
-    .pipe(development(p.sourcemaps.write()))
+    .pipe(development(p.sourcemaps.write('.')))
     .pipe(gulp.dest(css.out));
 });
 

@@ -1,7 +1,7 @@
 activate :directory_indexes
 
 set :relative_links, true
-set :haml, { format: :html5 }
+set :haml, { format: :html5, escape_html: false }
 set :markdown, auto_ids: false
 
 # Disable Haml warnings

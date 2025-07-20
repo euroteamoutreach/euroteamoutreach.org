@@ -4,4 +4,4 @@ activate :external_pipeline,
          name: :gulp,
          command: "yarn development",
          source: ".tmp",
-         latency: 1
+         latency: 2
