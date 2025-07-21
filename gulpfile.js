@@ -24,6 +24,10 @@ var p = require('gulp-load-plugins')({ // This loads all the other plugins.
 var
   src  = 'source/', // The Middleman source folder
   dest = '.tmp/',   // The "hot" build folder used by Middleman's external pipeline
+  // For development, output assets directly to source to avoid path issues
+  devCssDest = process.env.NODE_ENV === 'development' ? 'source/assets/stylesheets/' : '.tmp/assets/stylesheets/',
+  devJsDest = process.env.NODE_ENV === 'development' ? 'source/assets/javascripts/' : '.tmp/assets/javascripts/',
+  devImagesDest = process.env.NODE_ENV === 'development' ? 'source/assets/images/' : '.tmp/assets/images/',
 
   development = p.environments.development,
   production = p.environments.production,
@@ -71,7 +75,7 @@ gulp.task('css', function() {
     .pipe(p.autoprefixer()).on('error', handleError)
     .pipe(production(p.cleanCss()))
     .pipe(development(p.sourcemaps.write('.')))
-    .pipe(gulp.dest(css.out));
+    .pipe(gulp.dest(devCssDest || css.out));
 });
 
 // Javascript Bundling
@@ -88,14 +92,14 @@ gulp.task('js', function() {
     .pipe(production(p.sourcemaps.init()))
     .pipe(production(p.terser()))
     .pipe(production(p.sourcemaps.write()))
-    .pipe(gulp.dest(js.out));
+    .pipe(gulp.dest(devJsDest || js.out));
 });
 
 // Image Optimization (temporarily simplified for compatibility)
 gulp.task('images', function() {
   return gulp.src(images.in)
     .pipe(p.changed(images.out))
-    .pipe(gulp.dest(images.out));
+    .pipe(gulp.dest(devImagesDest || images.out));
 });
 
 // Clean .tmp/
@@ -126,14 +130,12 @@ gulp.task('production', gulp.series
 // Default Task
 // This is the task that will be invoked by Middleman's exteranal pipeline when
 // running 'middleman server'
-gulp.task('default', gulp.series('development', function browsersync () {
-
-  p.browserSync.init(serverOpts);
-
+gulp.task('default', gulp.series('development', function watch () {
+  // In development, we don't use BrowserSync since Middleman has live reload
+  // Just watch files and rebuild assets
   gulp.watch(css.in, gulp.series('css'));
   gulp.watch(js.in, gulp.series('js'));
   gulp.watch(images.in, gulp.series('images'));
-
 }));
 
 function handleError(err) {

@@ -11,9 +11,12 @@ bin/setup                    # Install all dependencies (Ruby gems + Node packag
 
 ### Development Server
 ```bash
-bundle exec middleman server   # Start development server with live reload
-mms                            # Alias for above command
+bin/dev                        # Start unified development environment (Gulp + Middleman)
+bundle exec middleman server   # Start Middleman server only (requires separate Gulp)
+mms                            # Alias for Middleman server only
 ```
+
+**Recommended**: Use `bin/dev` for development as it handles both asset compilation and live reload.
 
 ### Building
 ```bash
@@ -27,8 +30,10 @@ bin/rspec spec/                # Run all RSpec tests
 ```
 
 ### Asset Pipeline
-The project uses Gulp.js for asset processing via Middleman's external pipeline:
-- `yarn development` - Development asset build
+The project uses Gulp.js for asset processing:
+- In **development**: Gulp outputs assets directly to `source/assets/` (watched by `bin/dev`)
+- In **production**: Gulp outputs to `.tmp/` via Middleman's external pipeline
+- `yarn development` - Development asset build (manual)
 - `yarn production` - Production asset build with minification
 
 ## Architecture Overview

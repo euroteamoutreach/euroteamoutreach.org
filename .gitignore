@@ -20,3 +20,8 @@
 /node_modules
 .tmp
 npm-debug.log
+
+# Ignore generated assets in source directory (dev only)
+/source/assets/stylesheets/site.css
+/source/assets/stylesheets/site.css.map
+/source/assets/javascripts/bundle.js

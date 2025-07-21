@@ -16,6 +16,7 @@ set :css_dir, "assets/stylesheets"
 set :images_dir, "assets/images"
 set :js_dir, "assets/javascripts"
 
+
 activate :blog do |blog|
   blog.prefix = "blog"
   blog.permalink = "{year}/{month}/{title}.html"

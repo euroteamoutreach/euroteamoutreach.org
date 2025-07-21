@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# Development server script for ETO site
+# This script starts both Gulp asset watching and Middleman server
+
+echo "🚀 Starting ETO development environment..."
+
+# Function to handle cleanup on exit
+cleanup() {
+  echo ""
+  echo "🛑 Shutting down development servers..."
+  # Kill all background jobs
+  jobs -p | xargs -r kill
+  exit
+}
+
+# Set up trap to cleanup on script exit
+trap cleanup SIGINT SIGTERM EXIT
+
+# First, build initial assets
+echo "📦 Building initial assets..."
+NODE_ENV=development npx gulp css
+NODE_ENV=development npx gulp js
+
+# Start Gulp watcher in background
+echo "👀 Starting asset watcher..."
+NODE_ENV=development npx gulp default &
+GULP_PID=$!
+
+# Give Gulp a moment to start
+sleep 2
+
+# Start Middleman server
+echo "🏃 Starting Middleman server..."
+echo "📍 Site will be available at: http://localhost:4567"
+echo "💡 Press Ctrl+C to stop both servers"
+echo ""
+
+bundle exec middleman server
+
+# If we get here, Middleman exited, so cleanup
+wait $GULP_PID
