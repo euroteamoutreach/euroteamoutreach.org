@@ -24,7 +24,10 @@ var p = require('gulp-load-plugins')({ // This loads all the other plugins.
 var
   src  = 'source/', // The Middleman source folder
   dest = '.tmp/',   // The "hot" build folder used by Middleman's external pipeline
-  // For development, output assets directly to source to avoid path issues
+  // For development, output assets directly to the source directory to avoid path 
+  // issues caused by Middleman's external pipeline not resolving asset paths correctly.
+  // Alternatives include configuring the external pipeline to handle development paths
+  // or using symbolic links to map .tmp/assets to source/assets during development.
   devCssDest = process.env.NODE_ENV === 'development' ? 'source/assets/stylesheets/' : '.tmp/assets/stylesheets/',
   devJsDest = process.env.NODE_ENV === 'development' ? 'source/assets/javascripts/' : '.tmp/assets/javascripts/',
   devImagesDest = process.env.NODE_ENV === 'development' ? 'source/assets/images/' : '.tmp/assets/images/',
