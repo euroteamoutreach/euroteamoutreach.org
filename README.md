@@ -39,44 +39,104 @@ $ asdf reshim         # Refresh shims if needed
 Development
 -----------
 
-This project uses [Gulp][gulp] with Middleman's [`external_pipeline`][external-pipeline] feature. The asset pipeline uses modern Sass (replacing the deprecated node-sass) for CSS compilation.
+This project uses [Gulp][gulp] for asset processing with modern Sass (replacing deprecated node-sass) and Browserify for JavaScript bundling.
 
-    # Run the development server with Gulp
-    $ bundle exec middleman server
-    
-    # Build the site (also invokes Gulp)
-    $ bundle exec middleman build
+### Unified Development Server
 
-**Asset Pipeline**: CSS is compiled using [Dart Sass][dart-sass] via gulp-sass 5.x. JavaScript is bundled with Browserify. Live reload is provided by BrowserSync.
+**Recommended**: Use the unified development command for the best experience:
+
+```sh
+$ bin/dev
+```
+
+This single command:
+- Builds initial CSS and JavaScript assets
+- Starts Gulp watchers for live asset compilation
+- Launches Middleman server with live reload
+- Handles proper cleanup when stopped (Ctrl+C)
+
+### Manual Development
+
+If you prefer to run servers separately:
+
+```sh
+# Terminal 1: Start asset watcher
+$ NODE_ENV=development npx gulp default
+
+# Terminal 2: Start Middleman server  
+$ bundle exec middleman server
+```
+
+**Asset Pipeline**: CSS is compiled using [Dart Sass][dart-sass] via gulp-sass 5.x. JavaScript is bundled with Browserify. In development, assets are output directly to `source/assets/` to avoid external pipeline path issues.
+
+Build & Testing
+--------------
+
+### Building the Site
+
+The project supports two build modes:
+
+```sh
+# Build for local testing (relative asset paths)
+$ yarn build
+
+# Build for production deployment (CDN asset paths)
+$ yarn build:production
+```
+
+### Local Testing
+
+Test the built site locally before deployment:
+
+```sh
+# Build the site for local testing
+$ yarn build
+
+# Serve the built site on http://localhost:8080
+$ yarn serve
+```
+
+This serves the static files from the `build/` directory, allowing you to test the exact files that would be deployed.
+
+### Running Tests
+
+Testing is done with RSpec:
+
+```sh
+$ bin/rspec spec/
+```
 
 Environments
 ------------
 
-Middleman has two default environments: `development` and `production`. This app is configured to run the external pipeline (Gulp in our case) in both. There are times, however, when the external pipeline should not run. Two good examples are tests and the console. We therefore define two additional environments: `test` and `console`.
+This project uses multiple Middleman environments for different purposes:
 
-Custom environments can be invoked on the command line with `-e` flag like so:
+- **`development`**: For local development with live reload
+- **`staging`**: For building static sites with relative asset paths (ideal for local testing)
+- **`production`**: For deployment with CDN asset hosting and optimizations
+- **`test`**: For running tests without external pipeline
+- **`console`**: For console access without external pipeline
 
-    # Start the console in the console enviroment
-    $ bundle exec middleman console -e console
+Custom environments can be invoked on the command line with the `-e` flag:
 
-Code for custom environments is stored in `environments/<your-custom-env>.rb`. Note that custom environments can be invoked without the existence of a corresponding file in the `environments/` directory. If, for example, you merely wanted to start a server without the default `development` configs, you could run `middleman server -e <anything-here>`.
+```sh
+# Start the console in the console environment
+$ bundle exec middleman console -e console
 
-For completeness, all four environments used in this app have corresponding files:
+# Build with a specific environment
+$ bundle exec middleman build --clean --environment=staging
+```
+
+All environments have corresponding configuration files:
 
 ```sh
 environments/
 ├── console.rb
 ├── development.rb
 ├── production.rb
+├── staging.rb
 └── test.rb
 ```
-
-Tests
------
-
-Testing is done with Rspec. Run the tests like so:
-
-    $ bin/rspec spec/
 
 Troubleshooting
 ---------------
@@ -97,18 +157,67 @@ Aliases
 Consider adding the following to your `.bashrc` or `.zshrc` file:
 
 ```sh
-mm='bundle exec middleman'
-mmb='bundle exec middleman build --clean'
-mmc='bundle exec middleman console -e console'
-mms='bundle exec middleman server'
+# Legacy Middleman commands
+alias mm='bundle exec middleman'
+alias mmc='bundle exec middleman console -e console'
+
+# Modern development workflow
+alias dev='bin/dev'                    # Unified development server
+alias build='yarn build'               # Build for local testing  
+alias build:prod='yarn build:production'  # Build for production
+alias serve='yarn serve'               # Serve built site locally
+alias deploy='bin/deploy production'   # Deploy to production
 ```
 
 Deployment
 ----------
 
-euroteamoutreach.org is currently deployed on Amazon S3. [Detailed instructions][aws-s3-deployment] are available from Amazon.
+euroteamoutreach.org is deployed to Amazon S3 with CloudFront CDN distribution. The deployment process is automated using the `middleman-s3_sync` gem.
 
-**BONUS: If you deploy with Amazon, you can get a [free ssl certificate][aws-cert-manager] for your site!**
+### Prerequisites
+
+- AWS credentials configured (via environment variables or AWS CLI)
+
+### Deploy to Production
+
+```sh
+# Deploy to production
+$ bin/deploy production
+```
+
+This command will:
+1. Confirm you want to deploy to production
+2. Build the site with production settings (`--environment=production`)
+3. Sync files to the S3 bucket with optimizations (gzip, caching headers)
+4. Invalidate CloudFront cache as needed
+
+#### Using 1Password CLI (Optional)
+
+If you use [1Password CLI][op-cli] for credential management, you can deploy securely without storing AWS credentials in your environment:
+
+```sh
+# Deploy using 1Password for secure credential management
+$ op run --no-masking -- bin/deploy production
+```
+
+### Infrastructure
+
+- **S3 Bucket**: `euroteamoutreach.org`
+- **CDN**: CloudFront distribution (`d2amb9pccla9r3.cloudfront.net`)
+- **SSL Certificate**: AWS Certificate Manager provides free SSL
+- **Caching**: Assets cached for 1 year, HTML files have no cache with `must-revalidate`
+
+### Manual Deployment Commands
+
+For advanced users or troubleshooting:
+
+```sh
+# Build for production
+$ bundle exec middleman build --clean --environment=production
+
+# Sync to S3 (requires AWS credentials)
+$ bundle exec middleman s3_sync --environment=production
+```
 
 Legal
 -----
@@ -127,6 +236,7 @@ Copyright &copy; 2025 Euro Team Outreach, Inc. Software is licensed under [MIT][
 [middleman-docs]: https://middlemanapp.com/basics/install/
 [middleman]: https://middlemanapp.com/
 [nvm]: https://github.com/nvm-sh/nvm#readme
+[op-cli]: https://developer.1password.com/docs/cli/
 [rbenv]: https://github.com/rbenv/rbenv#readme
 [screenshot]: https://s3.amazonaws.com/images.euroteamoutreach.org/eto-screenshot-2018-1200w.jpg
 [yarn]: https://yarnpkg.com/en/

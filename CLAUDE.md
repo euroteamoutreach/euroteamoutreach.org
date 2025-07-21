@@ -18,15 +18,24 @@ mms                            # Alias for Middleman server only
 
 **Recommended**: Use `bin/dev` for development as it handles both asset compilation and live reload.
 
-### Building
+### Building & Testing
 ```bash
-bundle exec middleman build    # Build production site
-mmb                            # Alias for above command (includes --clean)
+bundle exec middleman build --clean --environment=staging  # Build for local testing
+yarn build                                                # Alias for above (staging build)
+bundle exec middleman build --clean --environment=production  # Build for production
+yarn build:production                                     # Alias for above (production build)
+yarn serve                                               # Serve built site locally on port 8080
 ```
 
 ### Testing
 ```bash
 bin/rspec spec/                # Run all RSpec tests
+```
+
+### Deployment
+```bash
+bin/deploy production                          # Deploy to AWS S3
+op run --no-masking -- bin/deploy production  # Deploy to AWS S3 with 1Password (optional)
 ```
 
 ### Asset Pipeline

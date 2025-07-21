@@ -18,7 +18,10 @@
   },
   "scripts": {
     "development": "NODE_ENV=development gulp default",
-    "production": "NODE_ENV=production gulp production"
+    "production": "NODE_ENV=production gulp production",
+    "build": "bundle exec middleman build --clean --environment=staging",
+    "build:production": "bundle exec middleman build --clean --environment=production",
+    "serve": "npx http-server build -p 8080"
   },
   "browserslist": [
     "last 3 versions",
@@ -41,6 +44,7 @@
     "gulp-strip-debug": "^4.0.0",
     "gulp-terser": "^2.0.0",
     "gulp-util": "^3.0.8",
+    "http-server": "^14.1.1",
     "run-sequence": "^2.2.1",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
