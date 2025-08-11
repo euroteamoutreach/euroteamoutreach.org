@@ -25,3 +25,6 @@ npm-debug.log
 /source/assets/stylesheets/site.css
 /source/assets/stylesheets/site.css.map
 /source/assets/javascripts/bundle.js
+
+# Scratchpads for temporary files, notes, and debugging
+scratchpads/
