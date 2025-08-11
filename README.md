@@ -1,5 +1,4 @@
-euroteamoutreach.org
-====================
+# euroteamoutreach.org
 
 [euroteamoutreach.org][eto] is the official web site for Euro Team Outreach, Inc., a Christian organization dedicated to the advancement of the Gospel of Jesus Christ.
 
@@ -7,37 +6,33 @@ This site was built using [Middleman][middleman].
 
 ![euroteamoutreach.org screenshot][screenshot]
 
-Requirements
-------------
+## Requirements
 
-* [Middleman 4.x][middleman-docs]
-* [Ruby 3.1.x][rbenv] (for Apple Silicon compatibility)
-* [Node 20.x LTS][nvm] 
-* [Yarn][yarn]
-* [Gulp CLI][gulp-cli]
-* [asdf][asdf] (recommended for version management)
+- [Middleman 4.x][middleman-docs]
+- [Ruby 3.1.x][rbenv] (for Apple Silicon compatibility)
+- [Node 20.x LTS][nvm]
+- [Yarn][yarn]
+- [Gulp CLI][gulp-cli]
+- [asdf][asdf] (recommended for version management)
 
 **Apple Silicon (M1/M2) Note**: This project has been updated for full compatibility with Apple Silicon Macs. The `.tool-versions` file specifies the exact versions for asdf users.
 
-
-Setup
------
+## Setup
 
 To get started, clone the repo, cd into it, and run the setup script.
 
 ```sh
-$ bin/setup
+bin/setup
 ```
 
 **For asdf users**: The project includes a `.tool-versions` file that will automatically set the correct Ruby and Node.js versions:
 
 ```sh
-$ asdf install        # Install required versions
-$ asdf reshim         # Refresh shims if needed  
+asdf install        # Install required versions
+asdf reshim         # Refresh shims if needed
 ```
 
-Development
------------
+## Development
 
 This project uses [Gulp][gulp] for asset processing with modern Sass (replacing deprecated node-sass) and Browserify for JavaScript bundling.
 
@@ -46,10 +41,11 @@ This project uses [Gulp][gulp] for asset processing with modern Sass (replacing 
 **Recommended**: Use the unified development command for the best experience:
 
 ```sh
-$ bin/dev
+bin/dev
 ```
 
 This single command:
+
 - Builds initial CSS and JavaScript assets
 - Starts Gulp watchers for live asset compilation
 - Launches Middleman server with live reload
@@ -63,14 +59,13 @@ If you prefer to run servers separately:
 # Terminal 1: Start asset watcher
 $ NODE_ENV=development npx gulp default
 
-# Terminal 2: Start Middleman server  
+# Terminal 2: Start Middleman server
 $ bundle exec middleman server
 ```
 
 **Asset Pipeline**: CSS is compiled using [Dart Sass][dart-sass] via gulp-sass 5.x. JavaScript is bundled with Browserify. In development, assets are output directly to `source/assets/` to avoid external pipeline path issues.
 
-Build & Testing
---------------
+## Build & Testing
 
 ### Building the Site
 
@@ -103,11 +98,10 @@ This serves the static files from the `build/` directory, allowing you to test t
 Testing is done with RSpec:
 
 ```sh
-$ bin/rspec spec/
+bin/rspec spec/
 ```
 
-Environments
-------------
+## Environments
 
 This project uses multiple Middleman environments for different purposes:
 
@@ -138,21 +132,21 @@ environments/
 └── test.rb
 ```
 
-Troubleshooting
----------------
+## Troubleshooting
 
 **Apple Silicon (M1/M2) Issues**:
+
 - Ensure you're using Ruby 3.1.x and Node 20.x as specified in `.tool-versions`
 - If you encounter OpenSSL errors, make sure Ruby was compiled with the correct OpenSSL version
 - Node-sass compilation errors are resolved by using the modern Sass implementation
 
 **Common Issues**:
-- **Build failures**: Try `rm -rf node_modules yarn.lock && yarn install` 
+
+- **Build failures**: Try `rm -rf node_modules yarn.lock && yarn install`
 - **Asset compilation errors**: Ensure gulp-sass 5.x is installed and configured properly
 - **Ruby version conflicts**: Use `asdf reshim ruby` after installing gems
 
-Aliases
--------
+## Aliases
 
 Consider adding the following to your `.bashrc` or `.zshrc` file:
 
@@ -163,14 +157,13 @@ alias mmc='bundle exec middleman console -e console'
 
 # Modern development workflow
 alias dev='bin/dev'                    # Unified development server
-alias build='yarn build'               # Build for local testing  
+alias build='yarn build'               # Build for local testing
 alias build:prod='yarn build:production'  # Build for production
 alias serve='yarn serve'               # Serve built site locally
 alias deploy='bin/deploy production'   # Deploy to production
 ```
 
-Deployment
-----------
+## Deployment
 
 euroteamoutreach.org is deployed to Amazon S3 with CloudFront CDN distribution. The deployment process is automated using the `middleman-s3_sync` gem.
 
@@ -186,6 +179,7 @@ $ bin/deploy production
 ```
 
 This command will:
+
 1. Confirm you want to deploy to production
 2. Build the site with production settings (`--environment=production`)
 3. Sync files to the S3 bucket with optimizations (gzip, caching headers)
@@ -219,17 +213,13 @@ $ bundle exec middleman build --clean --environment=production
 $ bundle exec middleman s3_sync --environment=production
 ```
 
-Legal
------
+## Legal
 
 Copyright &copy; 2025 Euro Team Outreach, Inc. Software is licensed under [MIT][license].
 
 [asdf]: https://asdf-vm.com/
-[aws-cert-manager]: https://aws.amazon.com/blogs/aws/new-aws-certificate-manager-deploy-ssltls-based-apps-on-aws/
-[aws-s3-deployment]: http://docs.aws.amazon.com/gettingstarted/latest/swh/website-hosting-intro.html
 [dart-sass]: https://sass-lang.com/dart-sass
 [eto]: https://euroteamoutreach.org/
-[external-pipeline]: https://middlemanapp.com/advanced/external-pipeline/
 [gulp-cli]: https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md#getting-started
 [gulp]: http://gulpjs.com/
 [license]: https://github.com/euroteamoutreach/euroteamoutreach.org/blob/master/LICENSE
