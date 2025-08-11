@@ -1,0 +1,113 @@
+// Neat 4.0.0 Compatibility Layer
+// This file provides compatibility shims for legacy Neat syntax
+
+// Import Neat 4.0.0
+@import "neat";
+
+// Legacy media mixin compatibility
+@mixin media($grid) {
+  @include grid-media($grid) {
+    @content;
+  }
+}
+
+// Legacy new-breakpoint function compatibility
+@function new-breakpoint($args...) {
+  $max-width: null;
+  $columns: 12;
+  
+  @each $arg in $args {
+    @if type-of($arg) == "string" and str-index($arg, "max-width") {
+      // Skip max-width keyword
+    } @else if type-of($arg) == "number" and unit($arg) == "px" {
+      $max-width: $arg;
+    } @else if type-of($arg) == "number" and unitless($arg) {
+      $columns: $arg;
+    }
+  }
+  
+  @if $max-width {
+    @return (
+      media: "screen and (max-width: #{$max-width})",
+      columns: $columns
+    );
+  } @else {
+    @return (columns: $columns);
+  }
+}
+
+// Legacy grid mixins compatibility
+@mixin outer-container($max-width: $neat-grid) {
+  @include grid-container;
+  @if type-of($max-width) == "number" {
+    max-width: $max-width;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@mixin span-columns($span: 1 of 1) {
+  $columns: null;
+  $container-columns: null;
+  
+  @if type-of($span) == "list" and length($span) == 3 {
+    $columns: nth($span, 1);
+    $container-columns: nth($span, 3);
+  } @else if type-of($span) == "number" {
+    $columns: $span;
+    $container-columns: 12;
+  }
+  
+  @include grid-column($columns, (columns: $container-columns));
+}
+
+@mixin shift($shift: 1) {
+  @if $shift == 0 {
+    margin-left: 0;
+  } @else {
+    @include grid-shift($shift);
+  }
+}
+
+@mixin omega($nth: null) {
+  @if $nth {
+    &:nth-child(#{$nth}) {
+      margin-right: 0;
+    }
+  } @else {
+    margin-right: 0;
+  }
+}
+
+@mixin omega-reset($nth, $columns: null) {
+  &:nth-child(#{$nth}) {
+    margin-right: gutter();
+  }
+}
+
+@mixin fill-parent() {
+  width: 100%;
+}
+
+@mixin row() {
+  @include grid-container;
+  display: block;
+}
+
+@mixin pad($padding: gutter()) {
+  padding: $padding;
+}
+
+@mixin direction($direction: ltr) {
+  direction: $direction;
+}
+
+@mixin display($display: block) {
+  display: $display;
+}
+
+// Default neat grid settings
+$neat-grid: (
+  columns: 12,
+  gutter: 30px,
+);

@@ -5,7 +5,7 @@
 // http://bourbon.io
 @import "bourbon";
 @import "base/base";
-@import "neat";
+// @import "neat"; // Now imported via base/grid-settings -> neat-compat
 
 // Partials
 @import "partials/layout";

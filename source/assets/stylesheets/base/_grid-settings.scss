@@ -1,4 +1,5 @@
-@import "neat-helpers"; // or "../neat/neat-helpers" when not in Rails
+// Import Neat 4.0.0 compatibility layer
+@import "neat-compat";
 
 $visual-grid: false;
 $visual-grid-color: #0ff;

@@ -44,9 +44,8 @@ var
     imagePath: '../assets/images',
     includePaths: [
       bourbon, 
-      neat, 
-      'node_modules/bourbon/app/assets/stylesheets',
-      'node_modules/bourbon-neat/app/assets/stylesheets'
+      neat,
+      'node_modules/bourbon/app/assets/stylesheets'
     ],
     errLogToConsole: true
   },
