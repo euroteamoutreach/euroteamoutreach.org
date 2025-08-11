@@ -15,21 +15,21 @@
   og_article_image = site_url + image_path(article_image)
   og_default_image = site_url + image_path(site_photo)
 
+- content_for :meta_desc do
+  = tag "meta", name: "description", content: article_title
+
+- content_for :og_tags do
+  = tag "meta", property: "og:url", content: og_url
+  = tag "meta", property: "og:type", content: "article"
+  = tag "meta", property: "og:title", content: article_title
+  = tag "meta", property: "og:description", content: og_desc
+
+  - if !article_image.blank?
+    = tag "meta", property: "og:image", content: og_article_image
+  - else
+    = tag "meta", property: "og:image", content: og_default_image
+
 = wrap_layout :layout do
-  - content_for :meta_desc do
-    = tag "meta", name: "description", content: article_title
-
-  - content_for :og_tags do
-    = tag "meta", property: "og:url", content: og_url
-    = tag "meta", property: "og:type", content: "article"
-    = tag "meta", property: "og:title", content: article_title
-    = tag "meta", property: "og:description", content: og_desc
-
-    - if !article_image.blank?
-      = tag "meta", property: "og:image", content: og_article_image
-    - else
-      = tag "meta", property: "og:image", content: og_default_image
-
   %article.article
     %section.article-container
       .article-title
