@@ -2,7 +2,7 @@
 // This file provides compatibility shims for legacy Neat syntax
 
 // Import Neat 4.0.0
-@import "bourbon-neat/core/neat";
+@import "neat";
 
 // Legacy media mixin compatibility
 @mixin media($grid) {

@@ -24,13 +24,11 @@ var p = require('gulp-load-plugins')({ // This loads all the other plugins.
 var
   src  = 'source/', // The Middleman source folder
   dest = '.tmp/',   // The "hot" build folder used by Middleman's external pipeline
-  // For development, output assets directly to the source directory to avoid path 
-  // issues caused by Middleman's external pipeline not resolving asset paths correctly.
-  // Alternatives include configuring the external pipeline to handle development paths
-  // or using symbolic links to map .tmp/assets to source/assets during development.
-  devCssDest = process.env.NODE_ENV === 'development' ? 'source/assets/stylesheets/' : '.tmp/assets/stylesheets/',
-  devJsDest = process.env.NODE_ENV === 'development' ? 'source/assets/javascripts/' : '.tmp/assets/javascripts/',
-  devImagesDest = process.env.NODE_ENV === 'development' ? 'source/assets/images/' : '.tmp/assets/images/',
+  // Use standard .tmp/ output for all environments to avoid watch loops
+  // Middleman's external pipeline will handle asset path resolution
+  devCssDest = '.tmp/assets/stylesheets/',
+  devJsDest = '.tmp/assets/javascripts/', 
+  devImagesDest = '.tmp/assets/images/',
 
   development = p.environments.development,
   production = p.environments.production,
@@ -38,6 +36,7 @@ var
   css = {
     in: src + 'assets/stylesheets/**/*.{css,scss,sass}',
     out: dest + 'assets/stylesheets/',
+    watch: src + 'assets/stylesheets/**/*.{scss,sass}' // Only watch source files, not compiled CSS
   },
 
   sassOpts = {
@@ -52,11 +51,12 @@ var
 
   js = {
     in: src + 'assets/javascripts/*.{js,coffee}',
-    out: dest + 'assets/javascripts/'
+    out: dest + 'assets/javascripts/',
+    watch: src + 'assets/javascripts/**/*.{js,coffee}' // Watch all JS source files
   },
 
   images = {
-    in: src + 'assets/images/*',
+    in: src + 'assets/images/**/*',
     out: dest + 'assets/images/'
   },
 
@@ -77,7 +77,7 @@ gulp.task('css', function() {
     .pipe(p.autoprefixer()).on('error', handleError)
     .pipe(production(p.cleanCss()))
     .pipe(development(p.sourcemaps.write('.')))
-    .pipe(gulp.dest(devCssDest || css.out));
+    .pipe(gulp.dest(css.out));
 });
 
 // Javascript Bundling
@@ -94,14 +94,14 @@ gulp.task('js', function() {
     .pipe(production(p.sourcemaps.init()))
     .pipe(production(p.terser()))
     .pipe(production(p.sourcemaps.write()))
-    .pipe(gulp.dest(devJsDest || js.out));
+    .pipe(gulp.dest(js.out));
 });
 
 // Image Optimization (temporarily simplified for compatibility)
 gulp.task('images', function() {
   return gulp.src(images.in)
     .pipe(p.changed(images.out))
-    .pipe(gulp.dest(devImagesDest || images.out));
+    .pipe(gulp.dest(images.out));
 });
 
 // Clean .tmp/
@@ -135,8 +135,8 @@ gulp.task('production', gulp.series
 gulp.task('default', gulp.series('development', function watch () {
   // In development, we don't use BrowserSync since Middleman has live reload
   // Just watch files and rebuild assets
-  gulp.watch(css.in, gulp.series('css'));
-  gulp.watch(js.in, gulp.series('js'));
+  gulp.watch(css.watch, gulp.series('css'));
+  gulp.watch(js.watch, gulp.series('js'));
   gulp.watch(images.in, gulp.series('images'));
 }));
 
