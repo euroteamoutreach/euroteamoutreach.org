@@ -52,7 +52,7 @@ Ukraine Gospel Outreach (UGO) was born.
 Oleksandr distributes fresh bread amid the rubble of a de-occupied village in southern Ukraine.
 {: .caption-text .article-image__caption}
 
-## The October Project
+### The October Project
 
 There is, of course, so much more that I could say about Ukraine Gospel
 Outreach. Some of our plans are already finalized, while others are still taking
@@ -72,7 +72,7 @@ particular, similar to CMO projects of the past, UGO incorporates a discipleship
 component, offering committed individuals the opportunity to join us for
 projects here in Ukraine.
 
-## Good and Evil Printing Update
+### Good and Evil Printing Update
 
 As many of our readers will remember, No Greater Joy launched a fundraiser a few
 months ago for a new printing of the Ukrainian edition of _Good and Evil_. We
@@ -84,7 +84,7 @@ in our next UGO project.
 [![Description](/assets/images/blog/2025/nathan-ge-handout-700w.jpg)](/assets/images/blog/2025/nathan-ge-handout-2000w.jpg)
 {: .article-image }
 
-## Conclusion
+### Conclusion
 
 Exciting days lie ahead. The war in Ukraine is a terrible tragedy, but it also
 represents an incredible opportunity to minister, to serve, to shine the light
@@ -93,7 +93,7 @@ initiative designed to help us consistently and effectively share the vital
 message of Jesus Christ during this time of conflict and uncertainty. Please
 pray for our team as we step into this new chapter of ministry in Ukraine.
 
-## How You Can Pray
+### How You Can Pray
 
 - Pray for the planning and execution of our upcoming UGO project in October.
   Pray for the safety of our team and for divine appointments as we minister to
