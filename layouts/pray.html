@@ -1,0 +1,114 @@
+{{/* ---------------------------------------------------------------------
+     /pray/ — the Pray doorway (#56, docs/prd/05-templates.md
+     §"Pray (`/pray/`)").
+
+         hero → evergreen prayer points → subscribe (dark band)
+              → follow along: blog + social
+
+     Copy comes from content/pray.md front matter (the hero is its body).
+
+     RULES THIS FILE MUST KEEP:
+
+     1. EVERGREEN POINTS ONLY (decision 77). Nothing dated renders here;
+        current requests go out by newsletter and blog, and the subscribe
+        band says so. The staleness problem is the reason to subscribe.
+
+     2. THE SUBSCRIBE BAND IS THE ONE DARK BAND below the header, and it
+        sits mid-page on purpose. The footer opens with the same form on
+        the same ground, so the white "Follow along" band between them
+        keeps the two from stacking into one double-height block.
+        mailchimp-form.html is styled for eto-900 and only for eto-900.
+
+     3. PRAYER POINTS ARE A CARD GRID because they are parallel items
+        (decision 75); everything else stays in the max-w-5xl container.
+     --------------------------------------------------------------------- */}}
+
+{{ define "main" }}
+  {{ $p := .Params }}
+  {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
+  {{ $h2 := "text-heading text-ink" }}
+  {{ $focus := "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
+  {{ $primary := printf "inline-block rounded-eto bg-eto-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-eto-700 %s" $focus }}
+
+  {{/* ---------------- Hero ---------------- */}}
+  <section class="bg-white">
+    <div class="{{ $section }}">
+      <h1 class="text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">
+        {{ .Title }}
+      </h1>
+      <div class="mt-4 max-w-prose text-lede text-warm-800">
+        {{ .Content }}
+      </div>
+    </div>
+  </section>
+
+  {{/* ---------------- Prayer points ---------------- */}}
+  {{ with $p.points }}
+    <section aria-labelledby="points-heading" class="border-y border-warm-200 bg-paper">
+      <div class="{{ $section }}">
+        <h2 id="points-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <ul class="mt-8 grid gap-4 sm:grid-cols-2 md:gap-6">
+          {{ range .items }}
+            <li class="rounded-eto-lg border border-warm-200 bg-white p-6">
+              <h3 class="text-subheading text-ink">{{ .heading }}</h3>
+              <p class="mt-2 text-body text-warm-800">{{ .text | markdownify }}</p>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- Subscribe ----------------
+       Same two-column split as the footer's newsletter row, so the form
+       sits where visitors will meet it again at the bottom of every page. */}}
+  {{ with $p.subscribe }}
+    <section aria-labelledby="subscribe-heading" class="bg-eto-900 text-white">
+      <div class="{{ $section }} grid gap-6 md:grid-cols-2 md:items-start md:gap-12">
+        <div>
+          <h2 id="subscribe-heading" class="text-heading">{{ .heading }}</h2>
+          <p class="mt-4 max-w-prose text-body text-eto-100">{{ .text }}</p>
+        </div>
+        {{ partial "mailchimp-form.html" (dict "id" "pray") }}
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- Follow along ---------------- */}}
+  {{ with $p.follow }}
+    <section aria-labelledby="follow-heading" class="bg-white">
+      <div class="{{ $section }}">
+        <h2 id="follow-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <div class="mt-8 grid gap-10 md:grid-cols-2 md:gap-12">
+          <div>
+            <p class="max-w-prose text-body text-warm-800">{{ .blog.text }}</p>
+            <a href="{{ .blog.href }}" class="{{ $primary }} mt-6">
+              {{ .blog.label }} <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+          {{/* The footer's two social accounts (footer_social in hugo.toml),
+               labelled here rather than icon-only: on the page they are the
+               content, not chrome. */}}
+          <div>
+            <p class="max-w-prose text-body text-warm-800">{{ .social.text }}</p>
+            <ul class="mt-6 flex flex-wrap gap-3">
+              {{ range site.Menus.footer_social }}
+                <li>
+                  <a
+                    href="{{ .URL }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 rounded-eto border border-warm-200 px-4 py-2.5 font-semibold text-ink transition-colors hover:border-eto-600 hover:text-eto-600 {{ $focus }}"
+                  >
+                    {{ partial "icon.html" (dict "name" (printf "social-%s" .Params.icon) "class" "size-5 fill-current") }}
+                    {{ .Params.label }}
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
