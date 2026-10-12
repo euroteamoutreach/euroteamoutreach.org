@@ -104,6 +104,17 @@ enableRobotsTXT = true
     widget = "gkVll6"
     campaignUrl = "https://givebutter.com/euroteamoutreach"
 
+  # MailChimp newsletter signup (mailchimp-form.html). PUBLIC values: both IDs
+  # ship in the form's action URL. `user` is the account, `audience` is the
+  # ETO Newsletter audience — the same one the blog RSS campaign sends to, so a
+  # new subscriber gets those emails too. Verified against the account's
+  # Audience → Settings on 2026-10-12. The audience is single opt-in with
+  # reCAPTCHA on, so the visitor finishes on MailChimp's page in a new tab.
+  [params.mailchimp]
+    endpoint = "https://euroteamoutreach.us6.list-manage.com/subscribe/post"
+    user = "672df31cd6d0e7132c9c4c7d1"
+    audience = "d107e57061"
+
 # Build stats feed Tailwind v4's JIT scan (@source "hugo_stats.json" in main.css).
 # The cachebuster invalidates the generated CSS whenever the class list changes.
 [build]
