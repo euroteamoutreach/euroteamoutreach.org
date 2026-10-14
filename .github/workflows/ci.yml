@@ -26,7 +26,7 @@ jobs:
 
       - uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.167.0" # must match netlify.toml's HUGO_VERSION pin
+          hugo-version: "0.168.0" # must match netlify.toml's HUGO_VERSION pin
           extended: true
 
       - run: hugo --gc --minify
