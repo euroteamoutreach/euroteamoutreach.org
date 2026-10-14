@@ -20,11 +20,8 @@ hero:
     width: 1000
     height: 675
     alt: "Three young men with backpacks smile for the camera at an airport."
-  # Scrolls to "How it works", so a reader meets the page before the form.
-  # Only "Let's talk" links to the form.
-  action:
-    label: "See how it works"
-    href: "#how-it-works"
+  # The button scrolls to "How it works" (layouts/serve.html, rule 1).
+  label: "See how it works"
 
 invitation:
   heading: "Come and do the work"
@@ -70,8 +67,8 @@ how:
       text: "What serving could look like for you, and what comes next."
   outro: "It's the start of a relationship."
 
-# The page's one link to the form. It goes to /contact/ until the gateway
-# form ships (docs/prd/CHANGELOG.md, 2026-10-14).
+# Goes to /contact/ until the gateway form ships (docs/prd/CHANGELOG.md,
+# 2026-10-14).
 talk:
   heading: "Let's talk"
   label: "Start the conversation"
