@@ -1,7 +1,7 @@
 ---
 title: "The Steeles"
 description: "Joshua and Kelsie Steele, founding members of Euro Team Outreach, serving the Lord in Lviv, Ukraine, since 2001."
-members: "Joshua & Kelsie, with Abigail (and her husband, Axel), Rebekah, Hosanna, Kathryn, David, and Mia"
+members: "Joshua & Kelsie, with Abigail, Rebekah, Hosanna, Kathryn, David, and Mia"
 role: "Missionaries in Lviv since 2001"
 photo:
   id: "eto/steele-family_qbans3"
