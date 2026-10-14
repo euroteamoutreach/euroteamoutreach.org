@@ -12,18 +12,33 @@ description: "Serve with Euro Team Outreach in Ukraine — come and do the work 
 
 tagline: "God calls his people to go."
 
-# Every "start the conversation" button goes to /contact/ until the gateway
-# form ships (docs/prd/CHANGELOG.md, 2026-10-14).
-cta:
-  label: "Start the conversation"
-  href: "/contact/"
+hero:
+  # Beside the hero text. A CMO photo: the hero is about twenty years of
+  # young people coming to serve, and CMO is most of those years.
+  photo:
+    id: eto/requirements_zmkmjj
+    width: 1000
+    height: 675
+    alt: "Three young men with backpacks smile for the camera at an airport."
+  # Scrolls to "How it works", so a reader meets the page before the form.
+  # Only "Let's talk" links to the form.
+  action:
+    label: "See how it works"
+    href: "#how-it-works"
 
 invitation:
   heading: "Come and do the work"
+  # Behind the band, under a blue wash: the CMO team silhouetted at sunset,
+  # the picture CMO used on its site and promo materials for years.
+  photo:
+    id: eto/cmo-men-sunset_kh7uyx
+    width: 5184
+    height: 2912
+    alt: "A line of young men silhouetted on a hilltop against a bright, cloudy sky."
   body: |
     Discipling the next generation of laborers has been part of who we are from the beginning — it's the third strand of our mission, and we remain committed to it. The need in Ukraine is as real as it has ever been, and the harvest is plentiful. We're looking for people who are ready to give a season of their lives to the Gospel, to learn by serving, and to find out first-hand what God can do through a willing heart.
-
-    You don't need to have it all figured out. You need to be willing to go.
+  # Set apart below the body, at callout size.
+  closing: "You don't need to have it all figured out. You need to be willing to go."
 
 start:
   heading: "The best place to start"
@@ -55,8 +70,12 @@ how:
       text: "What serving could look like for you, and what comes next."
   outro: "It's the start of a relationship."
 
+# The page's one link to the form. It goes to /contact/ until the gateway
+# form ships (docs/prd/CHANGELOG.md, 2026-10-14).
 talk:
   heading: "Let's talk"
+  label: "Start the conversation"
+  href: "/contact/"
   body: "For now, the conversation starts on our contact form. Tell us who you are, where you're from, your church, and what's drawing you to serve in Ukraine, and we'll be in touch to set up a time to talk."
 ---
 
