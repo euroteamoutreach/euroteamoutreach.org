@@ -82,11 +82,8 @@ next:
 
     If you would like to stand with us in this, there is a place for you. Here's how.
 
-# The three doorways. Pre-UGO track (#21): /pray/ and /serve/ are not built
-# yet, and legacy has neither. Pray goes to /subscribe/, which the fallback
-# proxy hands to a legacy redirect stub that sends the visitor off-site to the
-# MailChimp signup form; Go goes to /contact/. When /pray/ and /serve/ ship,
-# point these at them.
+# The three doorways. Pre-UGO track (#21): /serve/ is not built yet, and
+# legacy has none, so Go goes to /contact/. When /serve/ ships, point it there.
 involved:
   heading: "Three ways to stand with us"
   doorways:
@@ -94,7 +91,7 @@ involved:
       icon: hand-raised
       body: "We need God's blessing, protection, and intervention. *\"Except the LORD build the house…\"* Please pray with us for safety on the roads, for open doors in the villages, and for the families who will hear the Gospel on the next trip. As the project draws near, we'll send you specific things to pray for."
       label: "Follow along and pray"
-      href: "/subscribe/"
+      href: "/pray/"
     - heading: "Go"
       icon: map
       body: "God wants you to go and share Christ with the world. Over the years, dozens of young people have joined us in Ukraine to learn first-hand what it means to be a missionary. If you'd like to find out what it takes to serve on a UGO team, reach out — let's talk."

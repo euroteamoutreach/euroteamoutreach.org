@@ -1,0 +1,123 @@
+{{/* ---------------------------------------------------------------------
+     /pray/ — the Pray doorway (#56, docs/prd/05-templates.md
+     §"Pray (`/pray/`)").
+
+         hero → evergreen prayer points → verse (eto-50)
+              → follow along: blog + social, a line pointing to the footer's form
+
+     Copy comes from content/pray.md front matter (the hero is its body).
+
+     RULES THIS FILE MUST KEEP:
+
+     1. EVERGREEN POINTS ONLY (decision 77). Nothing dated renders here;
+        current requests go out by newsletter and blog, and "Follow along"
+        says so. The staleness problem is the reason to subscribe.
+
+     2. NO SIGNUP FORM ON THE PAGE. The footer's form, identical on every
+        page, is the only one; "Follow along" says where to find it.
+        A page-level dark subscribe band was tried and dropped: it read as a
+        second footer stacked on the first.
+
+     3. BACKGROUNDS ALTERNATE white → paper → eto-50 → white → footer, so
+        each band reads as its own section. The footer's eto-900 stays the
+        only dark ground on the page.
+
+     4. PRAYER POINTS ARE A CARD GRID because they are parallel items
+        (decision 75); everything else stays in the max-w-5xl container.
+     --------------------------------------------------------------------- */}}
+
+{{ define "main" }}
+  {{ $p := .Params }}
+  {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
+  {{ $h2 := "text-heading text-ink" }}
+  {{ $focus := "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
+  {{ $primary := printf "inline-block rounded-eto bg-eto-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-eto-700 %s" $focus }}
+
+  {{/* ---------------- Hero ---------------- */}}
+  <section class="bg-white">
+    <div class="{{ $section }}">
+      <h1 class="text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">
+        {{ .Title }}
+      </h1>
+      <div class="mt-4 max-w-prose text-lede text-warm-800">
+        {{ .Content }}
+      </div>
+    </div>
+  </section>
+
+  {{/* ---------------- Prayer points ---------------- */}}
+  {{ with $p.points }}
+    <section aria-labelledby="points-heading" class="border-y border-warm-200 bg-paper">
+      <div class="{{ $section }}">
+        <h2 id="points-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <ul class="mt-8 grid gap-4 sm:grid-cols-2 md:gap-6">
+          {{ range .items }}
+            <li class="rounded-eto-lg border border-warm-200 bg-white p-6">
+              <h3 class="text-subheading text-ink">{{ .heading }}</h3>
+              <p class="mt-2 text-body text-warm-800">{{ .text | markdownify }}</p>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- Verse ----------------
+       A set-apart verse at callout size, on the light blue the home page's
+       "Get involved" band uses. Larger and centred, unlike the inline
+       scripture-quote partial, because here it is the whole band. */}}
+  {{ with $p.verse }}
+    <section class="bg-eto-50">
+      <figure class="{{ $section }} text-center">
+        <blockquote class="mx-auto max-w-3xl font-serif text-2xl leading-snug text-ink italic sm:text-3xl">
+          {{ .text | markdownify }}
+        </blockquote>
+        <figcaption class="mt-6 text-caption font-semibold tracking-wide text-eto-700 uppercase">{{ .ref }}</figcaption>
+      </figure>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- Follow along ---------------- */}}
+  {{ with $p.follow }}
+    <section aria-labelledby="follow-heading" class="bg-white">
+      <div class="{{ $section }}">
+        <h2 id="follow-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <div class="mt-8 grid gap-10 md:grid-cols-2 md:gap-12">
+          <div>
+            <p class="max-w-prose text-body text-warm-800">{{ .blog.text }}</p>
+            <a href="{{ .blog.href }}" class="{{ $primary }} mt-6">
+              {{ .blog.label }} <span aria-hidden="true">&rarr;</span>
+            </a>
+            {{/* Plain text, no link: the footer form is a short scroll away,
+                 and an in-page jump that barely moves reads as broken. Link
+                 it to /subscribe/ once that page exists. */}}
+            {{ with .subscribe }}
+              <p class="mt-6 max-w-prose text-body text-warm-800">{{ . }}</p>
+            {{ end }}
+          </div>
+          {{/* The footer's two social accounts (footer_social in hugo.toml),
+               labelled here rather than icon-only: on the page they are the
+               content, not chrome. */}}
+          <div>
+            <p class="max-w-prose text-body text-warm-800">{{ .social.text }}</p>
+            <ul class="mt-6 flex flex-wrap gap-3">
+              {{ range site.Menus.footer_social }}
+                <li>
+                  <a
+                    href="{{ .URL }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 rounded-eto border border-warm-200 px-4 py-2.5 font-semibold text-ink transition-colors hover:border-eto-600 hover:text-eto-600 {{ $focus }}"
+                  >
+                    {{ partial "icon.html" (dict "name" (printf "social-%s" .Params.icon) "class" "size-5 fill-current") }}
+                    {{ .Params.label }}
+                  </a>
+                </li>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}

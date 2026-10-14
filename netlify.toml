@@ -82,6 +82,17 @@
   status = 301
   force = true
 
+# The legacy newsletter page → /pray/ for now. 302, not 301: a dedicated
+# /subscribe/ page is planned, and browsers cache a 301 indefinitely, so they
+# would keep skipping the new page. Delete this rule when that page ships.
+# One rule covers /subscribe and /subscribe/. Above the fall-through, like the
+# rules above.
+[[redirects]]
+  from = "/subscribe"
+  to = "/pray/"
+  status = 302
+  force = true
+
 # Legacy team bios lived at the root; they now nest under /team/
 # (10-url-preservation.md). Above the fall-through, like the rules above.
 # /chepara is deliberately ABSENT: it keeps falling through to the legacy

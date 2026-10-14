@@ -25,12 +25,11 @@ hero:
     - "Discipling Men in Missions"
   lede: "Christian missionaries serving in Ukraine since 2004 — carrying the good news of Jesus Christ, and practical help, to a nation at war."
   # Pray first: the site's priority is pray, then go, then give (#5).
-  # Pray and Go use interim destinations until /pray/ and /serve/ are built:
-  # /subscribe/ falls through to the legacy redirect stub for the MailChimp
-  # signup, and /contact/ opens the conversation. Change them with ugo.md's.
+  # Go uses an interim destination until /serve/ is built: /contact/ opens
+  # the conversation. Change it with ugo.md's.
   actions:
     - label: "Pray with us"
-      href: "/subscribe/"
+      href: "/pray/"
     - label: "Go"
       href: "/contact/"
     - label: "Give"
@@ -113,9 +112,9 @@ involved:
   doorways:
     - heading: "Pray & follow along"
       icon: hand-raised
-      body: "The work runs on prayer. Sign up to follow the team, and we'll send real updates from the field and specific things to pray for."
+      body: "The work runs on prayer. Pray with us, and follow along for real updates from the field and specific things to pray for."
       label: "Follow along"
-      href: "/subscribe/"
+      href: "/pray/"
     - heading: "Go"
       icon: map
       body: "God calls his people to go. For years, young people have joined us in Ukraine to learn first-hand what it means to serve as a missionary. If that stirs something in you, let's talk."
