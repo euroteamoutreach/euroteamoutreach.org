@@ -175,7 +175,9 @@ html {
 /* Inline links: a link inside running text on a light ground. The underline
    is what marks it as a link (colour alone fails for colour-blind readers and
    reads as emphasis); semibold and the house blue set it off from the warm
-   body grey. Hover darkens, focus gets the standard ring. `link` styles one
+   body grey. Hover drops the underline (and darkens a step): eto-600 to
+   eto-700 alone was too close to see, while losing the line is unmistakable.
+   Focus gets the standard ring. `link` styles one
    <a>; `prose-links` styles every <a> in a block of rendered Markdown, where
    the template cannot reach the tag. Not for nav, cards, buttons, or dark
    grounds, which carry their own link faces. */
@@ -187,6 +189,7 @@ html {
   text-underline-offset: 2px;
   &:hover {
     color: var(--color-eto-700);
+    text-decoration-line: none;
   }
   &:focus-visible {
     outline: 2px solid var(--color-eto-600);
