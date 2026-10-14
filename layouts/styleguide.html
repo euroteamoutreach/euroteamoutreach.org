@@ -281,6 +281,34 @@
             </div>
           {{ end }}
         </div>
+
+        {{/* Inline links: the `link` / `prose-links` utilities in main.css. */}}
+        <h3 class="mt-14 text-xl font-semibold tracking-tight">Inline links</h3>
+        <p class="mt-2 max-w-prose text-sm leading-relaxed text-warm-600">
+          A link inside running text on a light ground: semibold house blue,
+          underlined, darker on hover, ringed on focus. The underline is what
+          marks it as a link; colour alone reads as emphasis. Use
+          <code>.link</code> on an <code>&lt;a&gt;</code> the template writes,
+          and <code>.prose-links</code> on a block of rendered Markdown. Nav,
+          cards, buttons and the dark footer keep their own link faces.
+        </p>
+        <div class="mt-6 grid gap-4 border-y border-warm-200 py-6 md:grid-cols-[12rem_1fr]">
+          <div>
+            <p class="text-lg font-semibold">Inline link</p>
+            <p class="font-mono text-[11px] text-warm-600">.link · .prose-links</p>
+            <p class="mt-2 text-xs text-warm-600">Body text, captions, bio prose</p>
+          </div>
+          <div class="max-w-prose space-y-4 text-warm-800">
+            <p class="text-body prose-links">
+              In August 2026, their eldest daughter, Abigail, married Axel —
+              <a href="#type">a joyful day</a> for the whole family.
+            </p>
+            <p class="text-caption">
+              Prefer to give on Givebutter directly?
+              <a href="#type" class="link">Open the campaign page</a>.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
