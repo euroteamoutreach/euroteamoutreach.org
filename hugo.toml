@@ -138,7 +138,7 @@ enableRobotsTXT = true
 
 # Security. Hugo 0.165 dropped tailwindcss from the default exec allow-list, so
 # css.TailwindCSS fails without this. Setting `allow` REPLACES Hugo's default
-# list rather than extending it: the first five entries are the 0.167 defaults
+# list rather than extending it: the first five entries are the 0.168 defaults
 # (from `hugo config`), and tailwindcss is the only addition. Re-check the
 # defaults on each Hugo bump.
 [security.exec]

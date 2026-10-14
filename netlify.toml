@@ -3,7 +3,7 @@
   command = "npm ci && hugo --gc --minify"
 
 [build.environment]
-  HUGO_VERSION = "0.167.0"   # pin — the GitHub Actions CI workflow must pin this exact version
+  HUGO_VERSION = "0.168.0"   # pin — the GitHub Actions CI workflow must pin this exact version
   HUGO_ENVIRONMENT = "production"
   NODE_VERSION = "22"
 
