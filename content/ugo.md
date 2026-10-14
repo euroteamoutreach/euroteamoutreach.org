@@ -82,8 +82,7 @@ next:
 
     If you would like to stand with us in this, there is a place for you. Here's how.
 
-# The three doorways. Pre-UGO track (#21): /serve/ is not built yet, and
-# legacy has none, so Go goes to /contact/. When /serve/ ships, point it there.
+# The three doorways. Change them with the home page's (content/_index.md).
 involved:
   heading: "Three ways to stand with us"
   doorways:
@@ -96,7 +95,7 @@ involved:
       icon: map
       body: "God wants you to go and share Christ with the world. Over the years, dozens of young people have joined us in Ukraine to learn first-hand what it means to be a missionary. If you'd like to find out what it takes to serve on a UGO team, reach out — let's talk."
       label: "Serve with us"
-      href: "/contact/"
+      href: "/serve/"
     - heading: "Give"
       icon: gift
       body: "{box_price} puts one aid box — food and the Gospel — into a family's hands. Give once, or give monthly to help us prepare for the next trip."

@@ -25,13 +25,12 @@ hero:
     - "Discipling Men in Missions"
   lede: "Christian missionaries serving in Ukraine since 2004 — carrying the good news of Jesus Christ, and practical help, to a nation at war."
   # Pray first: the site's priority is pray, then go, then give (#5).
-  # Go uses an interim destination until /serve/ is built: /contact/ opens
-  # the conversation. Change it with ugo.md's.
+  # Change these with ugo.md's doorways.
   actions:
     - label: "Pray with us"
       href: "/pray/"
     - label: "Go"
-      href: "/contact/"
+      href: "/serve/"
     - label: "Give"
       href: "/give/"
       give: true
@@ -119,7 +118,7 @@ involved:
       icon: map
       body: "God calls his people to go. For years, young people have joined us in Ukraine to learn first-hand what it means to serve as a missionary. If that stirs something in you, let's talk."
       label: "Serve with us"
-      href: "/contact/"
+      href: "/serve/"
     - heading: "Give"
       icon: gift
       body: "Help carry the Gospel and practical aid into Ukrainian communities. Give once, or give monthly to sustain the work between trips."
