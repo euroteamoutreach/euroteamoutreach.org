@@ -1,0 +1,131 @@
+{{/* ---------------------------------------------------------------------
+     /serve/ — the Go doorway (#57, docs/prd/05-templates.md
+     §"Serve (`/serve/`)").
+
+         hero → the invitation → UGO, the place to start (text + photo)
+              → counting the cost → how it works → let's talk
+
+     Copy comes from content/serve.md front matter (the hero is its body).
+
+     RULES THIS FILE MUST KEEP:
+
+     1. NO GATEWAY FORM YET. Every "start the conversation" button goes to
+        cta.href (/contact/), and "Let's talk" says why. When the gateway
+        form ships (08-forms.md), it replaces the "Let's talk" button and
+        "How it works" step one; the netlifyForm Alpine component is ready.
+
+     2. BACKGROUNDS ALTERNATE white → paper → white → paper → white →
+        eto-50 → footer, as on /pray/. The footer's eto-900 stays the only
+        dark ground on the page.
+
+     3. THE STEPS ARE A CARD GRID because they are parallel items
+        (decision 75); everything else stays in the max-w-5xl container.
+     --------------------------------------------------------------------- */}}
+
+{{ define "main" }}
+  {{ $p := .Params }}
+  {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
+  {{ $h2 := "text-heading text-ink" }}
+  {{ $prose := "max-w-prose space-y-4 text-body text-warm-800 md:space-y-5 [&_strong]:text-ink" }}
+  {{ $focus := "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
+  {{ $primary := printf "inline-block rounded-eto bg-eto-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-eto-700 %s" $focus }}
+  {{ $cta := $p.cta }}
+
+  {{/* ---------------- Hero ---------------- */}}
+  <section class="bg-white">
+    <div class="{{ $section }}">
+      <h1 class="text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">
+        {{ .Title }}
+      </h1>
+      <p class="mt-3 text-subheading text-ink">{{ $p.tagline }}</p>
+      <div class="mt-4 max-w-prose text-lede text-warm-800">
+        {{ .Content }}
+      </div>
+      <a href="{{ $cta.href }}" class="{{ $primary }} mt-8">
+        {{ $cta.label }} <span aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  {{/* ---------------- The invitation ---------------- */}}
+  {{ with $p.invitation }}
+    <section aria-labelledby="invitation-heading" class="border-y border-warm-200 bg-paper">
+      <div class="{{ $section }}">
+        <h2 id="invitation-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <div class="mt-4 md:mt-5 {{ $prose }}">{{ .body | markdownify }}</div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- Where to start: UGO ----------------
+       Text beside a field photo, the split home's "Who we are" uses. */}}
+  {{ with $p.start }}
+    {{ $photo := index (where hugo.Data.ugo.photos.gallery "id" .photo) 0 }}
+    {{ if not $photo }}
+      {{ errorf "layouts/serve.html: start.photo %q is not among data/ugo.yaml photos.gallery" .photo }}
+    {{ end }}
+    <section aria-labelledby="start-heading" class="bg-white">
+      <div class="{{ $section }} grid gap-10 md:grid-cols-2 md:items-center">
+        <div>
+          <h2 id="start-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+          <div class="mt-4 md:mt-5 {{ $prose }}">{{ .body | markdownify }}</div>
+          <a href="{{ .href }}" class="{{ $primary }} mt-8">
+            {{ .label }} <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+        {{ partial "photo-figure.html" (dict
+          "photo" $photo
+          "sizes" "(min-width: 1024px) 464px, (min-width: 768px) 50vw, 100vw"
+          "frame" "aspect-4/3"
+        ) }}
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- Counting the cost ---------------- */}}
+  {{ with $p.honest }}
+    <section aria-labelledby="honest-heading" class="border-y border-warm-200 bg-paper">
+      <div class="{{ $section }}">
+        <h2 id="honest-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <div class="mt-4 md:mt-5 {{ $prose }}">{{ .body | markdownify }}</div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- How it works ---------------- */}}
+  {{ with $p.how }}
+    <section aria-labelledby="how-heading" class="bg-white">
+      <div class="{{ $section }}">
+        <h2 id="how-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <p class="mt-4 max-w-prose text-body text-warm-800 md:mt-5">{{ .intro }}</p>
+        <ol class="mt-8 grid gap-4 md:grid-cols-3 md:gap-6">
+          {{ range $i, $step := .steps }}
+            <li class="rounded-eto-lg border border-warm-200 bg-paper p-6">
+              <span aria-hidden="true" class="flex size-9 items-center justify-center rounded-full bg-eto-600 font-bold text-white">{{ add $i 1 }}</span>
+              <h3 class="mt-4 text-subheading text-ink">{{ $step.heading }}</h3>
+              <p class="mt-2 text-body text-warm-800">{{ $step.text | markdownify }}</p>
+            </li>
+          {{ end }}
+        </ol>
+        {{ with .outro }}
+          <p class="mt-8 max-w-prose text-body text-warm-800">{{ . }}</p>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- Let's talk ----------------
+       On the light blue /pray/'s verse band uses, not a dark band: dark
+       here would stack on the footer and read as a second one. */}}
+  {{ with $p.talk }}
+    <section aria-labelledby="talk-heading" class="bg-eto-50">
+      <div class="{{ $section }} text-center">
+        <h2 id="talk-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <p class="mx-auto mt-4 max-w-prose text-body text-warm-800 md:mt-5">{{ .body }}</p>
+        <a href="{{ $cta.href }}" class="{{ $primary }} mt-8">
+          {{ $cta.label }} <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
