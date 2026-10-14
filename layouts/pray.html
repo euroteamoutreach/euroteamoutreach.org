@@ -2,24 +2,27 @@
      /pray/ — the Pray doorway (#56, docs/prd/05-templates.md
      §"Pray (`/pray/`)").
 
-         hero → evergreen prayer points → subscribe (dark band)
-              → follow along: blog + social
+         hero → evergreen prayer points → verse (eto-50)
+              → follow along: blog + social, a line pointing to the footer's form
 
      Copy comes from content/pray.md front matter (the hero is its body).
 
      RULES THIS FILE MUST KEEP:
 
      1. EVERGREEN POINTS ONLY (decision 77). Nothing dated renders here;
-        current requests go out by newsletter and blog, and the subscribe
-        band says so. The staleness problem is the reason to subscribe.
+        current requests go out by newsletter and blog, and "Follow along"
+        says so. The staleness problem is the reason to subscribe.
 
-     2. THE SUBSCRIBE BAND IS THE ONE DARK BAND below the header, and it
-        sits mid-page on purpose. The footer opens with the same form on
-        the same ground, so the white "Follow along" band between them
-        keeps the two from stacking into one double-height block.
-        mailchimp-form.html is styled for eto-900 and only for eto-900.
+     2. NO SIGNUP FORM ON THE PAGE. The footer's form, identical on every
+        page, is the only one; "Follow along" says where to find it.
+        A page-level dark subscribe band was tried and dropped: it read as a
+        second footer stacked on the first.
 
-     3. PRAYER POINTS ARE A CARD GRID because they are parallel items
+     3. BACKGROUNDS ALTERNATE white → paper → eto-50 → white → footer, so
+        each band reads as its own section. The footer's eto-900 stays the
+        only dark ground on the page.
+
+     4. PRAYER POINTS ARE A CARD GRID because they are parallel items
         (decision 75); everything else stays in the max-w-5xl container.
      --------------------------------------------------------------------- */}}
 
@@ -59,18 +62,18 @@
     </section>
   {{ end }}
 
-  {{/* ---------------- Subscribe ----------------
-       Same two-column split as the footer's newsletter row, so the form
-       sits where visitors will meet it again at the bottom of every page. */}}
-  {{ with $p.subscribe }}
-    <section aria-labelledby="subscribe-heading" class="bg-eto-900 text-white">
-      <div class="{{ $section }} grid gap-6 md:grid-cols-2 md:items-start md:gap-12">
-        <div>
-          <h2 id="subscribe-heading" class="text-heading">{{ .heading }}</h2>
-          <p class="mt-4 max-w-prose text-body text-eto-100">{{ .text }}</p>
-        </div>
-        {{ partial "mailchimp-form.html" (dict "id" "pray") }}
-      </div>
+  {{/* ---------------- Verse ----------------
+       A set-apart verse at callout size, on the light blue the home page's
+       "Get involved" band uses. Larger and centred, unlike the inline
+       scripture-quote partial, because here it is the whole band. */}}
+  {{ with $p.verse }}
+    <section class="bg-eto-50">
+      <figure class="{{ $section }} text-center">
+        <blockquote class="mx-auto max-w-3xl font-serif text-2xl leading-snug text-ink italic sm:text-3xl">
+          {{ .text | markdownify }}
+        </blockquote>
+        <figcaption class="mt-6 text-caption font-semibold tracking-wide text-eto-700 uppercase">{{ .ref }}</figcaption>
+      </figure>
     </section>
   {{ end }}
 
@@ -85,6 +88,12 @@
             <a href="{{ .blog.href }}" class="{{ $primary }} mt-6">
               {{ .blog.label }} <span aria-hidden="true">&rarr;</span>
             </a>
+            {{/* Plain text, no link: the footer form is a short scroll away,
+                 and an in-page jump that barely moves reads as broken. Link
+                 it to /subscribe/ once that page exists. */}}
+            {{ with .subscribe }}
+              <p class="mt-6 max-w-prose text-body text-warm-800">{{ . }}</p>
+            {{ end }}
           </div>
           {{/* The footer's two social accounts (footer_social in hugo.toml),
                labelled here rather than icon-only: on the page they are the

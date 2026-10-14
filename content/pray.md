@@ -8,7 +8,7 @@ description: "Pray with Euro Team Outreach for the work of the Gospel in Ukraine
 
 # EVERGREEN ONLY (decision 77): no dates, no "this month", no named trip, so
 # the list never goes stale. Current requests travel by newsletter and blog,
-# which is what the subscribe band below says. Edit, add or remove points
+# which is what "Follow along" says. Edit, add or remove points
 # freely; each needs a heading and a text.
 points:
   heading: "How to pray"
@@ -22,9 +22,11 @@ points:
     - heading: "Point 4"
       text: "Prayer point to come."
 
-subscribe:
-  heading: "Current requests from the field"
-  text: "Subscribe, and we'll send them straight to your inbox along with stories from Ukraine, a few times a year — never spam."
+# A callout band between the points and "Follow along". KJV; the reference
+# is printed without a version.
+verse:
+  text: "Finally, brethren, pray for us, that the word of the Lord may have free course, and be glorified, even as it is with you."
+  ref: "2 Thessalonians 3:1"
 
 follow:
   heading: "Follow along"
@@ -34,6 +36,8 @@ follow:
     text: "Trip reports, stories, and updates from our team and the work across Ukraine."
     label: "Read the blog"
     href: "/blog/"
+  # Points to the footer's signup form, the only one on the site.
+  subscribe: "Current requests from the field go out by email; the signup form is at the bottom of every page."
   social:
     text: "Follow along day to day."
 ---
