@@ -3,7 +3,7 @@
      §"Pray (`/pray/`)").
 
          hero → evergreen prayer points → verse (eto-50)
-              → follow along: blog + social, a line pointing to the footer's form
+              → follow along: blog + social, a line linking to /subscribe/
 
      Copy comes from content/pray.md front matter (the hero is its body).
 
@@ -13,8 +13,8 @@
         current requests go out by newsletter and blog, and "Follow along"
         says so. The staleness problem is the reason to subscribe.
 
-     2. NO SIGNUP FORM ON THE PAGE. The footer's form, identical on every
-        page, is the only one; "Follow along" says where to find it.
+     2. NO SIGNUP FORM ON THE PAGE. The footer's form is the only one here;
+        "Follow along" also links to the newsletter's own page, /subscribe/.
         A page-level dark subscribe band was tried and dropped: it read as a
         second footer stacked on the first.
 
@@ -88,11 +88,10 @@
             <a href="{{ .blog.href }}" class="{{ $primary }} mt-6">
               {{ .blog.label }} <span aria-hidden="true">&rarr;</span>
             </a>
-            {{/* Plain text, no link: the footer form is a short scroll away,
-                 and an in-page jump that barely moves reads as broken. Link
-                 it to /subscribe/ once that page exists. */}}
+            {{/* A link to /subscribe/, not an in-page jump to the footer form:
+                 that jump barely moves and reads as broken. */}}
             {{ with .subscribe }}
-              <p class="mt-6 max-w-prose text-body text-warm-800">{{ . }}</p>
+              <p class="mt-6 max-w-prose text-body text-warm-800 prose-links">{{ . | markdownify }}</p>
             {{ end }}
           </div>
           {{/* The footer's social accounts (footer_social in hugo.toml),
