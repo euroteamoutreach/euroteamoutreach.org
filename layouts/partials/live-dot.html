@@ -1,9 +1,12 @@
 {{- /*
   live-dot — the small pulsing dot beside UGO in the header nav while a trip
   is on the road. The pulse is decoration and stops under
-  prefers-reduced-motion; screen readers get "(live)" instead.
+  prefers-reduced-motion; screen readers get "(live)" instead. The caller
+  wraps it with the label in an inline-flex items-center span, which centres
+  it on the line box, as in the band (align-middle would sit it on the
+  x-height, low beside capitals).
 */ -}}
-<span class="relative ml-1.5 inline-flex size-2 align-middle" aria-hidden="true">
+<span class="relative inline-flex size-2" aria-hidden="true">
   <span class="absolute inline-flex size-full rounded-full bg-eto-500 opacity-75 motion-safe:animate-ping"></span>
   <span class="relative inline-flex size-2 rounded-full bg-eto-600"></span>
 </span>

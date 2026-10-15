@@ -128,7 +128,7 @@
             {{ if $current }}aria-current="page"{{ end }}
             class="{{ $link }} text-sm {{ if $current }}{{ $currentMark }}{{ else }}{{ $defaultMark }}{{ end }}"
           >
-            {{ .Name }}{{ if and $liveUgo (eq .Page $liveUgo) }}{{ partial "live-dot.html" . }}{{ end }}
+            {{ if and $liveUgo (eq .Page $liveUgo) }}<span class="inline-flex items-center gap-1.5">{{ .Name }}{{ partial "live-dot.html" . }}</span>{{ else }}{{ .Name }}{{ end }}
           </a>
         {{ end }}
       {{ end }}
@@ -194,7 +194,7 @@
             {{ if $current }}aria-current="page"{{ end }}
             class="{{ $link }} block py-2.5 {{ if $current }}{{ $currentMark }}{{ else }}{{ $defaultMark }}{{ end }}"
           >
-            {{ .Name }}{{ if and $liveUgo (eq .Page $liveUgo) }}{{ partial "live-dot.html" . }}{{ end }}
+            {{ if and $liveUgo (eq .Page $liveUgo) }}<span class="inline-flex items-center gap-1.5">{{ .Name }}{{ partial "live-dot.html" . }}</span>{{ else }}{{ .Name }}{{ end }}
           </a>
         {{ end }}
       {{ end }}
