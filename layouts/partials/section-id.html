@@ -1,4 +1,4 @@
 {{- /* A section file's anchor id: its file name minus the NN- order prefix,
        so 05-jesus-christ.md is #jesus-christ. Used by the pages built from
-       one file per section (/doctrine/, /jesus/). */ -}}
+       one file per section (/doctrine/, /jesus/, /approach/). */ -}}
 {{- return strings.TrimLeft "0123456789-" (path.BaseName .Name) -}}
