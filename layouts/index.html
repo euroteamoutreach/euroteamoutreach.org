@@ -91,10 +91,7 @@
   {{/* ---------------- Who we are ---------------- */}}
   {{/* Text beside a team photo, the same split as "What is UGO?", so the
        section spans the full container instead of stopping at the measure. */}}
-  {{ $whoPhoto := index (where hugo.Data.ugo.photos.gallery "id" $p.who.photo) 0 }}
-  {{ if not $whoPhoto }}
-    {{ errorf "layouts/index.html: who.photo %q is not among data/ugo.yaml photos.gallery" $p.who.photo }}
-  {{ end }}
+  {{ $whoPhoto := partial "photo-record.html" $p.who.photo }}
   <section aria-labelledby="who-heading">
     <div class="{{ $section }} grid gap-10 md:grid-cols-2 md:items-center">
       <div>
@@ -230,10 +227,7 @@
        and people for the section, never competition for the cards. It is
        decorative here (alt ""), since the cards carry all the content, and
        light so the page's one dark photo stays the hero. */}}
-  {{ $involvedPhoto := index (where hugo.Data.ugo.photos.gallery "id" $p.involved.photo) 0 }}
-  {{ if not $involvedPhoto }}
-    {{ errorf "layouts/index.html: involved.photo %q is not among data/ugo.yaml photos.gallery" $p.involved.photo }}
-  {{ end }}
+  {{ $involvedPhoto := partial "photo-record.html" $p.involved.photo }}
   <section aria-labelledby="involved-heading" class="relative isolate overflow-hidden bg-eto-50">
     {{ partial "photo-backdrop.html" (dict
       "photo" $involvedPhoto

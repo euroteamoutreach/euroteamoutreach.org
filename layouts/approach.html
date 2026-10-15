@@ -14,7 +14,7 @@
      1. ONE CENTRED READING COLUMN. Prose is left-aligned at max-w-prose,
         the column centred under a centred heading, as on /jesus/.
 
-     2. PHOTOS IN THE FLOW. Each objective's photo sits at the column's
+     2. PHOTOS IN THE FLOW. Each objective's photos sit at the column's
         width after its text. No zig-zag splits.
 
      3. CARDS ONLY FOR PARALLEL ITEMS: the three ministries.
@@ -57,9 +57,7 @@
 
   {{/* ---------------- The three objectives ----------------
        Bands alternate paper and white, starting on paper below the white
-       intro. Each of an objective's photos is a full record, or an id from
-       data/ugo.yaml's gallery, so a UGO photo keeps the one caption it has
-       there. */}}
+       intro. */}}
   {{ range $i, $o := $objectives }}
     {{ $white := modBool $i 2 | not }}
     {{ $id := partial "section-id.html" $o }}
@@ -72,15 +70,8 @@
         <div class="mt-8 space-y-8 md:mt-10 md:space-y-10">
           <div class="{{ $prose }}">{{ $o.Content }}</div>
           {{ range $o.Params.photos }}
-            {{ $photo := . }}
-            {{ if not (reflect.IsMap .) }}
-              {{ $photo = index (where hugo.Data.ugo.photos.gallery "id" .) 0 }}
-              {{ if not $photo }}
-                {{ errorf "layouts/approach.html: objective photo %q is not among data/ugo.yaml photos.gallery" . }}
-              {{ end }}
-            {{ end }}
             {{ partial "photo-figure.html" (dict
-              "photo" $photo
+              "photo" (partial "photo-record.html" .)
               "sizes" "(min-width: 768px) 65ch, 100vw"
               "frame" "aspect-3/2"
               "class" "mx-auto max-w-prose"
@@ -101,17 +92,9 @@
         <p class="mx-auto mt-4 max-w-prose text-center text-body text-warm-800 md:mt-5">{{ .intro }}</p>
         <ul class="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:gap-6">
           {{ range .items }}
-            {{ $href := .href }}
-            {{ with .page }}
-              {{ with site.GetPage . }}
-                {{ $href = .RelPermalink }}
-              {{ else }}
-                {{ errorf "layouts/approach.html: ministry page %q not found" . }}
-              {{ end }}
-            {{ end }}
             <li class="linked-card flex flex-col bg-white p-6">
               <h3 class="text-subheading text-ink">
-                <a href="{{ $href }}" class="stretched-link">{{ .heading | markdownify }}</a>
+                <a href="{{ partial "link-href.html" . }}" class="stretched-link">{{ .heading | markdownify }}</a>
               </h3>
               <p class="mt-2 grow text-body text-warm-800">{{ .text | markdownify }}</p>
               {{/* The cue for phones, which have no hover. aria-hidden: the
