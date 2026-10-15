@@ -124,7 +124,7 @@
           <p class="mx-auto mt-8 max-w-3xl text-center font-serif text-2xl leading-snug italic sm:text-3xl md:mt-10">{{ . }}</p>
         {{ end }}
         <div class="mt-8 text-center md:mt-10">
-          <a href="{{ (site.GetPage "/team").RelPermalink }}" class="inline-block rounded-eto bg-white px-5 py-2.5 font-semibold text-eto-900 transition-colors hover:bg-eto-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          <a href="{{ (site.GetPage "/team").RelPermalink }}" class="inline-block rounded-eto bg-white px-5 py-2.5 font-semibold text-eto-900 transition-colors hover:bg-eto-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
             {{ .label }} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -133,8 +133,9 @@
   {{ end }}
 
   {{/* ---------------- Go deeper ----------------
-       Each card is one link. `page` is looked up so a moved page breaks
-       the build; `href` is for pages not built yet. */}}
+       Linked cards (linked-card and stretched-link in main.css), as on home
+       and /give/. `page` is looked up so a moved page breaks the build;
+       `href` is for pages not built yet. */}}
   {{ with $p.deeper }}
     <section aria-labelledby="deeper-heading" class="bg-paper">
       <div class="{{ $section }}">
@@ -149,14 +150,16 @@
                 {{ errorf "layouts/about.html: deeper page %q not found" . }}
               {{ end }}
             {{ end }}
-            <li>
-              <a href="{{ $href }}" class="group block h-full rounded-eto-lg border border-warm-200 bg-white p-6 transition-colors hover:border-eto-600 {{ $focus }}">
-                <h3 class="text-subheading text-ink">{{ .heading }}</h3>
-                <p class="mt-2 text-body text-warm-800">{{ .text }}</p>
-                <p class="mt-4 font-semibold text-eto-600 group-hover:text-eto-700">
-                  {{ .label }} <span aria-hidden="true">&rarr;</span>
-                </p>
-              </a>
+            <li class="linked-card flex flex-col bg-white p-6">
+              <h3 class="text-subheading text-ink">
+                <a href="{{ $href }}" class="stretched-link">{{ .heading }}</a>
+              </h3>
+              <p class="mt-2 grow text-body text-warm-800">{{ .text }}</p>
+              {{/* The cue for phones, which have no hover. aria-hidden: the
+                   link on the heading already says where it goes. */}}
+              <p aria-hidden="true" class="mt-4 text-caption font-semibold text-eto-600">
+                {{ .label }} &rarr;
+              </p>
             </li>
           {{ end }}
         </ul>
