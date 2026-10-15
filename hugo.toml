@@ -253,7 +253,9 @@ enableRobotsTXT = true
   weight = 40
 
 # Bible First and Good and Evil link to their own sites until they get pages
-# here, after UGO (#62).
+# here, after UGO (#62). dobroizlo.com.ua is the Ukrainian Good and Evil site;
+# its label says so in English for this site's American readers, and the
+# hreflang param tells browsers and screen readers the target is Ukrainian.
 [[menus.footer]]
   name = "Ministries"
   identifier = "ministries"
@@ -273,6 +275,13 @@ enableRobotsTXT = true
   url = "https://goodandevilbook.com/"
   parent = "ministries"
   weight = 30
+[[menus.footer]]
+  name = "Good and Evil (Ukrainian)"
+  url = "https://dobroizlo.com.ua/"
+  parent = "ministries"
+  weight = 40
+  [menus.footer.params]
+    hreflang = "uk"
 
 # Footer social icons. Each entry's `icon` param maps to assets/img/social-{icon}.svg,
 # which footer.html inlines so the mark inherits the link's hover/focus colour.
