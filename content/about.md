@@ -34,10 +34,7 @@ mission:
       text: "Discipling the next generation of missionaries, who learn the work first-hand by serving alongside us in the field."
   outro: "These three threads run through everything we do — and through every ministry we've built."
   label: "See how we work"
-  # A literal URL: /approach/ is unrendered on the pre-UGO track (hugo.toml
-  # cascade) and falls through to legacy. Switch to a page lookup in the PR
-  # that builds it.
-  href: "/approach/"
+  page: "/approach/"
 
 # One reading column. Each part is a run of paragraphs, optionally followed
 # by a captioned photo: either a full record (id, width, height, alt,
@@ -70,14 +67,13 @@ people:
   closing: "That's by design. When you stand with ETO, you're standing with people you can know by name."
   label: "Meet the team"
 
-# Built pages are looked up by path; /approach/ stays literal (see mission).
 deeper:
   heading: "Go deeper"
   items:
     - heading: "How we work"
       text: "The three objectives that shape our ministry, and where each of our efforts fits."
       label: "Our Approach"
-      href: "/approach/"
+      page: "/approach/"
     - heading: "What we believe"
       text: "Our statement of faith."
       label: "Doctrine"

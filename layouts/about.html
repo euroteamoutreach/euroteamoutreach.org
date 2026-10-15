@@ -70,7 +70,11 @@
         </ul>
         <div class="mt-8 text-center md:mt-10">
           <p class="mx-auto max-w-prose text-body text-warm-800">{{ .outro }}</p>
-          <a href="{{ .href }}" class="{{ $primary }} mt-6">
+          {{ $target := site.GetPage .page }}
+          {{ if not $target }}
+            {{ errorf "layouts/about.html: mission page %q not found" .page }}
+          {{ end }}
+          <a href="{{ $target.RelPermalink }}" class="{{ $primary }} mt-6">
             {{ .label }} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -134,21 +138,18 @@
 
   {{/* ---------------- Go deeper ----------------
        Linked cards (linked-card and stretched-link in main.css), as on home
-       and /give/. `page` is looked up so a moved page breaks the build;
-       `href` is for pages not built yet. */}}
+       and /give/. `page` is looked up so a moved page breaks the build. */}}
   {{ with $p.deeper }}
     <section aria-labelledby="deeper-heading" class="bg-paper">
       <div class="{{ $section }}">
         <h2 id="deeper-heading" class="{{ $h2 }}">{{ .heading }}</h2>
         <ul class="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:gap-6">
           {{ range .items }}
-            {{ $href := .href }}
-            {{ with .page }}
-              {{ with site.GetPage . }}
-                {{ $href = .RelPermalink }}
-              {{ else }}
-                {{ errorf "layouts/about.html: deeper page %q not found" . }}
-              {{ end }}
+            {{ $href := "" }}
+            {{ with site.GetPage .page }}
+              {{ $href = .RelPermalink }}
+            {{ else }}
+              {{ errorf "layouts/about.html: deeper page %q not found" .page }}
             {{ end }}
             <li class="linked-card flex flex-col bg-white p-6">
               <h3 class="text-subheading text-ink">
