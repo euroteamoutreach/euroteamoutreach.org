@@ -15,7 +15,10 @@
      3. SHARE IMAGE: the page's own photo (`cover` on blog posts, `hero_image`
         on program pages, `photo.id` on team bios), else params.ogImage,
         cropped to 1200×630. Bio photos crop with g_faces: a tight family
-        shot centre-cropped to 1.9:1 can lose the tallest head. f_jpg,
+        shot centre-cropped to 1.9:1 can lose the tallest head. Every other
+        photo crops with g_auto, Cloudinary's content-aware crop: a centre
+        crop of the portrait /ugo/ hero kept the box and cut off the face of
+        the woman holding it. f_jpg,
         not the spec's f_auto: f_auto follows the requester's Accept header,
         and a crawler advertising WebP or AVIF would cache a format some share
         surfaces don't render.
@@ -30,7 +33,7 @@
 {{- $canonical := urls.JoinPath site.Params.canonicalBaseURL .RelPermalink -}}
 {{- $bioPhoto := and .Params.photo .Params.photo.id -}}
 {{- $image := or .Params.cover .Params.hero_image $bioPhoto site.Params.ogImage -}}
-{{- $gravity := cond (eq $image $bioPhoto) "g_faces," "" -}}
+{{- $gravity := cond (eq $image $bioPhoto) "g_faces," "g_auto," -}}
 {{- $ogImage := printf "%s/image/upload/c_fill,%sf_jpg,q_auto,w_1200,h_630/%s" site.Params.cloudinaryBase $gravity $image -}}
 
 <title>{{ $title }}</title>
