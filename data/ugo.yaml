@@ -39,6 +39,9 @@
 #
 # AFTER THE TRIP: set `active: false`. The band and the live block disappear;
 # the updates stay listed lower on the page as the trip's record.
+
+# TEST CHANGE FROM MOBILE
+
 live:
   active: true
   # The trip these updates belong to, for headings ("UGO 2026 …").
