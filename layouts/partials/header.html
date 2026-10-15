@@ -110,6 +110,12 @@
       {{ end }}
     </a>
 
+    {{/* While a UGO trip is on the road (data/ugo.yaml live), the UGO link
+         carries a small pulsing dot: a cue that stays in view once the
+         happening-now band has scrolled away, at no cost in height. */}}
+    {{ $live := hugo.Data.ugo.live }}
+    {{ $liveUgo := cond (and $live $live.active $live.updates) (site.GetPage "/ugo") false }}
+
     {{/* Desktop navigation */}}
     <nav class="hidden md:flex md:items-center md:gap-x-7" aria-label="Main">
       {{ range site.Menus.main }}
@@ -122,7 +128,7 @@
             {{ if $current }}aria-current="page"{{ end }}
             class="{{ $link }} text-sm {{ if $current }}{{ $currentMark }}{{ else }}{{ $defaultMark }}{{ end }}"
           >
-            {{ .Name }}
+            {{ .Name }}{{ if and $liveUgo (eq .Page $liveUgo) }}{{ partial "live-dot.html" . }}{{ end }}
           </a>
         {{ end }}
       {{ end }}
@@ -188,7 +194,7 @@
             {{ if $current }}aria-current="page"{{ end }}
             class="{{ $link }} block py-2.5 {{ if $current }}{{ $currentMark }}{{ else }}{{ $defaultMark }}{{ end }}"
           >
-            {{ .Name }}
+            {{ .Name }}{{ if and $liveUgo (eq .Page $liveUgo) }}{{ partial "live-dot.html" . }}{{ end }}
           </a>
         {{ end }}
       {{ end }}

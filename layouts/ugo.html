@@ -119,6 +119,13 @@
               </a>
               <a href="{{ (site.GetPage "/subscribe").RelPermalink }}" class="{{ $outline }}">Get updates by email</a>
             </div>
+            {{/* The fallback if the site cannot be updated on the road: every
+                 video still lands in the trip's YouTube playlist. */}}
+            {{ with $live.playlist }}
+              <p class="mt-6 text-body">
+                <a href="https://www.youtube.com/playlist?list={{ . }}" class="link">Watch every video on YouTube&nbsp;↗</a>
+              </p>
+            {{ end }}
           </div>
         </div>
 
@@ -151,11 +158,16 @@
       <div class="{{ $section }}">
         <h2 id="updates-heading" class="{{ $h2 }}">Every update</h2>
         <p class="mt-4 max-w-prose text-body text-warm-800">
-          A short video from the road each evening, newest first.
+          Short videos from the road, newest first.
         </p>
         <div class="mt-8">
           {{ partial "ugo-updates.html" (dict "headingId" "updates-heading") }}
         </div>
+        {{ with $live.playlist }}
+          <p class="mt-8 text-body">
+            <a href="https://www.youtube.com/playlist?list={{ . }}" class="link">Watch every video on YouTube&nbsp;↗</a>
+          </p>
+        {{ end }}
         {{ with $live.follow }}
           <h3 class="mt-12 text-subheading text-ink">Follow along</h3>
           <ul class="mt-4 flex flex-wrap gap-3">

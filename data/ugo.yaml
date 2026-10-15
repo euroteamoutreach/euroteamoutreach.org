@@ -25,6 +25,15 @@
 #   3. Save, then: git commit -am "chore(ugo): day 1 update" && git push
 #      Netlify deploys main in about a minute.
 #
+#   Several videos in a day: one entry per video, same `day`, each with its
+#   own `place`. The newest one goes on top.
+#
+#   No laptop? Edit this file on github.com in a phone browser (pencil icon,
+#   then "Commit changes" to main); Netlify deploys it the same way. Full
+#   runbook: "UGO site update from a phone" in the Obsidian vault. If even that
+#   fails, just add the videos to the YouTube playlist below; the page links
+#   to it.
+#
 # The newest update drives everything: the band's day and place, the
 # "Updated" stamp, and the featured video. Nothing else needs editing.
 #
@@ -34,6 +43,10 @@ live:
   active: true
   # The trip these updates belong to, for headings ("UGO 2026 …").
   name: "UGO 2026"
+  # The trip's YouTube playlist, linked as "Watch every video on YouTube".
+  # The fallback when the site can't be updated: a video added to the
+  # playlist shows up there with no site change.
+  playlist: PLI3oo5KuS4Pg
   # This trip's running totals. Plain numbers (1000, not "1,000"); the page
   # adds the commas. A figure at 0 is hidden, and the whole tally while every
   # figure is 0, so it appears by itself once the numbers start.

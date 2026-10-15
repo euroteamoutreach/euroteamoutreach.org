@@ -1,0 +1,10 @@
+{{- /*
+  live-dot — the small pulsing dot beside UGO in the header nav while a trip
+  is on the road. The pulse is decoration and stops under
+  prefers-reduced-motion; screen readers get "(live)" instead.
+*/ -}}
+<span class="relative ml-1.5 inline-flex size-2 align-middle" aria-hidden="true">
+  <span class="absolute inline-flex size-full rounded-full bg-eto-500 opacity-75 motion-safe:animate-ping"></span>
+  <span class="relative inline-flex size-2 rounded-full bg-eto-600"></span>
+</span>
+<span class="sr-only">(live)</span>
