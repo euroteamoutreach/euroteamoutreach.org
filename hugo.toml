@@ -280,7 +280,7 @@ enableRobotsTXT = true
 # THREE ACCOUNTS — the complete set, not a starting point. Facebook and X come from
 # the legacy footer partial and are cross-checked against all three legacy sites plus
 # the Middleman feature spec, which asserts them; Joshua confirmed both current
-# (2026-07-28). Instagram was added 2026-10-15, once ETO committed to the account.
+# (2026-07-28). Instagram was added 2026-10-15, the day the account was created.
 # There is no YouTube or LinkedIn slot because ETO has no such accounts; the UGO
 # YouTube playlists live on /ugo/, not in global chrome. /pray/'s Follow along
 # section renders this same menu, so an entry here appears there too.
@@ -302,8 +302,6 @@ enableRobotsTXT = true
   [menus.footer_social.params]
     icon = "x"
     label = "ETO on X"
-# ⚠️ STUB: the handle is the one Joshua intends to claim, not yet confirmed.
-# Update the url once the account exists.
 [[menus.footer_social]]
   name = "Instagram"
   url = "https://www.instagram.com/euroteamoutreach/"
