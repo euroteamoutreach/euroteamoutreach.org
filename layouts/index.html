@@ -120,9 +120,8 @@
   {{ end }}
   {{/* Linked cards, as on /give/: the <a> sits on the title and an ::after
        overlay stretches it over the card, so a screen reader names the link
-       by the ministry. Hover and focus share card-glow. */}}
-  {{ $card := "relative flex flex-col rounded-eto-lg border border-warm-200 bg-white transition hover:border-eto-600 hover:card-glow has-[a:focus-visible]:border-eto-600 has-[a:focus-visible]:card-glow" }}
-  {{ $stretch := "after:absolute after:inset-0 after:rounded-eto-lg focus-visible:outline-none" }}
+       by the ministry. linked-card and stretched-link in main.css. */}}
+  {{ $card := "linked-card flex flex-col bg-white" }}
   {{/* Eyebrows, link cues and secondary links share one accent caption. */}}
   {{ $accent := "text-caption font-semibold text-eto-600" }}
   <section aria-labelledby="work-heading" class="border-y border-warm-200 bg-white">
@@ -131,7 +130,7 @@
       <p class="mt-4 max-w-prose text-body text-warm-800 md:mt-5">{{ $work.intro }}</p>
 
       {{/* UGO, the lead: photo beside text on the shared md centre line. */}}
-      <article class="{{ $card }} mt-8 overflow-hidden bg-paper md:grid md:grid-cols-2">
+      <article class="linked-card mt-8 overflow-hidden bg-paper md:grid md:grid-cols-2">
         {{ partial "cloudinary-img.html" (dict
           "src" $leadPhoto.id
           "alt" $leadPhoto.alt
@@ -143,7 +142,7 @@
         <div class="flex flex-col p-6 md:p-8">
           <p class="{{ $accent }}">{{ partial "ugo-copy.html" $lead.eyebrow }}</p>
           <h3 class="mt-2 text-subheading text-ink">
-            <a href="{{ $lead.href }}" class="{{ $stretch }}">{{ $lead.heading }}</a>
+            <a href="{{ $lead.href }}" class="stretched-link">{{ $lead.heading }}</a>
           </h3>
           <p class="mt-2 text-body text-warm-800 md:mt-3">
             {{ partial "ugo-copy.html" $lead.body }}
@@ -194,7 +193,7 @@
             <div class="flex grow flex-col p-6">
               <p class="{{ $accent }}">{{ .eyebrow }}</p>
               <h3 class="mt-2 text-lg font-semibold tracking-tight text-ink md:text-xl">
-                <a href="{{ $main.href }}" class="{{ $stretch }}">{{ .heading }}</a>
+                <a href="{{ $main.href }}" class="stretched-link">{{ .heading }}</a>
               </h3>
               <p class="mt-2 grow text-body text-warm-800">{{ .body | markdownify }}</p>
               <div class="mt-4 flex flex-col gap-2">
