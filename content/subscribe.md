@@ -3,8 +3,7 @@ title: "Subscribe"
 layout: subscribe
 description: "Subscribe to Euro Team Outreach's newsletter for current prayer requests and stories from the field in Ukraine — a few times a year, never spam."
 
-# The page carries its own copy of the signup form, so the footer's newsletter
-# row is hidden here (footer.html) and the two never stack.
+# This page carries its own signup form; see footer.html.
 hideNewsletter: true
 
 # Page copy, rendered by layouts/subscribe.html (the intro is the body).

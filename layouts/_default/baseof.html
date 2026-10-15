@@ -21,11 +21,11 @@
   <main class="grow">
     {{ block "main" . }}{{ end }}
   </main>
-  {{/* Cached: neither partial reads the current page beyond the footer's
-       `hideNewsletter` flag, so the footer renders once per value of that
-       flag and the guard once per build, rather than once per page. */}}
+  {{/* Cached: the guard renders once per build, the footer once per value of
+       its one input (see footer.html), rather than once per page. */}}
   {{ partialCached "menu-guard.html" . }}
-  {{ partialCached "footer.html" . (cond (.Params.hideNewsletter | default false) "no-newsletter" "full") }}
+  {{ $newsletter := not .Params.hideNewsletter }}
+  {{ partialCached "footer.html" (dict "newsletter" $newsletter) $newsletter }}
   {{ partial "scripts.html" . }}
   {{ partial "analytics.html" . }}
   {{/* Per-page scripts, so the global bundle above stays lean. Our own JS is

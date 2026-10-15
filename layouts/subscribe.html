@@ -8,8 +8,7 @@
 
      RULES THIS FILE MUST KEEP:
 
-     1. ONE FORM PER PAGE. The page sets `hideNewsletter`, so footer.html
-        drops its own newsletter row here and the two forms never stack.
+     1. ONE FORM PER PAGE. The page sets `hideNewsletter` (see footer.html).
 
      2. THE FORM SITS IN A DARK PANEL, not a full-width band. mailchimp-form
         is styled for the eto-900 ground only, so it needs that surface, but a
@@ -43,8 +42,8 @@
           {{ end }}
         </div>
 
-        {{/* The same heading, copy and colours as the footer's newsletter row
-             it replaces on this page. */}}
+        {{/* The footer's newsletter row, which this panel replaces on this
+             page, in the same colours and heading style. */}}
         {{ with $p.form }}
           <div class="self-start rounded-eto-lg bg-eto-900 p-6 text-white sm:p-8">
             <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">{{ .heading }}</h2>
