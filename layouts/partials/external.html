@@ -1,0 +1,34 @@
+{{- /*
+  external — how a link behaves, decided by where it goes.
+
+  A link to another domain opens in a new tab, so a reader keeps their place
+  here, and says so: the visible ↗, plus "(opens in a new tab)" for screen
+  readers, since a new tab without warning strands someone who cannot see it
+  open. A link on this domain (including /blog/, which falls through to the
+  legacy site on our own domain) stays in the tab and carries neither.
+
+  Returns a dict, every value empty for a link on this domain:
+    attrs  target and rel, for the <a> tag
+    mark   the visible ↗ and the screen-reader note, to close a text link
+    note   the screen-reader note alone, for icon or button links that
+           show no ↗, or where the ↗ sits outside the link
+
+  A link that would otherwise end in → ends in the mark instead when it
+  leaves the site: {{ with $x.mark }}{{ . }}{{ else }} →{{ end }}.
+
+  Usage:
+    {{ $x := partial "external.html" $href }}
+    <a href="{{ $href }}" {{ $x.attrs }}>Label{{ $x.mark }}</a>
+*/ -}}
+{{- $host := (urls.Parse .).Host | strings.TrimPrefix "www." -}}
+{{- $self := (urls.Parse site.BaseURL).Host | strings.TrimPrefix "www." -}}
+{{- $out := dict "attrs" (safeHTMLAttr "") "mark" "" "note" "" -}}
+{{- if and $host (ne $host $self) -}}
+  {{- $note := `<span class="sr-only"> (opens in a new tab)</span>` -}}
+  {{- $out = dict
+    "attrs" (safeHTMLAttr `target="_blank" rel="noopener noreferrer"`)
+    "mark" (safeHTML (printf `&nbsp;<span aria-hidden="true">↗</span>%s` $note))
+    "note" (safeHTML $note)
+  -}}
+{{- end -}}
+{{- return $out -}}

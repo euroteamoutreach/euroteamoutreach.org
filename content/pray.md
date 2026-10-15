@@ -28,7 +28,7 @@ points:
       bullets:
         - "Pray that God will bless and multiply our Good and Evil outreach across Ukraine."
         - "Pray that God will provide for new printings, so the books never run out."
-        - "Pray for our [Good and Evil Distributor Network&nbsp;↗](https://dobroizlo.com.ua/en/distributors/) as it carries the book into new places."
+        - "Pray for our [Good and Evil Distributor Network](https://dobroizlo.com.ua/en/distributors/) as it carries the book into new places."
         - "Pray that readers will understand the Gospel and believe."
     - heading: "Laborers for the Harvest"
       verse:

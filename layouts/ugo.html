@@ -126,7 +126,9 @@
                  video still lands in the trip's YouTube playlist. */}}
             {{ with $live.playlist }}
               <p class="mt-6 text-body">
-                <a href="https://www.youtube.com/playlist?list={{ . }}" class="link">Watch every video on YouTube&nbsp;↗</a>
+                {{ $href := printf "https://www.youtube.com/playlist?list=%s" . }}
+                {{ $x := partial "external.html" $href }}
+                <a href="{{ $href }}" {{ $x.attrs }} class="link">Watch every video on YouTube{{ $x.mark }}</a>
               </p>
             {{ end }}
           </div>
@@ -171,7 +173,9 @@
         </div>
         {{ with $live.playlist }}
           <p class="mt-8 text-body">
-            <a href="https://www.youtube.com/playlist?list={{ . }}" class="link">Watch every video on YouTube&nbsp;↗</a>
+            {{ $href := printf "https://www.youtube.com/playlist?list=%s" . }}
+            {{ $x := partial "external.html" $href }}
+            <a href="{{ $href }}" {{ $x.attrs }} class="link">Watch every video on YouTube{{ $x.mark }}</a>
           </p>
         {{ end }}
         {{ with $live.follow }}
@@ -179,14 +183,14 @@
           <ul class="mt-4 flex flex-wrap gap-3">
             {{ range . }}
               <li>
+                {{ $x := partial "external.html" .url }}
                 <a
                   href="{{ .url }}"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {{ $x.attrs }}
                   class="inline-flex items-center gap-2 rounded-eto border border-warm-200 bg-white px-4 py-2.5 font-semibold text-ink transition-colors hover:border-eto-600 hover:text-eto-600 {{ $focus }}"
                 >
                   {{ partial "icon.html" (dict "name" (printf "social-%s" .icon) "class" "size-5 fill-current") }}
-                  {{ .label }}
+                  {{ .label }}{{ $x.note }}
                 </a>
               </li>
             {{ end }}
@@ -329,7 +333,8 @@
       </div>
       <div class="mt-10 flex flex-wrap gap-3">
         {{ range $p.model.links }}
-          <a href="{{ .href }}" class="{{ $outline }}">{{ .label }} →</a>
+          {{ $x := partial "external.html" .href }}
+          <a href="{{ .href }}" {{ $x.attrs }} class="{{ $outline }}">{{ .label }}{{ with $x.mark }}{{ . }}{{ else }} →{{ end }}</a>
         {{ end }}
       </div>
     </div>
@@ -382,7 +387,8 @@
               {{ if .give }}
                 <a href="{{ $giveHref }}" class="{{ $gold }}">{{ $p.give.label }}</a>
               {{ else }}
-                <a href="{{ .href }}" class="{{ $primary }}">{{ .label }} →</a>
+                {{ $x := partial "external.html" .href }}
+                <a href="{{ .href }}" {{ $x.attrs }} class="{{ $primary }}">{{ .label }}{{ with $x.mark }}{{ . }}{{ else }} →{{ end }}</a>
               {{ end }}
             </div>
           </div>
@@ -447,10 +453,13 @@
             {{ partial "youtube-playlist.html" . }}
             {{/* The embed opens on the playlist's first video and hides the
                  rest behind a small player menu, so name the whole list. */}}
+            {{ $href := printf "https://www.youtube.com/playlist?list=%s" .list }}
+            {{ $x := partial "external.html" $href }}
             <a
-              href="https://www.youtube.com/playlist?list={{ .list }}"
+              href="{{ $href }}"
+              {{ $x.attrs }}
               class="link mt-3 inline-block"
-              >{{ $p.field.playlist_label }} →</a
+              >{{ $p.field.playlist_label }}{{ $x.mark }}</a
             >
           </div>
         {{ end }}

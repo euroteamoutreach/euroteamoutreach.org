@@ -104,9 +104,8 @@
               <li>
                 <a
                   href="{{ .URL }}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="{{ .Params.label }}"
+                  {{ (partial "external.html" .URL).attrs }}
+                  aria-label="{{ .Params.label }} (opens in a new tab)"
                   class="{{ $onDark }} block p-2.5"
                 >
                   {{/* Inlined, not <img>: the SVG has to inherit currentColor to
@@ -135,14 +134,16 @@
                        line box measures 37px tall on phones, 40px from md —
                        past WCAG 2.5.8's 24px AA floor, though short of the 44px
                        AAA target, which the header's controls also sit under. */}}
-                  {{/* An entry with no .Page is off-site (menu-guard fails the
-                       build on an unresolved pageRef), so it takes the site's
-                       ↗ external-link mark, as on home and the team bios. */}}
+                  {{/* Off-site entries open in a new tab with the ↗; /blog/
+                       is a url entry but on this domain, so it does neither
+                       (partials/external.html). */}}
+                  {{ $x := partial "external.html" .URL }}
                   <a
                     href="{{ .URL }}"
+                    {{ $x.attrs }}
                     {{ with .Params.hreflang }}hreflang="{{ . }}"{{ end }}
                     class="{{ $onDark }} inline-block py-2 text-caption"
-                  >{{ .Name }}{{ if not .Page }}&nbsp;↗{{ end }}</a>
+                  >{{ .Name }}{{ $x.mark }}</a>
                 </li>
               {{ end }}
             </ul>

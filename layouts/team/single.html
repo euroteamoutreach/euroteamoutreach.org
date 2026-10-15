@@ -64,8 +64,8 @@
         {{ end }}
         {{ if or $p.donate_url $p.contact_url }}
           <div class="mt-8 flex flex-wrap justify-center gap-3">
-            {{ with $p.donate_url }}<a href="{{ . }}" class="{{ $gold }}">{{ $support }} ↗</a>{{ end }}
-            {{ with $p.contact_url }}<a href="{{ . }}" class="{{ $outline }}">{{ $contact }} ↗</a>{{ end }}
+            {{ with $p.donate_url }}{{ $x := partial "external.html" . }}<a href="{{ . }}" {{ $x.attrs }} class="{{ $gold }}">{{ $support }}{{ $x.mark }}</a>{{ end }}
+            {{ with $p.contact_url }}{{ $x := partial "external.html" . }}<a href="{{ . }}" {{ $x.attrs }} class="{{ $outline }}">{{ $contact }}{{ $x.mark }}</a>{{ end }}
           </div>
         {{ end }}
       </div>
@@ -86,7 +86,7 @@
             {{ range $p.links }}
               <div>
                 <dt class="text-caption text-warm-600">{{ .label }}</dt>
-                <dd class="mt-0.5 text-body"><a href="{{ .url }}" class="link">{{ .text }}&nbsp;↗</a></dd>
+                <dd class="mt-0.5 text-body">{{ $x := partial "external.html" .url }}<a href="{{ .url }}" {{ $x.attrs }} class="link">{{ .text }}{{ $x.mark }}</a></dd>
               </div>
             {{ end }}
             {{ with $church }}
@@ -100,7 +100,8 @@
                     </address>
                   {{ end }}
                   {{ with .url }}
-                    <a href="{{ . }}" class="link">{{ (urls.Parse .).Host | strings.TrimPrefix "www." }}&nbsp;↗</a>
+                    {{ $x := partial "external.html" . }}
+                    <a href="{{ . }}" {{ $x.attrs }} class="link">{{ (urls.Parse .).Host | strings.TrimPrefix "www." }}{{ $x.mark }}</a>
                   {{ end }}
                 </dd>
               </div>
@@ -111,7 +112,8 @@
               <p class="text-body text-warm-800">
                 Gifts to {{ $name }} go through their own site.
               </p>
-              <a href="{{ . }}" class="{{ $gold }} mt-4">{{ $support }} ↗</a>
+              {{ $x := partial "external.html" . }}
+              <a href="{{ . }}" {{ $x.attrs }} class="{{ $gold }} mt-4">{{ $support }}{{ $x.mark }}</a>
             </div>
           {{ end }}
         </aside>

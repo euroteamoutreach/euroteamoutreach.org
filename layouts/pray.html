@@ -113,14 +113,14 @@
             <ul class="mt-6 flex flex-wrap gap-3">
               {{ range site.Menus.footer_social }}
                 <li>
+                  {{ $x := partial "external.html" .URL }}
                   <a
                     href="{{ .URL }}"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {{ $x.attrs }}
                     class="inline-flex items-center gap-2 rounded-eto border border-warm-200 px-4 py-2.5 font-semibold text-ink transition-colors hover:border-eto-600 hover:text-eto-600 {{ $focus }}"
                   >
                     {{ partial "icon.html" (dict "name" (printf "social-%s" .Params.icon) "class" "size-5 fill-current") }}
-                    {{ .Params.label }}
+                    {{ .Params.label }}{{ $x.note }}
                   </a>
                 </li>
               {{ end }}

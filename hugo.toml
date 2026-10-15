@@ -292,7 +292,7 @@ enableRobotsTXT = true
 # On dobroizlo.com.ua too, but its English page, so no hreflang. Same label as
 # the home page's Good and Evil card.
 [[menus.footer]]
-  name = "Distributor network"
+  name = "Distributor Network"
   url = "https://dobroizlo.com.ua/en/distributors/"
   parent = "ministries"
   weight = 50
