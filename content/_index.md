@@ -94,7 +94,7 @@ work:
         - label: "dobroizlo.com.ua"
           href: "https://dobroizlo.com.ua/"
           lang: uk
-        - label: "Distributor program"
+        - label: "Distributor network"
           href: "https://dobroizlo.com.ua/en/distributors/"
     - eyebrow: "2006–2023"
       heading: "Carpathian Mountain Outreach"
