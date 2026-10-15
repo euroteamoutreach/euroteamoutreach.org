@@ -1,7 +1,14 @@
 ---
 title: "Preaching the Gospel"
-# An id from data/ugo.yaml photos.gallery, shown after the text.
-photo: ugo/IMG_7437_pws0uj
+# Shown after the text, then and now: CMO in a city square, UGO in a
+# village. Each is a full record or an id from data/ugo.yaml photos.gallery.
+photos:
+  - id: eto/open-air-preaching-1_e30wh1
+    width: 2016
+    height: 1512
+    alt: "A man paints a cross against a sunset on a large easel in a city square while another preaches from an open Bible and a small crowd listens."
+    caption: "Open-air preaching in Lviv with CMO: a chalk drawing takes shape as the Gospel is preached."
+  - ugo/IMG_7437_pws0uj
 ---
 
 {{< scripture ref="Mark 16:15" >}}

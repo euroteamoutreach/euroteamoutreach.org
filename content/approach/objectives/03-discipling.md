@@ -1,13 +1,12 @@
 ---
 title: "Discipling Men in Missions"
-# A placeholder CMO photo (also the /serve/ hero) until a dedicated
-# discipleship photo is uploaded.
-photo:
-  id: eto/requirements_zmkmjj
-  width: 1000
-  height: 675
-  alt: "Three young men with backpacks smile for the camera at an airport."
-  caption: "Three CMO team members at the airport, packs on and ready to go."
+# Shown after the text.
+photos:
+  - id: eto/team-whiteboard-teaching_bcfwke
+    width: 2016
+    height: 1512
+    alt: "A group of young men sit around a room listening as a man explains something on a whiteboard."
+    caption: "A CMO team session: learning the work together before taking it to the streets."
 ---
 
 {{< scripture ref="2 Timothy 2:2" >}}

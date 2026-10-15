@@ -57,8 +57,9 @@
 
   {{/* ---------------- The three objectives ----------------
        Bands alternate paper and white, starting on paper below the white
-       intro. A photo is a full record, or an id from data/ugo.yaml's
-       gallery, so a UGO photo keeps the one caption it has there. */}}
+       intro. Each of an objective's photos is a full record, or an id from
+       data/ugo.yaml's gallery, so a UGO photo keeps the one caption it has
+       there. */}}
   {{ range $i, $o := $objectives }}
     {{ $white := modBool $i 2 | not }}
     {{ $id := partial "section-id.html" $o }}
@@ -70,7 +71,7 @@
         <h2 id="{{ $id }}" class="{{ $h2 }}">{{ $o.Title }}</h2>
         <div class="mt-8 space-y-8 md:mt-10 md:space-y-10">
           <div class="{{ $prose }}">{{ $o.Content }}</div>
-          {{ with $o.Params.photo }}
+          {{ range $o.Params.photos }}
             {{ $photo := . }}
             {{ if not (reflect.IsMap .) }}
               {{ $photo = index (where hugo.Data.ugo.photos.gallery "id" .) 0 }}

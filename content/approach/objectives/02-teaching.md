@@ -1,7 +1,13 @@
 ---
 title: "Teaching the Bible"
-# An id from data/ugo.yaml photos.gallery, shown after the text.
-photo: ugo/IMG_3583_c0dycp
+# Shown after the text. The CMO Bible survey: five questions about the
+# Bible, and a free Good and Evil book for everyone who answered.
+photos:
+  - id: eto/park-conversation-clipboard_a9xwn5
+    width: 2016
+    height: 1512
+    alt: "A young man and a young woman sit side by side on a low park wall, reading through a survey on a clipboard."
+    caption: "A CMO Bible survey in the park: five questions about the Bible open a conversation, and every answer earns a free copy of _Good and Evil_."
 ---
 
 {{< scripture ref="Romans 10:17" >}}
