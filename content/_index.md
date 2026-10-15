@@ -116,7 +116,7 @@ involved:
       href: "/pray/"
     - heading: "Go"
       icon: map
-      body: "God calls his people to go. For years, young people have joined us in Ukraine to learn first-hand what it means to serve as a missionary. If that stirs something in you, let's talk."
+      body: "God calls His people to go. For years, young people have joined us in Ukraine to learn first-hand what it means to serve as a missionary. If that stirs something in you, let's talk."
       label: "Serve with us"
       href: "/serve/"
     - heading: "Give"

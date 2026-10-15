@@ -135,6 +135,7 @@ Settled site-wide (planning `DECISIONS.md` #41–46). These are deliberate — d
 - **"Lviv"** — no apostrophe, never "L'viv".
 - **"russia" / "russian" — lowercase**, always, in body copy. A deliberate act of solidarity. Don't capitalize. (Exception: never alter direct quotations. Prefer rephrasing so it doesn't start a sentence.)
 - **KJV exclusively** for all English Scripture — a settled conviction, not a style preference.
+- **Capitalize pronouns that refer to God** (He, Him, His) in site copy. Quoted Scripture keeps the KJV's own lowercase — never alter a quotation.
 - **"young people"**, not "young men", in `/serve` and UGO invitations. Deliberate and future-proof; do not narrow it.
 - **Gospel first, aid second.** The two are distinct and _ordered_. Never frame humanitarian aid as co-equal to or ahead of the Gospel. The phrase "the greatest evangelistic weapon in our arsenal" is **kept** as-is.
 - **Aid goes out on discrete trips**, not year-round. Giving copy must never imply continuous monthly distribution.
