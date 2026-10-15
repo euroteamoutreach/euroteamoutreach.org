@@ -36,8 +36,8 @@ follow:
     text: "Trip reports, stories, and updates from our team and the work across Ukraine."
     label: "Read the blog"
     href: "/blog/"
-  # Points to the footer's signup form, the only one on the site.
-  subscribe: "Current requests from the field go out by email; the signup form is at the bottom of every page."
+  # Markdown: links to the newsletter's own page.
+  subscribe: "Current requests from the field go out by email — [subscribe to our newsletter](/subscribe/)."
   social:
     text: "Follow along day to day."
 ---
