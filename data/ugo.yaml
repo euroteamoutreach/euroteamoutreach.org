@@ -92,7 +92,9 @@ trip:
 # The track-record band. Rounded ballparks for boxes and books; Nathan keeps
 # the precise records (planning/copy/ugo.md §2). Villages counts only the
 # de-occupied south (10 in 2024 + 11 in 2025); the Zhytomyr-area outreach is
-# well north of the front and deliberately not included.
+# well north of the front and deliberately not included. The books figure is
+# UGO-only, and its label says so; the ministry-wide total is on the home
+# Good and Evil card (content/_index.md).
 stats:
   - value: "2"
     label: "field projects since 2024"
@@ -101,7 +103,7 @@ stats:
   - value: "1,500"
     label: "aid boxes placed in Ukrainian hands"
   - value: "1,000+"
-    label: "*Good and Evil* books distributed"
+    label: "*Good and Evil* books given out on UGO trips"
 
 # Box counts for the give band. Each amount is box_price (data/designations.yaml)
 # times the count, so a price change rewrites the whole table.
