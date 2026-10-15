@@ -5,6 +5,82 @@
 # through the {tokens} that layouts/partials/ugo-copy.html replaces, so no
 # date or price is ever typed into copy (#54).
 
+# ─────────────────────────────────────────────────────────────────────────────
+# LIVE MODE — /ugo/ while a trip is on the road (and the strip atop the home
+# page). Nothing below renders unless `active` is true.
+#
+# ▶ ADD TONIGHT'S UPDATE
+#   1. Copy this, paste it as the FIRST entry under `updates:`, fill it in:
+#
+#        - day: 1
+#          date: 2026-10-17
+#          place: "Zhytomyr"
+#          title: "Short headline, as on the video"
+#          text: "One or two sentences, e.g. the first line of the YouTube description."
+#          youtube: "VIDEO_ID"
+#
+#      `youtube` is the 11 characters after /shorts/ in the video's link.
+#      `text` is optional: delete the line to leave it out.
+#   2. Bump any tally figures that changed.
+#   3. Save, then: git commit -am "chore(ugo): day 1 update" && git push
+#      Netlify deploys main in about a minute.
+#
+#   Several videos in a day: one entry per video, same `day`, each with its
+#   own `place`. The newest one goes on top.
+#
+#   No laptop? Edit this file on github.com in a phone browser (pencil icon,
+#   then "Commit changes" to main); Netlify deploys it the same way. Full
+#   runbook: "UGO site update from a phone" in the Obsidian vault. If even that
+#   fails, just add the videos to the YouTube playlist below; the page links
+#   to it.
+#
+# The newest update drives everything: the band's day and place, the
+# "Updated" stamp, and the featured video. Nothing else needs editing.
+#
+# AFTER THE TRIP: set `active: false`. The band and the live block disappear;
+# the updates stay listed lower on the page as the trip's record.
+live:
+  active: true
+  # The trip these updates belong to, for headings ("UGO 2026 …").
+  name: "UGO 2026"
+  # The trip's YouTube playlist, linked as "Watch every video on YouTube".
+  # The fallback when the site can't be updated: a video added to the
+  # playlist shows up there with no site change.
+  playlist: PLI3oo5KuS4Pg
+  # This trip's running totals. Plain numbers (1000, not "1,000"); the page
+  # adds the commas. A figure at 0 is hidden, and the whole tally while every
+  # figure is 0, so it appears by itself once the numbers start.
+  tally:
+    - value: 0
+      label: "villages reached"
+    - value: 0
+      label: "aid boxes given out"
+    - value: 0
+      label: "*Good and Evil* books given out"
+  updates:
+    - day: 0
+      date: 2026-10-14
+      place: "Lviv"
+      title: "1,000 books head south"
+      text: "1,000 *Good and Evil* books are on their way south! Nathan, our boys and I loaded them up at Nova Poshta in Lviv, ahead of UGO 2026."
+      youtube: "KSdISCu0QxA"
+  # Where the videos go out each night. Joshua's own profile is listed first:
+  # it has by far the larger following.
+  follow:
+    - label: "Joshua on Facebook"
+      url: "https://www.facebook.com/joshukraine"
+      icon: facebook
+    - label: "ETO on Facebook"
+      url: "https://www.facebook.com/euroteamoutreach"
+      icon: facebook
+    - label: "ETO on Instagram"
+      url: "https://www.instagram.com/euroteamoutreach/"
+      icon: instagram
+    - label: "ETO on YouTube"
+      url: "https://www.youtube.com/@euroteamoutreach"
+      icon: youtube
+# ─────────────────────────────────────────────────────────────────────────────
+
 # The next project. The ONLY place its dates exist. {trip_dates} renders as
 # "October 17–26, 2026"; a trip spanning two months renders both names.
 # ⚠️ After the team returns, the "next project" copy in content/ugo.md speaks
@@ -33,6 +109,8 @@ give_band_boxes: [1, 5, 10, 25]
 
 # YouTube playlists of short field updates, newest first.
 playlists:
+  - title: "UGO 2026"
+    list: PLI3oo5KuS4Pg
   - title: "UGO 2025"
     list: PLwBim7LWPkXWNlbUWqyRbQACx3p7EG4Wt
   - title: "UGO 2024"

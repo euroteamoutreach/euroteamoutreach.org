@@ -1,0 +1,31 @@
+{{- /*
+  youtube-short — a 9:16 embed of one vertical YouTube video (a Short).
+
+  youtube-playlist.html is 16:9 (aspect-video); a vertical video in that frame
+  plays as a narrow strip between black bars, so Shorts get their own frame.
+  Same privacy and loading choices: youtube-nocookie.com sets no tracking
+  cookies until the visitor presses play, and loading="lazy" keeps the player
+  off the network until the embed nears the viewport. The width is the
+  caller's: wrap it to cap the size.
+
+  Params (dict):
+    id     (required) the video ID, the 11 characters after /shorts/
+    title  (required) accessible name for the iframe
+*/ -}}
+{{- if not .id -}}
+  {{- errorf "youtube-short: 'id' is required" -}}
+{{- end -}}
+{{- if not .title -}}
+  {{- errorf "youtube-short: 'title' is required for %q" .id -}}
+{{- end -}}
+<div class="aspect-9/16 overflow-hidden rounded-eto-lg bg-eto-900">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/{{ .id }}"
+    title="{{ .title }}"
+    class="size-full"
+    loading="lazy"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+</div>

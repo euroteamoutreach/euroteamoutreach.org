@@ -1,0 +1,42 @@
+{{- /*
+  ugo-live-band — the "happening now" strip while a UGO trip is on the road
+  (data/ugo.yaml `live`). Renders nothing unless live.active is true and there
+  is at least one update; the newest update supplies the day and place.
+
+  Rendered on every page by baseof.html, so a visitor sees the trip is on
+  however they arrive. On /ugo/ the link jumps down to every update; on any
+  other page it goes to /ugo/, where the latest video sits at the top.
+
+  Context: the current page.
+*/ -}}
+{{- $live := hugo.Data.ugo.live -}}
+{{- if and $live $live.active $live.updates -}}
+  {{- $latest := index $live.updates 0 -}}
+  {{- $ugo := site.GetPage "/ugo" -}}
+  {{- $link := dict "href" $ugo.RelPermalink "label" "Watch the latest update" "arrow" "→" -}}
+  {{- if eq . $ugo -}}
+    {{- $link = dict "href" "#updates" "label" "Follow along" "arrow" "↓" -}}
+  {{- end -}}
+  {{/* eto-600 with white text: the brand blue at full strength, so the strip
+       reads as an announcement without borrowing gold, which means giving. */}}
+  <div class="bg-eto-600 text-white">
+    <div class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-4 gap-y-1 px-6 py-3 text-sm">
+      <p class="flex items-center gap-2.5 font-semibold">
+        {{/* The pulse is decoration: still under prefers-reduced-motion. */}}
+        <span aria-hidden="true" class="relative flex size-2.5">
+          <span class="absolute inline-flex size-full rounded-full bg-white opacity-75 motion-safe:animate-ping"></span>
+          <span class="relative inline-flex size-2.5 rounded-full bg-white"></span>
+        </span>
+        <span>{{ $live.name }} is underway · Day {{ $latest.day }} · {{ $latest.place }}</span>
+      </p>
+      <p class="text-eto-100">
+        Updated <time datetime="{{ time.Format "2006-01-02" $latest.date }}">{{ time.Format "Jan 2" $latest.date }}</time>
+      </p>
+      <a
+        href="{{ $link.href }}"
+        class="rounded-eto font-semibold underline underline-offset-4 hover:text-eto-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:ml-auto"
+        >{{ $link.label }} <span aria-hidden="true">{{ $link.arrow }}</span></a
+      >
+    </div>
+  </div>
+{{- end -}}
