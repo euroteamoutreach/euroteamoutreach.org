@@ -1,0 +1,38 @@
+{{- /*
+  ugo-live-band — the "happening now" strip while a UGO trip is on the road
+  (data/ugo.yaml `live`). Renders nothing unless live.active is true and there
+  is at least one update; the newest update supplies the day and place.
+
+  Used at the top of /ugo/ and of the home page, each with its own link.
+
+  Params (dict):
+    href   (required) where the link goes, e.g. "#updates" or "/ugo/#updates"
+    label  (required) the link text, e.g. "Watch the latest update"
+    arrow  (optional) the arrow after the label, default "→"
+*/ -}}
+{{- $live := hugo.Data.ugo.live -}}
+{{- if and $live $live.active $live.updates -}}
+  {{- $latest := index $live.updates 0 -}}
+  {{/* eto-600 with white text: the brand blue at full strength, so the strip
+       reads as an announcement without borrowing gold, which means giving. */}}
+  <div class="bg-eto-600 text-white">
+    <div class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-4 gap-y-1 px-6 py-3 text-sm">
+      <p class="flex items-center gap-2.5 font-semibold">
+        {{/* The pulse is decoration: still under prefers-reduced-motion. */}}
+        <span aria-hidden="true" class="relative flex size-2.5">
+          <span class="absolute inline-flex size-full rounded-full bg-white opacity-75 motion-safe:animate-ping"></span>
+          <span class="relative inline-flex size-2.5 rounded-full bg-white"></span>
+        </span>
+        <span>{{ $live.name }} is underway · Day {{ $latest.day }} · {{ $latest.place }}</span>
+      </p>
+      <p class="text-eto-100">
+        Updated <time datetime="{{ time.Format "2006-01-02" $latest.date }}">{{ time.Format "Jan 2" $latest.date }}</time>
+      </p>
+      <a
+        href="{{ .href }}"
+        class="rounded-eto font-semibold underline underline-offset-4 hover:text-eto-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:ml-auto"
+        >{{ .label }} <span aria-hidden="true">{{ .arrow | default "→" }}</span></a
+      >
+    </div>
+  </div>
+{{- end -}}
