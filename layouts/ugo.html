@@ -157,14 +157,17 @@
     </section>
 
     {{/* ---------------- Live: every update + follow along ---------------- */}}
-    <section id="updates" aria-labelledby="updates-heading" class="scroll-mt-20 border-y border-warm-200 bg-paper">
+    {{/* The #updates anchor is the heading, not the section, so a jump lands
+         the heading just under the header (html scroll-padding-top in
+         main.css) rather than the section's top padding. */}}
+    <section aria-labelledby="updates" class="border-y border-warm-200 bg-paper">
       <div class="{{ $section }}">
-        <h2 id="updates-heading" class="{{ $h2 }}">Every update</h2>
+        <h2 id="updates" class="{{ $h2 }}">Every update</h2>
         <p class="mt-4 max-w-prose text-body text-warm-800">
           Short videos from the road, newest first.
         </p>
         <div class="mt-8">
-          {{ partial "ugo-updates.html" (dict "headingId" "updates-heading") }}
+          {{ partial "ugo-updates.html" (dict "headingId" "updates") }}
         </div>
         {{ with $live.playlist }}
           <p class="mt-8 text-body">
@@ -432,8 +435,8 @@
       </p>
       {{/* Out of live mode, the last trip's updates stay here as its record. */}}
       {{ if and (not $isLive) $live.updates }}
-        <h3 id="updates-heading" class="mt-10 mb-4 text-subheading text-ink">{{ $live.name }} updates</h3>
-        {{ partial "ugo-updates.html" (dict "headingId" "updates-heading") }}
+        <h3 id="updates" class="mt-10 mb-4 text-subheading text-ink">{{ $live.name }} updates</h3>
+        {{ partial "ugo-updates.html" (dict "headingId" "updates") }}
       {{ end }}
       <div class="mt-8 grid gap-8 md:grid-cols-2 md:gap-4">
         {{ range $ugo.playlists }}
