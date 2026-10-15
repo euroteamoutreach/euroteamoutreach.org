@@ -277,12 +277,13 @@ enableRobotsTXT = true
 # Footer social icons. Each entry's `icon` param maps to assets/img/social-{icon}.svg,
 # which footer.html inlines so the mark inherits the link's hover/focus colour.
 #
-# EXACTLY TWO ACCOUNTS — this is the complete set, not a starting point. Both URLs
-# come from the legacy footer partial and are cross-checked against all three legacy
-# sites plus the Middleman feature spec, which asserts them. Joshua confirmed both
-# accounts are current (2026-07-28). The legacy footer had no YouTube, Instagram, or
-# LinkedIn because ETO has no such accounts; the UGO YouTube playlists live on /ugo/,
-# not in global chrome. Do not add speculative slots here.
+# THREE ACCOUNTS — the complete set, not a starting point. Facebook and X come from
+# the legacy footer partial and are cross-checked against all three legacy sites plus
+# the Middleman feature spec, which asserts them; Joshua confirmed both current
+# (2026-07-28). Instagram was added 2026-10-15, once ETO committed to the account.
+# There is no YouTube or LinkedIn slot because ETO has no such accounts; the UGO
+# YouTube playlists live on /ugo/, not in global chrome. /pray/'s Follow along
+# section renders this same menu, so an entry here appears there too.
 #
 # Twitter is X now, and the icon, label, and URL all say X — a half-migrated social
 # link is the one outcome worth avoiding. twitter.com/eto_ukraine still 301s here, so
@@ -301,3 +302,12 @@ enableRobotsTXT = true
   [menus.footer_social.params]
     icon = "x"
     label = "ETO on X"
+# ⚠️ STUB: the handle is the one Joshua intends to claim, not yet confirmed.
+# Update the url once the account exists.
+[[menus.footer_social]]
+  name = "Instagram"
+  url = "https://www.instagram.com/euroteamoutreach/"
+  weight = 30
+  [menus.footer_social.params]
+    icon = "instagram"
+    label = "ETO on Instagram"
