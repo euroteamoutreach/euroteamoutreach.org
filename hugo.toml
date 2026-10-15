@@ -251,6 +251,11 @@ enableRobotsTXT = true
   pageRef = "/contact/"
   parent = "get-involved"
   weight = 40
+[[menus.footer]]
+  name = "Subscribe"
+  pageRef = "/subscribe/"
+  parent = "get-involved"
+  weight = 50
 
 # Bible First and Good and Evil link to their own sites until they get pages
 # here, after UGO (#62). dobroizlo.com.ua is the Ukrainian Good and Evil site;
