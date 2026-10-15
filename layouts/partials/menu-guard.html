@@ -1,0 +1,21 @@
+{{- /*
+  menu-guard — fails the build when a menu entry's pageRef stops resolving.
+
+  Hugo does not: an unresolved pageRef falls back to the bare path, which
+  ships a silent 404 in global chrome. Checks every menu and every child,
+  so the header and footer are covered alike. Renders nothing.
+*/ -}}
+{{- range $menu, $entries := site.Menus -}}
+  {{- range $entries -}}
+    {{- template "menu-guard-check" (dict "menu" $menu "entry" .) -}}
+    {{- range .Children -}}
+      {{- template "menu-guard-check" (dict "menu" $menu "entry" .) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- define "menu-guard-check" -}}
+  {{- if and .entry.PageRef (not .entry.Page) -}}
+    {{- errorf "menu %q: entry %q has pageRef %q, which does not resolve to a page" .menu .entry.Name .entry.PageRef -}}
+  {{- end -}}
+{{- end -}}

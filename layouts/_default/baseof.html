@@ -17,15 +17,14 @@
      bg-paper/text-ink are the default ground (#65); white is the header's
      surface, not the page's. */}}
 <body class="flex min-h-screen flex-col bg-paper font-sans text-ink antialiased">
-  {{/* Global chrome arrives one partial per Phase 2 issue. Each PR adds its
-       partial AND the line here that calls it — `partial` on a missing file is
-       a build error, so the calls cannot all land up front.
-         doorway-band.html  → issue #14 (below <main>, above the footer) */}}
   {{ partial "header.html" . }}
   <main class="grow">
     {{ block "main" . }}{{ end }}
   </main>
-  {{ partial "footer.html" . }}
+  {{/* Cached: neither partial reads the current page, so each renders once
+       per build rather than once per page. */}}
+  {{ partialCached "menu-guard.html" . }}
+  {{ partialCached "footer.html" . }}
   {{ partial "scripts.html" . }}
   {{ partial "analytics.html" . }}
   {{/* Per-page scripts, so the global bundle above stays lean. Our own JS is

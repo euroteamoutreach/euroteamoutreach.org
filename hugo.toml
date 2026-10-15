@@ -195,29 +195,104 @@ enableRobotsTXT = true
   [menus.main.params]
     button = true
 
-# Footer utility links (Phase 2 footer.html renders these).
+# Footer index (#61). The header is the shortlist; the footer is the full index:
+# every page, in columns, so repeating header links here is intentional.
+# Top-level entries are the column headings (no link); each link names its
+# column with `parent`, and footer.html renders a column per heading in weight
+# order. On-site links use pageRef (menu-guard.html fails the build if one
+# stops resolving). Meet Jesus is not here: the footer's closing invitation
+# carries it, once.
 [[menus.footer]]
-  name = "Meet Jesus"
-  url = "/jesus/"
+  name = "About"
+  identifier = "about"
   weight = 10
 [[menus.footer]]
-  name = "Doctrine"
-  url = "/doctrine/"
+  name = "Our Story"
+  pageRef = "/about/"
+  parent = "about"
+  weight = 10
+[[menus.footer]]
+  name = "Our Approach"
+  pageRef = "/approach/"
+  parent = "about"
   weight = 20
+[[menus.footer]]
+  name = "Team"
+  pageRef = "/team/"
+  parent = "about"
+  weight = 30
+[[menus.footer]]
+  name = "Doctrine"
+  pageRef = "/doctrine/"
+  parent = "about"
+  weight = 40
+
+[[menus.footer]]
+  name = "Get involved"
+  identifier = "get-involved"
+  weight = 20
+[[menus.footer]]
+  name = "Pray"
+  pageRef = "/pray/"
+  parent = "get-involved"
+  weight = 10
+[[menus.footer]]
+  name = "Serve"
+  pageRef = "/serve/"
+  parent = "get-involved"
+  weight = 20
+[[menus.footer]]
+  name = "Give"
+  pageRef = "/give/"
+  parent = "get-involved"
+  weight = 30
 [[menus.footer]]
   name = "Connect"
   pageRef = "/contact/"
+  parent = "get-involved"
+  weight = 40
+
+# Bible First and Good and Evil link to their own sites until they get pages
+# here, after UGO (#62). dobroizlo.com.ua is the Ukrainian Good and Evil site;
+# its label says so in English for this site's American readers, and the
+# hreflang param tells browsers and screen readers the target is Ukrainian.
+[[menus.footer]]
+  name = "Ministries"
+  identifier = "ministries"
   weight = 30
+[[menus.footer]]
+  name = "UGO"
+  pageRef = "/ugo/"
+  parent = "ministries"
+  weight = 10
+[[menus.footer]]
+  name = "Bible First"
+  url = "https://getbiblefirst.com/"
+  parent = "ministries"
+  weight = 20
+[[menus.footer]]
+  name = "Good and Evil"
+  url = "https://goodandevilbook.com/"
+  parent = "ministries"
+  weight = 30
+[[menus.footer]]
+  name = "Good and Evil (Ukrainian)"
+  url = "https://dobroizlo.com.ua/"
+  parent = "ministries"
+  weight = 40
+  [menus.footer.params]
+    hreflang = "uk"
 
 # Footer social icons. Each entry's `icon` param maps to assets/img/social-{icon}.svg,
 # which footer.html inlines so the mark inherits the link's hover/focus colour.
 #
-# EXACTLY TWO ACCOUNTS — this is the complete set, not a starting point. Both URLs
-# come from the legacy footer partial and are cross-checked against all three legacy
-# sites plus the Middleman feature spec, which asserts them. Joshua confirmed both
-# accounts are current (2026-07-28). The legacy footer had no YouTube, Instagram, or
-# LinkedIn because ETO has no such accounts; the UGO YouTube playlists live on /ugo/,
-# not in global chrome. Do not add speculative slots here.
+# THREE ACCOUNTS — the complete set, not a starting point. Facebook and X come from
+# the legacy footer partial and are cross-checked against all three legacy sites plus
+# the Middleman feature spec, which asserts them; Joshua confirmed both current
+# (2026-07-28). Instagram was added 2026-10-15, the day the account was created.
+# There is no YouTube or LinkedIn slot because ETO has no such accounts; the UGO
+# YouTube playlists live on /ugo/, not in global chrome. /pray/'s Follow along
+# section renders this same menu, so an entry here appears there too.
 #
 # Twitter is X now, and the icon, label, and URL all say X — a half-migrated social
 # link is the one outcome worth avoiding. twitter.com/eto_ukraine still 301s here, so
@@ -236,3 +311,10 @@ enableRobotsTXT = true
   [menus.footer_social.params]
     icon = "x"
     label = "ETO on X"
+[[menus.footer_social]]
+  name = "Instagram"
+  url = "https://www.instagram.com/euroteamoutreach/"
+  weight = 30
+  [menus.footer_social.params]
+    icon = "instagram"
+    label = "ETO on Instagram"
