@@ -1,0 +1,21 @@
+{{- /*
+  link-href — the URL for a front-matter link.
+
+  A link names either a `page` on this site, looked up so a moved page
+  breaks the build, or an `href` for anywhere else. Returns the URL.
+
+  Usage:
+    {{ $href := partial "link-href.html" . }}   (. has page or href)
+*/ -}}
+{{- $href := .href -}}
+{{- with .page -}}
+  {{- with site.GetPage . -}}
+    {{- $href = .RelPermalink -}}
+  {{- else -}}
+    {{- errorf "link-href: page %q not found" . -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $href -}}
+  {{- errorf "link-href: a link needs a page or an href" -}}
+{{- end -}}
+{{- return $href -}}

@@ -90,10 +90,7 @@
   {{/* ---------------- Where to start: UGO ----------------
        Text beside a field photo, the split home's "Who we are" uses. */}}
   {{ with $p.start }}
-    {{ $photo := index (where hugo.Data.ugo.photos.gallery "id" .photo) 0 }}
-    {{ if not $photo }}
-      {{ errorf "layouts/serve.html: start.photo %q is not among data/ugo.yaml photos.gallery" .photo }}
-    {{ end }}
+    {{ $photo := partial "photo-record.html" .photo }}
     <section aria-labelledby="start-heading" class="bg-white">
       <div class="{{ $section }} grid gap-10 md:grid-cols-2 md:items-center">
         <div>

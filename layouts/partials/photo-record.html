@@ -1,0 +1,19 @@
+{{- /*
+  photo-record — resolves a front-matter photo to a full photo record.
+
+  A page's photo is either a full record (id, width, height, alt, caption)
+  or the id of a photo in data/ugo.yaml photos.gallery, so a UGO photo keeps
+  the one caption it has there. Returns the record; fails the build if an id
+  is not in the gallery.
+
+  Usage:
+    {{ $photo := partial "photo-record.html" .photo }}
+*/ -}}
+{{- $photo := . -}}
+{{- if not (reflect.IsMap .) -}}
+  {{- $photo = index (where hugo.Data.ugo.photos.gallery "id" .) 0 -}}
+  {{- if not $photo -}}
+    {{- errorf "photo-record: %q is not among data/ugo.yaml photos.gallery" . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $photo -}}

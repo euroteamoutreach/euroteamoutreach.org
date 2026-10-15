@@ -1,0 +1,120 @@
+{{/* ---------------------------------------------------------------------
+     Our Approach (`/approach/`) — #60, docs/prd/05-templates.md
+     §"Our Approach (`/approach/`)".
+
+         hero → intro → the three objectives, in alternating bands
+              → how it all fits together (three cards) → close
+
+     Copy comes from content/approach/: index.md (the intro is its body;
+     the cards and the close are front matter) and objectives/, one file
+     per objective, so each verse goes through the scripture shortcode.
+
+     RULES THIS FILE MUST KEEP (decision 75, the long-form pattern):
+
+     1. ONE CENTRED READING COLUMN. Prose is left-aligned at max-w-prose,
+        the column centred under a centred heading, as on /jesus/.
+
+     2. PHOTOS IN THE FLOW. Each objective's photos sit at the column's
+        width after its text. No zig-zag splits.
+
+     3. CARDS ONLY FOR PARALLEL ITEMS: the three ministries.
+
+     4. NO DARK BAND. The close is the only candidate, and a dark band
+        there would stack on the dark footer, so it is a callout on paper.
+     --------------------------------------------------------------------- */}}
+
+{{ define "main" }}
+  {{ $p := .Params }}
+  {{ $objectives := sort (.Resources.Match "objectives/*.md") "Name" }}
+  {{ if not $objectives }}
+    {{ errorf "layouts/approach.html: no objective files in content/approach/objectives/" }}
+  {{ end }}
+  {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
+  {{ $h2 := "mx-auto max-w-prose text-center text-heading text-ink" }}
+  {{ $prose := "mx-auto max-w-prose space-y-4 text-body text-warm-800 md:space-y-5 prose-links [&_strong]:text-ink" }}
+
+  {{/* ---------------- Hero ---------------- */}}
+  <section class="relative isolate overflow-hidden bg-eto-900 text-white">
+    {{ partial "photo-backdrop.html" (dict
+      "photo" $p.hero.photo
+      "wash" "bg-eto-900/50"
+    ) }}
+    <div class="mx-auto max-w-5xl px-6 py-24 text-center sm:py-28 md:py-36">
+      <h1 class="text-4xl font-black tracking-tight sm:text-5xl md:text-6xl">
+        {{ .Title }}
+      </h1>
+    </div>
+  </section>
+
+  {{/* ---------------- Intro ---------------- */}}
+  <section class="bg-white">
+    <div class="{{ $section }}">
+      <div class="mx-auto max-w-prose space-y-4 text-lede text-warm-800 md:space-y-5">
+        {{ .Content }}
+      </div>
+    </div>
+  </section>
+
+  {{/* ---------------- The three objectives ----------------
+       Bands alternate paper and white, starting on paper below the white
+       intro. */}}
+  {{ range $i, $o := $objectives }}
+    {{ $white := modBool $i 2 | not }}
+    {{ $id := partial "section-id.html" $o }}
+    <section
+      aria-labelledby="{{ $id }}"
+      class="{{ if $white }}bg-white{{ else }}border-y border-warm-200 bg-paper{{ end }}"
+    >
+      <div class="{{ $section }}">
+        <h2 id="{{ $id }}" class="{{ $h2 }}">{{ $o.Title }}</h2>
+        <div class="mt-8 space-y-8 md:mt-10 md:space-y-10">
+          <div class="{{ $prose }}">{{ $o.Content }}</div>
+          {{ range $o.Params.photos }}
+            {{ partial "photo-figure.html" (dict
+              "photo" (partial "photo-record.html" .)
+              "sizes" "(min-width: 768px) 65ch, 100vw"
+              "frame" "aspect-3/2"
+              "class" "mx-auto max-w-prose"
+            ) }}
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- How it all fits together ----------------
+       Linked cards (linked-card and stretched-link in main.css), as on
+       /about/. */}}
+  {{ with $p.ministries }}
+    <section aria-labelledby="ministries-heading" class="bg-white">
+      <div class="{{ $section }}">
+        <h2 id="ministries-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <p class="mx-auto mt-4 max-w-prose text-center text-body text-warm-800 md:mt-5">{{ .intro }}</p>
+        <ul class="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:gap-6">
+          {{ range .items }}
+            <li class="linked-card flex flex-col bg-white p-6">
+              <h3 class="text-subheading text-ink">
+                <a href="{{ partial "link-href.html" . }}" class="stretched-link">{{ .heading | markdownify }}</a>
+              </h3>
+              <p class="mt-2 grow text-body text-warm-800">{{ .text | markdownify }}</p>
+              {{/* The cue for phones, which have no hover. aria-hidden: the
+                   link on the heading already says where it goes. */}}
+              <p aria-hidden="true" class="mt-4 text-caption font-semibold text-eto-600">
+                {{ .label }} &rarr;
+              </p>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- Close ---------------- */}}
+  {{ with $p.closing }}
+    <section class="border-t border-warm-200 bg-paper">
+      <div class="mx-auto max-w-5xl px-6 py-16 sm:py-20 md:py-24">
+        <p class="mx-auto max-w-3xl text-center font-serif text-2xl leading-snug text-ink italic sm:text-3xl">{{ . }}</p>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
