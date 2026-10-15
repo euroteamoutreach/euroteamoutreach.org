@@ -289,6 +289,13 @@ enableRobotsTXT = true
   weight = 40
   [menus.footer.params]
     hreflang = "uk"
+# On dobroizlo.com.ua too, but its English page, so no hreflang. Same label as
+# the home page's Good and Evil card.
+[[menus.footer]]
+  name = "Distributor program"
+  url = "https://dobroizlo.com.ua/en/distributors/"
+  parent = "ministries"
+  weight = 50
 
 # Footer social icons. Each entry's `icon` param maps to assets/img/social-{icon}.svg,
 # which footer.html inlines so the mark inherits the link's hover/focus colour.
