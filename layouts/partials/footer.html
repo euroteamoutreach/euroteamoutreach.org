@@ -49,6 +49,10 @@
 <footer class="bg-eto-900 text-white">
 
   {{/* ---------------- Newsletter ---------------- */}}
+  {{/* Skipped on a page that carries its own form (front matter
+       `hideNewsletter`, i.e. /subscribe/), so two forms never stack.
+       baseof.html keys the partialCached variant on the same flag. */}}
+  {{ if not .Params.hideNewsletter }}
   {{/* items-start, not items-center: the copy block is two lines and the form
        is one, and centring them against each other floats the form in a way
        that reads as unaligned at every width between md and lg. */}}
@@ -65,12 +69,15 @@
       {{ partial "mailchimp-form.html" (dict "id" "footer") }}
     </div>
   </div>
+  {{ end }}
 
   {{/* ---------------- Index: logo + social, then the link columns ---------------- */}}
+  {{/* The top border is the seam under the newsletter row; on a page without
+       that row it would be a rule across the top of the footer, so drop it. */}}
   {{/* The header is the shortlist; this is the full index (#61). On phones the
        logo and social share a row, then the columns run two across; from sm the
        three columns sit side by side, and from md the logo takes a fourth. */}}
-  <div class="border-t border-eto-800">
+  <div class="{{ if not .Params.hideNewsletter }}border-t border-eto-800{{ end }}">
     <div class="mx-auto grid max-w-5xl grid-cols-1 gap-10 px-6 py-12 md:grid-cols-4 md:gap-8">
 
       <div class="flex items-center justify-between md:flex-col md:items-start md:justify-start md:gap-6">
