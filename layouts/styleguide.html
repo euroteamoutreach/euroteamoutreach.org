@@ -386,6 +386,38 @@
       </div>
     </section>
 
+    {{/* ---------------- Linked cards ----------------
+         The `linked-card` / `stretched-link` utilities in main.css. */}}
+    <section id="linked-cards" class="border-b border-warm-200">
+      <div class="mx-auto max-w-5xl px-6 py-12">
+        <h2 class="text-2xl font-semibold tracking-tight">Linked cards</h2>
+        <p class="mt-2 max-w-prose text-sm leading-relaxed text-warm-600">
+          A card whose whole face is one link. At rest, a 1px warm-200 rule;
+          on hover or keyboard focus, a blue border and three blue rings that
+          read as a glow — rings, not a shadow, so nothing lifts off the page.
+          Blue, never gold. Put <code>.linked-card</code> on the card and
+          <code>.stretched-link</code> on the <code>&lt;a&gt;</code> in its
+          heading: the link stretches over the card, and a screen reader names
+          it by the heading. The ground and padding are the caller's. Hover or
+          tab to see it.
+        </p>
+        <ul class="mt-6 grid gap-5 sm:grid-cols-2">
+          {{ range slice
+            (dict "ground" "bg-white" "heading" "On white" "text" "Home's ministry cards, the /team/ hub, the /give/ fund cards, and /about/'s “Go deeper” all sit on white.")
+            (dict "ground" "bg-paper" "heading" "On paper" "text" "A card on a white band takes paper instead, like the UGO card on home.")
+          }}
+            <li class="linked-card flex flex-col {{ .ground }} p-6">
+              <h3 class="text-lg font-semibold tracking-tight text-ink">
+                <a href="#linked-cards" class="stretched-link">{{ .heading }}</a>
+              </h3>
+              <p class="mt-2 grow text-sm leading-relaxed text-warm-800">{{ .text }}</p>
+              <p aria-hidden="true" class="mt-4 text-sm font-semibold text-eto-600">Card cue &rarr;</p>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </section>
+
     {{/* ---------------- Surfaces ---------------- */}}
     <section id="surfaces">
       <div class="mx-auto max-w-5xl px-6 pt-12 pb-6">

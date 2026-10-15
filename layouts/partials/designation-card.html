@@ -10,7 +10,7 @@
   The whole card is a link to the form on /give/ with this fund pre-selected
   (give-cta.html). The <a> sits on the fund name and an ::after overlay
   stretches it over the card, so a screen reader names the link by the fund,
-  not by the blurb. Hover and keyboard focus share one blue glow (card-glow
+  not by the blurb. Hover and keyboard focus share one blue glow (linked-card
   in main.css): /give/ carries no gold (#64).
   Following the link reloads /give/, because Givebutter reads ?fund= only
   when the form loads.
@@ -27,7 +27,7 @@
 {{- end -}}
 <article
   id="{{ .slug }}"
-  class="relative flex gap-4 rounded-eto-lg border border-warm-200 bg-white p-5 transition hover:border-eto-600 hover:card-glow has-[a:focus-visible]:border-eto-600 has-[a:focus-visible]:card-glow sm:p-6"
+  class="linked-card flex gap-4 bg-white p-5 sm:p-6"
 >
   <span
     class="flex size-10 shrink-0 items-center justify-center rounded-eto bg-eto-50 text-eto-600"
@@ -38,7 +38,7 @@
     <h3 class="text-lg font-semibold tracking-tight text-ink md:text-xl">
       <a
         href="{{ partial "give-cta.html" .slug }}"
-        class="after:absolute after:inset-0 after:rounded-eto-lg focus-visible:outline-none"
+        class="stretched-link"
         >{{ .name }}</a
       >
     </h3>

@@ -102,17 +102,52 @@ html {
   scroll-padding-top: 5rem;
 }
 
-/* The hover and focus highlight for linked cards (the /give/ fund cards): a
-   dark border plus three blue bands, each lighter and wider than the last, so
-   the edge reads as a glow rather than a single recoloured line. Defined once
-   so hover and keyboard focus stay identical. Blue, never gold: the cards
-   route to the form, they are not the giving action (#64). Pair it with
-   border-eto-600 on the same state. */
-@utility card-glow {
-  box-shadow:
-    0 0 0 2px var(--color-eto-200),
-    0 0 0 5px var(--color-eto-100),
-    0 0 0 9px var(--color-eto-50);
+/* Linked cards: a card whose whole face is one link (home's ministry cards,
+   the /team/ hub, the /give/ fund cards, /about/'s "Go deeper"). Two
+   utilities, used together:
+
+   - `linked-card` on the card: the warm-200 rule at rest; on hover, or when
+     its link has keyboard focus, a dark border plus three blue bands, each
+     lighter and wider than the last, so the edge reads as a glow rather than
+     a single recoloured line. Hover and focus are one rule, so they cannot
+     drift apart. The bands are rings, not a drop shadow: nothing lifts off
+     the page. Blue, never gold: a card routes somewhere, it is not the
+     giving action (#64).
+   - `stretched-link` on the <a> inside the card's heading: an ::after
+     overlay stretches it over the card, so the whole card is clickable while
+     a screen reader names the link by its heading, not by the whole card's
+     text. The card shows the focus, so the link drops its own ring. A second
+     link on a card sits above the overlay with `relative z-10`.
+
+   Ground, padding and layout stay with the caller: cards sit on white or
+   paper and lay out as flex or grid. */
+@utility linked-card {
+  position: relative;
+  border: 1px solid var(--color-warm-200);
+  border-radius: var(--radius-eto-lg);
+  transition-property: border-color, box-shadow;
+  transition-duration: var(--default-transition-duration);
+  transition-timing-function: var(--default-transition-timing-function);
+  &:hover,
+  &:has(a:focus-visible) {
+    border-color: var(--color-eto-600);
+    box-shadow:
+      0 0 0 2px var(--color-eto-200),
+      0 0 0 5px var(--color-eto-100),
+      0 0 0 9px var(--color-eto-50);
+  }
+}
+
+@utility stretched-link {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius-eto-lg);
+  }
+  &:focus-visible {
+    outline: none;
+  }
 }
 
 /* Text roles (#71 follow-up). Pages name what a paragraph IS — body, lede,

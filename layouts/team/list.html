@@ -28,8 +28,7 @@
   {{ $prose := "mx-auto max-w-prose space-y-4 text-body text-warm-800 md:space-y-5 prose-links" }}
   {{/* Linked cards, as on home and /give/: the <a> sits on the name and an
        ::after overlay stretches it over the card. */}}
-  {{ $card := "relative flex flex-col overflow-hidden rounded-eto-lg border border-warm-200 bg-white transition hover:border-eto-600 hover:card-glow has-[a:focus-visible]:border-eto-600 has-[a:focus-visible]:card-glow" }}
-  {{ $stretch := "after:absolute after:inset-0 after:rounded-eto-lg focus-visible:outline-none" }}
+  {{ $card := "linked-card flex flex-col overflow-hidden bg-white" }}
   {{ $families := where .Pages "Params.status" "active" }}
 
   {{/* ---------------- Hero + intro ---------------- */}}
@@ -69,7 +68,7 @@
             ) }}
             <div class="p-6">
               <h2 class="text-subheading text-ink">
-                <a href="{{ .RelPermalink }}" class="{{ $stretch }}">{{ .Title }}</a>
+                <a href="{{ .RelPermalink }}" class="stretched-link">{{ .Title }}</a>
               </h2>
               {{ with .Params.role }}
                 <p class="mt-1 text-caption text-warm-600">{{ . }}</p>

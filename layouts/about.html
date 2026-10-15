@@ -1,0 +1,169 @@
+{{/* ---------------------------------------------------------------------
+     Our Story (`/about/`) — #59, docs/prd/05-templates.md
+     §"Our Story (`/about/`)".
+
+         hero → who we are → what we're about (three cards)
+              → how we got here → the people behind the name (dark)
+              → go deeper (three cards)
+
+     Copy comes from content/about.md front matter (who we are is its body).
+
+     RULES THIS FILE MUST KEEP (decision 75, the long-form pattern):
+
+     1. ONE CENTRED READING COLUMN. Prose is left-aligned at max-w-prose,
+        the column centred under a centred heading, as on /jesus/.
+
+     2. PHOTOS IN THE FLOW. Each story photo sits at the column's width
+        after the paragraphs it belongs to. No zig-zag splits: the story
+        is a linear arc, not parallel features.
+
+     3. CARDS ONLY FOR PARALLEL ITEMS: the three commitments and the three
+        go-deeper links. Everything else stays in the column.
+
+     4. "THE PEOPLE BEHIND THE NAME" IS THE ONE DARK BAND below the hero,
+        with a paper band between it and the footer so the two never stack.
+     --------------------------------------------------------------------- */}}
+
+{{ define "main" }}
+  {{ $p := .Params }}
+  {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
+  {{ $h2 := "mx-auto max-w-prose text-center text-heading text-ink" }}
+  {{ $prose := "mx-auto max-w-prose space-y-4 text-body text-warm-800 md:space-y-5 [&_strong]:text-ink" }}
+  {{ $focus := "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
+  {{ $primary := printf "inline-block rounded-eto bg-eto-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-eto-700 %s" $focus }}
+
+  {{/* ---------------- Hero ---------------- */}}
+  <section class="relative isolate overflow-hidden bg-eto-900 text-white">
+    {{ partial "photo-backdrop.html" (dict
+      "photo" $p.hero.photo
+      "wash" "bg-eto-900/50"
+    ) }}
+    <div class="mx-auto max-w-5xl px-6 py-24 text-center sm:py-28 md:py-36">
+      <h1 class="text-4xl font-black tracking-tight sm:text-5xl md:text-6xl">
+        {{ .Title }}
+      </h1>
+    </div>
+  </section>
+
+  {{/* ---------------- Who we are ---------------- */}}
+  <section class="bg-white">
+    <div class="{{ $section }}">
+      <div class="mx-auto max-w-prose space-y-4 text-lede text-warm-800 md:space-y-5">
+        {{ .Content }}
+      </div>
+    </div>
+  </section>
+
+  {{/* ---------------- What we're about ---------------- */}}
+  {{ with $p.mission }}
+    <section aria-labelledby="mission-heading" class="border-y border-warm-200 bg-paper">
+      <div class="{{ $section }}">
+        <h2 id="mission-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <p class="mx-auto mt-4 max-w-prose text-center text-body text-warm-800 md:mt-5">{{ .intro }}</p>
+        <ul class="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:gap-6">
+          {{ range .items }}
+            <li class="rounded-eto-lg border border-warm-200 bg-white p-6">
+              <h3 class="text-subheading text-ink">{{ .heading }}</h3>
+              <p class="mt-2 text-body text-warm-800">{{ .text | markdownify }}</p>
+            </li>
+          {{ end }}
+        </ul>
+        <div class="mt-8 text-center md:mt-10">
+          <p class="mx-auto max-w-prose text-body text-warm-800">{{ .outro }}</p>
+          <a href="{{ .href }}" class="{{ $primary }} mt-6">
+            {{ .label }} <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- How we got here ----------------
+       A part's photo is a full record, or an id from data/ugo.yaml's
+       gallery, so a UGO photo keeps the one caption it has there. */}}
+  {{ with $p.story }}
+    <section aria-labelledby="story-heading" class="bg-white">
+      <div class="{{ $section }}">
+        <h2 id="story-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <div class="mt-8 space-y-8 md:mt-10 md:space-y-10">
+          {{ range .parts }}
+            <div class="{{ $prose }}">{{ .body | markdownify }}</div>
+            {{ with .photo }}
+              {{ $photo := . }}
+              {{ if not (reflect.IsMap .) }}
+                {{ $photo = index (where hugo.Data.ugo.photos.gallery "id" .) 0 }}
+                {{ if not $photo }}
+                  {{ errorf "layouts/about.html: story photo %q is not among data/ugo.yaml photos.gallery" . }}
+                {{ end }}
+              {{ end }}
+              {{ partial "photo-figure.html" (dict
+                "photo" $photo
+                "sizes" "(min-width: 768px) 65ch, 100vw"
+                "frame" "aspect-3/2"
+                "class" "mx-auto max-w-prose"
+              ) }}
+            {{ end }}
+          {{ end }}
+        </div>
+        <div class="mt-8 text-center md:mt-10">
+          <a href="{{ (site.GetPage "/ugo").RelPermalink }}" class="{{ $primary }}">
+            {{ .label }} <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- The people behind the name ---------------- */}}
+  {{ with $p.people }}
+    <section aria-labelledby="people-heading" class="bg-eto-900 text-white">
+      <div class="mx-auto max-w-5xl px-6 py-16 sm:py-20 md:py-28">
+        <h2 id="people-heading" class="mx-auto max-w-prose text-center text-heading">{{ .heading }}</h2>
+        <div class="mx-auto mt-4 max-w-prose space-y-4 text-body text-eto-50 md:mt-5">{{ .body | markdownify }}</div>
+        {{ with .closing }}
+          <p class="mx-auto mt-8 max-w-3xl text-center font-serif text-2xl leading-snug italic sm:text-3xl md:mt-10">{{ . }}</p>
+        {{ end }}
+        <div class="mt-8 text-center md:mt-10">
+          <a href="{{ (site.GetPage "/team").RelPermalink }}" class="inline-block rounded-eto bg-white px-5 py-2.5 font-semibold text-eto-900 transition-colors hover:bg-eto-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+            {{ .label }} <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- Go deeper ----------------
+       Linked cards (linked-card and stretched-link in main.css), as on home
+       and /give/. `page` is looked up so a moved page breaks the build;
+       `href` is for pages not built yet. */}}
+  {{ with $p.deeper }}
+    <section aria-labelledby="deeper-heading" class="bg-paper">
+      <div class="{{ $section }}">
+        <h2 id="deeper-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <ul class="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:gap-6">
+          {{ range .items }}
+            {{ $href := .href }}
+            {{ with .page }}
+              {{ with site.GetPage . }}
+                {{ $href = .RelPermalink }}
+              {{ else }}
+                {{ errorf "layouts/about.html: deeper page %q not found" . }}
+              {{ end }}
+            {{ end }}
+            <li class="linked-card flex flex-col bg-white p-6">
+              <h3 class="text-subheading text-ink">
+                <a href="{{ $href }}" class="stretched-link">{{ .heading }}</a>
+              </h3>
+              <p class="mt-2 grow text-body text-warm-800">{{ .text }}</p>
+              {{/* The cue for phones, which have no hover. aria-hidden: the
+                   link on the heading already says where it goes. */}}
+              <p aria-hidden="true" class="mt-4 text-caption font-semibold text-eto-600">
+                {{ .label }} &rarr;
+              </p>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
