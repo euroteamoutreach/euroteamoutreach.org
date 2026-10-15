@@ -40,6 +40,8 @@ hugo --gc --minify    # production build
 | `docs/prd/README.md` | PRD index — start here for any feature question |
 | `docs/prd/ROADMAP.md` | Task list with checkboxes, one PR per item |
 | `docs/prd/CHANGELOG.md` | PRD deviation log |
+| `docs/domain-redirects.md` | Where each satellite domain's redirect lives (`ugoproject.org`, …) |
+| `docs/dns-rollback-snapshot.md` | Route 53 snapshot and rollback for the `euroteamoutreach.org` cutover |
 
 ## Sister projects
 
