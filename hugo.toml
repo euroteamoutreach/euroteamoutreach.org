@@ -323,3 +323,10 @@ enableRobotsTXT = true
   [menus.footer_social.params]
     icon = "instagram"
     label = "ETO on Instagram"
+[[menus.footer_social]]
+  name = "YouTube"
+  url = "https://www.youtube.com/@euroteamoutreach"
+  weight = 40
+  [menus.footer_social.params]
+    icon = "youtube"
+    label = "ETO on YouTube"
