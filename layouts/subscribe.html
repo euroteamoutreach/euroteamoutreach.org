@@ -1,0 +1,60 @@
+{{/* ---------------------------------------------------------------------
+     /subscribe/ — the newsletter's own page (#64, docs/prd/05-templates.md
+     §"Subscribe (`/subscribe/`)").
+
+         intro + what you'll receive  |  [ dark panel: the signup form ]
+
+     Copy comes from content/subscribe.md front matter (the intro is its body).
+
+     RULES THIS FILE MUST KEEP:
+
+     1. ONE FORM PER PAGE. The page sets `hideNewsletter`, so footer.html
+        drops its own newsletter row here and the two forms never stack.
+
+     2. THE FORM SITS IN A DARK PANEL, not a full-width band. mailchimp-form
+        is styled for the eto-900 ground only, so it needs that surface, but a
+        full-width dark band directly above the footer reads as one tall dark
+        block (the trial /pray/ dropped, CHANGELOG 2026-10-14). A rounded panel
+        inside the white section keeps the form on its ground and the page's
+        own shape intact.
+     --------------------------------------------------------------------- */}}
+
+{{ define "main" }}
+  {{ $p := .Params }}
+  {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
+
+  <section class="bg-white">
+    <div class="{{ $section }}">
+      <h1 class="text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">
+        {{ .Title }}
+      </h1>
+      <div class="mt-10 grid gap-10 md:grid-cols-2 md:gap-12">
+        <div>
+          <div class="max-w-prose text-lede text-warm-800">
+            {{ .Content }}
+          </div>
+          {{ with $p.gets }}
+            <h2 class="mt-8 text-subheading text-ink">{{ .heading }}</h2>
+            <ul class="mt-4 list-disc space-y-3 pl-5 text-body text-warm-800 marker:text-eto-600 prose-links">
+              {{ range .items }}
+                <li>{{ . | markdownify }}</li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </div>
+
+        {{/* The same heading, copy and colours as the footer's newsletter row
+             it replaces on this page. */}}
+        {{ with $p.form }}
+          <div class="self-start rounded-eto-lg bg-eto-900 p-6 text-white sm:p-8">
+            <h2 class="text-xl font-semibold tracking-tight sm:text-2xl">{{ .heading }}</h2>
+            <p class="mt-2 text-body text-eto-200">{{ .text }}</p>
+            <div class="mt-6">
+              {{ partial "mailchimp-form.html" (dict "id" "subscribe") }}
+            </div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}
