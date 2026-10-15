@@ -14,13 +14,6 @@ links:
   - label: "Website"
     text: "DaysInUkraine.com"
     url: "https://daysinukraine.com/"
-# No url until the church's current website is confirmed (gen.church does not
-# resolve, 2026-10-09). The mailing address stands on its own meanwhile.
-sending_church:
-  name: "Generations Bible Church"
-  address:
-    - "9125 E. Greenland Road"
-    - "Franktown, CO 80116"
 order: 2
 status: active
 ---

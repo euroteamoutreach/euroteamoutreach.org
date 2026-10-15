@@ -20,8 +20,7 @@
     {{ errorf "layouts/doctrine.html: no section files in content/doctrine/sections/" }}
   {{ end }}
   {{ $focus := "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
-  {{ $link := printf "font-semibold text-eto-600 underline underline-offset-2 hover:text-eto-700 %s" $focus }}
-
+  
   <section class="bg-white">
     <div class="mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20">
       <h1 class="text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">
@@ -32,7 +31,7 @@
       </div>
       <p class="mt-6 text-body">
         {{/* scripts/doctrine-pdf.sh writes this file. */}}
-        <a href="/pdf/doctrine.pdf" class="{{ $link }}">Download PDF</a>
+        <a href="/pdf/doctrine.pdf" class="link">Download PDF</a>
       </p>
 
       <div

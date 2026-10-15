@@ -3,10 +3,10 @@ title: "Patricia Rebsch"
 description: "Patricia Rebsch, the stateside secretary of Euro Team Outreach."
 role: "Stateside secretary"
 photo:
-  id: "eto/team-patricia-portrait-500w_wcshow"
-  alt: "Portrait of Patricia Rebsch"
-  width: 500
-  height: 584
+  id: "eto/patricia_keru6o"
+  alt: "Patricia Rebsch, smiling, at her desk with her hand on the keyboard"
+  width: 1536
+  height: 2048
   position: "object-top"
 order: 4
 status: active

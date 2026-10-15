@@ -159,6 +159,9 @@ enableRobotsTXT = true
 # destination items. Give carries button = true so the header styles it as a
 # button, not a plain link (#24) — the header keys off that param and never
 # off the entry's name, so the gold-only-on-giving rule survives a menu edit.
+# Built pages use pageRef, which is what lets the header mark the current
+# section; `url` is only for pages still falling through to legacy (Our Story,
+# Blog). Switch an entry to pageRef in the PR that builds its page.
 [[menus.main]]
   name = "Our Story"
   url = "/about/"
@@ -173,7 +176,7 @@ enableRobotsTXT = true
   weight = 40
 [[menus.main]]
   name = "Team"
-  url = "/team/"
+  pageRef = "/team/"
   weight = 50
 [[menus.main]]
   name = "Connect"

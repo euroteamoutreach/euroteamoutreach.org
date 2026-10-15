@@ -25,7 +25,7 @@
 {{ define "main" }}
   {{ $p := .Params }}
   {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
-  {{ $prose := "mx-auto max-w-prose space-y-4 text-body text-warm-800 md:space-y-5 [&_a]:font-semibold [&_a]:text-eto-600 [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-eto-700 focus-visible:[&_a]:outline-2 focus-visible:[&_a]:outline-offset-2 focus-visible:[&_a]:outline-eto-600" }}
+  {{ $prose := "mx-auto max-w-prose space-y-4 text-body text-warm-800 md:space-y-5 prose-links" }}
   {{/* Linked cards, as on home and /give/: the <a> sits on the name and an
        ::after overlay stretches it over the card. */}}
   {{ $card := "relative flex flex-col overflow-hidden rounded-eto-lg border border-warm-200 bg-white transition hover:border-eto-600 hover:card-glow has-[a:focus-visible]:border-eto-600 has-[a:focus-visible]:card-glow" }}

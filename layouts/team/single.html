@@ -33,8 +33,7 @@
   {{ $btnBase := printf "inline-block rounded-eto px-5 py-2.5 font-semibold transition-colors %s" $focus }}
   {{ $gold := printf "%s bg-gold text-ink hover:bg-gold-hover" $btnBase }}
   {{ $outline := printf "%s border border-eto-600 text-eto-600 hover:bg-eto-50" $btnBase }}
-  {{ $link := printf "rounded-eto font-semibold text-eto-600 underline underline-offset-2 hover:text-eto-700 %s" $focus }}
-  {{ $prose := "mx-auto max-w-prose space-y-4 text-body text-warm-800 md:space-y-5" }}
+    {{ $prose := "mx-auto max-w-prose space-y-4 text-body text-warm-800 md:space-y-5 prose-links" }}
   {{/* The name mid-sentence: "Support the Steeles", not "The Steeles". */}}
   {{ $name := replaceRE "^The " "the " .Title }}
   {{ $support := printf "Support %s" $name }}
@@ -87,7 +86,7 @@
             {{ range $p.links }}
               <div>
                 <dt class="text-caption text-warm-600">{{ .label }}</dt>
-                <dd class="mt-0.5 text-body"><a href="{{ .url }}" class="{{ $link }}">{{ .text }}&nbsp;↗</a></dd>
+                <dd class="mt-0.5 text-body"><a href="{{ .url }}" class="link">{{ .text }}&nbsp;↗</a></dd>
               </div>
             {{ end }}
             {{ with $church }}
@@ -101,7 +100,7 @@
                     </address>
                   {{ end }}
                   {{ with .url }}
-                    <a href="{{ . }}" class="{{ $link }}">{{ (urls.Parse .).Host | strings.TrimPrefix "www." }}&nbsp;↗</a>
+                    <a href="{{ . }}" class="link">{{ (urls.Parse .).Host | strings.TrimPrefix "www." }}&nbsp;↗</a>
                   {{ end }}
                 </dd>
               </div>
