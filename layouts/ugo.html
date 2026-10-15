@@ -117,11 +117,10 @@
               <a href="{{ $giveHref }}" class="{{ $gold }}">
                 {{ partial "ugo-copy.html" $p.give_cta_label }}
               </a>
-              {{/* Where each new video actually goes. Not the newsletter, which
-                   sends nothing during a trip and would promise daily email. */}}
-              {{ with $live.follow }}
-                <a href="#follow" class="{{ $outline }}">Follow along <span aria-hidden="true">↓</span></a>
-              {{ end }}
+              {{/* To the top of every update, with the follow links at its foot.
+                   Not the newsletter, which sends nothing during a trip and,
+                   beside a daily video, would promise daily email. */}}
+              <a href="#updates" class="{{ $outline }}">See every update <span aria-hidden="true">↓</span></a>
             </div>
             {{/* The fallback if the site cannot be updated on the road: every
                  video still lands in the trip's YouTube playlist. */}}
@@ -173,7 +172,7 @@
           </p>
         {{ end }}
         {{ with $live.follow }}
-          <h3 id="follow" class="mt-12 scroll-mt-20 text-subheading text-ink">Follow along</h3>
+          <h3 class="mt-12 text-subheading text-ink">Follow along</h3>
           <ul class="mt-4 flex flex-wrap gap-3">
             {{ range . }}
               <li>
