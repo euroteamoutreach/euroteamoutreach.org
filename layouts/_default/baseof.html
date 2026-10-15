@@ -19,6 +19,8 @@
 <body class="flex min-h-screen flex-col bg-paper font-sans text-ink antialiased">
   {{ partial "header.html" . }}
   <main class="grow">
+    {{/* While a UGO trip is on the road: a one-line strip on every page. */}}
+    {{ partial "ugo-live-band.html" . }}
     {{ block "main" . }}{{ end }}
   </main>
   {{/* Cached: the guard renders once per build, the footer once per value of
