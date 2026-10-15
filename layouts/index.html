@@ -162,7 +162,8 @@
            any after it sit above the stretched overlay (relative z-10) as
            links of their own, so a card can offer two destinations and
            still be clickable as a whole. Every link here leaves the site
-           for now, and the ↗ says so. */}}
+           for now, so each opens in a new tab and carries the ↗
+           (partials/external.html). */}}
       <div class="mt-4 grid gap-4 md:mt-6 md:gap-6 md:grid-cols-3">
         {{ range $work.ministries }}
           {{ $main := index .links 0 }}
@@ -190,7 +191,8 @@
             <div class="flex grow flex-col p-6">
               <p class="{{ $accent }}">{{ .eyebrow }}</p>
               <h3 class="mt-2 text-lg font-semibold tracking-tight text-ink md:text-xl">
-                <a href="{{ $main.href }}" class="stretched-link">{{ .heading }}</a>
+                {{ $x := partial "external.html" $main.href }}
+                <a href="{{ $main.href }}" {{ $x.attrs }} class="stretched-link">{{ .heading }}{{ $x.note }}</a>
               </h3>
               <p class="mt-2 grow text-body text-warm-800">{{ .body | markdownify }}</p>
               <div class="mt-4 flex flex-col gap-2">
@@ -201,11 +203,13 @@
                      card's main link. */}}
                 {{ range after 1 .links }}
                   <div class="flex flex-wrap items-center gap-2">
+                    {{ $x := partial "external.html" .href }}
                     <a
                       href="{{ .href }}"
+                      {{ $x.attrs }}
                       {{ with .lang }}hreflang="{{ . }}"{{ end }}
                       class="relative z-10 rounded-eto {{ $accent }} underline-offset-2 hover:text-eto-700 hover:underline {{ $focus }}"
-                      >{{ .label }} ↗</a
+                      >{{ .label }}{{ $x.mark }}</a
                     >
                     {{ with .lang }}
                       {{ $badge := index (dict "uk" "In Ukrainian") . }}

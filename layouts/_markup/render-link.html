@@ -1,0 +1,5 @@
+{{- /* Markdown links follow the same new-tab rule as the templates; see
+     partials/external.html. */ -}}
+{{- $x := partial "external.html" .Destination -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }} {{ $x.attrs }}>{{ .Text }}{{ $x.mark }}</a>
+{{- /* chomp trailing newline */ -}}
