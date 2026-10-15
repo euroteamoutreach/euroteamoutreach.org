@@ -49,7 +49,7 @@ enableRobotsTXT = true
     render = "never"
     list = "never"
   [cascade.target]
-    path = "{/about,/approach,/blog,/blog/**,/tags,/tags/**}"
+    path = "{/approach,/blog,/blog/**,/tags,/tags/**}"
 
 # Minification. Disable XML so the feed's <content:encoded> keeps its literal
 # <![CDATA[…]]> wrapper (the tdewolff minifier would otherwise rewrite it as
