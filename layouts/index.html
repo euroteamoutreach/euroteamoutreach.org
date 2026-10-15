@@ -43,6 +43,12 @@
   {{ $heroGold := printf "%s %s %s" $btnBase $focusOnDark $goldFill }}
   {{ $heroOutline := printf "%s %s border border-white/70 text-white hover:bg-white/10" $btnBase $focusOnDark }}
 
+  {{/* While a UGO trip is on the road, a one-line strip sends visitors to
+       the day's video. Renders nothing otherwise (data/ugo.yaml live). */}}
+  {{ with site.GetPage "/ugo" }}
+    {{ partial "ugo-live-band.html" (dict "href" .RelPermalink "label" "Watch the latest update") }}
+  {{ end }}
+
   {{/* ---------------- Hero ---------------- */}}
   <section class="relative isolate overflow-hidden bg-eto-900 text-white">
     {{ partial "photo-backdrop.html" (dict
