@@ -5,6 +5,15 @@
          hero → stat band → what UGO is → the model → the next project
          → get involved → give band → from the field
 
+     LIVE MODE (data/ugo.yaml `live.active`, while a trip is on the road)
+     puts a block above all of that, for visitors arriving from a field video:
+
+         happening-now band → latest video + Give/Subscribe → this trip's
+         tally → every update → follow along
+
+     The live block then carries the page's h1 and the hero's title steps down
+     to h2. Out of live mode the updates stay, under "From the field".
+
      Copy comes from content/ugo.md front matter (the hero lede is its body),
      run through ugo-copy.html, which fills its {tokens}. Facts come from
      data/ugo.yaml: trip dates, stats, playlists, and every photo with its
@@ -32,6 +41,9 @@
      5. EVERY GIVE BUTTON DEEP-LINKS TO /give/ WITH THE UGO FUND
         PRE-SELECTED, via give-cta.html from give_designation. The fund only:
         the donor picks the amount.
+
+     6. THE LIVE TALLY IS LIGHT (eto-50), not a second eto-900 band: rule 2
+        holds in live mode too.
      --------------------------------------------------------------------- */}}
 
 {{ define "main" }}
@@ -66,13 +78,111 @@
     {{ errorf "layouts/ugo.html: hero_image %q is not among data/ugo.yaml photos.featured" $p.hero_image }}
   {{ end }}
 
+  {{ $live := $ugo.live }}
+  {{ $isLive := and $live $live.active $live.updates }}
+  {{ $titleClass := "text-4xl font-black tracking-tight text-eto-600 sm:text-5xl" }}
+
+  {{ if $isLive }}
+    {{ $latest := index $live.updates 0 }}
+    {{ partial "ugo-live-band.html" (dict "href" "#updates" "label" "Every update" "arrow" "↓") }}
+
+    {{/* ---------------- Live: the latest update ---------------- */}}
+    {{/* The conversion point: a visitor who just watched a road video lands
+         on today's video with Give and Subscribe beside it. The player is
+         capped near phone width; at full column width a 9:16 frame would
+         fill a phone screen and dwarf everything beside it on desktop. */}}
+    <section id="top" aria-labelledby="live-heading" class="bg-white">
+      <div class="{{ $section }}">
+        <h1 id="live-heading" class="{{ $titleClass }}">
+          {{ $live.name }}: live from Ukraine
+        </h1>
+        <div class="mt-8 grid gap-8 md:grid-cols-[18rem_1fr] md:items-center md:gap-12">
+          <div class="mx-auto w-full max-w-60 md:max-w-none">
+            {{ partial "youtube-short.html" (dict
+              "id" $latest.youtube
+              "title" (printf "Day %v · %s: %s" $latest.day $latest.place ($latest.title | plainify))
+            ) }}
+          </div>
+          <div>
+            <p class="text-caption font-semibold tracking-wide text-eto-700 uppercase">
+              Day {{ $latest.day }} · {{ $latest.place }} ·
+              <time datetime="{{ time.Format "2006-01-02" $latest.date }}">{{ time.Format "Jan 2" $latest.date }}</time>
+            </p>
+            <h2 class="mt-2 text-heading text-ink">{{ $latest.title | markdownify }}</h2>
+            {{ with $latest.text }}
+              <p class="mt-3 max-w-prose text-body text-warm-800">{{ . | markdownify }}</p>
+            {{ end }}
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="{{ $giveHref }}" class="{{ $gold }}">
+                {{ partial "ugo-copy.html" $p.give_cta_label }}
+              </a>
+              <a href="{{ (site.GetPage "/subscribe").RelPermalink }}" class="{{ $outline }}">Get updates by email</a>
+            </div>
+          </div>
+        </div>
+
+        {{/* ---------------- Live: this trip's tally ---------------- */}}
+        {{ with $live.tally }}
+          <div class="mt-12 rounded-eto-lg bg-eto-50 p-6 sm:p-8">
+            <p id="tally-heading" class="text-caption font-semibold text-eto-700">So far on {{ $live.name }}</p>
+            <dl aria-labelledby="tally-heading" class="mt-4 grid grid-cols-3 gap-4">
+              {{ range . }}
+                {{/* Value above label visually, label first in the DOM, as in
+                     the track-record band. */}}
+                <div class="flex flex-col-reverse justify-end gap-1">
+                  <dt class="text-sm leading-snug text-warm-800">{{ .label | markdownify }}</dt>
+                  <dd class="text-3xl font-black tracking-tight text-eto-600 tabular-nums sm:text-4xl">
+                    {{ lang.FormatNumber 0 .value }}
+                  </dd>
+                </div>
+              {{ end }}
+            </dl>
+          </div>
+        {{ end }}
+      </div>
+    </section>
+
+    {{/* ---------------- Live: every update + follow along ---------------- */}}
+    <section id="updates" aria-labelledby="updates-heading" class="scroll-mt-20 border-y border-warm-200 bg-paper">
+      <div class="{{ $section }}">
+        <h2 id="updates-heading" class="{{ $h2 }}">Every update</h2>
+        <p class="mt-4 max-w-prose text-body text-warm-800">
+          A short video from the road each evening, newest first.
+        </p>
+        <div class="mt-8">
+          {{ partial "ugo-updates.html" (dict "headingId" "updates-heading") }}
+        </div>
+        {{ with $live.follow }}
+          <h3 class="mt-12 text-subheading text-ink">Follow along</h3>
+          <ul class="mt-4 flex flex-wrap gap-3">
+            {{ range . }}
+              <li>
+                <a
+                  href="{{ .url }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 rounded-eto border border-warm-200 bg-white px-4 py-2.5 font-semibold text-ink transition-colors hover:border-eto-600 hover:text-eto-600 {{ $focus }}"
+                >
+                  {{ partial "icon.html" (dict "name" (printf "social-%s" .icon) "class" "size-5 fill-current") }}
+                  {{ .label }}
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+
   {{/* ---------------- Hero ---------------- */}}
-  <section id="top" class="border-b border-warm-200 bg-white">
+  <section {{ if not $isLive }}id="top"{{ end }} class="border-b border-warm-200 bg-white">
     <div class="{{ $section }} grid items-center gap-10 md:grid-cols-5">
       <div class="md:col-span-3">
-        <h1 class="text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">
-          {{ .Title }}
-        </h1>
+        {{ if $isLive }}
+          <h2 class="{{ $titleClass }}">{{ .Title }}</h2>
+        {{ else }}
+          <h1 class="{{ $titleClass }}">{{ .Title }}</h1>
+        {{ end }}
         <p class="mt-2 text-xl font-semibold text-ink sm:text-2xl">
           {{ $p.hero.tagline }}
         </p>
@@ -301,6 +411,11 @@
       <p class="mt-4 max-w-prose text-body text-warm-800 md:mt-5">
         {{ partial "ugo-copy.html" $p.field.intro }}
       </p>
+      {{/* Out of live mode, the last trip's updates stay here as its record. */}}
+      {{ if and (not $isLive) $live.updates }}
+        <h3 id="updates-heading" class="mt-10 mb-4 text-subheading text-ink">{{ $live.name }} updates</h3>
+        {{ partial "ugo-updates.html" (dict "headingId" "updates-heading") }}
+      {{ end }}
       <div class="mt-8 grid gap-8 md:grid-cols-2 md:gap-4">
         {{ range $ugo.playlists }}
           <div>
