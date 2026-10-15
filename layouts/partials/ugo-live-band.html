@@ -15,7 +15,7 @@
   {{- $ugo := site.GetPage "/ugo" -}}
   {{- $link := dict "href" $ugo.RelPermalink "label" "Watch the latest update" "arrow" "→" -}}
   {{- if eq . $ugo -}}
-    {{- $link = dict "href" "#updates" "label" "Every update" "arrow" "↓" -}}
+    {{- $link = dict "href" "#updates" "label" "Follow along" "arrow" "↓" -}}
   {{- end -}}
   {{/* eto-600 with white text: the brand blue at full strength, so the strip
        reads as an announcement without borrowing gold, which means giving. */}}
