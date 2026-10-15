@@ -80,18 +80,22 @@ work:
           href: "https://getbiblefirst.com/"
     - eyebrow: "Since 2008"
       heading: "Good and Evil"
-      body: "The Bible's story told in illustrated form, which we translate into Ukrainian and put into people's hands. Since the war began, tens of thousands of copies have gone into war-affected regions, many of them hand-delivered on UGO trips."
+      body: "The Bible's story told in illustrated form, which we translate into Ukrainian and put into people's hands. More than 25,000 copies have been given out since 2008, many in war-affected regions and hand-delivered on UGO trips. Churches, missionaries and schools across Ukraine can also request free copies to hand out in their own communities."
       logo: img/ministries/good-and-evil-uk-3d.png
       logo_alt: "The Ukrainian edition of Good and Evil, titled Добро і зло"
-      # Two links: the publisher's English site explains the book; ours shows
-      # the Ukrainian work itself, flagged so a donor expects a page they
-      # cannot read.
+      # The publisher's English site explains the book; ours shows the
+      # Ukrainian work itself, flagged so a donor expects a page they cannot
+      # read; the distributor page is ours too, but in English. 25,000+ is
+      # four printings (36,400) less stock on hand (8,850) and the ~1,000
+      # sent south for UGO 2026, as of 2026-10-15.
       links:
         - label: "About the book"
           href: "https://goodandevilbook.com/"
         - label: "dobroizlo.com.ua"
           href: "https://dobroizlo.com.ua/"
           lang: uk
+        - label: "Distributor program"
+          href: "https://dobroizlo.com.ua/en/distributors/"
     - eyebrow: "2006–2023"
       heading: "Carpathian Mountain Outreach"
       body: "For seventeen years, summer teams went into the villages of the Carpathian mountains to show Gospel films, preach, and hand out literature. Thirteen projects brought more than sixty young people to Ukraine to learn the work of a missionary by doing it. CMO has finished; UGO carries its purpose forward."

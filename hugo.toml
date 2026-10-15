@@ -160,8 +160,9 @@ enableRobotsTXT = true
 # button, not a plain link (#24) — the header keys off that param and never
 # off the entry's name, so the gold-only-on-giving rule survives a menu edit.
 # Built pages use pageRef, which is what lets the header mark the current
-# section; `url` is only for pages still falling through to legacy (the
-# blog). Switch an entry to pageRef in the PR that builds its page.
+# section. Pages still falling through to legacy stay out of this bar: the
+# blog, stale and on the old design, is linked from the footer only until it
+# is migrated.
 [[menus.main]]
   name = "Our Story"
   pageRef = "/about/"
@@ -170,10 +171,6 @@ enableRobotsTXT = true
   name = "UGO"
   pageRef = "/ugo/"
   weight = 20
-[[menus.main]]
-  name = "Blog"
-  url = "/blog/"
-  weight = 40
 [[menus.main]]
   name = "Team"
   pageRef = "/team/"
@@ -217,15 +214,20 @@ enableRobotsTXT = true
   parent = "about"
   weight = 20
 [[menus.footer]]
+  name = "Blog"
+  url = "/blog/"
+  parent = "about"
+  weight = 30
+[[menus.footer]]
   name = "Team"
   pageRef = "/team/"
   parent = "about"
-  weight = 30
+  weight = 40
 [[menus.footer]]
   name = "Doctrine"
   pageRef = "/doctrine/"
   parent = "about"
-  weight = 40
+  weight = 50
 
 [[menus.footer]]
   name = "Get involved"

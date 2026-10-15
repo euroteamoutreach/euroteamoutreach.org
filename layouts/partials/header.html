@@ -1,11 +1,11 @@
 {{/* ---------------------------------------------------------------------
      header.html — the top nav (#24).
 
-         ETO   Our Story   UGO   [ Give ]   Blog   Team   Connect
+         ETO   Our Story   UGO   Team   Connect   [ Give ]
 
      Driven entirely by [[menus.main]] in hugo.toml. "ETO" above is the
      brand/home link, rendered separately from the menu items — ofreport's
-     brand-plus-menu pattern. The menu carries the six destinations only.
+     brand-plus-menu pattern. The menu carries the five destinations only.
 
      THREE RULES THIS FILE MUST KEEP:
 
@@ -71,7 +71,7 @@
      disagreeing about what "current" looks like.
 
      Both loops derive $current identically, with HasMenuCurrent joining
-     IsMenuCurrent so a nested page (/blog/{post}/, /team/{slug}/) marks its
+     IsMenuCurrent so a nested page (/team/{slug}/) marks its
      parent section instead of marking nothing. Keep the two in agreement. */}}
 {{ $currentMark := "font-semibold text-eto-700" }}
 {{ $defaultMark := "text-warm-600 hover:text-eto-600" }}
@@ -121,12 +121,12 @@
       {{ range site.Menus.main }}
         {{ $current := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }}
         {{ if .Params.button }}
-          <a href="{{ .URL }}" class="{{ $give }} px-5 py-2.5 text-sm">{{ .Name }}</a>
+          <a href="{{ .URL }}" class="{{ $give }} px-5 py-2.5 text-base">{{ .Name }}</a>
         {{ else }}
           <a
             href="{{ .URL }}"
             {{ if $current }}aria-current="page"{{ end }}
-            class="{{ $link }} text-sm {{ if $current }}{{ $currentMark }}{{ else }}{{ $defaultMark }}{{ end }}"
+            class="{{ $link }} text-base {{ if $current }}{{ $currentMark }}{{ else }}{{ $defaultMark }}{{ end }}"
           >
             {{ if and $liveUgo (eq .Page $liveUgo) }}<span class="inline-flex items-center gap-1.5">{{ .Name }}{{ partial "live-dot.html" . }}</span>{{ else }}{{ .Name }}{{ end }}
           </a>
