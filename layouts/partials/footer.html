@@ -41,9 +41,9 @@
      once or not at all.
      --------------------------------------------------------------------- */}}
 
-{{/* Shared link vocabulary, defined once so the three link contexts below
-     (the index, the Jesus invitation, social icons) cannot drift into three
-     different hover and focus treatments. */}}
+{{/* Shared link vocabulary, defined once so the four link contexts below
+     (the logo, social icons, the index, the Jesus invitation) cannot drift
+     into different hover and focus treatments. */}}
 {{ $onDark := "rounded-eto text-eto-200 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" }}
 
 <footer class="bg-eto-900 text-white">
@@ -77,14 +77,13 @@
         {{/* The white mark, filled with currentColor so it takes the same
              eto-200 → white hover as every other footer link (an opacity fade
              read as grey against the blue-tinted links). Inlined so it scales
-             crisply and takes classes; h-auto because an inline <svg> keeps its
-             290px height attribute otherwise. */}}
+             crisply and takes classes. */}}
         <a
           href="{{ site.Home.RelPermalink }}"
           aria-label="{{ site.Title }} — home"
           class="{{ $onDark }} block"
         >
-          {{ partial "icon.html" (dict "name" "eto-logo-white-full" "class" "h-auto w-30 sm:w-35") }}
+          {{ partial "icon.html" (dict "name" "eto-logo-mono-full" "class" "w-30 sm:w-35") }}
         </a>
 
         {{/* Social: the complete set lives in hugo.toml [[menus.footer_social]],
@@ -122,11 +121,6 @@
             <h2 id="footer-{{ .Identifier }}" class="text-caption font-semibold text-white">{{ .Name }}</h2>
             <ul class="mt-2" aria-labelledby="footer-{{ .Identifier }}">
               {{ range .Children }}
-                {{/* pageRef alone does not fail on a moved page: Hugo falls back
-                     to the bare path and ships a 404 in global chrome. */}}
-                {{ if and (not .Page) (not (strings.HasPrefix .URL "https://")) }}
-                  {{ errorf "footer: menu entry %q does not resolve to a page" .Name }}
-                {{ end }}
                 <li>
                   {{/* text-caption matches the legal lines below. py-2 against its
                        line box measures 37px tall on phones, 40px from md —
@@ -154,7 +148,7 @@
            only link to /jesus/; the index above leaves it out. */}}
       <p class="text-lg text-eto-100">
         Have you met Jesus? We&rsquo;d love to
-        <a href="{{ (site.GetPage "/jesus").RelPermalink }}" class="{{ $onDark }} font-semibold underline underline-offset-4 hover:text-white">introduce you</a>.
+        <a href="{{ (site.GetPage "/jesus").RelPermalink }}" class="{{ $onDark }} font-semibold underline underline-offset-4">introduce you</a>.
       </p>
 
       {{/* The "X is a ministry of Euro Team Outreach, Inc." tagline pattern

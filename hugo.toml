@@ -199,8 +199,8 @@ enableRobotsTXT = true
 # every page, in columns, so repeating header links here is intentional.
 # Top-level entries are the column headings (no link); each link names its
 # column with `parent`, and footer.html renders a column per heading in weight
-# order. On-site links use pageRef, and footer.html fails the build if one
-# stops resolving. Meet Jesus is not here: the footer's closing invitation
+# order. On-site links use pageRef (menu-guard.html fails the build if one
+# stops resolving). Meet Jesus is not here: the footer's closing invitation
 # carries it, once.
 [[menus.footer]]
   name = "About"
