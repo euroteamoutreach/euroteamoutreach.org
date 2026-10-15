@@ -3,7 +3,8 @@
 
        Field updates in your inbox.          [ you@example.com ][ Subscribe ]
        ─────────────────────────────────────────────────────────────────────
-       Meet Jesus · Doctrine · Connect                              (f) (X)
+       [ETO]        About           Get involved     Ministries
+       (f) (X)      Our Story …     Pray …           UGO …
        ─────────────────────────────────────────────────────────────────────
        Have you met Jesus? We'd love to introduce you.
        Euro Team Outreach, Inc. is a 501(c)(3) …
@@ -19,10 +20,9 @@
 
      2. NO GOLD, even though this is the one ground where gold is legible
         as text (8.22:1, #64). Legibility is not permission. Gold means a
-        giving action; the Give doorway lives in doorway-band.html directly
-        above this partial, and a gold Subscribe button sitting under it
-        would teach visitors that gold means "a button" — which is exactly
-        the signal the token exists to protect.
+        giving action, and a gold Subscribe button (or a gold Give link in
+        the index) would teach visitors that gold means "a button" — which
+        is exactly the signal the token exists to protect.
 
      3. NO SHADOWS. The internal seams below are 1px border-eto-800 rules.
         That measures 1.19:1 against the ground — near-identical to the
@@ -42,7 +42,7 @@
      --------------------------------------------------------------------- */}}
 
 {{/* Shared link vocabulary, defined once so the three link contexts below
-     (utility nav, the Jesus invitation, social icons) cannot drift into three
+     (the index, the Jesus invitation, social icons) cannot drift into three
      different hover and focus treatments. */}}
 {{ $onDark := "rounded-eto text-eto-200 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white" }}
 
@@ -66,56 +66,79 @@
     </div>
   </div>
 
-  {{/* ---------------- Utility links + social ---------------- */}}
+  {{/* ---------------- Index: logo + social, then the link columns ---------------- */}}
+  {{/* The header is the shortlist; this is the full index (#61). On phones the
+       logo and social share a row, then the columns run two across; from sm the
+       three columns sit side by side, and from md the logo takes a fourth. */}}
   <div class="border-t border-eto-800">
-    <div class="mx-auto max-w-5xl flex flex-col gap-6 px-6 py-6 sm:flex-row sm:items-center sm:justify-between">
+    <div class="mx-auto grid max-w-5xl grid-cols-1 gap-10 px-6 py-12 md:grid-cols-4 md:gap-8">
 
-      {{/* aria-label "Footer" distinguishes this landmark from header.html's
-           "Main" — two <nav>s with no accessible names are two anonymous
-           landmarks in a screen reader's list. */}}
-      <nav aria-label="Footer">
-        <ul class="flex flex-wrap gap-x-6 gap-y-1">
-          {{ range site.Menus.footer }}
-            <li>
-              {{/* py-2 against text-sm's 20px line box measures 36px tall —
-                   past WCAG 2.5.8's 24px AA floor, though short of the 44px
-                   AAA target, which the header's controls also sit under. */}}
-              <a href="{{ .URL }}" class="{{ $onDark }} block py-2 text-sm font-semibold">
-                {{ .Name }}
-              </a>
-            </li>
-          {{ end }}
-        </ul>
+      <div class="flex items-center justify-between md:flex-col md:items-start md:justify-start md:gap-6">
+        {{/* The legacy footer's treatment: one white mark, quiet at 40% until
+             hover or focus. The tone lives in these classes, not in the file.
+             Inlined so it scales crisply and takes classes; h-auto because an
+             inline <svg> keeps its 290px height attribute otherwise. */}}
+        <a
+          href="{{ site.Home.RelPermalink }}"
+          aria-label="{{ site.Title }} — home"
+          class="block rounded-eto opacity-40 transition-opacity hover:opacity-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        >
+          {{ partial "icon.html" (dict "name" "eto-logo-white-full" "class" "h-auto w-30 sm:w-35") }}
+        </a>
+
+        {{/* Social. Exactly two accounts — that is the complete set carried over
+             from the legacy footer, verified against all three legacy sites.
+             There is no YouTube, Instagram or LinkedIn slot because there are no
+             such accounts; the UGO YouTube playlists belong on /ugo/, not in
+             global chrome. `with` so an empty menu emits no stray <ul>. */}}
+        {{ with site.Menus.footer_social }}
+          <ul class="-mr-2.5 flex items-center md:-ml-2.5 md:mr-0">
+            {{ range . }}
+              <li>
+                <a
+                  href="{{ .URL }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="{{ .Params.label }}"
+                  class="{{ $onDark }} block p-2.5"
+                >
+                  {{/* Inlined, not <img>: the SVG has to inherit currentColor to
+                       pick up the hover and focus states above, which an <img>
+                       cannot do. Simple Icons marks, the same family ofreport
+                       uses — sister-site parity is deliberate. */}}
+                  {{ partial "icon.html" (dict "name" (printf "social-%s" .Params.icon) "class" "size-5 fill-current") }}
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      </div>
+
+      {{/* One landmark for all three columns. aria-label "Footer" distinguishes
+           it from header.html's "Main" — two <nav>s with no accessible names are
+           two anonymous landmarks in a screen reader's list. */}}
+      <nav aria-label="Footer" class="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 md:col-span-3">
+        {{ range site.Menus.footer }}
+          <div>
+            <h2 id="footer-{{ .Identifier }}" class="text-sm font-semibold text-white">{{ .Name }}</h2>
+            <ul class="mt-2" aria-labelledby="footer-{{ .Identifier }}">
+              {{ range .Children }}
+                {{/* pageRef alone does not fail on a moved page: Hugo falls back
+                     to the bare path and ships a 404 in global chrome. */}}
+                {{ if and (not .Page) (not (strings.HasPrefix .URL "https://")) }}
+                  {{ errorf "footer: menu entry %q does not resolve to a page" .Name }}
+                {{ end }}
+                <li>
+                  {{/* py-2 against text-sm's 20px line box measures 36px tall —
+                       past WCAG 2.5.8's 24px AA floor, though short of the 44px
+                       AAA target, which the header's controls also sit under. */}}
+                  <a href="{{ .URL }}" class="{{ $onDark }} inline-block py-2 text-sm">{{ .Name }}</a>
+                </li>
+              {{ end }}
+            </ul>
+          </div>
+        {{ end }}
       </nav>
-
-      {{/* Social. Exactly two accounts — that is the complete set carried over
-           from the legacy footer, verified against all three legacy sites.
-           There is no YouTube, Instagram or LinkedIn slot because there are no
-           such accounts; the UGO YouTube playlists belong on /ugo/, not in
-           global chrome. `with` so an empty menu emits no stray <ul>. */}}
-      {{ with site.Menus.footer_social }}
-        <ul class="-mx-2.5 flex items-center sm:-mr-2.5 sm:ml-0">
-          {{ range . }}
-            <li>
-              <a
-                href="{{ .URL }}"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="{{ .Params.label }}"
-                class="{{ $onDark }} block p-2.5"
-              >
-                {{/* Inlined, not <img>: the SVG has to inherit currentColor to
-                     pick up the hover and focus states above, which an <img>
-                     cannot do. Simple Icons marks, the same family ofreport
-                     uses — sister-site parity is deliberate. aria-hidden on the
-                     glyph because the <a> already carries the accessible name;
-                     without it the icon's own <title> announces a second one. */}}
-                {{ partial "icon.html" (dict "name" (printf "social-%s" .Params.icon) "class" "size-5 fill-current") }}
-              </a>
-            </li>
-          {{ end }}
-        </ul>
-      {{ end }}
 
     </div>
   </div>
@@ -127,17 +150,11 @@
       {{/* The legacy umbrella footer's own closing line, kept verbatim —
            evolution, not revolution (#15). It is the last thing on every page
            on purpose: Gospel first, and the footer's final word is an
-           invitation rather than a legal notice (#46).
-
-           A literal "/jesus/" for now: until the page is ported it is not
-           rendered (the hugo.toml cascade), so GetPage would return an empty
-           permalink, and the legacy page serves this URL through the
-           netlify.toml fall-through. When /jesus/ is ported, go back to
-           (site.GetPage "/jesus").RelPermalink so a moved page fails the build
-           instead of shipping a silent 404 in global chrome. */}}
+           invitation rather than a legal notice (#46). It is also the footer's
+           only link to /jesus/; the index above leaves it out. */}}
       <p class="text-lg text-eto-100">
         Have you met Jesus? We&rsquo;d love to
-        <a href="/jesus/" class="{{ $onDark }} font-semibold underline underline-offset-4 hover:text-white">introduce you</a>.
+        <a href="{{ (site.GetPage "/jesus").RelPermalink }}" class="{{ $onDark }} font-semibold underline underline-offset-4 hover:text-white">introduce you</a>.
       </p>
 
       {{/* The "X is a ministry of Euro Team Outreach, Inc." tagline pattern
@@ -148,11 +165,11 @@
            501(c)(3). Do not embellish it, and do not add tax-deductibility or
            discretion-and-control language here — that copy is load-bearing and
            belongs on /give/ (07-donations.md). */}}
-      <p class="mt-6 max-w-prose text-caption text-eto-300">
+      <p class="mt-6 text-caption text-eto-300">
         Euro Team Outreach, Inc. is a 501(c)(3) nonprofit corporation registered
         in the State of Texas.
       </p>
-      <p class="mt-2 max-w-prose text-caption text-eto-300">
+      <p class="mt-2 text-caption text-eto-300">
         &copy; {{ now.Year }} Euro Team Outreach, Inc. All rights reserved.
         Bible First is a registered trademark of Euro Team Outreach, Inc.
       </p>

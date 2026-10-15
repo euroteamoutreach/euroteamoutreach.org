@@ -195,18 +195,83 @@ enableRobotsTXT = true
   [menus.main.params]
     button = true
 
-# Footer utility links (Phase 2 footer.html renders these).
+# Footer index (#61). The header is the shortlist; the footer is the full index:
+# every page, in columns, so repeating header links here is intentional.
+# Top-level entries are the column headings (no link); each link names its
+# column with `parent`, and footer.html renders a column per heading in weight
+# order. On-site links use pageRef, and footer.html fails the build if one
+# stops resolving. Meet Jesus is not here: the footer's closing invitation
+# carries it, once.
 [[menus.footer]]
-  name = "Meet Jesus"
-  url = "/jesus/"
+  name = "About"
+  identifier = "about"
   weight = 10
 [[menus.footer]]
-  name = "Doctrine"
-  url = "/doctrine/"
+  name = "Our Story"
+  pageRef = "/about/"
+  parent = "about"
+  weight = 10
+[[menus.footer]]
+  name = "Our Approach"
+  pageRef = "/approach/"
+  parent = "about"
   weight = 20
+[[menus.footer]]
+  name = "Team"
+  pageRef = "/team/"
+  parent = "about"
+  weight = 30
+[[menus.footer]]
+  name = "Doctrine"
+  pageRef = "/doctrine/"
+  parent = "about"
+  weight = 40
+
+[[menus.footer]]
+  name = "Get involved"
+  identifier = "get-involved"
+  weight = 20
+[[menus.footer]]
+  name = "Pray"
+  pageRef = "/pray/"
+  parent = "get-involved"
+  weight = 10
+[[menus.footer]]
+  name = "Serve"
+  pageRef = "/serve/"
+  parent = "get-involved"
+  weight = 20
+[[menus.footer]]
+  name = "Give"
+  pageRef = "/give/"
+  parent = "get-involved"
+  weight = 30
 [[menus.footer]]
   name = "Connect"
   pageRef = "/contact/"
+  parent = "get-involved"
+  weight = 40
+
+# Bible First and Good and Evil link to their own sites until they get pages
+# here, after UGO (#62).
+[[menus.footer]]
+  name = "Ministries"
+  identifier = "ministries"
+  weight = 30
+[[menus.footer]]
+  name = "UGO"
+  pageRef = "/ugo/"
+  parent = "ministries"
+  weight = 10
+[[menus.footer]]
+  name = "Bible First"
+  url = "https://getbiblefirst.com/"
+  parent = "ministries"
+  weight = 20
+[[menus.footer]]
+  name = "Good and Evil"
+  url = "https://goodandevilbook.com/"
+  parent = "ministries"
   weight = 30
 
 # Footer social icons. Each entry's `icon` param maps to assets/img/social-{icon}.svg,
