@@ -76,4 +76,4 @@ follow:
     text: "Follow along day to day."
 ---
 
-Prayer is where everything begins. Before a box is packed, before a word is preached, before a single dollar is given, the work of God in Ukraine is carried on the prayers of his people. It is the first and most important way to stand with us — and we'd be honored to have you pray alongside our team.
+Prayer is where everything begins. Before a box is packed, before a word is preached, before a single dollar is given, the work of God in Ukraine is carried on the prayers of His people. It is the first and most important way to stand with us — and we'd be honored to have you pray alongside our team.

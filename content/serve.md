@@ -10,7 +10,7 @@ description: "Serve with Euro Team Outreach in Ukraine — come and do the work 
 # "young people", never "young men"; say what the path is, don't contrast it
 # with a long application.
 
-tagline: "God calls his people to go."
+tagline: "God calls His people to go."
 
 hero:
   # Beside the hero text. A CMO photo: the hero is about twenty years of
