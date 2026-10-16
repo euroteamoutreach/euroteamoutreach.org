@@ -99,7 +99,7 @@
         {{ with .logo }}
           {{ partial "logo-img.html" (dict
             "src" .
-            "alt" "Ukraine Gospel Outreach"
+            "alt" $.Params.story.logo_alt
             "class" "mx-auto mt-8 h-28 w-auto md:mt-10"
           ) }}
         {{ end }}

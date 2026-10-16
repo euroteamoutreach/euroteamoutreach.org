@@ -59,6 +59,7 @@ story:
       photo: ugo/oleksandr-ben-preaching-van_gyyj40
   # The full logo, the story's visual close, above the button to /ugo/.
   logo: img/ministries/ugo-full.svg
+  logo_alt: "Ukraine Gospel Outreach"
   label: "See what UGO is doing now"
 
 people:

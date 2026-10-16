@@ -4,7 +4,7 @@
   Brand assets go through Hugo, not Cloudinary. An SVG is minified and
   fingerprinted as is; a raster is resized to 240px tall and served as WebP,
   enough for a strip mark at 2x. Either way the <img> carries width and height
-  (an SVG's from its root element), so the browser reserves the logo's box
+  (an SVG's from its viewBox), so the browser reserves the logo's box
   before it loads and the size classes only scale it.
 
   An SVG drawn in currentColor renders black inside an <img>: fine on a light
@@ -24,11 +24,12 @@
   {{- $w := 0 -}}
   {{- $h := 0 -}}
   {{- if eq .MediaType.SubType "svg" -}}
-    {{- $root := index (findRE `<svg[^>]*>` .Content 1) 0 -}}
-    {{- $w = replaceRE `.*\swidth="(\d+)(px)?".*` "$1" $root -}}
-    {{- $h = replaceRE `.*\sheight="(\d+)(px)?".*` "$1" $root -}}
-    {{- if not (and (findRE `^\d+$` $w) (findRE `^\d+$` $h)) -}}
-      {{- errorf "logo-img: %s needs a numeric width and height on its <svg>" $.src -}}
+    {{- /* The viewBox, as the illustration shortcode reads it. */ -}}
+    {{- with index (findRESubmatch `viewBox="[\d.]+ [\d.]+ ([\d.]+) ([\d.]+)"` .Content 1) 0 -}}
+      {{- $w = index . 1 -}}
+      {{- $h = index . 2 -}}
+    {{- else -}}
+      {{- errorf "logo-img: %s has no viewBox to size it by" $.src -}}
     {{- end -}}
     {{- $img = . | minify | fingerprint -}}
   {{- else -}}
