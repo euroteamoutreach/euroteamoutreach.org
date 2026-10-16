@@ -30,18 +30,6 @@
   {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
   {{ $h2 := "text-heading text-ink" }}
   {{ $prose := "space-y-4 text-body text-warm-800 md:space-y-5" }}
-  {{ $focus := "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
-  {{/* On the hero's dark wash an eto-600 ring would vanish (1.88:1 against
-       eto-900), so the ring goes white there, as in the footer. */}}
-  {{ $focusOnDark := "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" }}
-  {{ $btnBase := "inline-block rounded-eto px-5 py-2.5 font-semibold transition-colors" }}
-  {{ $goldFill := "bg-gold text-ink hover:bg-gold-hover" }}
-  {{ $gold := printf "%s %s %s" $btnBase $focus $goldFill }}
-  {{ $primary := printf "%s %s bg-eto-600 text-white hover:bg-eto-700" $btnBase $focus }}
-  {{/* The hero's routing buttons go white outline, since a blue fill would
-       vanish on the wash too. */}}
-  {{ $heroGold := printf "%s %s %s" $btnBase $focusOnDark $goldFill }}
-  {{ $heroOutline := printf "%s %s border border-white/70 text-white hover:bg-white/10" $btnBase $focusOnDark }}
 
   {{/* ---------------- Hero ---------------- */}}
   <section class="relative isolate overflow-hidden bg-eto-900 text-white">
@@ -76,11 +64,13 @@
           {{ $p.hero.lede }}
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
+          {{/* On the dark wash a blue fill would vanish, so the routing
+               buttons go white outline, and every ring goes white. */}}
           {{ range $p.hero.actions }}
             {{ if .give }}
-              <a href="{{ .href }}" class="{{ $heroGold }}">{{ .label }}</a>
+              <a href="{{ .href }}" class="btn btn-gold focus-ring-dark">{{ .label }}</a>
             {{ else }}
-              <a href="{{ .href }}" class="{{ $heroOutline }}">{{ .label }}</a>
+              <a href="{{ .href }}" class="btn btn-outline-white focus-ring-dark">{{ .label }}</a>
             {{ end }}
           {{ end }}
         </div>
@@ -119,7 +109,7 @@
        overlay stretches it over the card, so a screen reader names the link
        by the ministry. linked-card and stretched-link in main.css. */}}
   {{ $card := "linked-card flex flex-col bg-white" }}
-  {{/* Eyebrows, link cues and secondary links share one accent caption. */}}
+  {{/* Eyebrows and link cues share one accent caption. */}}
   {{ $accent := "text-caption font-semibold text-eto-600" }}
   <section aria-labelledby="work-heading" class="border-y border-warm-200 bg-white">
     <div class="{{ $section }}">
@@ -208,7 +198,7 @@
                       href="{{ .href }}"
                       {{ $x.attrs }}
                       {{ with .lang }}hreflang="{{ . }}"{{ end }}
-                      class="relative z-10 rounded-eto {{ $accent }} underline-offset-2 hover:text-eto-700 hover:underline {{ $focus }}"
+                      class="relative z-10 link-standalone text-caption"
                       >{{ .label }}{{ $x.mark }}</a
                     >
                     {{ with .lang }}
@@ -253,9 +243,9 @@
             <p class="mt-2 grow text-body text-warm-800 md:mt-3">{{ .body | markdownify }}</p>
             <div class="mt-6">
               {{ if .give }}
-                <a href="{{ .href }}" class="{{ $gold }}">{{ .label }}</a>
+                <a href="{{ .href }}" class="btn btn-gold focus-ring">{{ .label }}</a>
               {{ else }}
-                <a href="{{ .href }}" class="{{ $primary }}">{{ .label }} →</a>
+                <a href="{{ .href }}" class="btn btn-primary focus-ring">{{ .label }} →</a>
               {{ end }}
             </div>
           </div>

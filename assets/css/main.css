@@ -150,6 +150,88 @@ html {
   }
 }
 
+/* Focus rings: the keyboard ring for anything without a face of its own
+   (buttons, chips, summaries). The ring follows the ground, not the element:
+   eto-600 on light grounds, white on eto-900 and dark photo washes, where
+   eto-600 is 1.88:1 and vanishes. An element takes exactly one, so it never
+   carries two outline colours. */
+@utility focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-eto-600);
+    outline-offset: 2px;
+  }
+}
+
+@utility focus-ring-dark {
+  &:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 2px;
+  }
+}
+
+/* Buttons: `btn` is the shape, one fill names the role, one focus ring
+   names the ground — `btn btn-primary focus-ring`, or on a dark ground
+   `btn btn-gold focus-ring-dark`. Size stays with the caller. Hovers use
+   Tailwind's hover variant, as the old hover: classes did, so a tap on a
+   touch screen does not leave a button stuck in its hover colour.
+
+   - `btn-gold`: giving actions ONLY (DECISIONS.md 64). Gold means "give"
+     everywhere it appears; any other action is blue or white. Ink on gold,
+     never white: 6.08:1 against 1.97:1.
+   - `btn-primary`: the main action on a light ground.
+   - `btn-outline`: a secondary action on a light ground.
+   - `btn-white`: the main action on a dark ground, where blue's edge
+     disappears.
+   - `btn-outline-white`: a secondary action on a dark ground or photo. */
+@utility btn {
+  display: inline-block;
+  border-radius: var(--radius-eto);
+  padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 5);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  @apply transition-colors;
+}
+
+@utility btn-gold {
+  background-color: var(--color-gold);
+  color: var(--color-ink);
+  @variant hover {
+    background-color: var(--color-gold-hover);
+  }
+}
+
+@utility btn-primary {
+  background-color: var(--color-eto-600);
+  color: var(--color-white);
+  @variant hover {
+    background-color: var(--color-eto-700);
+  }
+}
+
+@utility btn-outline {
+  border: 1px solid var(--color-eto-600);
+  color: var(--color-eto-600);
+  @variant hover {
+    background-color: var(--color-eto-50);
+  }
+}
+
+@utility btn-white {
+  background-color: var(--color-white);
+  color: var(--color-eto-900);
+  @variant hover {
+    background-color: var(--color-eto-100);
+  }
+}
+
+@utility btn-outline-white {
+  border: 1px solid color-mix(in oklab, var(--color-white) 70%, transparent);
+  color: var(--color-white);
+  @variant hover {
+    background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+  }
+}
+
 /* Text roles (#71 follow-up). Pages name what a paragraph IS — body, lede,
    caption — instead of repeating size classes, so the reading size changes
    here and nowhere else. Each role steps up one size from md: a phone is held
@@ -226,9 +308,19 @@ html {
     color: var(--color-eto-700);
     text-decoration-line: none;
   }
-  &:focus-visible {
-    outline: 2px solid var(--color-eto-600);
-    outline-offset: 2px;
+  @apply focus-ring;
+}
+
+/* Standalone links: a link that stands on its own line or beside a card,
+   not inside a sentence (a bio's "← Our Team", "Back to top ↑", a card's
+   second link). The reverse of `link`: bare at rest, since its position,
+   arrow and colour already mark it, and underlined on hover. Hover flips
+   the underline in both roles. Size stays with the caller. */
+@utility link-standalone {
+  @apply link;
+  text-decoration-line: none;
+  @variant hover {
+    text-decoration-line: underline;
   }
 }
 

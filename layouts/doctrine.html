@@ -19,7 +19,6 @@
   {{ if not $sections }}
     {{ errorf "layouts/doctrine.html: no section files in content/doctrine/sections/" }}
   {{ end }}
-  {{ $focus := "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
   
   <section class="bg-white">
     <div class="mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20">
@@ -39,11 +38,11 @@
         class="mt-10 grid gap-8 md:mt-14 md:grid-cols-[13rem_1fr] md:gap-12"
       >
         <details class="rounded-eto border border-warm-200 md:hidden">
-          <summary class="cursor-pointer px-4 py-3 font-semibold text-ink {{ $focus }}">
+          <summary class="cursor-pointer px-4 py-3 font-semibold text-ink focus-ring">
             Contents
           </summary>
           <nav aria-label="Contents" class="border-t border-warm-200 px-4 py-2 text-body">
-            {{ partial "inline/doctrine-toc.html" (dict "sections" $sections "focus" $focus) }}
+            {{ partial "inline/doctrine-toc.html" (dict "sections" $sections) }}
           </nav>
         </details>
 
@@ -52,7 +51,7 @@
           aria-label="Contents"
           class="hidden text-caption md:sticky md:top-20 md:block md:max-h-[calc(100vh-6rem)] md:self-start md:overflow-y-auto"
         >
-          {{ partial "inline/doctrine-toc.html" (dict "sections" $sections "focus" $focus) }}
+          {{ partial "inline/doctrine-toc.html" (dict "sections" $sections) }}
         </nav>
 
         <div class="min-w-0">
@@ -72,7 +71,7 @@
               <p class="mt-6 text-right text-caption">
                 <a
                   href="#top"
-                  class="rounded-eto font-semibold text-eto-600 hover:text-eto-700 {{ $focus }}"
+                  class="link-standalone"
                   >Back to top ↑</a
                 >
               </p>
@@ -93,7 +92,7 @@
       <li>
         <a
           href="#{{ $id }}"
-          class="block border-l-2 border-transparent py-1.5 pl-3 text-warm-800 hover:text-eto-600 aria-[current=location]:border-eto-600 aria-[current=location]:font-semibold aria-[current=location]:text-eto-600 {{ $.focus }}"
+          class="block border-l-2 border-transparent py-1.5 pl-3 text-warm-800 hover:text-eto-600 aria-[current=location]:border-eto-600 aria-[current=location]:font-semibold aria-[current=location]:text-eto-600 focus-ring"
           :aria-current="active === '{{ $id }}' && 'location'"
           >{{ .Title }}</a
         >

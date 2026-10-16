@@ -29,8 +29,6 @@
   {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
   {{ $h2 := "mx-auto max-w-prose text-center text-heading text-ink" }}
   {{ $prose := "mx-auto max-w-prose space-y-4 text-body text-warm-800 md:space-y-5 [&_strong]:text-ink" }}
-  {{ $focus := "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
-  {{ $primary := printf "inline-block rounded-eto bg-eto-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-eto-700 %s" $focus }}
 
   {{/* ---------------- Hero ---------------- */}}
   <section class="relative isolate overflow-hidden bg-eto-900 text-white">
@@ -70,7 +68,7 @@
         </ul>
         <div class="mt-8 text-center md:mt-10">
           <p class="mx-auto max-w-prose text-body text-warm-800">{{ .outro }}</p>
-          <a href="{{ partial "link-href.html" . }}" class="{{ $primary }} mt-6">
+          <a href="{{ partial "link-href.html" . }}" class="btn btn-primary focus-ring mt-6">
             {{ .label }} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -97,7 +95,7 @@
           {{ end }}
         </div>
         <div class="mt-8 text-center md:mt-10">
-          <a href="{{ (site.GetPage "/ugo").RelPermalink }}" class="{{ $primary }}">
+          <a href="{{ (site.GetPage "/ugo").RelPermalink }}" class="btn btn-primary focus-ring">
             {{ .label }} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -115,7 +113,7 @@
           <p class="mx-auto mt-8 max-w-3xl text-center font-serif text-2xl leading-snug italic sm:text-3xl md:mt-10">{{ . }}</p>
         {{ end }}
         <div class="mt-8 text-center md:mt-10">
-          <a href="{{ (site.GetPage "/team").RelPermalink }}" class="inline-block rounded-eto bg-white px-5 py-2.5 font-semibold text-eto-900 transition-colors hover:bg-eto-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+          <a href="{{ (site.GetPage "/team").RelPermalink }}" class="btn btn-white focus-ring-dark">
             {{ .label }} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>

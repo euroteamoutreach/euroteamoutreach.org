@@ -32,8 +32,6 @@
   {{ $p := .Params }}
   {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
   {{ $h2 := "text-heading text-ink" }}
-  {{ $focus := "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
-  {{ $primary := printf "inline-block rounded-eto bg-eto-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-eto-700 %s" $focus }}
 
   {{/* ---------------- Hero ---------------- */}}
   <section class="bg-white">
@@ -96,7 +94,7 @@
         <div class="mt-8 grid gap-10 md:grid-cols-2 md:gap-12">
           <div>
             <p class="max-w-prose text-body text-warm-800">{{ .blog.text }}</p>
-            <a href="{{ .blog.href }}" class="{{ $primary }} mt-6">
+            <a href="{{ .blog.href }}" class="btn btn-primary focus-ring mt-6">
               {{ .blog.label }} <span aria-hidden="true">&rarr;</span>
             </a>
             {{/* A link to /subscribe/, not an in-page jump to the footer form:
@@ -117,7 +115,7 @@
                   <a
                     href="{{ .URL }}"
                     {{ $x.attrs }}
-                    class="inline-flex items-center gap-2 rounded-eto border border-warm-200 px-4 py-2.5 font-semibold text-ink transition-colors hover:border-eto-600 hover:text-eto-600 {{ $focus }}"
+                    class="inline-flex items-center gap-2 rounded-eto border border-warm-200 px-4 py-2.5 font-semibold text-ink transition-colors hover:border-eto-600 hover:text-eto-600 focus-ring"
                   >
                     {{ partial "icon.html" (dict "name" (printf "social-%s" .Params.icon) "class" "size-5 fill-current") }}
                     {{ .Params.label }}{{ $x.note }}

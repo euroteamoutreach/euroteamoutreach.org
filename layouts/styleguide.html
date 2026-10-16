@@ -310,6 +310,29 @@
             </p>
           </div>
         </div>
+
+        {{/* Standalone links: the `link-standalone` utility in main.css. */}}
+        <h3 class="mt-14 text-xl font-semibold tracking-tight">Standalone links</h3>
+        <p class="mt-2 max-w-prose text-sm leading-relaxed text-warm-600">
+          A link on its own line or beside a card, not inside a sentence: a
+          bio's back link, "Back to top", a card's second link. The reverse
+          of an inline link: it rests bare, since its position, arrow and
+          colour already mark it, and the underline appears on hover. The rule
+          for both roles: inline links rest underlined, standalone links rest
+          bare, and hover flips the underline. Use
+          <code>.link-standalone</code>; size stays with the element.
+        </p>
+        <div class="mt-6 grid gap-4 border-b border-warm-200 py-6 md:grid-cols-[12rem_1fr]">
+          <div>
+            <p class="text-lg font-semibold">Standalone link</p>
+            <p class="font-mono text-[11px] text-warm-600">.link-standalone</p>
+            <p class="mt-2 text-xs text-warm-600">Back links, back to top, card links</p>
+          </div>
+          <div class="flex flex-wrap items-baseline gap-x-8 gap-y-4">
+            <a href="#type" class="link-standalone text-caption">← Our Team</a>
+            <a href="#type" class="link-standalone">Back to top ↑</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -318,10 +341,15 @@
       <div class="mx-auto max-w-5xl px-6 py-12">
         <h2 class="text-2xl font-semibold tracking-tight">Button roles</h2>
         <p class="mt-2 max-w-prose text-sm leading-relaxed text-warm-600">
-          Three roles, shown on both grounds because the header sits on white
-          while most content sits on paper. Gold is reserved for giving
-          actions; blue is the primary action everywhere else; outline is
-          tertiary. Hover to see the paired hover token.
+          Three roles on light grounds, shown on both because the header sits
+          on white while most content sits on paper. Gold is reserved for
+          giving actions; blue is the primary action everywhere else; outline is
+          tertiary. Hover to see the paired hover token. Each is
+          <code>.btn</code> plus one fill (<code>.btn-gold</code>,
+          <code>.btn-primary</code>, <code>.btn-outline</code>, and on dark
+          grounds <code>.btn-white</code>, <code>.btn-outline-white</code>)
+          plus the ring for its ground (<code>.focus-ring</code> or
+          <code>.focus-ring-dark</code>).
         </p>
         <div class="mt-6 grid gap-5 sm:grid-cols-2">
           {{ range slice
@@ -335,19 +363,19 @@
               <div class="mt-4 flex flex-wrap items-center gap-3">
                 <button
                   type="button"
-                  class="rounded-eto bg-gold px-5 py-2.5 font-semibold text-ink transition-colors hover:bg-gold-hover"
+                  class="btn btn-gold focus-ring"
                 >
                   Give
                 </button>
                 <button
                   type="button"
-                  class="rounded-eto bg-eto-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-eto-700"
+                  class="btn btn-primary focus-ring"
                 >
                   Read more
                 </button>
                 <button
                   type="button"
-                  class="rounded-eto border border-eto-600 px-5 py-2.5 font-semibold text-eto-600 transition-colors hover:bg-eto-50"
+                  class="btn btn-outline focus-ring"
                 >
                   Learn more
                 </button>
@@ -358,29 +386,35 @@
         {{/* The dark ground, from the footer (PR #19): eto-600 is 1.88:1 on
              eto-900, so the blue button's edge vanishes and the primary role
              turns white; focus rings turn white for the same reason. Gold
-             still means giving. No outline role is defined here yet. */}}
+             still means giving. The white outline is home's hero. */}}
         <div class="mt-5 rounded-eto-lg bg-eto-900 px-5 py-6">
           <p class="text-xs font-semibold tracking-widest text-eto-200 uppercase">
-            On eto-900 — the footer and stat bands
+            On eto-900 — the footer, dark bands and photo washes
           </p>
           <div class="mt-4 flex flex-wrap items-center gap-3">
             <button
               type="button"
-              class="rounded-eto bg-gold px-5 py-2.5 font-semibold text-ink transition-colors hover:bg-gold-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              class="btn btn-gold focus-ring-dark"
             >
               Give
             </button>
             <button
               type="button"
-              class="rounded-eto bg-white px-5 py-2.5 font-semibold text-eto-900 transition-colors hover:bg-eto-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              class="btn btn-white focus-ring-dark"
             >
               Subscribe
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-white focus-ring-dark"
+            >
+              See the vision
             </button>
           </div>
           <p class="mt-4 max-w-prose text-sm leading-relaxed text-eto-200">
             Blue primary becomes white here: eto-600 on eto-900 is 1.88:1, so
-            its edge disappears. Focus rings are white too, for the same
-            reason. Gold keeps its one meaning.
+            its edge disappears; the outline goes white for the same reason,
+            and so do focus rings. Gold keeps its one meaning.
           </p>
         </div>
       </div>
