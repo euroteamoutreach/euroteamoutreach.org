@@ -70,6 +70,38 @@ people:
   closing: "That's by design. When you stand with ETO, you're standing with people you can know by name."
   label: "Meet the team"
 
+# The accountability line is not here: it is `accountability` in
+# content/team/_index.md, shared with /team/. Each director links to their
+# family's bio. Officer titles reverse the June call to keep them off the
+# site (planning CHANGELOG 2026-10-16).
+board:
+  heading: "Board of directors"
+  directors:
+    - name: "Joshua Steele"
+      title: "President"
+      page: "/team/steele/"
+      photo:
+        id: eto/joshua-500w_vq96t3
+        width: 500
+        height: 500
+        alt: "Smiling, with young people from a summer team behind him."
+    - name: "Nathan Day"
+      title: "Vice President & Treasurer"
+      page: "/team/day/"
+      photo:
+        id: eto/nathan-500w_q4ezoz
+        width: 500
+        height: 500
+        alt: "Smiling, in a park with autumn trees behind him."
+    - name: "Ben Sargent"
+      title: "Director"
+      page: "/team/sargent/"
+      photo:
+        id: eto/ben-500w_p5sfmz
+        width: 500
+        height: 500
+        alt: "Smiling, on a street lined with apartment blocks."
+
 deeper:
   heading: "Go deeper"
   items:

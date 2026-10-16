@@ -4,7 +4,7 @@
 
          hero → who we are → what we're about (three cards)
               → how we got here → the people behind the name (dark)
-              → go deeper (three cards)
+              → board of directors (three cards) → go deeper (three cards)
 
      Copy comes from content/about.md front matter (who we are is its body).
 
@@ -17,8 +17,8 @@
         after the paragraphs it belongs to. No zig-zag splits: the story
         is a linear arc, not parallel features.
 
-     3. CARDS ONLY FOR PARALLEL ITEMS: the three commitments and the three
-        go-deeper links. Everything else stays in the column.
+     3. CARDS ONLY FOR PARALLEL ITEMS: the commitments, the directors,
+        and the go-deeper links. Everything else stays in the column.
 
      4. "THE PEOPLE BEHIND THE NAME" IS THE ONE DARK BAND below the hero,
         with a paper band between it and the footer so the two never stack.
@@ -126,6 +126,41 @@
             {{ .label }} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{/* ---------------- Board of directors ----------------
+       The accountability line is /team/'s, so the two pages cannot drift.
+       Headshots stay small (at most 160px) so the 500px originals are
+       sharp on a 2x screen. */}}
+  {{ with $p.board }}
+    <section aria-labelledby="board-heading" class="bg-white">
+      <div class="{{ $section }}">
+        <h2 id="board-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        {{ with (site.GetPage "/team").Params.accountability }}
+          <p class="mx-auto mt-4 max-w-prose text-center text-body text-warm-800 md:mt-5">{{ . }}</p>
+        {{ else }}
+          {{ errorf "about: content/team/_index.md has no accountability line" }}
+        {{ end }}
+        <ul class="mt-8 grid gap-4 sm:grid-cols-3 md:mt-10 md:gap-6">
+          {{ range .directors }}
+            <li class="linked-card flex flex-col items-center bg-white p-6 text-center">
+              {{ partial "cloudinary-img.html" (dict
+                "src" .photo.id
+                "alt" .photo.alt
+                "width" .photo.width
+                "height" .photo.height
+                "sizes" "(min-width: 768px) 160px, 128px"
+                "class" "size-32 rounded-full bg-warm-100 object-cover md:size-40"
+              ) }}
+              <h3 class="mt-4 text-subheading text-ink">
+                <a href="{{ partial "link-href.html" . }}" class="stretched-link">{{ .name }}</a>
+              </h3>
+              <p class="mt-1 text-caption text-warm-600">{{ .title }}</p>
+            </li>
+          {{ end }}
+        </ul>
       </div>
     </section>
   {{ end }}

@@ -35,7 +35,9 @@
 {{- if not $src -}}
   {{- errorf "cloudinary-img: 'src' is required" -}}
 {{- end -}}
-{{- if not (isset . "alt") -}}
+{{- /* A key holding nil (a caller passing a missing front-matter field)
+       counts as missing: only an explicit "" means decorative. */ -}}
+{{- if or (not (isset . "alt")) (eq .alt nil) -}}
   {{- errorf "cloudinary-img: 'alt' is required for %q (pass \"\" for a decorative image)" $src -}}
 {{- end -}}
 
