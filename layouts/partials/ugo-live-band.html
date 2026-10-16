@@ -1,7 +1,8 @@
 {{- /*
   ugo-live-band — the "happening now" strip while a UGO trip is on the road
   (data/ugo.yaml `live`). Renders nothing unless live.active is true and there
-  is at least one update; the newest update supplies the day and place.
+  is at least one update; the newest update supplies the day and place. A text
+  label (day: "Getting ready") drops "is underway": the trip has not started.
 
   Rendered on every page by baseof.html, so a visitor sees the trip is on
   however they arrive. On /ugo/ the link jumps down to every update; on any
@@ -12,6 +13,7 @@
 {{- $live := hugo.Data.ugo.live -}}
 {{- if and $live $live.active $live.updates -}}
   {{- $latest := index $live.updates 0 -}}
+  {{- $label := partial "ugo-day-label.html" $latest -}}
   {{- $ugo := site.GetPage "/ugo" -}}
   {{- $link := dict "href" $ugo.RelPermalink "label" "Watch the latest update" "arrow" "→" -}}
   {{- if eq . $ugo -}}
@@ -27,7 +29,7 @@
           <span class="absolute inline-flex size-full rounded-full bg-white opacity-75 motion-safe:animate-ping"></span>
           <span class="relative inline-flex size-2.5 rounded-full bg-white"></span>
         </span>
-        <span>{{ $live.name }} is underway · Day {{ $latest.day }} · {{ $latest.place }}</span>
+        <span>{{ $live.name }} {{ if hasPrefix $label "Day " }}is underway {{ end }}· {{ $label }} · {{ $latest.place }}</span>
       </p>
       <p class="text-eto-100">
         Updated <time datetime="{{ time.Format "2006-01-02" $latest.date }}">{{ time.Format "Jan 2" $latest.date }}</time>

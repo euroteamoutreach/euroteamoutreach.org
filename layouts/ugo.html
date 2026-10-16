@@ -96,12 +96,12 @@
           <div class="mx-auto w-full max-w-60 md:max-w-none">
             {{ partial "youtube-short.html" (dict
               "id" $latest.youtube
-              "title" (printf "Day %v · %s: %s" $latest.day $latest.place ($latest.title | plainify))
+              "title" (printf "%s · %s: %s" (partial "ugo-day-label.html" $latest) $latest.place ($latest.title | plainify))
             ) }}
           </div>
           <div>
             <p class="text-caption font-semibold tracking-wide text-eto-700 uppercase">
-              Day {{ $latest.day }} · {{ $latest.place }} ·
+              {{ partial "ugo-day-label.html" $latest }} · {{ $latest.place }} ·
               <time datetime="{{ time.Format "2006-01-02" $latest.date }}">{{ time.Format "Jan 2" $latest.date }}</time>
             </p>
             <h2 class="mt-2 text-heading text-ink">{{ $latest.title | markdownify }}</h2>
