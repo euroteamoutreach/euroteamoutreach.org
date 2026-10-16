@@ -171,7 +171,9 @@ html {
 
 /* Buttons: `btn` is the shape, one fill names the role, one focus ring
    names the ground — `btn btn-primary focus-ring`, or on a dark ground
-   `btn btn-gold focus-ring-dark`. Size stays with the caller.
+   `btn btn-gold focus-ring-dark`. Size stays with the caller. Hovers use
+   Tailwind's hover variant, as the old hover: classes did, so a tap on a
+   touch screen does not leave a button stuck in its hover colour.
 
    - `btn-gold`: giving actions ONLY (DECISIONS.md 64). Gold means "give"
      everywhere it appears; any other action is blue or white. Ink on gold,
@@ -193,7 +195,7 @@ html {
 @utility btn-gold {
   background-color: var(--color-gold);
   color: var(--color-ink);
-  &:hover {
+  @variant hover {
     background-color: var(--color-gold-hover);
   }
 }
@@ -201,7 +203,7 @@ html {
 @utility btn-primary {
   background-color: var(--color-eto-600);
   color: var(--color-white);
-  &:hover {
+  @variant hover {
     background-color: var(--color-eto-700);
   }
 }
@@ -209,7 +211,7 @@ html {
 @utility btn-outline {
   border: 1px solid var(--color-eto-600);
   color: var(--color-eto-600);
-  &:hover {
+  @variant hover {
     background-color: var(--color-eto-50);
   }
 }
@@ -217,7 +219,7 @@ html {
 @utility btn-white {
   background-color: var(--color-white);
   color: var(--color-eto-900);
-  &:hover {
+  @variant hover {
     background-color: var(--color-eto-100);
   }
 }
@@ -225,7 +227,7 @@ html {
 @utility btn-outline-white {
   border: 1px solid color-mix(in oklab, var(--color-white) 70%, transparent);
   color: var(--color-white);
-  &:hover {
+  @variant hover {
     background-color: color-mix(in oklab, var(--color-white) 10%, transparent);
   }
 }
@@ -317,7 +319,7 @@ html {
 @utility link-standalone {
   @apply link;
   text-decoration-line: none;
-  &:hover {
+  @variant hover {
     text-decoration-line: underline;
   }
 }
