@@ -21,6 +21,9 @@
 #
 #      `youtube` is the 11 characters after /shorts/ in the video's link.
 #      `text` is optional: delete the line to leave it out.
+#      `day` can be text instead of a number, in quotes, for a video before or
+#      outside the trip days: day: "Getting ready" reads "Getting ready",
+#      not "Day N", and the band drops "is underway".
 #   2. Bump any tally figures that changed.
 #   3. Save, then: git commit -am "chore(ugo): day 1 update" && git push
 #      Netlify deploys main in about a minute.
@@ -58,7 +61,7 @@ live:
     - value: 0
       label: "*Good and Evil* books given out"
   updates:
-    - day: 0
+    - day: "Getting ready"
       date: 2026-10-16
       place: "Lviv"
       title: "Kid-powered: 1,000 starter packets"
