@@ -174,7 +174,8 @@ html {
    `btn btn-gold focus-ring-dark`. Size stays with the caller.
 
    - `btn-gold`: giving actions ONLY (DECISIONS.md 64). Gold means "give"
-     everywhere it appears; any other action is blue or white.
+     everywhere it appears; any other action is blue or white. Ink on gold,
+     never white: 6.08:1 against 1.97:1.
    - `btn-primary`: the main action on a light ground.
    - `btn-outline`: a secondary action on a light ground.
    - `btn-white`: the main action on a dark ground, where blue's edge
@@ -185,6 +186,7 @@ html {
   border-radius: var(--radius-eto);
   padding: calc(var(--spacing) * 2.5) calc(var(--spacing) * 5);
   font-weight: var(--font-weight-semibold);
+  cursor: pointer;
   @apply transition-colors;
 }
 
@@ -304,10 +306,7 @@ html {
     color: var(--color-eto-700);
     text-decoration-line: none;
   }
-  &:focus-visible {
-    outline: 2px solid var(--color-eto-600);
-    outline-offset: 2px;
-  }
+  @apply focus-ring;
 }
 
 /* Standalone links: a link that stands on its own line or beside a card,
@@ -316,17 +315,10 @@ html {
    arrow and colour already mark it, and underlined on hover. Hover flips
    the underline in both roles. Size stays with the caller. */
 @utility link-standalone {
-  border-radius: var(--radius-eto);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-eto-600);
-  text-underline-offset: 2px;
+  @apply link;
+  text-decoration-line: none;
   &:hover {
-    color: var(--color-eto-700);
     text-decoration-line: underline;
-  }
-  &:focus-visible {
-    outline: 2px solid var(--color-eto-600);
-    outline-offset: 2px;
   }
 }
 

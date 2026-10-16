@@ -47,11 +47,6 @@
 
 {{ $page := . }}
 
-{{/* The gold vocabulary is the shared `btn btn-gold` in main.css, so the
-     two renderings below cannot drift apart. Ink on gold, never white:
-     measured 6.08:1 vs 1.97:1 (#64). */}}
-{{ $give := "btn btn-gold focus-ring" }}
-
 {{/* Shared by every non-button link in both navs. The focus ring is offset
      rather than tight because these sit inline with no background of their
      own — a 2px ring on the glyphs themselves reads as a smudge. */}}
@@ -114,7 +109,7 @@
       {{ range site.Menus.main }}
         {{ $current := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }}
         {{ if .Params.button }}
-          <a href="{{ .URL }}" class="{{ $give }} text-base">{{ .Name }}</a>
+          <a href="{{ .URL }}" class="btn btn-gold focus-ring text-base">{{ .Name }}</a>
         {{ else }}
           <a
             href="{{ .URL }}"
@@ -138,7 +133,7 @@
       :aria-expanded="open"
       aria-controls="mobile-nav"
       aria-label="Toggle navigation menu"
-      class="-mr-2 rounded-eto p-2 text-warm-600 transition-colors hover:text-eto-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600 md:hidden"
+      class="-mr-2 rounded-eto p-2 text-warm-600 transition-colors hover:text-eto-600 focus-ring md:hidden"
     >
       {{/* Heroicons outline, 24px — inlined through Hugo's own pipeline (SVGs
            and icons are native-pipeline assets; Cloudinary carries the
@@ -180,7 +175,7 @@
                a full-bleed gold slab at the foot of the list reads as a
                banner and shouts in a way the tone will not carry (#25 — humble sobriety). Sized to
                the desktop button so it reads as the same control. */}}
-          <a href="{{ .URL }}" class="{{ $give }} my-2">{{ .Name }}</a>
+          <a href="{{ .URL }}" class="btn btn-gold focus-ring my-2">{{ .Name }}</a>
         {{ else }}
           <a
             href="{{ .URL }}"

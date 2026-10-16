@@ -30,9 +30,6 @@
   {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
   {{ $h2 := "text-heading text-ink" }}
   {{ $prose := "space-y-4 text-body text-warm-800 md:space-y-5" }}
-  {{/* On the hero's dark wash the buttons take the dark-ground ring, and
-       the routing buttons go white outline, since a blue fill would vanish
-       there too. */}}
 
   {{/* ---------------- Hero ---------------- */}}
   <section class="relative isolate overflow-hidden bg-eto-900 text-white">
@@ -67,6 +64,8 @@
           {{ $p.hero.lede }}
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
+          {{/* On the dark wash a blue fill would vanish, so the routing
+               buttons go white outline, and every ring goes white. */}}
           {{ range $p.hero.actions }}
             {{ if .give }}
               <a href="{{ .href }}" class="btn btn-gold focus-ring-dark">{{ .label }}</a>
