@@ -127,6 +127,11 @@
           "class" "aspect-4/3 size-full bg-warm-100 object-cover md:aspect-auto"
         ) }}
         <div class="flex flex-col p-6 md:p-8">
+          {{/* The mini mark, as the brand over the eyebrow. Decorative: the
+               heading below already names UGO. */}}
+          {{ with $lead.logo }}
+            {{ partial "logo-img.html" (dict "src" . "alt" "" "class" "mb-4 h-10 w-auto self-start") }}
+          {{ end }}
           <p class="{{ $accent }}">{{ partial "ugo-copy.html" $lead.eyebrow }}</p>
           <h3 class="mt-2 text-subheading text-ink">
             <a href="{{ $lead.href }}" class="stretched-link">{{ $lead.heading }}</a>
@@ -159,24 +164,13 @@
           {{ $main := index .links 0 }}
           <article class="{{ $card }} overflow-hidden">
             <div class="flex h-40 items-center justify-center border-b border-warm-200 bg-paper p-4">
-              {{ $alt := .logo_alt }}
               {{/* Marks differ in shape, so each sets its own height: a wide
                    wordmark needs less than a tall book to read the same. */}}
-              {{ $size := .logo_class | default "h-full" }}
-              {{ with resources.Get .logo }}
-                {{ $raster := ne .MediaType.SubType "svg" }}
-                {{ $img := . }}
-                {{ if $raster }}{{ $img = .Resize "x240 webp" }}{{ else }}{{ $img = . | minify | fingerprint }}{{ end }}
-                <img
-                  src="{{ $img.RelPermalink }}"
-                  alt="{{ $alt }}"
-                  {{ if $raster }}width="{{ $img.Width }}" height="{{ $img.Height }}"{{ end }}
-                  loading="lazy"
-                  class="{{ $size }} w-auto max-w-full object-contain"
-                >
-              {{ else }}
-                {{ errorf "layouts/index.html: logo %q is not in assets/" .logo }}
-              {{ end }}
+              {{ partial "logo-img.html" (dict
+                "src" .logo
+                "alt" .logo_alt
+                "class" (printf "%s w-auto max-w-full object-contain" (.logo_class | default "h-full"))
+              ) }}
             </div>
             <div class="flex grow flex-col p-6">
               <p class="{{ $accent }}">{{ .eyebrow }}</p>

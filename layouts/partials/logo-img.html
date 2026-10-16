@@ -1,0 +1,49 @@
+{{- /*
+  logo-img — a ministry logo from assets/, as an <img> through Hugo's pipeline.
+
+  Brand assets go through Hugo, not Cloudinary. An SVG is minified and
+  fingerprinted as is; a raster is resized to 240px tall and served as WebP,
+  enough for a strip mark at 2x. Either way the <img> carries width and height
+  (an SVG's from its root element), so the browser reserves the logo's box
+  before it loads and the size classes only scale it.
+
+  An SVG drawn in currentColor renders black inside an <img>: fine on a light
+  ground. A logo for a dark ground has to be inlined instead (icon.html).
+
+  Params (dict):
+    src      (required) path under assets/, e.g. "img/ministries/ugo-mini.svg"
+    alt      (required) "" when a heading beside the logo already names it
+    class    (required) size classes, e.g. "h-16 w-auto"
+    loading  (optional) "lazy" (default) or "eager" for a logo above the fold
+*/ -}}
+{{- if not (isset . "alt") -}}
+  {{- errorf "logo-img: %s needs an alt, even an empty one" .src -}}
+{{- end -}}
+{{- with resources.Get .src -}}
+  {{- $img := . -}}
+  {{- $w := 0 -}}
+  {{- $h := 0 -}}
+  {{- if eq .MediaType.SubType "svg" -}}
+    {{- $root := index (findRE `<svg[^>]*>` .Content 1) 0 -}}
+    {{- $w = replaceRE `.*\swidth="(\d+)(px)?".*` "$1" $root -}}
+    {{- $h = replaceRE `.*\sheight="(\d+)(px)?".*` "$1" $root -}}
+    {{- if not (and (findRE `^\d+$` $w) (findRE `^\d+$` $h)) -}}
+      {{- errorf "logo-img: %s needs a numeric width and height on its <svg>" $.src -}}
+    {{- end -}}
+    {{- $img = . | minify | fingerprint -}}
+  {{- else -}}
+    {{- $img = .Resize "x240 webp" -}}
+    {{- $w = $img.Width -}}
+    {{- $h = $img.Height -}}
+  {{- end -}}
+  <img
+    src="{{ $img.RelPermalink }}"
+    alt="{{ $.alt }}"
+    width="{{ $w }}"
+    height="{{ $h }}"
+    loading="{{ $.loading | default "lazy" }}"
+    class="{{ $.class }}"
+  >
+{{- else -}}
+  {{- errorf "logo-img: %q is not in assets/" .src -}}
+{{- end -}}
