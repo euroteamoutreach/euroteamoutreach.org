@@ -72,8 +72,8 @@ people:
 
 # The accountability line is not here: it is `accountability` in
 # content/team/_index.md, shared with /team/. Each director links to their
-# family's bio by `page`, so a moved bio fails the build. Officer titles
-# reverse the June call to keep them off the site (CHANGELOG 2026-10-16).
+# family's bio. Officer titles reverse the June call to keep them off the
+# site (planning CHANGELOG 2026-10-16).
 board:
   heading: "Board of directors"
   directors:
