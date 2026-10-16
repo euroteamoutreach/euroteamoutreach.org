@@ -32,7 +32,7 @@ where:
 
 online:
   heading: "Give online"
-  note: "You'll receive an emailed receipt for your records. Monthly giving is welcome — a recurring gift quietly strengthens the work between trips."
+  note: "You'll receive an emailed receipt for your records. Monthly giving is welcome — a steady gift helps us plan ahead, whatever fund you choose."
   fallback:
     prompt: "Form not loading?"
     link: "Give on Givebutter instead"

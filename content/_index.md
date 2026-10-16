@@ -82,7 +82,7 @@ work:
           href: "https://getbiblefirst.com/"
     - eyebrow: "Since 2008"
       heading: "Good and Evil"
-      body: "The Bible's story told in illustrated form, which we translate into Ukrainian and put into people's hands. More than 25,000 copies have been given out since 2008, many in war-affected regions and hand-delivered on UGO trips. Churches, missionaries and schools across Ukraine can also request free copies to hand out in their own communities."
+      body: "The Bible's story told in illustrated form, which we translated into Ukrainian and continue to put into people's hands. More than 25,000 copies have been given out since 2008, many in war-affected regions and hand-delivered on UGO trips. Churches, missionaries and schools across Ukraine can also request free copies to hand out in their own communities."
       logo: img/ministries/good-and-evil-uk-3d.png
       logo_alt: "The Ukrainian edition of Good and Evil, titled Добро і зло"
       # Our own ministry first, the publisher last. The card's own link is the
