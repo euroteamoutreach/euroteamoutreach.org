@@ -28,15 +28,23 @@ ministries:
   heading: "How it all fits together"
   intro: "These three objectives aren't isolated programs — they're three angles on one work, and our ministries move between them."
   items:
+    # logo: a file under assets/, shown on the card's paper strip as on
+    # home's "What we do" cards; logo_class sets its height (default h-full).
+    # UGO takes the mini: the heading beside it already says UGO.
     - heading: "Bible First"
+      logo: img/ministries/bible-first.svg
+      logo_class: "h-16"
       text: "The foundation. If we could do only one thing, it would be this. Through a single course, people hear the Gospel and come to Christ, learn to read the Bible for themselves, and — as we train a new generation of coaches to teach it — are discipled to disciple others. It reaches all three objectives at once, which is why we build so much around it."
       label: "Visit Bible First"
       href: "https://getbiblefirst.com/"
     - heading: "The *Good and Evil* book"
+      logo: img/ministries/good-and-evil-uk-3d.png
       text: "Works mostly toward the first two — putting the Gospel and the sweep of the Bible's story into a person's hands in a form they'll actually sit and read. Depending on how it's used, it can open the door to the third as well."
       label: "Visit Good and Evil"
       href: "https://goodandevilbook.com/"
     - heading: "UGO"
+      logo: img/ministries/ugo-mini.svg
+      logo_class: "h-16"
       text: "Leads with the first — preaching the Gospel, alongside practical aid, in the de-occupied south — and carries the seeds of the third, as we hope it grows into a place where new laborers learn the work. It feeds the second, too: a box of food and a clear word about Jesus is often where a relationship begins, and where *Bible First* picks up."
       label: "See what UGO is doing"
       page: "/ugo/"

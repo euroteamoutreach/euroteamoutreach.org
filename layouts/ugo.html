@@ -199,12 +199,22 @@
   <section {{ if not $isLive }}id="top"{{ end }} class="border-b border-warm-200 bg-white">
     <div class="{{ $section }} grid items-center gap-10 md:grid-cols-5">
       <div class="md:col-span-3">
+        {{/* The full logo is the title: its alt is the page title, so the
+             heading's accessible name and the page outline are unchanged.
+             Sized so the tagline and give button stay above the fold on a
+             phone. Eager: it is the page's first paint out of live mode. */}}
+        {{ $logo := partial "logo-img.html" (dict
+          "src" $p.hero.logo
+          "alt" .Title
+          "class" "w-40 sm:w-48 md:w-56"
+          "loading" (cond $isLive "lazy" "eager")
+        ) }}
         {{ if $isLive }}
-          <h2 class="{{ $titleClass }}">{{ .Title }}</h2>
+          <h2>{{ $logo }}</h2>
         {{ else }}
-          <h1 class="{{ $titleClass }}">{{ .Title }}</h1>
+          <h1>{{ $logo }}</h1>
         {{ end }}
-        <p class="mt-2 text-xl font-semibold text-ink sm:text-2xl">
+        <p class="mt-4 text-xl font-semibold text-ink sm:text-2xl">
           {{ $p.hero.tagline }}
         </p>
         <div class="mt-4 max-w-prose text-lede text-warm-800">

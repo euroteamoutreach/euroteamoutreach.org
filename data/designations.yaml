@@ -14,6 +14,8 @@
 #   slug             stable ID; also the anchor on /give/ (#ugo-aid-boxes, …)
 #   name             exactly as the fund is named in Givebutter's donor dropdown
 #   icon             Heroicons outline name → assets/img/icon-{icon}.svg
+#   logo             optional ministry mark under assets/, beside the fund name
+#                    (decorative: the name already says it)
 #   blurb            card copy. "{box_price}" is replaced with the formatted
 #                    box_price, so the price lives in one place.
 #   box_price        UGO only. $20 comes from 2025 totals and may rise once 2026
@@ -27,6 +29,7 @@
 - slug: ugo-aid-boxes
   name: "UGO Aid Boxes"
   icon: gift
+  logo: img/ministries/ugo-mini.svg
   box_price: 20
   blurb: "{box_price} fills one box — food and essentials, hand-delivered with the Gospel to a Ukrainian family near the front. Boxes are packed ahead of each trip south, so a gift now helps make the next project possible."
   givebutter_fund_id: 70451

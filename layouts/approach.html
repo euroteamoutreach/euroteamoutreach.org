@@ -92,18 +92,30 @@
         <p class="mx-auto mt-4 max-w-prose text-center text-body text-warm-800 md:mt-5">{{ .intro }}</p>
         <ul class="mt-8 grid gap-4 md:mt-10 md:grid-cols-3 md:gap-6">
           {{ range .items }}
-            <li class="linked-card flex flex-col bg-white p-6">
-              <h3 class="text-subheading text-ink">
-                {{ $href := partial "link-href.html" . }}
-                {{ $x := partial "external.html" $href }}
-                <a href="{{ $href }}" {{ $x.attrs }} class="stretched-link">{{ .heading | markdownify }}{{ $x.note }}</a>
-              </h3>
-              <p class="mt-2 grow text-body text-warm-800">{{ .text | markdownify }}</p>
-              {{/* The cue for phones, which have no hover. aria-hidden: the
-                   link on the heading already says where it goes. */}}
-              <p aria-hidden="true" class="mt-4 text-caption font-semibold text-eto-600">
-                {{ .label }} {{ if $x.note }}↗{{ else }}&rarr;{{ end }}
-              </p>
+            <li class="linked-card flex flex-col overflow-hidden bg-white">
+              {{/* Each card opens on its ministry's logo, on the paper strip
+                   of home's "What we do" cards, so the two pages show the
+                   ministries the same way. Decorative: the heading names it. */}}
+              <div class="flex h-40 items-center justify-center border-b border-warm-200 bg-paper p-4">
+                {{ partial "logo-img.html" (dict
+                  "src" .logo
+                  "alt" ""
+                  "class" (printf "%s w-auto max-w-full object-contain" (.logo_class | default "h-full"))
+                ) }}
+              </div>
+              <div class="flex grow flex-col p-6">
+                <h3 class="text-subheading text-ink">
+                  {{ $href := partial "link-href.html" . }}
+                  {{ $x := partial "external.html" $href }}
+                  <a href="{{ $href }}" {{ $x.attrs }} class="stretched-link">{{ .heading | markdownify }}{{ $x.note }}</a>
+                </h3>
+                <p class="mt-2 grow text-body text-warm-800">{{ .text | markdownify }}</p>
+                {{/* The cue for phones, which have no hover. aria-hidden: the
+                     link on the heading already says where it goes. */}}
+                <p aria-hidden="true" class="mt-4 text-caption font-semibold text-eto-600">
+                  {{ .label }} {{ if $x.note }}↗{{ else }}&rarr;{{ end }}
+                </p>
+              </div>
             </li>
           {{ end }}
         </ul>
