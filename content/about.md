@@ -84,7 +84,7 @@ board:
         id: eto/joshua-500w_vq96t3
         width: 500
         height: 500
-        alt: "Joshua Steele, smiling, with young people from a summer team behind him."
+        alt: "Smiling, with young people from a summer team behind him."
     - name: "Nathan Day"
       title: "Vice President & Treasurer"
       page: "/team/day/"
@@ -92,7 +92,7 @@ board:
         id: eto/nathan-500w_q4ezoz
         width: 500
         height: 500
-        alt: "Nathan Day, smiling, in a park with autumn trees behind him."
+        alt: "Smiling, in a park with autumn trees behind him."
     - name: "Ben Sargent"
       title: "Director"
       page: "/team/sargent/"
@@ -100,7 +100,7 @@ board:
         id: eto/ben-500w_p5sfmz
         width: 500
         height: 500
-        alt: "Ben Sargent, smiling, on a street lined with apartment blocks."
+        alt: "Smiling, on a street lined with apartment blocks."
 
 deeper:
   heading: "Go deeper"
