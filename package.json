@@ -1,5 +1,5 @@
 {
-  "name": "euroteamoutreach.org-hugo",
+  "name": "euroteamoutreach.org",
   "private": true,
   "scripts": {
     "dev": "hugo server -D",
