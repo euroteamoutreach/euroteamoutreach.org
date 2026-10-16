@@ -1,5 +1,7 @@
 # euroteamoutreach.org
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1908d467-2639-4e89-bf88-342fbdeab59a/deploy-status)](https://app.netlify.com/projects/euroteamoutreach/deploys)
+
 The consolidated website for **Euro Team Outreach, Inc.** — a US-based Christian missions nonprofit (501(c)(3)) serving in Ukraine.
 
 This Hugo site replaces and consolidates four legacy web properties into one:
