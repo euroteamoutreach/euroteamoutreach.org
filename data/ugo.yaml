@@ -59,6 +59,12 @@ live:
       label: "*Good and Evil* books given out"
   updates:
     - day: 0
+      date: 2026-10-16
+      place: "Lviv"
+      title: "Kid-powered: 1,000 starter packets"
+      text: "The Day and Steele kids assembled 1,000 Bible First starter packets: Lesson 1, an intro letter, and everything someone needs to enroll in the course. We'll hand them out as we travel through the south."
+      youtube: "POHIDlXpnug"
+    - day: 0
       date: 2026-10-14
       place: "Lviv"
       title: "1,000 books head south"
