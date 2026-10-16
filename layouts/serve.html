@@ -31,8 +31,6 @@
   {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
   {{ $h2 := "text-heading text-ink" }}
   {{ $prose := "max-w-prose space-y-4 text-body text-warm-800 md:space-y-5 [&_strong]:text-ink" }}
-  {{ $focus := "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
-  {{ $primary := printf "inline-block rounded-eto bg-eto-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-eto-700 %s" $focus }}
 
   {{/* ---------------- Hero ----------------
        Text beside a CMO photo, the split "The best place to start" uses. */}}
@@ -48,7 +46,7 @@
             {{ $.Content }}
           </div>
           {{/* The anchor is the "How it works" section's id, below. */}}
-          <a href="#how-it-works" class="{{ $primary }} mt-8">
+          <a href="#how-it-works" class="btn btn-primary focus-ring mt-8">
             {{ .label }} <span aria-hidden="true">&darr;</span>
           </a>
         </div>
@@ -96,7 +94,7 @@
         <div>
           <h2 id="start-heading" class="{{ $h2 }}">{{ .heading }}</h2>
           <div class="mt-4 md:mt-5 {{ $prose }}">{{ .body | markdownify }}</div>
-          <a href="{{ .href }}" class="{{ $primary }} mt-8">
+          <a href="{{ .href }}" class="btn btn-primary focus-ring mt-8">
             {{ .label }} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -149,7 +147,7 @@
       <div class="{{ $section }} text-center">
         <h2 id="talk-heading" class="{{ $h2 }}">{{ .heading }}</h2>
         <p class="mx-auto mt-4 max-w-prose text-body text-warm-800 md:mt-5">{{ .body }}</p>
-        <a href="{{ .href }}" class="{{ $primary }} mt-8">
+        <a href="{{ .href }}" class="btn btn-primary focus-ring mt-8">
           {{ .label }} <span aria-hidden="true">&rarr;</span>
         </a>
       </div>

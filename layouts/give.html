@@ -44,7 +44,6 @@
   {{ $p := .Params }}
   {{ $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" }}
   {{ $h2 := "text-heading text-ink" }}
-  {{ $primary := "inline-block rounded-eto bg-eto-600 px-5 py-2.5 font-semibold text-white transition-colors hover:bg-eto-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
 
   {{/* ---------------- Hero + doorways ---------------- */}}
   <section class="border-b border-warm-200 bg-white">
@@ -55,7 +54,7 @@
       <div class="mt-4 max-w-prose text-lede text-warm-800">
         {{ .Content }}
       </div>
-      <div class="mt-10 grid gap-4 md:grid-cols-2">
+      <div class="mt-10 grid gap-4 md:grid-cols-2 md:gap-6">
         {{ range $p.doorways }}
           <div class="flex flex-col rounded-eto-lg border border-warm-200 bg-paper p-6">
             <h2 class="text-xl font-semibold tracking-tight text-ink">
@@ -63,7 +62,7 @@
             </h2>
             <p class="mt-2 grow text-body text-warm-800">{{ .text }}</p>
             <div class="mt-6">
-              <a href="{{ .href }}" class="{{ $primary }}">{{ .button }}</a>
+              <a href="{{ .href }}" class="btn btn-primary focus-ring">{{ .button }}</a>
             </div>
           </div>
         {{ end }}
@@ -78,7 +77,7 @@
       <p class="mt-4 max-w-prose text-body text-warm-800 md:mt-5">
         {{ $p.where.intro }}
       </p>
-      <div class="mt-8 grid gap-4 md:grid-cols-2">
+      <div class="mt-8 grid gap-4 md:grid-cols-2 md:gap-6">
         {{ range hugo.Data.designations }}
           {{ partial "designation-card.html" . }}
         {{ end }}

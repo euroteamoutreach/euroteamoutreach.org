@@ -47,17 +47,10 @@
 
 {{ $page := . }}
 
-{{/* The gold vocabulary, defined once so the two renderings below cannot
-     drift apart — the constraint in rule 1 is easier to hold when there is
-     one place to hold it. Ink on gold, never white: measured 6.08:1 vs
-     1.97:1 (#64).
-
-     These values also appear on /styleguide/, which is the second occurrence
-     — under the project's rule of three, the trigger to hoist the button
-     roles into data/ is the THIRD consumer. /give/ turned out to carry no
-     gold of its own (its giving action is Givebutter's button), so the
-     likely third is the give-CTA or the UGO give band. Not yet. */}}
-{{ $give := "rounded-eto bg-gold font-semibold text-ink transition-colors hover:bg-gold-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-eto-600" }}
+{{/* The gold vocabulary is the shared `btn btn-gold` in main.css, so the
+     two renderings below cannot drift apart. Ink on gold, never white:
+     measured 6.08:1 vs 1.97:1 (#64). */}}
+{{ $give := "btn btn-gold focus-ring" }}
 
 {{/* Shared by every non-button link in both navs. The focus ring is offset
      rather than tight because these sit inline with no background of their
@@ -121,7 +114,7 @@
       {{ range site.Menus.main }}
         {{ $current := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }}
         {{ if .Params.button }}
-          <a href="{{ .URL }}" class="{{ $give }} px-5 py-2.5 text-base">{{ .Name }}</a>
+          <a href="{{ .URL }}" class="{{ $give }} text-base">{{ .Name }}</a>
         {{ else }}
           <a
             href="{{ .URL }}"
@@ -187,7 +180,7 @@
                a full-bleed gold slab at the foot of the list reads as a
                banner and shouts in a way the tone will not carry (#25 — humble sobriety). Sized to
                the desktop button so it reads as the same control. */}}
-          <a href="{{ .URL }}" class="{{ $give }} my-2 inline-block px-5 py-2.5">{{ .Name }}</a>
+          <a href="{{ .URL }}" class="{{ $give }} my-2">{{ .Name }}</a>
         {{ else }}
           <a
             href="{{ .URL }}"
