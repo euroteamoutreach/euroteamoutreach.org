@@ -24,6 +24,8 @@ weight: 10
 # or monthly distribution: frame gifts as preparing boxes ahead of a trip.
 
 hero:
+  # The full logo, as the hero's title: nothing nearby spells out the name.
+  logo: img/ministries/ugo-full.svg
   tagline: "Bringing Hope to Ukraine"
 
 stats:

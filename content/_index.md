@@ -51,6 +51,8 @@ work:
   heading: "What we do"
   intro: "One calling, carried in several forms — each one aimed at putting the Gospel and the Scriptures into Ukrainian hands."
   lead:
+    # The mini: the heading below spells out the name (#84's rule).
+    logo: img/ministries/ugo-mini.svg
     eyebrow: "Now · next project {trip_dates}"
     heading: "Ukraine Gospel Outreach"
     # A key under photos.featured in data/ugo.yaml.

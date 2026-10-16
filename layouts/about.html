@@ -94,6 +94,15 @@
             {{ end }}
           {{ end }}
         </div>
+        {{/* The full logo closes the story's UGO paragraph, above the button
+             that goes there. It carries the name: nothing beside it says it. */}}
+        {{ with .logo }}
+          {{ partial "logo-img.html" (dict
+            "src" .
+            "alt" $.Params.story.logo_alt
+            "class" "mx-auto mt-8 h-28 w-auto md:mt-10"
+          ) }}
+        {{ end }}
         <div class="mt-8 text-center md:mt-10">
           <a href="{{ (site.GetPage "/ugo").RelPermalink }}" class="btn btn-primary focus-ring">
             {{ .label }} <span aria-hidden="true">&rarr;</span>

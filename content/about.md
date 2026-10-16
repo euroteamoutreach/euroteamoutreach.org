@@ -57,6 +57,9 @@ story:
 
         What rose in its place is **Ukraine Gospel Outreach (UGO)**. In 2024 we partnered with Ukrainian missionary Oleksandr Ilchenko to carry the Gospel — and practical aid — into the newly de-occupied villages of the south, places the larger aid groups had mostly left behind. UGO is our flagship today: the same message, carried by changed methods, into some of the hardest-hit corners of Ukraine.
       photo: ugo/oleksandr-ben-preaching-van_gyyj40
+  # The full logo, the story's visual close, above the button to /ugo/.
+  logo: img/ministries/ugo-full.svg
+  logo_alt: "Ukraine Gospel Outreach"
   label: "See what UGO is doing now"
 
 people:

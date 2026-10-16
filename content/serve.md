@@ -39,6 +39,8 @@ invitation:
 
 start:
   heading: "The best place to start"
+  # The mini: the body below spells out the name.
+  logo: img/ministries/ugo-mini.svg
   # An id from data/ugo.yaml photos.gallery, shown beside the text.
   photo: ugo/IMG_7229_e6r11q
   body: |

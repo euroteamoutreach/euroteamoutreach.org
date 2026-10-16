@@ -92,7 +92,14 @@
     <section aria-labelledby="start-heading" class="bg-white">
       <div class="{{ $section }} grid gap-10 md:grid-cols-2 md:items-center">
         <div>
-          <h2 id="start-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+          {{/* The mini mark beside the heading, which names the place to start
+               without naming UGO; the body does, so the mark is decorative. */}}
+          <div class="flex items-center gap-4">
+            {{ with .logo }}
+              {{ partial "logo-img.html" (dict "src" . "alt" "" "class" "h-10 w-auto shrink-0") }}
+            {{ end }}
+            <h2 id="start-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+          </div>
           <div class="mt-4 md:mt-5 {{ $prose }}">{{ .body | markdownify }}</div>
           <a href="{{ .href }}" class="btn btn-primary focus-ring mt-8">
             {{ .label }} <span aria-hidden="true">&rarr;</span>
