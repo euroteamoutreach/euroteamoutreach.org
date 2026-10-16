@@ -28,7 +28,7 @@ ministries:
   heading: "How it all fits together"
   intro: "These three objectives aren't isolated programs — they're three angles on one work, and our ministries move between them."
   items:
-    # logo: a file under assets/, shown on the card's paper strip as on
+    # logo (required): a file under assets/, shown on the card's paper strip as on
     # home's "What we do" cards; logo_class sets its height (default h-full).
     # UGO takes the mini: the heading beside it already says UGO.
     - heading: "Bible First"

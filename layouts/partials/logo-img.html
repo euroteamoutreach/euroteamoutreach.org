@@ -16,7 +16,10 @@
     class    (required) size classes, e.g. "h-16 w-auto"
     loading  (optional) "lazy" (default) or "eager" for a logo above the fold
 */ -}}
-{{- if not (isset . "alt") -}}
+{{- /* The value, not the key: a caller passing .logo_alt always sets the key,
+       so only a missing value catches front matter that forgot it. "" is a
+       deliberate choice and passes. */ -}}
+{{- if not (or .alt (eq .alt "")) -}}
   {{- errorf "logo-img: %s needs an alt, even an empty one" .src -}}
 {{- end -}}
 {{- with resources.Get .src -}}
