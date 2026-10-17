@@ -57,9 +57,6 @@
         <div class="min-w-0">
           {{ range $i, $s := $sections }}
             {{ $id := partial "section-id.html" $s }}
-            {{/* The id sits on the heading, not the section, so a jump lands
-                 the heading under the header instead of the rule and top
-                 padding above it. */}}
             <section
               aria-labelledby="{{ $id }}"
               class="{{ if $i }}mt-10 border-t border-warm-200 pt-10{{ end }}"
