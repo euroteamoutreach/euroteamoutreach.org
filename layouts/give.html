@@ -87,15 +87,17 @@
 
   {{/* ---------------- Give online ---------------- */}}
   {{/* Form first in source order, so phones reach it before the check
-       option; on desktop it takes the left, primary column. */}}
+       option; on desktop it takes the left, primary column. The
+       #give-online anchor is the heading, not the section, so a jump lands
+       the heading just under the header rather than the section's top
+       padding (same as /ugo/'s #updates). */}}
   {{ with site.Params.givebutter }}
     <section
-      id="give-online"
-      aria-labelledby="give-online-heading"
+      aria-labelledby="give-online"
       class="border-y border-warm-200 bg-white"
     >
       <div class="{{ $section }}">
-        <h2 id="give-online-heading" class="{{ $h2 }}">
+        <h2 id="give-online" class="{{ $h2 }}">
           {{ $p.online.heading }}
         </h2>
         <p class="mt-4 max-w-prose text-body text-warm-800 md:mt-5">
