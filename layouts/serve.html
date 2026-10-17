@@ -45,7 +45,7 @@
           <div class="mt-4 max-w-prose text-lede text-warm-800">
             {{ $.Content }}
           </div>
-          {{/* The anchor is the "How it works" section's id, below. */}}
+          {{/* The anchor is the "How it works" heading's id, below. */}}
           <a href="#how-it-works" class="btn btn-primary focus-ring mt-8">
             {{ .label }} <span aria-hidden="true">&darr;</span>
           </a>
@@ -124,11 +124,13 @@
     </section>
   {{ end }}
 
-  {{/* ---------------- How it works ---------------- */}}
+  {{/* ---------------- How it works ----------------
+       #how-it-works is the heading, not the section, so the hero's jump
+       lands the heading just under the header (same as /ugo/'s #updates). */}}
   {{ with $p.how }}
-    <section id="how-it-works" aria-labelledby="how-heading" class="bg-white">
+    <section aria-labelledby="how-it-works" class="bg-white">
       <div class="{{ $section }}">
-        <h2 id="how-heading" class="{{ $h2 }}">{{ .heading }}</h2>
+        <h2 id="how-it-works" class="{{ $h2 }}">{{ .heading }}</h2>
         <p class="mt-4 max-w-prose text-body text-warm-800 md:mt-5">{{ .intro }}</p>
         <ol class="mt-8 grid gap-4 md:grid-cols-3 md:gap-6">
           {{ range $i, $step := .steps }}
