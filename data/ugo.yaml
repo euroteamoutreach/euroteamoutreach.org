@@ -64,6 +64,12 @@ live:
     - day: 1
       date: 2026-10-17
       place: "Zhytomyr"
+      title: "Power out, red alert, safe"
+      text: "We made it to Zhytomyr. The power is out (that's the hotel generator you hear), and we'd just come through our first red-level air alert, the kind that warns of ballistic missiles. All clear now, and we're safe."
+      youtube: "GxauYMcpqqg"
+    - day: 1
+      date: 2026-10-17
+      place: "Zhytomyr"
       title: "Pray for our safety"
       text: "On the road to Zhytomyr, our first stop. Attacks on Kyiv and the north have picked up in recent months, and this close to the russian border there's much less warning. Please pray for our team's safety as we head south."
       youtube: "TSLW0p3U2qc"
