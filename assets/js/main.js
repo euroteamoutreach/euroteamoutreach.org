@@ -30,10 +30,11 @@ Alpine.data("netlifyForm", () => ({
 }));
 
 // Marks which [data-spy] section the reader is in (first user: the /doctrine/
-// contents). `active` holds the id of the last section whose top has scrolled
-// past a line a quarter of the way down the window; that line sits below the
-// 5rem where anchor jumps land, so a clicked section counts as current. At the
-// very bottom the last section wins, even if it is too short to reach the line.
+// contents, where data-spy sits on each section's heading, the anchor target).
+// `active` holds the id of the last marker whose top has scrolled past a line
+// a quarter of the way down the window; that line sits below the 5rem where
+// anchor jumps land, so a clicked section counts as current. At the very
+// bottom the last section wins, even if it is too short to reach the line.
 Alpine.data("scrollSpy", () => ({
   active: "",
 
