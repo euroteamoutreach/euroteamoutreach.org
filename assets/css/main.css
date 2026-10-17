@@ -94,6 +94,11 @@
    5rem is the tallest the header ever gets (4rem at sm:h-16) plus 1rem of
    air. If the header height changes, change this with it.
 
+   Put an anchor id on the HEADING, not its padded <section>: the jump lands
+   the target's top edge, so a section's top padding (and any rule above it)
+   would show under the header and the jump looks short. aria-labelledby on
+   the section then points at that same id.
+
    Not optional polish: the UGO page is an eight-section stack and the give-CTA
    deep-links into designations (Phases 5–6). ⚠️ Neither sister site has this
    rule, and both land anchors under their fixed headers — do not "converge"

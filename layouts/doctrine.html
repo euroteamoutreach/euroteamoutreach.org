@@ -56,12 +56,12 @@
 
         <div class="min-w-0">
           {{ range $i, $s := $sections }}
+            {{ $id := partial "section-id.html" $s }}
             <section
-              id="{{ partial "section-id.html" $s }}"
-              data-spy
+              aria-labelledby="{{ $id }}"
               class="{{ if $i }}mt-10 border-t border-warm-200 pt-10{{ end }}"
             >
-              <h2 class="text-subheading text-ink">{{ $s.Title }}</h2>
+              <h2 id="{{ $id }}" data-spy class="text-subheading text-ink">{{ $s.Title }}</h2>
               <div
                 class="mt-4 max-w-prose space-y-4 text-body text-warm-800 [&_a]:underline [&_a]:decoration-eto-300 [&_a]:decoration-dotted [&_a]:underline-offset-4 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-6 sm:[&_ul]:columns-2"
               >
