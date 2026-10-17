@@ -61,6 +61,12 @@ live:
     - value: 0
       label: "*Good and Evil* books given out"
   updates:
+    - day: 1
+      date: 2026-10-17
+      place: "Zhytomyr"
+      title: "Pray for our safety"
+      text: "On the road to Zhytomyr, our first stop. Attacks on Kyiv and the north have picked up in recent months, and this close to the russian border there's much less warning. Please pray for our team's safety as we head south."
+      youtube: "TSLW0p3U2qc"
     - day: "Getting ready"
       date: 2026-10-16
       place: "Lviv"
