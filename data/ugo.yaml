@@ -61,6 +61,12 @@ live:
     - value: 0
       label: "*Good and Evil* books given out"
   updates:
+    - day: 2
+      date: 2026-10-18
+      place: "Zhytomyr"
+      title: "Packing aid boxes in the dark"
+      text: "Sunday night in Zhytomyr: the power is out and a drone alert is on, but we're at Oleksandr's church loading about 50 aid boxes into the van. Cooking oil, millet, flour, sugar, tea, noodles, and Gospel literature in every box. We head south at 6 a.m."
+      youtube: "bP9jrl8zDNw"
     - day: 1
       date: 2026-10-17
       place: "Zhytomyr"
