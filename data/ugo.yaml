@@ -61,6 +61,12 @@ live:
     - value: 0
       label: "*Good and Evil* books given out"
   updates:
+    - day: 3
+      date: 2026-10-19
+      place: "Snihurivka"
+      title: "An unplanned stop on the way south"
+      text: "Eight to nine hours on the road from Zhytomyr to Snihurivka, about 50 km north of Kherson. On the way, a last-minute plan came together with a group in a town near Mykolaiv, so we stopped: Nathan and I preached the Gospel, and we handed out aid boxes and starter packets. Tomorrow we head out to the first of our villages."
+      youtube: "miiYPu3Jvlw"
     - day: 2
       date: 2026-10-18
       place: "Zhytomyr"
