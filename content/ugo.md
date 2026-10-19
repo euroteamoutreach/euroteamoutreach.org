@@ -5,7 +5,7 @@ layout: ugo
 description: "Ukraine Gospel Outreach carries the Gospel of Jesus Christ and hand-delivered aid into Ukrainian communities near the front — village by village, box by box."
 # Cloudinary public ID. The photo's alt, caption, and size live with every
 # other UGO photo in data/ugo.yaml; the layout looks it up by this ID.
-hero_image: ugo/IMG_7382_rhjbix
+hero_image: ugo/IMG_7382-blue_v1za1e
 give_designation: ugo-aid-boxes
 give_cta_label: "Give an aid box — {box_price}"
 status: active

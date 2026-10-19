@@ -166,7 +166,10 @@ playlists:
 photos:
   featured:
     hero:
-      id: ugo/IMG_7382_rhjbix
+      # IMG_7382 with the hot-pink sweater recoloured denim blue (Cloudinary
+      # generative recolour, baked into one upload) to sit with the palette.
+      # The original, ugo/IMG_7382_rhjbix, is untouched in Cloudinary.
+      id: ugo/IMG_7382-blue_v1za1e
       width: 3024
       height: 4032
       alt: "A smiling older woman holds an aid box with a loaf of bread on top in one arm and a bundle of Bible literature in the other."
