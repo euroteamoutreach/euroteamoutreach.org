@@ -132,11 +132,13 @@
         {{/* ---------------- Live: this trip's tally ---------------- */}}
         {{/* A figure still at 0 is hidden, and the whole box with it when
              every figure is, so the tally appears on its own once the trip
-             has real numbers. */}}
+             has real numbers. Four figures sit 2×2 on phones, where four
+             across would squeeze the labels. */}}
         {{ with where $live.tally "value" "gt" 0 }}
+          {{ $cols := cond (eq (len .) 4) "grid-cols-2 sm:grid-cols-4" "grid-cols-3" }}
           <div class="mt-12 rounded-eto-lg bg-eto-50 p-6 sm:p-8">
             <p id="tally-heading" class="text-caption font-semibold text-eto-700">So far on {{ $live.name }}</p>
-            <dl aria-labelledby="tally-heading" class="mt-4 grid grid-cols-3 gap-4">
+            <dl aria-labelledby="tally-heading" class="mt-4 grid {{ $cols }} gap-4">
               {{ range . }}
                 {{/* Value above label visually, label first in the DOM, as in
                      the track-record band. */}}
