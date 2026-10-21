@@ -54,15 +54,21 @@ live:
   # adds the commas. A figure at 0 is hidden, and the whole tally while every
   # figure is 0, so it appears by itself once the numbers start.
   tally:
-    - value: 6
+    - value: 9
       label: "villages reached"
-    - value: 216
+    - value: 451
       label: "aid boxes given out"
-    - value: 133
+    - value: 418
       label: "*Good and Evil* books given out"
-    - value: 156
+    - value: 441
       label: "Bible First starter packets given out"
   updates:
+    - day: 5
+      date: 2026-10-21
+      place: "Vasylivka"
+      title: "How a village day works"
+      text: "Three villages today: Novopavlivske, Pavlo-Marianivka and Vasylivka, with 207 people in all. This is how each village meeting goes, from the muddy roads to the Gospel to the aid boxes, Good and Evil books, starter packets and fresh bread handed out at the van. Many people took extras home for relatives who couldn't come and children in school."
+      youtube: "69RLbRZWR6Y"
     - day: 4
       date: 2026-10-20
       place: "Zelenyi Hai"
