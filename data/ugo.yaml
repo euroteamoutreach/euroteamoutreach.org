@@ -63,6 +63,12 @@ live:
     - value: 441
       label: "Bible First starter packets given out"
   updates:
+    - day: 6
+      date: 2026-10-22
+      place: "Yakovlivka"
+      title: "We know you care"
+      text: "On Tuesday in Yakovlivka, as people headed home with their aid boxes, one woman stopped to thank everyone who made the visit possible: those who gave, those who brought the aid all this way, and those who shared the Word of God. In Ukrainian with English subtitles."
+      youtube: "WNdx180aFnM"
     - day: 5
       date: 2026-10-21
       place: "Vasylivka"
