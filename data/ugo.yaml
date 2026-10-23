@@ -55,7 +55,7 @@ live:
   # figure is 0, so it appears by itself once the numbers start.
   tally:
     - value: 14
-      label: "villages reached"
+      label: "communities reached"
     - value: 651
       label: "aid boxes given out"
     - value: 670
