@@ -63,6 +63,12 @@ live:
     - value: 700
       label: "Bible First starter packets given out"
   updates:
+    - day: 8
+      date: 2026-10-24
+      place: "Zhytomyr"
+      title: "Getting ready for Zhytomyr"
+      text: "A day of logistics and recovery. We assembled literature packets with the Ilchenko family for tomorrow's street outreach, then visited a government support center for people from Mariupol, where we'll be back on Monday with aid packets and Good and Evil books. Please pray for good weather tomorrow."
+      youtube: "vY0cmMf7A1M"
     - day: 7
       date: 2026-10-23
       place: "Dachne"
