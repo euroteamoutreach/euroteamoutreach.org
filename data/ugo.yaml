@@ -54,15 +54,21 @@ live:
   # adds the commas. A figure at 0 is hidden, and the whole tally while every
   # figure is 0, so it appears by itself once the numbers start.
   tally:
-    - value: 14
+    - value: 15
       label: "communities reached"
-    - value: 651
+    - value: 1071
       label: "aid boxes given out"
-    - value: 670
+    - value: 1090
       label: "*Good and Evil* books given out"
-    - value: 700
+    - value: 950
       label: "Bible First starter packets given out"
   updates:
+    - day: 9
+      date: 2026-10-25
+      place: "Zhytomyr"
+      title: "Over 400 came in Zhytomyr"
+      text: "We prayed for good weather and a good turnout, and over 400 people gathered on the steps for our street outreach in Zhytomyr. Nathan and I preached the Gospel, and Oleksandr gave the invitation. Everyone received a copy of Good and Evil, and we handed out 250 starter packets, 420 aid boxes and 300 loaves of bread from the south, until the bread ran out."
+      youtube: "pK8doFH0mXc"
     - day: 8
       date: 2026-10-24
       place: "Zhytomyr"
