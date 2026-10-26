@@ -56,13 +56,19 @@ live:
   tally:
     - value: 15
       label: "communities reached"
-    - value: 1071
+    - value: 1093
       label: "aid boxes given out"
-    - value: 1090
+    - value: 1114
       label: "*Good and Evil* books given out"
-    - value: 950
+    - value: 1000
       label: "Bible First starter packets given out"
   updates:
+    - day: 10
+      date: 2026-10-26
+      place: "Zhytomyr"
+      title: "1,093 aid boxes in 15 communities"
+      text: "On our last morning we took the rest of the aid to a government help center in Zhytomyr for people who fled Mariupol, and several refugees shared their stories with us. That brings UGO 2026 to 15 communities, 1,114 copies of Good and Evil, about 1,000 starter packets and 1,093 aid boxes. Thank you for praying and giving."
+      youtube: "v8AQ8WhXAB0"
     - day: 9
       date: 2026-10-25
       place: "Zhytomyr"
