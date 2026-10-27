@@ -1,0 +1,18 @@
+{{- /*
+  One page per UGO project, /ugo/<id>/, from each file in data/ugo/projects/
+  (2026.yaml → /ugo/2026/). Adding a project is adding a data file: no
+  content file and no template change. layouts/ugo-project.html renders it.
+*/ -}}
+{{- range $id, $project := hugo.Data.ugo.projects -}}
+  {{- $.AddPage (dict
+    "path" $id
+    "title" $project.name
+    "kind" "page"
+    "description" $project.description
+    "layout" "ugo-project"
+    "params" (dict
+      "project" $id
+      "cover" $project.cover
+    )
+  ) -}}
+{{- end -}}

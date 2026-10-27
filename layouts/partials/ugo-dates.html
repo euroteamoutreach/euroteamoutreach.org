@@ -1,0 +1,18 @@
+{{- /*
+  ugo-dates — a project's span as words: "October 17–26, 2026", "October 28 –
+  November 3, 2026", "December 28, 2026 – January 3, 2027". The {trip_dates}
+  copy token and the project pages both use it.
+
+  Usage: {{ partial "ugo-dates.html" (dict "start" .start "end" .end) }}
+*/ -}}
+{{- $start := time.AsTime .start -}}
+{{- $end := time.AsTime .end -}}
+{{- $dates := "" -}}
+{{- if eq ($start.Format "200601") ($end.Format "200601") -}}
+  {{- $dates = printf "%s–%s" ($start.Format "January 2") ($end.Format "2, 2006") -}}
+{{- else if eq $start.Year $end.Year -}}
+  {{- $dates = printf "%s – %s" ($start.Format "January 2") ($end.Format "January 2, 2006") -}}
+{{- else -}}
+  {{- $dates = printf "%s – %s" ($start.Format "January 2, 2006") ($end.Format "January 2, 2006") -}}
+{{- end -}}
+{{- return $dates -}}

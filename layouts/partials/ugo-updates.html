@@ -1,8 +1,7 @@
 {{- /*
-  ugo-updates — every video update from data/ugo.yaml live.updates, newest
-  first, as a grid of vertical thumbnails. Used by /ugo/ in both modes: in the
-  live block while a trip is on, and under "From the field" afterwards, as the
-  trip's record.
+  ugo-updates — every video update of one UGO project (its file in
+  data/ugo/projects/), newest first, as a grid of vertical thumbnails.
+  Rendered by ugo-project.html.
 
   Each thumbnail is a link to the video on YouTube, so it works without
   JavaScript. With it, a click swaps the thumbnail for the player in place
@@ -16,10 +15,10 @@
   documented URL.
 
   Params (dict):
+    updates    (required) the project's `updates`
     headingId  (required) the id of the heading that labels this list
 */ -}}
-{{- $live := hugo.Data.ugo.live -}}
-{{- with $live.updates -}}
+{{- with .updates -}}
   <ol aria-labelledby="{{ $.headingId }}" class="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 lg:grid-cols-4">
     {{- range . -}}
       {{- $name := printf "%s · %s: %s" (partial "ugo-day-label.html" .) .place (.title | plainify) -}}

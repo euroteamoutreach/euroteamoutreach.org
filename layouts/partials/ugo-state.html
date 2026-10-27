@@ -1,0 +1,58 @@
+{{- /*
+  ugo-state — the UGO phase and projects, read once from data/ugo.yaml and
+  data/ugo/projects/ (the runbook at the top of data/ugo.yaml). Every
+  template that changes with the phase asks this partial, never the data
+  directly, so the rules live in one place and a typo fails the build.
+
+  Returns a dict:
+    phase     "live", "wrapup" or "offseason"
+    project   the current project (data/ugo.yaml `current`), with its file
+              name added as `id`; an empty dict in offseason
+    live      true while a project is on the road and has an update: the
+              band, the nav dot and the "live from Ukraine" block
+    featured  true when /ugo/ opens with the current project (live, wrapup)
+    projects  every project, `id` added, newest first by `start`
+    trip      the dates the copy's {trip_*} tokens use: data/ugo.yaml `trip`
+              (the next project, once set), else, while live, the current
+              project's own; an empty dict when neither
+    copy      which version of a time-sensitive copy string to use:
+              "upcoming" while there are trip dates, else the phase
+
+  Usage: {{ $ugo := partialCached "ugo-state.html" "ugo" }}
+*/ -}}
+{{- $data := hugo.Data.ugo -}}
+{{- $phase := $data.phase -}}
+{{- if not (in (slice "live" "wrapup" "offseason") $phase) -}}
+  {{- errorf "data/ugo.yaml: phase %q must be live, wrapup or offseason" $phase -}}
+{{- end -}}
+
+{{- $projects := slice -}}
+{{- range $id, $p := $data.projects -}}
+  {{- $projects = $projects | append (merge $p (dict "id" $id "sort" (time.AsTime $p.start).Unix)) -}}
+{{- end -}}
+{{- $projects = sort $projects "sort" "desc" -}}
+
+{{- $project := dict -}}
+{{- if ne $phase "offseason" -}}
+  {{- $project = index (where $projects "id" (string $data.current)) 0 -}}
+  {{- if not $project -}}
+    {{- errorf "data/ugo.yaml: current %q is not a file in data/ugo/projects/" $data.current -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $live := and (eq $phase "live") (gt (len $project.updates) 0) -}}
+
+{{- $trip := $data.trip | default dict -}}
+{{- if and (not $trip) (eq $phase "live") -}}
+  {{- $trip = dict "start" $project.start "end" $project.end -}}
+{{- end -}}
+
+{{- return dict
+  "phase" $phase
+  "project" $project
+  "live" $live
+  "featured" (ne $phase "offseason")
+  "projects" $projects
+  "trip" $trip
+  "copy" (cond (gt (len $trip) 0) "upcoming" $phase)
+-}}

@@ -5,22 +5,26 @@
          hero → stat band → what UGO is → the model → the next project
          → get involved → give band → from the field
 
-     LIVE MODE (data/ugo.yaml `live.active`, while a trip is on the road)
-     puts a block above all of that, for visitors arriving from a field video:
+     WHILE A PROJECT IS LIVE OR IN WRAP-UP (data/ugo.yaml `phase`, read
+     through ugo-state.html), the current project's block (ugo-project.html,
+     the same one its own page /ugo/<id>/ shows) sits above all of that, for
+     visitors arriving from a field video:
 
-         latest video + Give/Subscribe → this trip's tally → every update
+         latest video + Give/Follow along → the tally → every update
          → follow along
 
-     (The happening-now band above it comes from baseof.html, on every page.)
+     It then carries the page's h1, and the hero's title steps down to h2.
+     (While live, the happening-now band above it comes from baseof.html, on
+     every page.) In the offseason the hero opens the page. In every phase,
+     "From the field" links each project's own page.
 
-     The live block then carries the page's h1 and the hero's title steps down
-     to h2. Out of live mode the updates stay, under "From the field".
-
-     Copy comes from content/ugo.md front matter (the hero lede is its body),
-     run through ugo-copy.html, which fills its {tokens}. Facts come from
-     data/ugo.yaml: trip dates, stats, playlists, and every photo with its
-     alt text and caption. The box price comes from data/designations.yaml.
-     Nothing in this template names a date, a price, or a photo.
+     Copy comes from content/ugo/_index.md front matter (the hero lede is
+     its body), run through ugo-copy.html, which fills its {tokens} and
+     picks each time-sensitive string's version for the phase. Facts come
+     from data/ugo.yaml and data/ugo/projects/: trip dates, stats,
+     playlists, projects, and every photo with its alt text and caption. The
+     box price comes from data/designations.yaml. Nothing in this template
+     names a date, a price, or a photo.
 
      RULES THIS FILE MUST KEEP:
 
@@ -44,8 +48,8 @@
         PRE-SELECTED, via give-cta.html from give_designation. The fund only:
         the donor picks the amount.
 
-     6. THE LIVE TALLY IS LIGHT (eto-50), not a second eto-900 band: rule 2
-        holds in live mode too.
+     6. THE PROJECT TALLY IS LIGHT (eto-50), not a second eto-900 band:
+        rule 2 holds with a featured project too.
      --------------------------------------------------------------------- */}}
 
 {{ define "main" }}
@@ -75,140 +79,33 @@
     {{ errorf "layouts/ugo.html: hero_image %q is not among data/ugo.yaml photos.featured" $p.hero_image }}
   {{ end }}
 
-  {{ $live := $ugo.live }}
-  {{ $isLive := and $live $live.active $live.updates }}
-  {{ $titleClass := "text-4xl font-black tracking-tight text-eto-600 sm:text-5xl" }}
+  {{ $state := partialCached "ugo-state.html" "ugo" }}
+  {{ $featuredProject := $state.featured }}
 
-  {{ if $isLive }}
-    {{ $latest := index $live.updates 0 }}
-
-    {{/* ---------------- Live: the latest update ---------------- */}}
-    {{/* The conversion point: a visitor who just watched a road video lands
-         on today's video with Give and Subscribe beside it. The player is
-         capped near phone width; at full column width a 9:16 frame would
-         fill a phone screen and dwarf everything beside it on desktop. */}}
-    <section id="top" aria-labelledby="live-heading" class="bg-white">
-      <div class="{{ $section }}">
-        <h1 id="live-heading" class="{{ $titleClass }}">
-          {{ $live.name }}: live from Ukraine
-        </h1>
-        <div class="mt-8 grid gap-8 md:grid-cols-[18rem_1fr] md:items-center md:gap-12">
-          <div class="mx-auto w-full max-w-60 md:max-w-none">
-            {{ partial "youtube-short.html" (dict
-              "id" $latest.youtube
-              "title" (printf "%s · %s: %s" (partial "ugo-day-label.html" $latest) $latest.place ($latest.title | plainify))
-            ) }}
-          </div>
-          <div>
-            <p class="text-caption font-semibold tracking-wide text-eto-700 uppercase">
-              {{ partial "ugo-day-label.html" $latest }} · {{ $latest.place }} ·
-              <time datetime="{{ time.Format "2006-01-02" $latest.date }}">{{ time.Format "Jan 2" $latest.date }}</time>
-            </p>
-            <h2 class="mt-2 text-heading text-ink">{{ $latest.title | markdownify }}</h2>
-            {{ with $latest.text }}
-              <p class="mt-3 max-w-prose text-body text-warm-800">{{ . | markdownify }}</p>
-            {{ end }}
-            <div class="mt-6 flex flex-wrap gap-3">
-              <a href="{{ $giveHref }}" class="btn btn-gold focus-ring">
-                {{ partial "ugo-copy.html" $p.give_cta_label }}
-              </a>
-              {{/* To the top of every update, with the follow links at its foot.
-                   Not the newsletter, which sends nothing during a trip and,
-                   beside a daily video, would promise daily email. */}}
-              <a href="#updates" class="btn btn-outline focus-ring">Follow along <span aria-hidden="true">↓</span></a>
-            </div>
-            {{/* The fallback if the site cannot be updated on the road: every
-                 video still lands in the trip's YouTube playlist. */}}
-            {{ with $live.playlist }}
-              <p class="mt-6 text-body">
-                {{ $href := printf "https://www.youtube.com/playlist?list=%s" . }}
-                {{ $x := partial "external.html" $href }}
-                <a href="{{ $href }}" {{ $x.attrs }} class="link">Watch every video on YouTube{{ $x.mark }}</a>
-              </p>
-            {{ end }}
-          </div>
-        </div>
-
-        {{/* ---------------- Live: this trip's tally ---------------- */}}
-        {{/* A figure still at 0 is hidden, and the whole box with it when
-             every figure is, so the tally appears on its own once the trip
-             has real numbers. Four figures sit 2×2 on phones, where four
-             across would squeeze the labels. */}}
-        {{ with where $live.tally "value" "gt" 0 }}
-          {{ $cols := cond (eq (len .) 4) "grid-cols-2 sm:grid-cols-4" "grid-cols-3" }}
-          <div class="mt-12 rounded-eto-lg bg-eto-50 p-6 sm:p-8">
-            <p id="tally-heading" class="text-caption font-semibold text-eto-700">So far on {{ $live.name }}</p>
-            <dl aria-labelledby="tally-heading" class="mt-4 grid {{ $cols }} gap-4">
-              {{ range . }}
-                {{/* Value above label visually, label first in the DOM, as in
-                     the track-record band. */}}
-                <div class="flex flex-col-reverse justify-end gap-1">
-                  <dt class="text-sm leading-snug text-warm-800">{{ .label | markdownify }}</dt>
-                  <dd class="text-3xl font-black tracking-tight text-eto-600 tabular-nums sm:text-4xl">
-                    {{ lang.FormatNumber 0 .value }}
-                  </dd>
-                </div>
-              {{ end }}
-            </dl>
-          </div>
-        {{ end }}
-      </div>
-    </section>
-
-    {{/* ---------------- Live: every update + follow along ---------------- */}}
-    <section aria-labelledby="updates" class="border-y border-warm-200 bg-paper">
-      <div class="{{ $section }}">
-        <h2 id="updates" class="{{ $h2 }}">Every update</h2>
-        <p class="mt-4 max-w-prose text-body text-warm-800">
-          Short videos from the road, newest first.
-        </p>
-        <div class="mt-8">
-          {{ partial "ugo-updates.html" (dict "headingId" "updates") }}
-        </div>
-        {{ with $live.playlist }}
-          <p class="mt-8 text-body">
-            {{ $href := printf "https://www.youtube.com/playlist?list=%s" . }}
-            {{ $x := partial "external.html" $href }}
-            <a href="{{ $href }}" {{ $x.attrs }} class="link">Watch every video on YouTube{{ $x.mark }}</a>
-          </p>
-        {{ end }}
-        {{ with $live.follow }}
-          <h3 class="mt-12 text-subheading text-ink">Follow along</h3>
-          <ul class="mt-4 flex flex-wrap gap-3">
-            {{ range . }}
-              <li>
-                {{ $x := partial "external.html" .url }}
-                <a
-                  href="{{ .url }}"
-                  {{ $x.attrs }}
-                  class="inline-flex items-center gap-2 rounded-eto border border-warm-200 bg-white px-4 py-2.5 font-semibold text-ink transition-colors hover:border-eto-600 hover:text-eto-600 focus-ring"
-                >
-                  {{ partial "icon.html" (dict "name" (printf "social-%s" .icon) "class" "size-5 fill-current") }}
-                  {{ .label }}{{ $x.note }}
-                </a>
-              </li>
-            {{ end }}
-          </ul>
-        {{ end }}
-      </div>
-    </section>
+  {{ if $featuredProject }}
+    {{ $project := $state.project }}
+    {{ partial "ugo-project.html" (dict
+      "project" $project
+      "title" (cond $state.live (printf "%s: live from Ukraine" $project.name) (printf "%s is complete" $project.name))
+      "live" $state.live
+    ) }}
   {{ end }}
 
   {{/* ---------------- Hero ---------------- */}}
-  <section {{ if not $isLive }}id="top"{{ end }} class="border-b border-warm-200 bg-white">
+  <section {{ if not $featuredProject }}id="top"{{ end }} class="border-b border-warm-200 bg-white">
     <div class="{{ $section }} grid items-center gap-10 md:grid-cols-5">
       <div class="md:col-span-3">
         {{/* The full logo is the title: its alt is the page title, so the
              heading's accessible name and the page outline are unchanged.
              Sized so the tagline and give button stay above the fold on a
-             phone. Eager: it is the page's first paint out of live mode. */}}
+             phone. Eager: it is the page's first paint in the offseason. */}}
         {{ $logo := partial "logo-img.html" (dict
           "src" $p.hero.logo
           "alt" .Title
           "class" "w-40 sm:w-48 md:w-56"
-          "loading" (cond $isLive "lazy" "eager")
+          "loading" (cond $featuredProject "lazy" "eager")
         ) }}
-        {{ if $isLive }}
+        {{ if $featuredProject }}
           <h2>{{ $logo }}</h2>
         {{ else }}
           <h1>{{ $logo }}</h1>
@@ -357,8 +254,9 @@
            object-[50%_30%] keeps both the flag and the van's wheels. */}}
       <div class="mt-10 grid gap-10 md:grid-cols-3">
         <div class="md:col-span-2">
-          <h2 id="next-heading" class="{{ $h2 }}">{{ $p.next.heading }}</h2>
+          <h2 id="next-heading" class="{{ $h2 }}">{{ partial "ugo-copy.html" $p.next.heading }}</h2>
           <div class="mt-4 max-w-prose md:mt-5 {{ $prose }}">
+            <p>{{ partial "ugo-copy.html" $p.next.lead }}</p>
             {{ partial "ugo-copy.html" $p.next.body }}
           </div>
         </div>
@@ -443,10 +341,29 @@
       <p class="mt-4 max-w-prose text-body text-warm-800 md:mt-5">
         {{ partial "ugo-copy.html" $p.field.intro }}
       </p>
-      {{/* Out of live mode, the last trip's updates stay here as its record. */}}
-      {{ if and (not $isLive) $live.updates }}
-        <h3 id="updates" class="mt-10 mb-4 text-subheading text-ink">{{ $live.name }} updates</h3>
-        {{ partial "ugo-updates.html" (dict "headingId" "updates") }}
+      {{/* Every project's own page, newest first. In the offseason this
+           heading also takes the id "updates", which the featured project
+           holds otherwise: /ugo/#updates is in the trip videos'
+           descriptions, and lands here once no project is featured. */}}
+      {{ with $state.projects }}
+        <h3 {{ if not $featuredProject }}id="updates"{{ else }}id="projects"{{ end }} class="mt-10 text-subheading text-ink">Every project</h3>
+        <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {{ range . }}
+            {{ $page := site.GetPage (printf "/ugo/%s" .id) }}
+            <li class="linked-card flex flex-col bg-paper p-6">
+              <p class="text-caption font-semibold text-eto-600">{{ partial "ugo-dates.html" . }}</p>
+              <p class="mt-1 text-subheading text-ink">
+                <a href="{{ $page.RelPermalink }}" class="stretched-link">{{ .name }}</a>
+              </p>
+              {{ with where .tally "value" "gt" 0 }}
+                <p class="mt-2 text-body text-warm-800">
+                  {{ range $i, $t := first 2 . }}{{ if $i }} · {{ end }}{{ lang.FormatNumber 0 $t.value }} {{ $t.label | markdownify }}{{ end }}
+                </p>
+              {{ end }}
+              <p aria-hidden="true" class="mt-4 text-caption font-semibold text-eto-600 md:mt-auto md:pt-4">Every update →</p>
+            </li>
+          {{ end }}
+        </ul>
       {{ end }}
       <div class="mt-8 grid gap-8 md:grid-cols-2 md:gap-4">
         {{ range $ugo.playlists }}
