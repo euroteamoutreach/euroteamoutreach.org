@@ -4,7 +4,7 @@ description: "Euro Team Outreach is a Christian missions organization serving in
 
 # Page copy, rendered section by section by layouts/index.html. Source draft:
 # planning/copy/home.md; tweaks happen in situ (#56). UGO strings go through
-# layouts/partials/ugo-copy.html, so {trip_dates}, {trip_year} and
+# layouts/partials/ugo-copy.html, so {trip_dates}, {trip_year}, {project} and
 # {box_price} work here too. Published-copy conventions apply: russia/russian
 # lowercase, Lviv without an apostrophe, KJV for Scripture.
 
@@ -53,11 +53,19 @@ work:
   lead:
     # The mini: the heading below spells out the name (#84's rule).
     logo: img/ministries/ugo-mini.svg
-    eyebrow: "Now · next project {trip_dates}"
+    # eyebrow and body change with the UGO state (data/ugo.yaml; the
+    # versions are explained in layouts/partials/ugo-copy.html).
+    eyebrow:
+      upcoming: "Now · next project {trip_dates}"
+      wrapup: "Just completed · {project}"
+      offseason: "Now · in the field since 2024"
     heading: "Ukraine Gospel Outreach"
     # A key under photos.featured in data/ugo.yaml.
     photo: aid
-    body: "Our largest effort today reaches the de-occupied villages of southern Ukraine — places the russian army once held, where help is now hardest to find. We go village by village with the Gospel and a box of food, hand-delivered to families who are still holding on. And in {trip_year}, we're going back."
+    body:
+      upcoming: "Our largest effort today reaches the de-occupied villages of southern Ukraine — places the russian army once held, where help is now hardest to find. We go village by village with the Gospel and a box of food, hand-delivered to families who are still holding on. And in {trip_year}, we're going back."
+      wrapup: "Our largest effort today reaches the de-occupied villages of southern Ukraine — places the russian army once held, where help is now hardest to find. We go village by village with the Gospel and a box of food, hand-delivered to families who are still holding on. The team has just come home from {project}, and we're already preparing to go back."
+      offseason: "Our largest effort today reaches the de-occupied villages of southern Ukraine — places the russian army once held, where help is now hardest to find. We go village by village with the Gospel and a box of food, hand-delivered to families who are still holding on. And we keep going back."
     label: "Learn about UGO"
     href: "/ugo/"
   # Pre-UGO track (#21): none of these has an on-site page yet, so every

@@ -1,15 +1,43 @@
-# UGO — the single source of truth for trip facts, stats, video, and photos.
+# UGO — the single source of truth for project facts, stats, video, and photos.
 #
-# Read by /ugo/ (layouts/ugo.html) and, from #28, by the home page's featured
-# UGO band. Page prose lives in content/ugo.md; it reaches these values only
+# Read by /ugo/ (layouts/ugo.html), every project page /ugo/<id>/
+# (layouts/ugo-project.html), and the home page's UGO card. Page prose lives
+# in content/ugo/_index.md and content/_index.md; it reaches these values only
 # through the {tokens} that layouts/partials/ugo-copy.html replaces, so no
 # date or price is ever typed into copy (#54).
+#
+# Each project's record (name, dates, tally, video updates) is its own file in
+# data/ugo/projects/, and that file makes its page: data/ugo/projects/2026.yaml
+# is /ugo/2026/. Hugo merges that folder into this file as `projects`.
 
 # ─────────────────────────────────────────────────────────────────────────────
-# LIVE MODE — /ugo/ while a trip is on the road (and the strip atop the home
-# page). Nothing below renders unless `active` is true.
+# THE PHASE RUNBOOK. Every phase change is an edit here, set by hand: nothing
+# on the site reads today's date.
 #
-# ▶ ADD TONIGHT'S UPDATE
+#   live       a project is on the road. The happening-now band on every
+#              page, the pulsing dot beside UGO in the nav, and /ugo/ opens
+#              with "UGO 2026: live from Ukraine".
+#   wrapup     the weeks after a trip (two to six). /ugo/ still opens with
+#              the project, "UGO 2026 is complete", with its final tally;
+#              no band, no dots.
+#   offseason  the rest of the year. /ugo/ is the general page about UGO;
+#              past projects are linked from "From the field".
+#
+# A project's own page, /ugo/<id>/, shows its full record in every phase.
+#
+# ▶ START A PROJECT (the night before the first video)
+#   1. Copy the latest file in data/ugo/projects/ to a new one named for the
+#      project: 2027.yaml. Its name is the page's address (/ugo/2027/), which
+#      never changes once the trip starts. If a year might have two trips,
+#      name the first one so it reads as one of two: 2027-spring.yaml.
+#   2. In it: set name, start, end, description, cover and playlist; set every
+#      tally value to 0 (the tally hides until a figure moves); empty
+#      `updates:` down to the first one.
+#   3. Here: `current: "2027"` (the file's name, in quotes) and `phase: live`.
+#   4. Delete `trip:` below if it holds this project's dates. While live,
+#      the copy reads the dates from the project's file instead.
+#
+# ▶ ADD TONIGHT'S UPDATE (in the current project's file)
 #   1. Copy this, paste it as the FIRST entry under `updates:`, fill it in:
 #
 #        - day: 1
@@ -31,161 +59,74 @@
 #   Several videos in a day: one entry per video, same `day`, each with its
 #   own `place`. The newest one goes on top.
 #
-#   No laptop? Edit this file on github.com in a phone browser (pencil icon,
+#   No laptop? Edit the file on github.com in a phone browser (pencil icon,
 #   then "Commit changes" to main); Netlify deploys it the same way. Full
 #   runbook: "UGO site update from a phone" in the Obsidian vault. If even that
-#   fails, just add the videos to the YouTube playlist below; the page links
-#   to it.
+#   fails, just add the videos to the project's YouTube playlist; the page
+#   links to it.
 #
-# The newest update drives everything: the band's day and place, the
-# "Updated" stamp, and the featured video. Nothing else needs editing.
+#   The newest update drives everything: the band's day and place, the
+#   "Updated" stamp, and the featured video. Nothing else needs editing.
 #
-# AFTER THE TRIP: set `active: false`. The band and the live block disappear;
-# the updates stay listed lower on the page as the trip's record.
-live:
-  active: true
-  # The trip these updates belong to, for headings ("UGO 2026 …").
-  name: "UGO 2026"
-  # The trip's YouTube playlist, linked as "Watch every video on YouTube".
-  # The fallback when the site can't be updated: a video added to the
-  # playlist shows up there with no site change.
-  playlist: PLI3oo5KuS4Pg
-  # This trip's running totals. Plain numbers (1000, not "1,000"); the page
-  # adds the commas. A figure at 0 is hidden, and the whole tally while every
-  # figure is 0, so it appears by itself once the numbers start.
-  tally:
-    - value: 15
-      label: "communities reached"
-    - value: 1093
-      label: "aid boxes given out"
-    - value: 1114
-      label: "*Good and Evil* books given out"
-    - value: 1000
-      label: "Bible First starter packets given out"
-  updates:
-    - day: 10
-      date: 2026-10-26
-      place: "Zhytomyr"
-      title: "1,093 aid boxes in 15 communities"
-      text: "On our last morning we took the rest of the aid to a government help center in Zhytomyr for people who fled Mariupol, and several refugees shared their stories with us. That brings UGO 2026 to 15 communities, 1,114 copies of Good and Evil, about 1,000 starter packets and 1,093 aid boxes. Thank you for praying and giving."
-      youtube: "v8AQ8WhXAB0"
-    - day: 9
-      date: 2026-10-25
-      place: "Zhytomyr"
-      title: "Over 400 came in Zhytomyr"
-      text: "We prayed for good weather and a good turnout, and over 400 people gathered on the steps for our street outreach in Zhytomyr. Nathan and I preached the Gospel, and Oleksandr gave the invitation. Everyone received a copy of Good and Evil, and we handed out 250 starter packets, 420 aid boxes and 300 loaves of bread from the south, until the bread ran out."
-      youtube: "pK8doFH0mXc"
-    - day: 8
-      date: 2026-10-24
-      place: "Zhytomyr"
-      title: "Getting ready for Zhytomyr"
-      text: "A day of logistics and recovery. We assembled literature packets with the Ilchenko family for tomorrow's street outreach, then visited a government support center for people from Mariupol, where we'll be back on Monday with aid packets and Good and Evil books. Please pray for good weather tomorrow."
-      youtube: "vY0cmMf7A1M"
-    - day: 7
-      date: 2026-10-23
-      place: "Dachne"
-      title: "A promise kept in Dachne"
-      text: "Our last meeting in the south was in Snihurivka, with about 55 people, mostly military families, so there are no photos. Then we went back to Dachne, our first village, with the Good and Evil books we couldn't bring on the way down. Everyone there got a copy. Now we're back in Zhytomyr for two more days of outreach."
-      youtube: "vome5V1oW4M"
-    - day: 6
-      date: 2026-10-22
-      place: "Pryshyb"
-      title: "We ran out of starter packets"
-      text: "Four villages today: Pryshyb, Semenivka, Vasylivske and Chervonopillia, with 141 people in all. We gave out 192 Good and Evil books, 145 aid boxes and the last of our Bible First starter packets: all 700 we brought south are now in people's hands. In one village, a lady showed us her library, and we left copies of Good and Evil for its shelves."
-      youtube: "bW9TOFsrmro"
-    - day: 6
-      date: 2026-10-22
-      place: "Yakovlivka"
-      title: "We know you care"
-      text: "On Tuesday in Yakovlivka, as people headed home with their aid boxes, one woman stopped to thank everyone who made the visit possible: those who gave, those who brought the aid all this way, and those who shared the Word of God. In Ukrainian with English subtitles."
-      youtube: "WNdx180aFnM"
-    - day: 5
-      date: 2026-10-21
-      place: "Vasylivka"
-      title: "How a village day works"
-      text: "Three villages today: Novopavlivske, Pavlo-Marianivka and Vasylivka, with 207 people in all. This is how each village meeting goes, from the muddy roads to the Gospel to the aid boxes, Good and Evil books, starter packets and fresh bread handed out at the van. Many people took extras home for relatives who couldn't come and children in school."
-      youtube: "69RLbRZWR6Y"
-    - day: 4
-      date: 2026-10-20
-      place: "Zelenyi Hai"
-      title: "Bombed, flooded, still here"
-      text: "Five villages in one day: Liubomyrivka, Veselyi Kut, Yakovlivka, Nova Poltavka and Zelenyi Hai. About 120 people heard the Gospel and went home with aid boxes, Good and Evil books and Bible First starter packets. One village had been occupied and bombed, then flooded when the russians destroyed the dam. And yet the people are still here."
-      youtube: "YPVZGqIY4zQ"
-    - day: 3
-      date: 2026-10-19
-      place: "Snihurivka"
-      title: "An unplanned stop on the way south"
-      text: "Eight to nine hours on the road from Zhytomyr to Snihurivka, about 50 km north of Kherson. On the way, a last-minute plan came together with a group in a town near Mykolaiv, so we stopped: Nathan and I preached the Gospel, and we handed out aid boxes and starter packets. Tomorrow we head out to the first of our villages."
-      youtube: "miiYPu3Jvlw"
-    - day: 2
-      date: 2026-10-18
-      place: "Zhytomyr"
-      title: "Packing aid boxes in the dark"
-      text: "Sunday night in Zhytomyr: the power is out and a drone alert is on, but we're at Oleksandr's church loading about 50 aid boxes into the van. Cooking oil, millet, flour, sugar, tea, noodles, and Gospel literature in every box. We head south at 6 a.m."
-      youtube: "bP9jrl8zDNw"
-    - day: 1
-      date: 2026-10-17
-      place: "Zhytomyr"
-      title: "Power out, red alert, safe"
-      text: "We made it to Zhytomyr. The power is out (that's the hotel generator you hear), and we'd just come through our first red-level air alert, the kind that warns of ballistic missiles. All clear now, and we're safe."
-      youtube: "GxauYMcpqqg"
-    - day: 1
-      date: 2026-10-17
-      place: "Zhytomyr"
-      title: "Pray for our safety"
-      text: "On the road to Zhytomyr, our first stop. Attacks on Kyiv and the north have picked up in recent months, and this close to the russian border there's much less warning. Please pray for our team's safety as we head south."
-      youtube: "TSLW0p3U2qc"
-    - day: "Getting ready"
-      date: 2026-10-16
-      place: "Lviv"
-      title: "Kid-powered: 1,000 starter packets"
-      text: "The Day and Steele kids assembled 1,000 Bible First starter packets: Lesson 1, an intro letter, and everything someone needs to enroll in the course. We'll hand them out as we travel through the south."
-      youtube: "POHIDlXpnug"
-    - day: 0
-      date: 2026-10-14
-      place: "Lviv"
-      title: "1,000 books head south"
-      text: "1,000 *Good and Evil* books are on their way south! Nathan, our boys and I loaded them up at Nova Poshta in Lviv, ahead of UGO 2026."
-      youtube: "R20rlSg0cfs"
-  # Where the videos go out each night. Joshua's own profile is listed first:
-  # it has by far the larger following.
-  follow:
-    - label: "Joshua on Facebook"
-      url: "https://www.facebook.com/joshukraine"
-      icon: facebook
-    - label: "ETO on Facebook"
-      url: "https://www.facebook.com/euroteamoutreach"
-      icon: facebook
-    - label: "ETO on Instagram"
-      url: "https://www.instagram.com/euroteamoutreach/"
-      icon: instagram
-    - label: "ETO on YouTube"
-      url: "https://www.youtube.com/@euroteamoutreach"
-      icon: youtube
+# ▶ GO TO WRAP-UP (the day after the last video)
+#   1. `phase: wrapup`. Keep `current`.
+#   2. Final tally figures in the project's file.
+#   3. Add the project to `stats:` below (and `playlists:`, if not there yet).
+#
+# ▶ GO OFFSEASON (two to six weeks later)
+#   1. `phase: offseason`. `current` can stay; offseason doesn't read it.
+#
+# ▶ THE NEXT PROJECT'S DATES ARE SET (in any phase)
+#   Fill in `trip:` below. The copy on /ugo/ and home goes back to "we're
+#   going back" with the dates; delete it again when that project starts.
 # ─────────────────────────────────────────────────────────────────────────────
+phase: wrapup
+# The featured project: a file name in data/ugo/projects/, in quotes.
+current: "2026"
 
-# The next project. The ONLY place its dates exist. {trip_dates} renders as
-# "October 17–26, 2026"; a trip spanning two months renders both names.
-# ⚠️ After the team returns, the "next project" copy in content/ugo.md speaks
-# of a trip that is over. Update the dates and that copy together.
-trip:
-  start: 2026-10-17
-  end: 2026-10-26
+# Where the videos go out each night, linked under every project's updates.
+# Joshua's own profile is listed first: it has by far the larger following.
+follow:
+  - label: "Joshua on Facebook"
+    url: "https://www.facebook.com/joshukraine"
+    icon: facebook
+  - label: "ETO on Facebook"
+    url: "https://www.facebook.com/euroteamoutreach"
+    icon: facebook
+  - label: "ETO on Instagram"
+    url: "https://www.instagram.com/euroteamoutreach/"
+    icon: instagram
+  - label: "ETO on YouTube"
+    url: "https://www.youtube.com/@euroteamoutreach"
+    icon: youtube
 
-# The track-record band. Rounded ballparks for boxes and books; Nathan keeps
-# the precise records (planning/copy/ugo.md §2). Villages counts only the
-# de-occupied south (10 in 2024 + 11 in 2025); the Zhytomyr-area outreach is
-# well north of the front and deliberately not included. The books figure is
-# UGO-only, and its label says so; the ministry-wide total is on the home
-# Good and Evil card (content/_index.md).
+# The NEXT project's dates, once they are set; absent until then. The ONLY
+# place they exist. {trip_dates} renders as "October 17–26, 2026"; a trip
+# spanning two months renders both names. While it is set, the copy on /ugo/
+# and home speaks of the project as coming (each copy string's `upcoming`
+# version, content/ugo/_index.md); while it is absent, the phase's version.
+#
+# trip:
+#   start: 2027-10-16
+#   end: 2027-10-25
+
+# The track-record band on /ugo/ and home, across every project. Rounded
+# ballparks for boxes and books; Nathan keeps the precise records
+# (planning/copy/ugo.md §2). Communities counts every village or city where
+# we held an outreach meeting, south and Zhytomyr area alike: 11 in 2024, 13
+# in 2025, 15 in 2026. The books figure is UGO-only, and its label says so;
+# the ministry-wide total is on the home Good and Evil card
+# (content/_index.md). Boxes and books are the per-year sums pending Nathan's
+# confirmation (2026-10-27). Bible First starter packets stay on each
+# project's own tally for now.
 stats:
-  - value: "2"
+  - value: "3"
     label: "field projects since 2024"
-  - value: "21"
-    label: "villages reached near the front"
-  - value: "1,500"
+  - value: "39"
+    label: "communities reached"
+  - value: "2,600"
     label: "aid boxes placed in Ukrainian hands"
-  - value: "1,000+"
+  - value: "2,100+"
     label: "*Good and Evil* books given out on UGO trips"
 
 # Box counts for the give band. Each amount is box_price (data/designations.yaml)

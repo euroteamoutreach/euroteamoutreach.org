@@ -10,15 +10,24 @@ give_designation: ugo-aid-boxes
 give_cta_label: "Give an aid box — {box_price}"
 status: active
 weight: 10
+# /ugo/ is a section (its projects are /ugo/<id>/, content/ugo/_content.gotmpl)
+# but has no feed.
+outputs: [html]
 
 # Page copy, rendered section by section by layouts/ugo.html. Source draft:
 # planning/copy/ugo.md; tweaks happen in situ (#56).
 #
-# NO DATE OR PRICE IS TYPED HERE. Write a token instead, and
+# NO DATE, PRICE OR PROJECT NAME IS TYPED HERE. Write a token instead, and
 # layouts/partials/ugo-copy.html fills it in:
 #   {trip_dates}  → "October 17–26, 2026"   (data/ugo.yaml trip)
 #   {trip_year}   → "2026"                  (data/ugo.yaml trip)
+#   {project}     → "UGO 2026"              (the current project)
 #   {box_price}   → "$20"                   (data/designations.yaml)
+#
+# Copy that would go stale between trips has a version per state, chosen by
+# data/ugo.yaml (ugo-copy.html explains): `upcoming` while the next project's
+# dates are known (and while live), else `wrapup` or `offseason`. Neither of
+# those may promise a date.
 #
 # ⚠️ Aid goes out on discrete trips (#43). Nothing here may imply year-round
 # or monthly distribution: frame gifts as preparing boxes ahead of a trip.
@@ -30,7 +39,10 @@ hero:
 
 stats:
   heading: "Real ground covered."
-  text: "Years into the war, the cameras have moved on — but these families are still waiting, and the need is still real. We were able to go. So we did. And in {trip_year}, we're going back."
+  text:
+    upcoming: "Years into the war, the cameras have moved on — but these families are still waiting, and the need is still real. We were able to go. So we did. And in {trip_year}, we're going back."
+    wrapup: "Years into the war, the cameras have moved on — but these families are still waiting, and the need is still real. We were able to go. So we did, and with {project} we went back again."
+    offseason: "Years into the war, the cameras have moved on — but these families are still waiting, and the need is still real. We were able to go. So we did, and we keep going back."
 
 what:
   heading: "What is UGO?"
@@ -73,11 +85,18 @@ model:
 
 # Rewritten from the draft for the 2026 trip: visitors arrive from the field
 # videos while the team is on the road, so this no longer says "planning".
+# The heading and the opening paragraph change with the state; the rest holds
+# in every state.
 next:
-  heading: "We're going back"
+  heading:
+    upcoming: "We're going back"
+    wrapup: "Until we go back"
+    offseason: "Until we go back"
+  lead:
+    upcoming: "The next UGO project runs **{trip_dates}** — the same core team, the same long drive south, into the de-occupied villages of the Mykolaiv region and beyond. These are the places where the war came closest, and where help is now hardest to find."
+    wrapup: "{project} is complete, but the work in the south is not. The same core team will make the same long drive again, into the de-occupied villages of the Mykolaiv region and beyond. These are the places where the war came closest, and where help is now hardest to find."
+    offseason: "Between projects, the families in the de-occupied villages of the Mykolaiv region and beyond are still there. These are the places where the war came closest, and where help is now hardest to find. The same core team will make the same long drive south again."
   body: |
-    The next UGO project runs **{trip_dates}** — the same core team, the same long drive south, into the de-occupied villages of the Mykolaiv region and beyond. These are the places where the war came closest, and where help is now hardest to find.
-
     In one village on an earlier trip, a woman told us the larger aid organizations had mostly stopped coming once the early years of the war had passed. We can't speak to anyone else's work — much of it did real good, on a scale we will never match. We can only tell you what we have seen with our own eyes: the families are still there, the winters are still hard, and the need has not eased. So we are going back.
 
     Every aid box has to be bought and packed before the team can hand it out, and each gift helps prepare the boxes for a trip south. {box_price} fills one box: food for a family, and the Gospel placed in their hands.

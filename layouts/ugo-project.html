@@ -1,0 +1,33 @@
+{{/* ---------------------------------------------------------------------
+     /ugo/<id>/ — one UGO project's page (#93), made by
+     content/ugo/_content.gotmpl from data/ugo/projects/<id>.yaml. It exists
+     from the trip's first day and keeps its URL in every phase.
+
+         the project (ugo-project.html, as atop /ugo/) → about UGO
+
+     While this is the current project and the phase is live, it reads as
+     /ugo/ does: "UGO 2026: live from Ukraine", "So far on …". Otherwise the
+     h1 is the project's name, with its dates and final tally.
+     --------------------------------------------------------------------- */}}
+
+{{ define "main" }}
+  {{ $state := partialCached "ugo-state.html" "ugo" }}
+  {{ $project := index (where $state.projects "id" .Params.project) 0 }}
+  {{ $ugo := site.GetPage "/ugo" }}
+
+  {{ partial "ugo-project.html" (dict "project" $project "title" $project.name) }}
+
+  {{/* ---------------- About UGO ---------------- */}}
+  {{/* A visitor who arrives here from a video may not know what UGO is: one
+       line from /ugo/'s own description, and the way there. */}}
+  <section aria-labelledby="about-heading">
+    <div class="mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20">
+      <h2 id="about-heading" class="text-heading text-ink">{{ $ugo.Title }}</h2>
+      <p class="mt-4 max-w-prose text-body text-warm-800 md:mt-5">{{ $ugo.Description }}</p>
+      <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+        <a href="{{ partial "give-cta.html" $ugo.Params.give_designation }}" class="btn btn-gold focus-ring">{{ $ugo.Params.give.label }}</a>
+        <a href="{{ $ugo.RelPermalink }}" class="link-standalone">Learn about UGO →</a>
+      </div>
+    </div>
+  </section>
+{{ end }}

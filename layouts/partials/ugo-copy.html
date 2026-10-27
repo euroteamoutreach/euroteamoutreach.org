@@ -1,48 +1,57 @@
 {{- /*
   ugo-copy — fills a UGO copy string's {tokens}, then renders it as markdown.
 
-  Copy in content/ugo.md never types a date or a price; it writes a token,
-  and this partial supplies the value from the one file that owns it:
+  Copy in content/ugo/_index.md and content/_index.md never types a date, a
+  price or a project name; it writes a token, and this partial supplies the
+  value from the one file that owns it:
 
     {trip_dates}  data/ugo.yaml trip         "October 17–26, 2026"
                                              "October 28 – November 3, 2026"
                                              "December 28, 2026 – January 3, 2027"
     {trip_year}   data/ugo.yaml trip.start   "2026"
+    {project}     the current project's name "UGO 2026"
     {box_price}   data/designations.yaml     "$20" (via usd.html), from /ugo/'s
                   give_designation, whichever page renders the copy
 
-  An unknown or misspelled token fails the build rather than shipping as
-  literal braces.
+  The trip tokens need trip dates (ugo-state.html `tripDates`): while there
+  are none, a string that uses one fails the build. The values themselves
+  come from ugo-state.html, computed once per build.
 
-  Usage: {{ partial "ugo-copy.html" .Params.next.body }}
+  COPY THAT CHANGES WITH THE PHASE is a map instead of a string, one version
+  per state (ugo-state.html `copy`):
+
+    eyebrow:
+      upcoming: "Now · next project {trip_dates}"   # dates set, or live
+      wrapup: "Just completed · {project}"
+      offseason: "Now · in the field since 2024"
+
+  An unknown or misspelled token, or a missing version, fails the build
+  rather than shipping as literal braces or an empty line.
+
+  Usage: {{ partial "ugo-copy.html" .Params.stats.text }}
   Returns safe HTML. markdownify drops the <p> wrapper from a single
   paragraph, so one-liners render inline and multi-paragraph copy as <p>s.
 */ -}}
+{{- $state := partialCached "ugo-state.html" "ugo" -}}
 {{- $s := . -}}
-{{- with hugo.Data.ugo.trip -}}
-  {{- $start := time.AsTime .start -}}
-  {{- $end := time.AsTime .end -}}
-  {{- $dates := "" -}}
-  {{- if eq ($start.Format "200601") ($end.Format "200601") -}}
-    {{- $dates = printf "%s–%s" ($start.Format "January 2") ($end.Format "2, 2006") -}}
-  {{- else if eq $start.Year $end.Year -}}
-    {{- $dates = printf "%s – %s" ($start.Format "January 2") ($end.Format "January 2, 2006") -}}
-  {{- else -}}
-    {{- $dates = printf "%s – %s" ($start.Format "January 2, 2006") ($end.Format "January 2, 2006") -}}
+{{- if reflect.IsMap $s -}}
+  {{- $s = index . $state.copy -}}
+  {{- if not $s -}}
+    {{- errorf "ugo-copy: no %q version in %v" $state.copy . -}}
   {{- end -}}
-  {{- $s = replace $s "{trip_dates}" $dates -}}
-  {{- $s = replace $s "{trip_year}" ($start.Format "2006") -}}
-{{- else -}}
-  {{- errorf "ugo-copy: data/ugo.yaml has no trip" -}}
 {{- end -}}
-{{- /* The /ugo/ page's fund, not the rendering page's: home (#28) shows UGO
-     copy too, and has no give_designation of its own. */ -}}
-{{- $slug := (site.GetPage "/ugo").Params.give_designation -}}
-{{- with index (where hugo.Data.designations "slug" $slug) 0 -}}
-  {{- $s = replace $s "{box_price}" (partial "usd.html" .box_price) -}}
+{{- with $state.tripDates -}}
+  {{- $s = replace $s "{trip_dates}" . -}}
+  {{- $s = replace $s "{trip_year}" $state.tripYear -}}
 {{- else -}}
-  {{- errorf "ugo-copy: /ugo/ give_designation %q is not in data/designations.yaml" $slug -}}
+  {{- with findRE `\{trip_[a-z]+\}` $s 1 -}}
+    {{- errorf "ugo-copy: %s needs trip dates (data/ugo.yaml trip), and there are none in %q" (index . 0) $s -}}
+  {{- end -}}
 {{- end -}}
+{{- with $state.project.name -}}
+  {{- $s = replace $s "{project}" . -}}
+{{- end -}}
+{{- $s = replace $s "{box_price}" $state.boxPrice -}}
 {{- with findRE `\{[a-z_]+\}` $s 1 -}}
   {{- errorf "ugo-copy: unknown token %s in %q" (index . 0) $s -}}
 {{- end -}}

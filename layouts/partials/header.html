@@ -98,11 +98,10 @@
       {{ end }}
     </a>
 
-    {{/* While a UGO trip is on the road (data/ugo.yaml live), the UGO link
-         carries a small pulsing dot: a cue that stays in view once the
+    {{/* While a UGO trip is on the road (data/ugo.yaml phase: live), the UGO
+         link carries a small pulsing dot: a cue that stays in view once the
          happening-now band has scrolled away, at no cost in height. */}}
-    {{ $live := hugo.Data.ugo.live }}
-    {{ $liveUgo := cond (and $live $live.active $live.updates) (site.GetPage "/ugo") false }}
+    {{ $liveUgo := cond (partialCached "ugo-state.html" "ugo").live (site.GetPage "/ugo") false }}
 
     {{/* Desktop navigation */}}
     <nav class="hidden md:flex md:items-center md:gap-x-7" aria-label="Main">

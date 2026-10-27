@@ -1,0 +1,120 @@
+# UGO 2026 — one UGO project, its whole record. The file's name (2026) is the
+# project's id: its page is /ugo/2026/, and data/ugo.yaml `current: "2026"`
+# features it on /ugo/. How to add tonight's update, and how to change phase:
+# the runbook at the top of data/ugo.yaml.
+
+# Every heading says this: "UGO 2026: live from Ukraine", "UGO 2026 is
+# complete", the page title.
+name: "UGO 2026"
+# The trip's first and last days in the field. They date the project on its
+# page and in the past-projects list, and order that list.
+start: 2026-10-17
+end: 2026-10-26
+# For search results and share cards: one sentence.
+description: "Ten days in October 2026 carrying the Gospel and aid boxes to communities in southern Ukraine and around Zhytomyr, with every video update from the road."
+# The share image for /ugo/2026/: a Cloudinary public ID from data/ugo.yaml
+# photos.
+cover: ugo/IMG_7682_iwbbn8
+# The trip's YouTube playlist, linked as "Watch every video on YouTube".
+# The fallback when the site can't be updated: a video added to the
+# playlist shows up there with no site change.
+playlist: PLI3oo5KuS4Pg
+# This trip's running totals. Plain numbers (1000, not "1,000"); the page
+# adds the commas. A figure at 0 is hidden, and the whole tally while every
+# figure is 0, so it appears by itself once the numbers start.
+tally:
+  - value: 15
+    label: "communities reached"
+  - value: 1093
+    label: "aid boxes given out"
+  - value: 1114
+    label: "*Good and Evil* books given out"
+  - value: 1000
+    label: "Bible First starter packets given out"
+# Newest first. The newest one is the featured video, and drives the
+# happening-now band while the project is live.
+updates:
+  - day: 10
+    date: 2026-10-26
+    place: "Zhytomyr"
+    title: "1,093 aid boxes in 15 communities"
+    text: "On our last morning we took the rest of the aid to a government help center in Zhytomyr for people who fled Mariupol, and several refugees shared their stories with us. That brings UGO 2026 to 15 communities, 1,114 copies of Good and Evil, about 1,000 starter packets and 1,093 aid boxes. Thank you for praying and giving."
+    youtube: "v8AQ8WhXAB0"
+  - day: 9
+    date: 2026-10-25
+    place: "Zhytomyr"
+    title: "Over 400 came in Zhytomyr"
+    text: "We prayed for good weather and a good turnout, and over 400 people gathered on the steps for our street outreach in Zhytomyr. Nathan and I preached the Gospel, and Oleksandr gave the invitation. Everyone received a copy of Good and Evil, and we handed out 250 starter packets, 420 aid boxes and 300 loaves of bread from the south, until the bread ran out."
+    youtube: "pK8doFH0mXc"
+  - day: 8
+    date: 2026-10-24
+    place: "Zhytomyr"
+    title: "Getting ready for Zhytomyr"
+    text: "A day of logistics and recovery. We assembled literature packets with the Ilchenko family for tomorrow's street outreach, then visited a government support center for people from Mariupol, where we'll be back on Monday with aid packets and Good and Evil books. Please pray for good weather tomorrow."
+    youtube: "vY0cmMf7A1M"
+  - day: 7
+    date: 2026-10-23
+    place: "Dachne"
+    title: "A promise kept in Dachne"
+    text: "Our last meeting in the south was in Snihurivka, with about 55 people, mostly military families, so there are no photos. Then we went back to Dachne, our first village, with the Good and Evil books we couldn't bring on the way down. Everyone there got a copy. Now we're back in Zhytomyr for two more days of outreach."
+    youtube: "vome5V1oW4M"
+  - day: 6
+    date: 2026-10-22
+    place: "Pryshyb"
+    title: "We ran out of starter packets"
+    text: "Four villages today: Pryshyb, Semenivka, Vasylivske and Chervonopillia, with 141 people in all. We gave out 192 Good and Evil books, 145 aid boxes and the last of our Bible First starter packets: all 700 we brought south are now in people's hands. In one village, a lady showed us her library, and we left copies of Good and Evil for its shelves."
+    youtube: "bW9TOFsrmro"
+  - day: 6
+    date: 2026-10-22
+    place: "Yakovlivka"
+    title: "We know you care"
+    text: "On Tuesday in Yakovlivka, as people headed home with their aid boxes, one woman stopped to thank everyone who made the visit possible: those who gave, those who brought the aid all this way, and those who shared the Word of God. In Ukrainian with English subtitles."
+    youtube: "WNdx180aFnM"
+  - day: 5
+    date: 2026-10-21
+    place: "Vasylivka"
+    title: "How a village day works"
+    text: "Three villages today: Novopavlivske, Pavlo-Marianivka and Vasylivka, with 207 people in all. This is how each village meeting goes, from the muddy roads to the Gospel to the aid boxes, Good and Evil books, starter packets and fresh bread handed out at the van. Many people took extras home for relatives who couldn't come and children in school."
+    youtube: "69RLbRZWR6Y"
+  - day: 4
+    date: 2026-10-20
+    place: "Zelenyi Hai"
+    title: "Bombed, flooded, still here"
+    text: "Five villages in one day: Liubomyrivka, Veselyi Kut, Yakovlivka, Nova Poltavka and Zelenyi Hai. About 120 people heard the Gospel and went home with aid boxes, Good and Evil books and Bible First starter packets. One village had been occupied and bombed, then flooded when the russians destroyed the dam. And yet the people are still here."
+    youtube: "YPVZGqIY4zQ"
+  - day: 3
+    date: 2026-10-19
+    place: "Snihurivka"
+    title: "An unplanned stop on the way south"
+    text: "Eight to nine hours on the road from Zhytomyr to Snihurivka, about 50 km north of Kherson. On the way, a last-minute plan came together with a group in a town near Mykolaiv, so we stopped: Nathan and I preached the Gospel, and we handed out aid boxes and starter packets. Tomorrow we head out to the first of our villages."
+    youtube: "miiYPu3Jvlw"
+  - day: 2
+    date: 2026-10-18
+    place: "Zhytomyr"
+    title: "Packing aid boxes in the dark"
+    text: "Sunday night in Zhytomyr: the power is out and a drone alert is on, but we're at Oleksandr's church loading about 50 aid boxes into the van. Cooking oil, millet, flour, sugar, tea, noodles, and Gospel literature in every box. We head south at 6 a.m."
+    youtube: "bP9jrl8zDNw"
+  - day: 1
+    date: 2026-10-17
+    place: "Zhytomyr"
+    title: "Power out, red alert, safe"
+    text: "We made it to Zhytomyr. The power is out (that's the hotel generator you hear), and we'd just come through our first red-level air alert, the kind that warns of ballistic missiles. All clear now, and we're safe."
+    youtube: "GxauYMcpqqg"
+  - day: 1
+    date: 2026-10-17
+    place: "Zhytomyr"
+    title: "Pray for our safety"
+    text: "On the road to Zhytomyr, our first stop. Attacks on Kyiv and the north have picked up in recent months, and this close to the russian border there's much less warning. Please pray for our team's safety as we head south."
+    youtube: "TSLW0p3U2qc"
+  - day: "Getting ready"
+    date: 2026-10-16
+    place: "Lviv"
+    title: "Kid-powered: 1,000 starter packets"
+    text: "The Day and Steele kids assembled 1,000 Bible First starter packets: Lesson 1, an intro letter, and everything someone needs to enroll in the course. We'll hand them out as we travel through the south."
+    youtube: "POHIDlXpnug"
+  - day: 0
+    date: 2026-10-14
+    place: "Lviv"
+    title: "1,000 books head south"
+    text: "1,000 *Good and Evil* books are on their way south! Nathan, our boys and I loaded them up at Nova Poshta in Lviv, ahead of UGO 2026."
+    youtube: "R20rlSg0cfs"
