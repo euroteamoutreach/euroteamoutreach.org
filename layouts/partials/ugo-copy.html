@@ -13,14 +13,15 @@
     {box_price}   data/designations.yaml     "$20" (via usd.html), from /ugo/'s
                   give_designation, whichever page renders the copy
 
-  The trip tokens need trip dates (ugo-state.html `trip`): while there are
-  none, a string that uses one fails the build.
+  The trip tokens need trip dates (ugo-state.html `tripDates`): while there
+  are none, a string that uses one fails the build. The values themselves
+  come from ugo-state.html, computed once per build.
 
   COPY THAT CHANGES WITH THE PHASE is a map instead of a string, one version
   per state (ugo-state.html `copy`):
 
     eyebrow:
-      upcoming: "Now · next project {trip_dates}"   # trip dates are set
+      upcoming: "Now · next project {trip_dates}"   # dates set, or live
       wrapup: "Just completed · {project}"
       offseason: "Now · in the field since 2024"
 
@@ -39,11 +40,9 @@
     {{- errorf "ugo-copy: no %q version in %v" $state.copy . -}}
   {{- end -}}
 {{- end -}}
-{{- with $state.trip -}}
-  {{- $start := time.AsTime .start -}}
-  {{- $dates := partial "ugo-dates.html" . -}}
-  {{- $s = replace $s "{trip_dates}" $dates -}}
-  {{- $s = replace $s "{trip_year}" ($start.Format "2006") -}}
+{{- with $state.tripDates -}}
+  {{- $s = replace $s "{trip_dates}" . -}}
+  {{- $s = replace $s "{trip_year}" $state.tripYear -}}
 {{- else -}}
   {{- with findRE `\{trip_[a-z]+\}` $s 1 -}}
     {{- errorf "ugo-copy: %s needs trip dates (data/ugo.yaml trip), and there are none in %q" (index . 0) $s -}}
@@ -52,14 +51,7 @@
 {{- with $state.project.name -}}
   {{- $s = replace $s "{project}" . -}}
 {{- end -}}
-{{- /* The /ugo/ page's fund, not the rendering page's: home (#28) shows UGO
-     copy too, and has no give_designation of its own. */ -}}
-{{- $slug := (site.GetPage "/ugo").Params.give_designation -}}
-{{- with index (where hugo.Data.designations "slug" $slug) 0 -}}
-  {{- $s = replace $s "{box_price}" (partial "usd.html" .box_price) -}}
-{{- else -}}
-  {{- errorf "ugo-copy: /ugo/ give_designation %q is not in data/designations.yaml" $slug -}}
-{{- end -}}
+{{- $s = replace $s "{box_price}" $state.boxPrice -}}
 {{- with findRE `\{[a-z_]+\}` $s 1 -}}
   {{- errorf "ugo-copy: unknown token %s in %q" (index . 0) $s -}}
 {{- end -}}

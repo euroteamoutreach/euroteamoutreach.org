@@ -80,15 +80,10 @@
   {{ end }}
 
   {{ $state := partialCached "ugo-state.html" "ugo" }}
-  {{ $featuredProject := $state.featured }}
+  {{ $featuredProject := $state.project }}
 
-  {{ if $featuredProject }}
-    {{ $project := $state.project }}
-    {{ partial "ugo-project.html" (dict
-      "project" $project
-      "title" (cond $state.live (printf "%s: live from Ukraine" $project.name) (printf "%s is complete" $project.name))
-      "live" $state.live
-    ) }}
+  {{ with $featuredProject }}
+    {{ partial "ugo-project.html" (dict "project" . "title" (printf "%s is complete" .name)) }}
   {{ end }}
 
   {{/* ---------------- Hero ---------------- */}}
@@ -256,7 +251,9 @@
         <div class="md:col-span-2">
           <h2 id="next-heading" class="{{ $h2 }}">{{ partial "ugo-copy.html" $p.next.heading }}</h2>
           <div class="mt-4 max-w-prose md:mt-5 {{ $prose }}">
-            <p>{{ partial "ugo-copy.html" $p.next.lead }}</p>
+            {{/* markdownify drops the <p> from a single paragraph. */}}
+            {{ $lead := partial "ugo-copy.html" $p.next.lead }}
+            {{ if hasPrefix $lead "<p>" }}{{ $lead }}{{ else }}<p>{{ $lead }}</p>{{ end }}
             {{ partial "ugo-copy.html" $p.next.body }}
           </div>
         </div>
@@ -346,7 +343,7 @@
            holds otherwise: /ugo/#updates is in the trip videos'
            descriptions, and lands here once no project is featured. */}}
       {{ with $state.projects }}
-        <h3 {{ if not $featuredProject }}id="updates"{{ else }}id="projects"{{ end }} class="mt-10 text-subheading text-ink">Every project</h3>
+        <h3 {{ if not $featuredProject }}id="updates"{{ end }} class="mt-10 text-subheading text-ink">Every project</h3>
         <ul class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {{ range . }}
             {{ $page := site.GetPage (printf "/ugo/%s" .id) }}

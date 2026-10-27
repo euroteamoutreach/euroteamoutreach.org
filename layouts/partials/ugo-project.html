@@ -13,20 +13,29 @@
   The tally is light (eto-50), not a second eto-900 band: /ugo/'s rule 2
   holds whenever this block sits above the stat band.
 
+  While this is the current project and the phase is live, the h1 reads
+  "UGO 2026: live from Ukraine" and the tally "So far on UGO 2026";
+  otherwise the h1 is `title`, with the project's dates under it, and the
+  tally reads "Final tally".
+
   Params (dict):
     project  (required) a project from ugo-state.html (`id` and all)
-    title    (required) the h1: "UGO 2026: live from Ukraine"
-    live     (bool) the project is on the road now: the tally reads "So far
-             on …"; otherwise "Final tally", and the dates sit under the h1
+    title    (required) the h1 when not live: "UGO 2026 is complete"
 */ -}}
 {{- $project := .project -}}
-{{- $live := .live -}}
+{{- $state := partialCached "ugo-state.html" "ugo" -}}
+{{- $live := and $state.live (eq $project.id $state.project.id) -}}
+{{- $title := cond $live (printf "%s: live from Ukraine" $project.name) .title -}}
 {{- $ugoPage := site.GetPage "/ugo" -}}
 {{- $giveHref := partial "give-cta.html" $ugoPage.Params.give_designation -}}
 {{- $section := "mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20" -}}
-{{- $playlistHref := "" -}}
+{{- /* The trip's YouTube playlist, linked twice: beside the latest video and
+     under every update. */ -}}
+{{- $playlistLink := "" -}}
 {{- with $project.playlist -}}
-  {{- $playlistHref = printf "https://www.youtube.com/playlist?list=%s" . -}}
+  {{- $href := printf "https://www.youtube.com/playlist?list=%s" . -}}
+  {{- $x := partial "external.html" $href -}}
+  {{- $playlistLink = printf `<a href="%s" %s class="link">Watch every video on YouTube%s</a>` $href $x.attrs $x.mark | safeHTML -}}
 {{- end -}}
 
 {{/* ---------------- The latest update ---------------- */}}
@@ -37,23 +46,24 @@
 <section id="top" aria-labelledby="project-heading" class="bg-white">
   <div class="{{ $section }}">
     <h1 id="project-heading" class="text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">
-      {{ .title }}
+      {{ $title }}
     </h1>
     {{ if not $live }}
       <p class="mt-3 text-lede text-warm-800">{{ partial "ugo-dates.html" $project }}</p>
     {{ end }}
     {{ with $project.updates }}
       {{ $latest := index . 0 }}
+      {{ $label := partial "ugo-day-label.html" $latest }}
       <div class="mt-8 grid gap-8 md:grid-cols-[18rem_1fr] md:items-center md:gap-12">
         <div class="mx-auto w-full max-w-60 md:max-w-none">
           {{ partial "youtube-short.html" (dict
             "id" $latest.youtube
-            "title" (printf "%s · %s: %s" (partial "ugo-day-label.html" $latest) $latest.place ($latest.title | plainify))
+            "title" (printf "%s · %s: %s" $label $latest.place ($latest.title | plainify))
           ) }}
         </div>
         <div>
           <p class="text-caption font-semibold tracking-wide text-eto-700 uppercase">
-            {{ partial "ugo-day-label.html" $latest }} · {{ $latest.place }} ·
+            {{ $label }} · {{ $latest.place }} ·
             <time datetime="{{ time.Format "2006-01-02" $latest.date }}">{{ time.Format "Jan 2" $latest.date }}</time>
           </p>
           <h2 class="mt-2 text-heading text-ink">{{ $latest.title | markdownify }}</h2>
@@ -71,11 +81,8 @@
           </div>
           {{/* The fallback if the site cannot be updated on the road: every
                video still lands in the trip's YouTube playlist. */}}
-          {{ with $playlistHref }}
-            <p class="mt-6 text-body">
-              {{ $x := partial "external.html" . }}
-              <a href="{{ . }}" {{ $x.attrs }} class="link">Watch every video on YouTube{{ $x.mark }}</a>
-            </p>
+          {{ with $playlistLink }}
+            <p class="mt-6 text-body">{{ . }}</p>
           {{ end }}
         </div>
       </div>
@@ -119,11 +126,8 @@
     <div class="mt-8">
       {{ partial "ugo-updates.html" (dict "updates" $project.updates "headingId" "updates") }}
     </div>
-    {{ with $playlistHref }}
-      <p class="mt-8 text-body">
-        {{ $x := partial "external.html" . }}
-        <a href="{{ . }}" {{ $x.attrs }} class="link">Watch every video on YouTube{{ $x.mark }}</a>
-      </p>
+    {{ with $playlistLink }}
+      <p class="mt-8 text-body">{{ . }}</p>
     {{ end }}
     {{ with hugo.Data.ugo.follow }}
       <h3 class="mt-12 text-subheading text-ink">Follow along</h3>

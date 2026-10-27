@@ -21,7 +21,8 @@
 {{- with .updates -}}
   <ol aria-labelledby="{{ $.headingId }}" class="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 lg:grid-cols-4">
     {{- range . -}}
-      {{- $name := printf "%s · %s: %s" (partial "ugo-day-label.html" .) .place (.title | plainify) -}}
+      {{- $label := partial "ugo-day-label.html" . -}}
+      {{- $name := printf "%s · %s: %s" $label .place (.title | plainify) -}}
       <li x-data="{ play: false }">
         <div class="relative aspect-9/16 overflow-hidden rounded-eto bg-eto-900">
           <template x-if="play">
@@ -56,7 +57,7 @@
           </a>
         </div>
         <p class="mt-2 text-caption font-semibold text-eto-700">
-          {{ partial "ugo-day-label.html" . }} · {{ .place }}
+          {{ $label }} · {{ .place }}
         </p>
         <p class="mt-0.5 text-body leading-snug font-semibold text-ink">
           {{ .title | markdownify }}

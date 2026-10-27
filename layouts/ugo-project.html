@@ -13,14 +13,9 @@
 {{ define "main" }}
   {{ $state := partialCached "ugo-state.html" "ugo" }}
   {{ $project := index (where $state.projects "id" .Params.project) 0 }}
-  {{ $live := and $state.live (eq $project.id $state.project.id) }}
   {{ $ugo := site.GetPage "/ugo" }}
 
-  {{ partial "ugo-project.html" (dict
-    "project" $project
-    "title" (cond $live (printf "%s: live from Ukraine" $project.name) $project.name)
-    "live" $live
-  ) }}
+  {{ partial "ugo-project.html" (dict "project" $project "title" $project.name) }}
 
   {{/* ---------------- About UGO ---------------- */}}
   {{/* A visitor who arrives here from a video may not know what UGO is: one

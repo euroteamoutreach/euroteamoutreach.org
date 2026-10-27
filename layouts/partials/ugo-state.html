@@ -5,18 +5,20 @@
   directly, so the rules live in one place and a typo fails the build.
 
   Returns a dict:
-    phase     "live", "wrapup" or "offseason"
-    project   the current project (data/ugo.yaml `current`), with its file
-              name added as `id`; an empty dict in offseason
-    live      true while a project is on the road and has an update: the
-              band, the nav dot and the "live from Ukraine" block
-    featured  true when /ugo/ opens with the current project (live, wrapup)
-    projects  every project, `id` added, newest first by `start`
-    trip      the dates the copy's {trip_*} tokens use: data/ugo.yaml `trip`
-              (the next project, once set), else, while live, the current
-              project's own; an empty dict when neither
-    copy      which version of a time-sensitive copy string to use:
-              "upcoming" while there are trip dates, else the phase
+    phase      "live", "wrapup" or "offseason"
+    project    the current project (data/ugo.yaml `current`), with its file
+               name added as `id`: the one /ugo/ opens with; an empty dict
+               in the offseason, when /ugo/ features none
+    live       true while a project is on the road and has an update: the
+               band, the nav dot and the "live from Ukraine" block
+    projects   every project, `id` added, newest first by `start`
+    copy       which version of a time-sensitive copy string to use:
+               "upcoming" while the next project's dates are known
+               (data/ugo.yaml `trip`) or while live, else the phase
+    tripDates  "October 17–26, 2026" and "2026", for the copy's
+    tripYear   {trip_dates} and {trip_year}: data/ugo.yaml `trip`, else,
+               while live, the current project's own; "" when neither
+    boxPrice   "$20": /ugo/'s fund's box price, for {box_price}
 
   Usage: {{ $ugo := partialCached "ugo-state.html" "ugo" }}
 */ -}}
@@ -28,9 +30,9 @@
 
 {{- $projects := slice -}}
 {{- range $id, $p := $data.projects -}}
-  {{- $projects = $projects | append (merge $p (dict "id" $id "sort" (time.AsTime $p.start).Unix)) -}}
+  {{- $projects = $projects | append (merge $p (dict "id" $id)) -}}
 {{- end -}}
-{{- $projects = sort $projects "sort" "desc" -}}
+{{- $projects = sort $projects "start" "desc" -}}
 
 {{- $project := dict -}}
 {{- if ne $phase "offseason" -}}
@@ -42,17 +44,32 @@
 
 {{- $live := and (eq $phase "live") (gt (len $project.updates) 0) -}}
 
-{{- $trip := $data.trip | default dict -}}
+{{- $trip := $data.trip -}}
 {{- if and (not $trip) (eq $phase "live") -}}
-  {{- $trip = dict "start" $project.start "end" $project.end -}}
+  {{- $trip = $project -}}
+{{- end -}}
+{{- $tripDates := "" -}}
+{{- $tripYear := "" -}}
+{{- with $trip -}}
+  {{- $tripDates = partial "ugo-dates.html" . -}}
+  {{- $tripYear = (time.AsTime .start).Format "2006" -}}
+{{- end -}}
+
+{{- /* The /ugo/ page's fund, whichever page renders the copy: home shows UGO
+     copy too, and has no give_designation of its own. */ -}}
+{{- $slug := (site.GetPage "/ugo").Params.give_designation -}}
+{{- $fund := index (where hugo.Data.designations "slug" $slug) 0 -}}
+{{- if not $fund -}}
+  {{- errorf "ugo-state: /ugo/ give_designation %q is not in data/designations.yaml" $slug -}}
 {{- end -}}
 
 {{- return dict
   "phase" $phase
   "project" $project
   "live" $live
-  "featured" (ne $phase "offseason")
   "projects" $projects
-  "trip" $trip
-  "copy" (cond (gt (len $trip) 0) "upcoming" $phase)
+  "copy" (cond (or $data.trip (eq $phase "live")) "upcoming" $phase)
+  "tripDates" $tripDates
+  "tripYear" $tripYear
+  "boxPrice" (partial "usd.html" $fund.box_price)
 -}}
