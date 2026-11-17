@@ -24,10 +24,14 @@ jobs:
 
       - run: npm ci
 
+      # netlify.toml's HUGO_VERSION is the single pin; CI reads it so the two
+      # builds can never run different Hugo versions.
+      - id: hugo
+        run: echo "version=$(sed -n 's/^ *HUGO_VERSION *= *"\([^"]*\)".*/\1/p' netlify.toml)" >> "$GITHUB_OUTPUT"
+
       - uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.168.0" # must match netlify.toml's HUGO_VERSION pin
-          extended: true
+          hugo-version: ${{ steps.hugo.outputs.version }}
 
       - run: hugo --gc --minify
 

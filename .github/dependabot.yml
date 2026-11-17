@@ -1,0 +1,51 @@
+# Dependabot configuration
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+#
+# Hugo is not covered: its version is pinned in netlify.toml (CI reads it from
+# there), which Dependabot does not read. Hugo bumps stay manual.
+version: 2
+updates:
+  # npm dependencies (Tailwind CSS, Alpine.js, markdownlint, prettier)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 5
+    labels:
+      - "chore"
+    groups:
+      # tailwindcss and @tailwindcss/cli must move together, majors included:
+      # split across two PRs, neither could merge alone. @tailwindcss/typography
+      # is still 0.x, where a "minor" bump can change prose styling, so it rides
+      # here too rather than in the low-risk group below.
+      tailwind:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/*"
+      # Bundle low-risk minor/patch bumps into one PR to reduce noise.
+      # Major bumps stay as individual PRs so they get individual review.
+      npm-minor-patch:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "tailwindcss"
+          - "@tailwindcss/*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # GitHub Actions used by the CI workflow (checkout, setup-node, actions-hugo)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    labels:
+      - "chore"
+    groups:
+      # Same rule as npm: minor/patch together, majors as individual PRs.
+      github-actions:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
