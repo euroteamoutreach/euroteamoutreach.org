@@ -8,6 +8,8 @@ start: 2025-10-11
 end: 2025-10-19
 description: "October 2025: the Gospel and aid boxes for 11 villages in southern Ukraine, then a village and the city of Zhytomyr, with every video update from the road."
 cover: ugo/IMG_7682_iwbbn8
+# Filmed mostly in landscape: every player and card on the page is 16:9.
+wide: true
 playlist: PLwBim7LWPkXWNlbUWqyRbQACx3p7EG4Wt
 # Rounded figures from the trip recap.
 tally:

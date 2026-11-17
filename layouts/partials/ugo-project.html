@@ -18,6 +18,10 @@
   otherwise the h1 is `title`, with the project's dates under it, and the
   tally reads "Final tally".
 
+  A project's videos are vertical Shorts unless its file sets `wide: true`
+  (2024 and 2025, filmed mostly in landscape): then every player and card is
+  16:9, and the odd vertical video plays between side bars.
+
   Params (dict):
     project  (required) a project from ugo-state.html (`id` and all)
     title    (required) the h1 when not live: "UGO 2026 is complete"
@@ -25,6 +29,7 @@
 {{- $project := .project -}}
 {{- $state := partialCached "ugo-state.html" "ugo" -}}
 {{- $live := and $state.live (eq $project.id $state.project.id) -}}
+{{- $wide := $project.wide | default false -}}
 {{- $title := cond $live (printf "%s: live from Ukraine" $project.name) .title -}}
 {{- $ugoPage := site.GetPage "/ugo" -}}
 {{- $giveHref := partial "give-cta.html" $ugoPage.Params.give_designation -}}
@@ -54,11 +59,13 @@
     {{ with $project.updates }}
       {{ $latest := index . 0 }}
       {{ $label := partial "ugo-day-label.html" $latest }}
-      <div class="mt-8 grid gap-8 md:grid-cols-[18rem_1fr] md:items-center md:gap-12">
-        <div class="mx-auto w-full max-w-60 md:max-w-none">
-          {{ partial "youtube-short.html" (dict
+      {{/* A landscape player takes the larger share of the row. */}}
+      <div class="mt-8 grid gap-8 md:items-center md:gap-12 {{ cond $wide "md:grid-cols-[3fr_2fr]" "md:grid-cols-[18rem_1fr]" }}">
+        <div class="mx-auto w-full {{ cond $wide "" "max-w-60 md:max-w-none" }}">
+          {{ partial "youtube-video.html" (dict
             "id" $latest.youtube
             "title" (printf "%s · %s: %s" $label $latest.place ($latest.title | plainify))
+            "wide" $wide
           ) }}
         </div>
         <div>
@@ -129,7 +136,7 @@
       Short videos from the road, newest first.
     </p>
     <div class="mt-8">
-      {{ partial "ugo-updates.html" (dict "updates" $project.updates "headingId" "updates") }}
+      {{ partial "ugo-updates.html" (dict "updates" $project.updates "headingId" "updates" "wide" $wide) }}
     </div>
     {{ with $playlistLink }}
       <p class="mt-8 text-body">{{ . }}</p>

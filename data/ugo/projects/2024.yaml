@@ -9,6 +9,8 @@ start: 2024-11-04
 end: 2024-11-10
 description: "The November Project, the first UGO trip: the Gospel and aid boxes for 10 villages in the Mykolaiv and Kherson regions and a crowd in Zhytomyr, with every video update from the road."
 cover: ugo/joshua-preaching-zhytomyr_pgk6xo
+# Filmed mostly in landscape: every player and card on the page is 16:9.
+wide: true
 playlist: PLwBim7LWPkXVHyH1OtgqtTQU0SyhVNBzn
 # Rounded figures from the trip recap. No count of Good and Evil books was
 # kept (the last ones went out in Zhytomyr), so that figure stays at 0, which

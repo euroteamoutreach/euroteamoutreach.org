@@ -1,5 +1,6 @@
 {{- /*
-  youtube-short — a 9:16 embed of one vertical YouTube video (a Short).
+  youtube-video — an embed of one YouTube video: 9:16 for a vertical video (a
+  Short), 16:9 with `wide`.
 
   youtube-nocookie.com is YouTube's privacy-enhanced domain: no tracking
   cookies until the visitor presses play, and loading="lazy" keeps the player
@@ -7,16 +8,17 @@
   caller's: wrap it to cap the size.
 
   Params (dict):
-    id     (required) the video ID, the 11 characters after /shorts/
+    id     (required) the video ID
     title  (required) accessible name for the iframe
+    wide   (optional) true for a landscape video
 */ -}}
 {{- if not .id -}}
-  {{- errorf "youtube-short: 'id' is required" -}}
+  {{- errorf "youtube-video: 'id' is required" -}}
 {{- end -}}
 {{- if not .title -}}
-  {{- errorf "youtube-short: 'title' is required for %q" .id -}}
+  {{- errorf "youtube-video: 'title' is required for %q" .id -}}
 {{- end -}}
-<div class="aspect-9/16 overflow-hidden rounded-eto-lg bg-eto-900">
+<div class="{{ cond .wide "aspect-video" "aspect-9/16" }} overflow-hidden rounded-eto-lg bg-eto-900">
   <iframe
     src="https://www.youtube-nocookie.com/embed/{{ .id }}"
     title="{{ .title }}"
