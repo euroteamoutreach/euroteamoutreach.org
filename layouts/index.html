@@ -140,7 +140,9 @@
             {{ partial "ugo-copy.html" $lead.body }}
           </p>
           <dl class="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-warm-200 pt-6">
-            {{ range hugo.Data.ugo.stats }}
+            {{/* The figures marked `home: false` stay on /ugo/ only, so the
+                 card keeps a full 2×2 grid. */}}
+            {{ range where hugo.Data.ugo.stats "home" "ne" false }}
               <div class="flex flex-col-reverse justify-end gap-0.5">
                 <dt class="text-sm leading-snug text-warm-600">{{ .label | markdownify }}</dt>
                 <dd class="text-2xl font-black tracking-tight text-eto-600 tabular-nums">{{ .value }}</dd>
