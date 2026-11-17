@@ -51,7 +51,7 @@ The targets come from Netlify's external-DNS docs (checked 2026-10-09). Route 53
 
 ## What must NOT be touched
 
-- **Mail:** `MX`, `_dmarc` TXT, the `_domainkey` DKIM TXT, `pm-bounces` CNAME. ETO's email runs through Google Workspace and Postmark.
+- **Mail:** `MX`, `_dmarc` TXT, the `_domainkey` DKIM TXT, `pm-bounces` CNAME. ETO's email runs through Google Workspace and Postmark. Since 2026-11-17 this also covers the SPF value in the root TXT, the `google._domainkey` TXT, and the MailChimp `k2`/`k3` CNAMEs (see "Email authentication records").
 - **`lens.euroteamoutreach.org`** A + AAAA — the shared Umami instance on Fly.io, serving every site in the network.
 - **NS** and **SOA** — zone delegation.
 - The root **TXT** (Search Console), the **`_gh-`** TXT (GitHub), and **`day.`** (legacy S3 alias).
@@ -92,6 +92,25 @@ Resolvers that cached the Netlify answers hold them for up to their 300s TTL, so
 **Console equivalent:** restore the apex and `www` as `A` records with **Alias:** Yes · **target** `d2amb9pccla9r3.cloudfront.net.` · **hosted zone** `Z2FDTNDATAQYW2` (CloudFront's fixed zone ID) · **Evaluate target health:** No. Delete the `www` CNAME first.
 
 **Tested on paper (2026-10-09):** each `DELETE` in the rollback batch matches, field for field, the record the cutover batch `CREATE`s, and each rollback `CREATE` is the exact alias from the capture below. Both files validate as JSON.
+
+## Email authentication records (added 2026-11-17)
+
+The domain had no SPF record and Google Workspace wasn't signing with DKIM, so staff mail failed DMARC and Gmail auto-forwarding bounced (5.7.27). A review of the DMARC aggregate reports (Oct 14 – Nov 16) found three legitimate senders: Google Workspace, Postmark, and MailChimp. Postmark already passed. These records fix the other two. Each was applied with the AWS CLI and checked against the authoritative name server.
+
+| Record name | Type | Value | TTL | For |
+| --- | --- | --- | --- | --- |
+| `euroteamoutreach.org` | TXT | `v=spf1 include:_spf.google.com ~all`, added as a second value beside `google-site-verification=…` | 300 | SPF for Google Workspace |
+| `google._domainkey.euroteamoutreach.org` | TXT | `v=DKIM1; k=rsa; p=…` (2048-bit key from Admin console → Gmail → Authenticate email), stored as two quoted strings because Route 53 limits each string to 255 characters | 300 | Workspace DKIM |
+| `k2._domainkey.euroteamoutreach.org` | CNAME | `dkim2.mcsv.net` | 300 | MailChimp DKIM |
+| `k3._domainkey.euroteamoutreach.org` | CNAME | `dkim3.mcsv.net` | 300 | MailChimp DKIM |
+
+- **Postmark needs no SPF entry.** Its envelope sender is `pm-bounces.euroteamoutreach.org`, which passes through the existing CNAME, and it signs with its own `_domainkey` key.
+- **MailChimp needs no SPF entry either.** Its envelope sender is `mandrillapp.com`, so it aligns with DMARC through DKIM (the `k2`/`k3` CNAMEs), not SPF.
+- **DMARC was left as it was.** MailChimp's setup screen suggests `v=DMARC1; p=none;`, but replacing ours with that would drop the `rua` reports to info@.
+- **SPF ends in `~all`, not `-all`.** Mail from a sender not listed is marked suspicious, not rejected. Tighten it, and the DMARC policy, only after the reports show no legitimate failures.
+- **The apex TXT is one record holding two values.** Route 53 replaces all of a record's values together, so any change to it must carry both the Search Console and the SPF values, or one is lost.
+
+**To undo:** delete the `google._domainkey` TXT and the `k2`/`k3` CNAMEs, and set the apex TXT back to only the `google-site-verification` value. Click "Stop authentication" in the Workspace Admin console before deleting the Google key, or Workspace mail will fail DKIM.
 
 ## Appendix — byte-exact capture
 
