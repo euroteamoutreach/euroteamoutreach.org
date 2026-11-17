@@ -1,0 +1,88 @@
+# UGO 2025 — one UGO project, its whole record (the runbook at the top of
+# data/ugo.yaml).
+
+name: "UGO 2025"
+# From leaving Lviv to the last meeting in Zhytomyr. Day 1 below is the day
+# the team set out for the south, as the videos number it.
+start: 2025-10-11
+end: 2025-10-19
+description: "October 2025: the Gospel and aid boxes for 11 villages in southern Ukraine, then a village and the city of Zhytomyr, with every video update from the road."
+cover: ugo/IMG_7682_iwbbn8
+playlist: PLwBim7LWPkXWNlbUWqyRbQACx3p7EG4Wt
+# Rounded figures from the trip recap.
+tally:
+  - value: 13
+    label: "communities reached"
+  - value: 1000
+    label: "aid boxes given out"
+  - value: 1000
+    label: "*Good and Evil* books given out"
+  - value: 600
+    label: "Bible First starter packets given out"
+updates:
+  - day: 7
+    date: 2025-10-19
+    place: "Zhytomyr"
+    title: "About 250 in Zhytomyr"
+    text: "Our largest single day of the project: about 250 people came to the meeting at Oleksandr's church. Rain drove us indoors, and we packed everyone into a wide corridor to hear the Gospel."
+    youtube: "iUJZa46rLt8"
+  - day: 6
+    date: 2025-10-18
+    place: "Sonyachna"
+    title: "After the missiles in Sonyachna"
+    text: "A volley of drones and missiles recently damaged or destroyed 100 to 150 homes and buildings in this village near Zhytomyr. About 90 people came to hear the Gospel and received *Good and Evil*, starter packets, aid boxes and bread from the south."
+    youtube: "jcJptviPASc"
+  - day: 5
+    date: 2025-10-17
+    place: "Zhytomyr"
+    title: "Back in Zhytomyr"
+    text: "A full day on the road brought us back north. Late Friday night we load aid boxes for tomorrow's outreach in Sonyachna, along with bread we carried up from the south."
+    youtube: "9wakG6o800s"
+  - day: 4
+    date: 2025-10-16
+    place: "Snihurivka"
+    title: "11 villages and 200 kilograms of bread"
+    text: "A fifth village turned up today, which makes 11 in the south. Christian bakers in Snihurivka loaded us with almost 200 kilograms of fresh bread to take north for the last outreaches."
+    youtube: "doRkPiDVAJ4"
+  - day: 4
+    date: 2025-10-16
+    place: "Liubyna"
+    title: "Four villages in one day"
+    text: "Liubyna is our 10th village of the project and the fourth today. Along with aid boxes, *Good and Evil* books, New Testaments and invitations to our Bible course, people are now receiving used clothing too."
+    youtube: "6G1d_B_qSB0"
+  - day: 3
+    date: 2025-10-15
+    place: "Partyzanske"
+    title: "Back in Partyzanske"
+    text: "We came here in 2024 too, just as our *Good and Evil* books ran out. This year 70 to 80 people came, and every one of them received a copy."
+    youtube: "iP8x1xHqHuA"
+  - day: 2
+    date: 2025-10-14
+    place: "Promin"
+    title: "How the aid line works"
+    text: "The count in Promin is now about 100. After the Gospel meeting and the literature, people line up for an aid box, then rice, then bread."
+    youtube: "IMDlpNSIBVk"
+  - day: 2
+    date: 2025-10-14
+    place: "Promin"
+    title: "About 80 in Promin"
+    text: "Our first village of the day. After the Gospel message, about 82 people receive *Good and Evil* books, New Testaments and Bible First starter packets."
+    youtube: "btqrlRhQllQ"
+  - day: 2
+    date: 2025-10-14
+    place: "Snihurivka"
+    title: "What's in an aid box"
+    text: "Loading the trailer in Snihurivka, and a look inside one box: oil, porridge, sugar, macaroni, buckwheat, canned meat, flour and tea. Everyone also receives fresh bread, rice and Gospel literature."
+    youtube: "mZSjN9HbxSg"
+  - day: 1
+    date: 2025-10-13
+    place: "Snihurivka"
+    title: "270 kilograms of fresh bread"
+    text: "After our first meeting this evening, with the Gospel, *Good and Evil* books and starter packets, we load the van with about 270 kilograms of freshly baked bread for tomorrow's villages."
+    youtube: "pEhF5QwlbAE"
+  - day: 1
+    date: 2025-10-13
+    place: "On the road"
+    title: "Heading south"
+    text: "UGO 2025 begins, on the road to the Mykolaiv region with Nathan, Ben Sargent and Oleksandr Ilchenko. More than 600 aid boxes and 1,000 copies of the new *Good and Evil* printing have gone ahead of us. Our first meeting is tonight in Nova Odesa."
+    youtube: "RUpGPRp_Ynw"
