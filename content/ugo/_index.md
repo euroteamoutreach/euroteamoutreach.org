@@ -136,8 +136,7 @@ give:
 
 field:
   heading: "From the field"
-  intro: "Short updates filmed on the road, and photos from the villages."
-  playlist_label: "Watch the full playlist on YouTube"
+  intro: "Every project, with the short updates filmed on the road, and photos from the villages."
   close: "Help fill the next box for a family."
 ---
 

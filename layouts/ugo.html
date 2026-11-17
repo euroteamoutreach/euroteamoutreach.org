@@ -22,7 +22,7 @@
      its body), run through ugo-copy.html, which fills its {tokens} and
      picks each time-sensitive string's version for the phase. Facts come
      from data/ugo.yaml and data/ugo/projects/: trip dates, stats,
-     playlists, projects, and every photo with its alt text and caption. The
+     projects, and every photo with its alt text and caption. The
      box price comes from data/designations.yaml. Nothing in this template
      names a date, a price, or a photo.
 
@@ -139,16 +139,21 @@
           {{ partial "ugo-copy.html" $p.stats.text }}
         </p>
       </div>
-      <dl class="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-eto-800 pt-10 md:grid-cols-4">
+      {{/* Two across until there is room for all five in a row; an odd
+           last figure then spans both columns, centred, so it doesn't sit
+           alone in a half-empty row. The numerals step down a size in the
+           five-across row, where "2,100+" at full size would crowd its
+           neighbour. */}}
+      <dl class="mt-10 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-eto-800 pt-10 lg:grid-cols-5">
         {{ range $ugo.stats }}
           {{/* Value above label visually, label first in the DOM (dt
                before dd). justify-end pins a reversed column to the TOP, so
                numerals in a row line up when one label wraps. */}}
-          <div class="flex flex-col-reverse justify-end gap-1">
+          <div class="flex flex-col-reverse justify-end gap-1 max-lg:odd:last:col-span-2 max-lg:odd:last:items-center max-lg:odd:last:text-center">
             <dt class="text-sm leading-snug text-eto-200">
               {{ .label | markdownify }}
             </dt>
-            <dd class="text-4xl font-black tracking-tight text-gold tabular-nums sm:text-5xl">
+            <dd class="text-4xl font-black tracking-tight text-gold tabular-nums sm:text-5xl lg:text-4xl">
               {{ .value }}
             </dd>
           </div>
@@ -362,26 +367,6 @@
           {{ end }}
         </ul>
       {{ end }}
-      <div class="mt-8 grid gap-8 md:grid-cols-2 md:gap-4">
-        {{ range $ugo.playlists }}
-          <div>
-            <h3 class="mb-3 text-subheading text-ink">
-              {{ .title }}
-            </h3>
-            {{ partial "youtube-playlist.html" . }}
-            {{/* The embed opens on the playlist's first video and hides the
-                 rest behind a small player menu, so name the whole list. */}}
-            {{ $href := printf "https://www.youtube.com/playlist?list=%s" .list }}
-            {{ $x := partial "external.html" $href }}
-            <a
-              href="{{ $href }}"
-              {{ $x.attrs }}
-              class="link mt-3 inline-block"
-              >{{ $p.field.playlist_label }}{{ $x.mark }}</a
-            >
-          </div>
-        {{ end }}
-      </div>
       <div class="mt-12 grid gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
         {{ range $ugo.photos.gallery }}
           {{ partial "photo-figure.html" (dict

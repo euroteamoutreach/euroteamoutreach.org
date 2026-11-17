@@ -1,0 +1,103 @@
+# UGO 2024 — one UGO project, its whole record (the runbook at the top of
+# data/ugo.yaml). Called "The November Project" at the time, before the UGO
+# name existed; it was the first UGO trip.
+
+name: "UGO 2024"
+# From leaving Lviv to the last day in Zhytomyr. Day 1 below is the day the
+# team set out for the south, as in 2025.
+start: 2024-11-04
+end: 2024-11-10
+description: "The November Project, the first UGO trip: the Gospel and aid boxes for 10 villages in the Mykolaiv and Kherson regions and a crowd in Zhytomyr, with every video update from the road."
+cover: ugo/joshua-preaching-zhytomyr_pgk6xo
+# Filmed mostly in landscape: every player and card on the page is 16:9.
+wide: true
+playlist: PLwBim7LWPkXVHyH1OtgqtTQU0SyhVNBzn
+# Rounded figures from the trip recap. No count of Good and Evil books was
+# kept (the last ones went out in Zhytomyr), so that figure stays at 0, which
+# hides it; fill it in if a count turns up.
+tally:
+  - value: 11
+    label: "communities reached"
+  - value: 500
+    label: "aid boxes given out"
+  - value: 0
+    label: "*Good and Evil* books given out"
+updates:
+  - day: "Wrap-up"
+    date: 2024-11-14
+    place: "Poland"
+    title: "10 villages, then Zhytomyr"
+    text: "On the way back to the border after seeing Ben off at the airport in Kraków. In 10 villages across the Mykolaiv and Kherson regions we preached the Gospel and gave out aid boxes, fresh bread and rice, then held a meeting for about 200 people in Zhytomyr."
+    youtube: "wDFqOMfHdns"
+  - day: 6
+    date: 2024-11-10
+    place: "Zhytomyr"
+    title: "Sunday at Oleksandr's church"
+    text: "Our last day before heading back to Lviv. We worshipped with Oleksandr's church, and each of us gave a short message."
+    youtube: "Fgnrqqw8wfI"
+  - day: 5
+    date: 2024-11-09
+    place: "Zhytomyr"
+    title: "Preaching in Zhytomyr"
+    text: "Back in Zhytomyr, we helped Oleksandr's church team with a large Gospel meeting. The crowd received aid packages and some of the very last copies of *Good and Evil* we had."
+    youtube: "B181EAbePfU"
+  - day: 4
+    date: 2024-11-08
+    place: "Partyzanske"
+    title: "Handing out aid in Partyzanske"
+    text: "After the Gospel meeting by the van, Oleksandr and Nathan hand out aid boxes to about 60 people. The last 15 or 20 copies of *Good and Evil* went out here."
+    youtube: "sjf_7y67juE"
+  - day: 4
+    date: 2024-11-08
+    place: "Blahodatne"
+    title: "Not one house undamaged"
+    text: "About 300 people lived in Blahodatne before the war. About 30 remain, some in shacks they've built among the rubble. Of all the villages we visited, this one was hit hardest."
+    youtube: "KKYymCnpFqM"
+  - day: 4
+    date: 2024-11-08
+    place: "Blahodatne"
+    title: "About 30 people still here"
+    text: "We preached behind a house struck 16 times. When the shooting started in March 2022, the people here held out for three days before they could get away. Today they received food, bread, rice and copies of *Good and Evil*."
+    youtube: "c64Q0bsiM3E"
+  - day: 4
+    date: 2024-11-08
+    place: "Partyzanske"
+    title: "Aid boxes in a bombed-out house"
+    text: "To lighten the van, we leave some boxes in a bombed-out house and come back for them later in the day. Its walls are peppered with shrapnel."
+    youtube: "_6U3gbw0ob0"
+  - day: 4
+    date: 2024-11-08
+    place: "Partyzanske"
+    title: "Eight villages so far"
+    text: "Eight villages so far, preaching the Gospel and handing out aid, past burned-out cars and a tank in the fields. Only 10 or 15 *Good and Evil* books are left, with two more villages to go today."
+    youtube: "-GWSULLnJbo"
+  - day: 3
+    date: 2024-11-07
+    place: "Shostakove"
+    title: "Four villages so far"
+    text: "Four villages so far, at points only a few kilometers from russian lines. Many people here had never met an American before."
+    youtube: "q45TyU_bmEw"
+  - day: 3
+    date: 2024-11-07
+    place: "Shostakove"
+    title: "Nathan preaches in Shostakove"
+    text: "Nathan preaches the Gospel in Shostakove, in the Kherson region."
+    youtube: "cgf2-l9eNGQ"
+  - day: 3
+    date: 2024-11-07
+    place: "Kherson region"
+    title: "Ben preaches the Gospel"
+    text: "Ben Sargent preaches the Gospel at a village meeting, and I interpret into Ukrainian."
+    youtube: "q-mrlZZVuqI"
+  - day: 2
+    date: 2024-11-06
+    place: "Kherson region"
+    title: "1,000 kilograms of aid"
+    text: "Loading the van with about 1,000 kilograms of aid boxes for the day's villages. Most of the boxes were shipped ahead to points along our route."
+    youtube: "vt1Jbf1-9kI"
+  - day: 1
+    date: 2024-11-05
+    place: "On the road"
+    title: "The trip begins"
+    text: "Heading for southern Ukraine with Nathan, Ben Sargent and Oleksandr, our Ukrainian friend. We'll be in villages once occupied by the russians, with air raids every night. Please pray for us."
+    youtube: "3ox8jFLDN7I"

@@ -71,7 +71,7 @@
 # ▶ GO TO WRAP-UP (the day after the last video)
 #   1. `phase: wrapup`. Keep `current`.
 #   2. Final tally figures in the project's file.
-#   3. Add the project to `stats:` below (and `playlists:`, if not there yet).
+#   3. Update `stats:` below with the project's final figures.
 #
 # ▶ GO OFFSEASON (two to six weeks later)
 #   1. `phase: offseason`. `current` can stay; offseason doesn't read it.
@@ -110,37 +110,33 @@ follow:
 #   start: 2027-10-16
 #   end: 2027-10-25
 
-# The track-record band on /ugo/ and home, across every project. Rounded
-# ballparks for boxes and books; Nathan keeps the precise records
-# (planning/copy/ugo.md §2). Communities counts every village or city where
-# we held an outreach meeting, south and Zhytomyr area alike: 11 in 2024, 13
-# in 2025, 15 in 2026. The books figure is UGO-only, and its label says so;
-# the ministry-wide total is on the home Good and Evil card
-# (content/_index.md). Boxes and books are the per-year sums pending Nathan's
-# confirmation (2026-10-27). Bible First starter packets stay on each
-# project's own tally for now.
+# The track-record band on /ugo/ and home, across every project: rounded
+# sums of each project's tally (data/ugo/projects/), confirmed with Nathan
+# 2026-11-02. Communities counts every village or city where we held an
+# outreach meeting, south and Zhytomyr area alike: 11 in 2024, 13 in 2025, 15
+# in 2026. Boxes: 500 + 1,000 + 1,093. Books: 1,000 + 1,114, plus a 2024
+# figure nobody counted, hence "+"; the label says UGO-only, and the
+# ministry-wide total is on the home Good and Evil card (content/_index.md).
+# Starter packets: none in 2024, 600 + 1,000.
+#
+# `home: false` leaves a figure off the home page's UGO card, which shows
+# four in a 2×2 grid; /ugo/ shows them all.
 stats:
   - value: "3"
     label: "field projects since 2024"
+    home: false
   - value: "39"
     label: "communities reached"
   - value: "2,600"
     label: "aid boxes placed in Ukrainian hands"
   - value: "2,100+"
     label: "*Good and Evil* books given out on UGO trips"
+  - value: "1,600"
+    label: "Bible First starter packets given out"
 
 # Box counts for the give band. Each amount is box_price (data/designations.yaml)
 # times the count, so a price change rewrites the whole table.
 give_band_boxes: [1, 5, 10, 25]
-
-# YouTube playlists of short field updates, newest first.
-playlists:
-  - title: "UGO 2026"
-    list: PLI3oo5KuS4Pg
-  - title: "UGO 2025"
-    list: PLwBim7LWPkXWNlbUWqyRbQACx3p7EG4Wt
-  - title: "UGO 2024"
-    list: PLwBim7LWPkXVHyH1OtgqtTQU0SyhVNBzn
 
 # Field photos. `id` is the Cloudinary public ID, verbatim: the uploader added
 # a random suffix to each. width/height are the delivered (EXIF-rotated)

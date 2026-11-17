@@ -1,7 +1,7 @@
 {{- /*
   ugo-updates — every video update of one UGO project (its file in
-  data/ugo/projects/), newest first, as a grid of vertical thumbnails.
-  Rendered by ugo-project.html.
+  data/ugo/projects/), newest first, as a grid of vertical thumbnails, or
+  16:9 ones with `wide`. Rendered by ugo-project.html.
 
   Each thumbnail is a link to the video on YouTube, so it works without
   JavaScript. With it, a click swaps the thumbnail for the player in place
@@ -10,21 +10,24 @@
   weak connections a field update is often watched over.
 
   The thumbnail is YouTube's 480×360 hqdefault (about 15 KB), which shows a
-  Short centred between blurred side panels; a centre crop to 9:16 leaves just
-  the video. The full-size vertical frame is ten times the weight and not a
-  documented URL.
+  Short centred between blurred side panels, and a landscape video between
+  black bars; a centre crop to 9:16 or 16:9 leaves just the video. The
+  full-size frame is ten times the weight, and for a Short not a documented
+  URL.
 
   Params (dict):
     updates    (required) the project's `updates`
     headingId  (required) the id of the heading that labels this list
+    wide       (optional) true for a project filmed in landscape
 */ -}}
+{{- $wide := .wide | default false -}}
 {{- with .updates -}}
-  <ol aria-labelledby="{{ $.headingId }}" class="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 lg:grid-cols-4">
+  <ol aria-labelledby="{{ $.headingId }}" class="grid gap-x-4 gap-y-6 {{ cond $wide "sm:grid-cols-2 lg:grid-cols-3" "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4" }}">
     {{- range . -}}
       {{- $label := partial "ugo-day-label.html" . -}}
       {{- $name := printf "%s · %s: %s" $label .place (.title | plainify) -}}
       <li x-data="{ play: false }">
-        <div class="relative aspect-9/16 overflow-hidden rounded-eto bg-eto-900">
+        <div class="relative {{ cond $wide "aspect-video" "aspect-9/16" }} overflow-hidden rounded-eto bg-eto-900">
           <template x-if="play">
             <iframe
               src="https://www.youtube-nocookie.com/embed/{{ .youtube }}?autoplay=1"
@@ -36,7 +39,7 @@
             ></iframe>
           </template>
           <a
-            href="https://www.youtube.com/shorts/{{ .youtube }}"
+            href="https://www.youtube.com/{{ cond $wide "watch?v=" "shorts/" }}{{ .youtube }}"
             x-show="!play"
             @click.prevent="play = true"
             class="group absolute inset-0 block rounded-eto focus-ring"
