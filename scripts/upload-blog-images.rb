@@ -22,6 +22,16 @@
 #   ruby scripts/upload-blog-images.rb            # upload what is missing
 #   ruby scripts/upload-blog-images.rb --verify   # check every ID delivers (no credentials needed)
 #
+# The env file holds one line, CLOUDINARY_URL=cloudinary://KEY:SECRET@euro-team-outreach
+# (chmod 600). Make a dedicated key for the run in the Cloudinary console
+# (Settings → API Keys → Generate New API Key, role Master Admin: the
+# read-only roles cannot upload) and delete it afterwards. Leave the
+# account's original "root" key alone; Bible First Online v1 may use it.
+#
+# The account's upload limit is 100 MB. The legacy video was 592 MB, so it
+# was re-encoded (ffmpeg, libx264 crf 23, maxrate 2M, 720p) and uploaded from
+# the local file; since its ID now exists, a re-run skips it.
+#
 # Ruby stdlib only.
 
 require "net/http"
