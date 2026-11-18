@@ -17,9 +17,7 @@ For starters, before CMO begins, the Day and Steele families are usually comfort
 
 ---
 
-**View the full Week 1 photo album on our Facebook page!**
-
-{{< button href="https://www.facebook.com/media/set/?set=a.275241695213855&type=3" text="Week 1 Photo Album" >}}
+{{< button lead="View the full Week 1 photo album on our Facebook page!" href="https://www.facebook.com/media/set/?set=a.275241695213855&type=3" text="Week 1 Photo Album" >}}
 
 ---
 

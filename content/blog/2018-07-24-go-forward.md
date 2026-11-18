@@ -69,9 +69,7 @@ After a peaceful night in the tents we woke up to several cows intruding on our 
 
 ---
 
-View the full Week 2 photo album on our Facebook page!
-
-{{< button href="https://www.facebook.com/media/set/?set=a.10155832331897123.1073741853.85322297122&type=1&l=0e74a70ccd" text="Week 2 Photo Album" >}}
+{{< button lead="View the full Week 2 photo album on our Facebook page!" href="https://www.facebook.com/media/set/?set=a.10155832331897123.1073741853.85322297122&type=1&l=0e74a70ccd" text="Week 2 Photo Album" >}}
 
 ---
 

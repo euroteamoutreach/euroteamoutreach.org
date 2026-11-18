@@ -221,7 +221,10 @@ module Migrate
     (?:(?![ \t]*\n)(?!\{:)([^\n]+)\n\{:[ \t]*\.caption-text[^}\n]*\}[ \t]*(?:\n|\z))?
   ~x
 
+  # A button, with the centred line that introduces it when there is one
+  # ("View the full Week 1 photo album…", marked .article-item-center).
   BUTTON_RE = %r~
+    (?:^([^\n{][^\n]*)\n\{:[^}\n]*\.article-item-center[^}\n]*\}[ \t]*\n\n)?
     ^\[([^\]\n]+)\]\(([^)\s]+)\)\{:[^}\n]*\.article-button[^}\n]*\}[ \t]*\n?
     (?:\{:[^}\n]*\}[ \t]*(?:\n|\z))?
   ~x
@@ -345,10 +348,13 @@ module Migrate
     end
 
     out = out.gsub(BUTTON_RE) do
-      label, target = Regexp.last_match.captures
+      lead, label, target = Regexp.last_match.captures
       text = prose(label.strip)
       href = rewrite_href(target, ctx[:posts])
-      "{{< button href=#{quote(href)} text=#{quote(text)} >}}\n"
+      # The shortcode sets the lead in bold itself; it comes first, in
+      # reading order.
+      lead &&= "lead=#{quote(prose(lead.strip.delete_prefix('**').delete_suffix('**')))} "
+      "{{< button #{lead}href=#{quote(href)} text=#{quote(text)} >}}\n"
     end
 
     out = out.gsub(IMAGE_BLOCK_RE) do
@@ -592,7 +598,7 @@ module Migrate
       t = convert_anchors(t)
     else
       # Keep a shortcode's visible text (caption, button label), drop the rest.
-      t = t.gsub(/\{\{<\s*\w+(.*?)>\}\}/m) { Regexp.last_match(1).scan(/\b(?:caption|text)="((?:[^"\\]|\\.)*)"/).join(" ") }
+      t = t.gsub(/\{\{<\s*\w+(.*?)>\}\}/m) { Regexp.last_match(1).scan(/\b(?:caption|lead|text)="((?:[^"\\]|\\.)*)"/).join(" ") }
     end
     t = t.gsub(/\]\([^)]*\)/, "]").gsub(%r{</?[a-z][^>]*>}i, " ").gsub(%r{https?://\S+}, " ")
     t = normalize_lviv(decode_entities(t)).tr("“”‘’", %q(""'')).downcase

@@ -16,9 +16,12 @@
     href     a destination URL (this or fund is required)
     fund     a designation slug from data/designations.yaml
     text     (required) visible label
+    lead     (optional) a line introducing the button, set centred and bold
+             above it
 
   Usage:
     {{< button href="/serve/" text="See how it works" >}}
+    {{< button lead="View the full Week 1 photo album on our Facebook page!" href="https://www.facebook.com/…" text="Week 1 Photo Album" >}}
     {{< button fund="fallen-defender" text="Donate Now" >}}
 */ -}}
 {{- $href := .Get "href" -}}
@@ -37,5 +40,8 @@
 {{- end -}}
 {{- $x := partial "external.html" $href -}}
 <div class="not-prose my-8 text-center">
+  {{- with .Get "lead" }}
+  <p class="mb-4 font-semibold text-pretty text-ink">{{ . }}</p>
+  {{- end }}
   <a href="{{ $href }}" class="btn {{ $fill }} focus-ring" {{ $x.attrs }}>{{ $text }}{{ $x.mark }}</a>
 </div>

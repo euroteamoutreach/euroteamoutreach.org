@@ -72,8 +72,6 @@ Also, the team here will need more young men to come next year. If you think the
 
 ---
 
-View the full Week 4 photo album on our Facebook page!
-
-{{< button href="https://www.facebook.com/media/set/?set=a.10156588229237123&type=3" text="Week 4 Photo Album" >}}
+{{< button lead="View the full Week 4 photo album on our Facebook page!" href="https://www.facebook.com/media/set/?set=a.10156588229237123&type=3" text="Week 4 Photo Album" >}}
 
 ---

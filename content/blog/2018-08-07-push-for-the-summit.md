@@ -54,8 +54,6 @@ And that concludes CMO 2018. It has been one of the greatest experiences of my l
 
 ---
 
-View the full Week 4 photo album on our Facebook page!
-
-{{< button href="https://www.facebook.com/media/set/?set=a.10155862987952123.1073741855.85322297122&type=1&l=01da2ffe54" text="Week 4 Photo Album" >}}
+{{< button lead="View the full Week 4 photo album on our Facebook page!" href="https://www.facebook.com/media/set/?set=a.10155862987952123.1073741855.85322297122&type=1&l=01da2ffe54" text="Week 4 Photo Album" >}}
 
 ---

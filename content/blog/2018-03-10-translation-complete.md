@@ -48,9 +48,7 @@ So even if you’re not quite finished filling out your application, drop us a l
 ---
 
 Ready to start the application process for CMO 2018?\
-There’s a button for that too!
-
-{{< button href="http://www.cmoproject.org/apply/" text="Apply for CMO 2018" >}}
+{{< button lead="There’s a button for that too!" href="http://www.cmoproject.org/apply/" text="Apply for CMO 2018" >}}
 
 ---
 

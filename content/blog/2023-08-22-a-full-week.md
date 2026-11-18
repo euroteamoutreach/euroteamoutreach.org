@@ -17,9 +17,7 @@ Tuesday was our day off, aka Nathan did missionary homework and I ran around try
 
 ---
 
-**View the full Week 2 photo album on our Facebook page!**
-
-{{< button href="https://www.facebook.com/media/set/?set=a.278230411581650&type=3" text="Week 2 Photo Album" >}}
+{{< button lead="View the full Week 2 photo album on our Facebook page!" href="https://www.facebook.com/media/set/?set=a.278230411581650&type=3" text="Week 2 Photo Album" >}}
 
 ---
 

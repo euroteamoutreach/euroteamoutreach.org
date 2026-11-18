@@ -86,8 +86,6 @@ May God bless y’all.
 
 ---
 
-View the full Week 3 photo album on our Facebook page!
-
-{{< button href="https://www.facebook.com/media/set/?set=a.10156570970417123&type=3" text="Week 3 Photo Album" >}}
+{{< button lead="View the full Week 3 photo album on our Facebook page!" href="https://www.facebook.com/media/set/?set=a.10156570970417123&type=3" text="Week 3 Photo Album" >}}
 
 ---
