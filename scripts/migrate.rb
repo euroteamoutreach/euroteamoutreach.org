@@ -577,8 +577,54 @@ module Migrate
 
     images = write_manifest(out_dir, results)
     write_audit(File.join(out_dir, "audit.csv"), results)
-    report(total: files.size, results: results, written: written, skipped: skipped,
+    diffs = write_text_diffs(out_dir, files, dest)
+    report(total: files.size, results: results, written: written, skipped: skipped, diffs: diffs,
            failures: failures, images: images, dry_run: dry_run, force: force, out_dir: out_dir)
+  end
+
+  # --- review diff -------------------------------------------------------------
+
+  # The words a reader sees, with markup stripped and quotes, case and the Lviv
+  # spelling folded, so a diff of legacy against output shows only real text
+  # changes: dropped words, the fixes file's edits, removed dead links.
+  def reader_words(text, legacy:)
+    t = text.sub(FRONTMATTER_RE) { Regexp.last_match(2) }.gsub(/<!--.*?-->/m, " ")
+    if legacy
+      t = t.gsub(/\{:[^}\n]*\}/, "").gsub("READMORE", " ").gsub(/!\[[^\]]*\]\([^)]*\)/, "")
+      t = convert_anchors(t)
+    else
+      # Keep a shortcode's visible text (caption, button label), drop the rest.
+      t = t.gsub(/\{\{<\s*\w+(.*?)>\}\}/m) { Regexp.last_match(1).scan(/\b(?:caption|text)="((?:[^"\\]|\\.)*)"/).join(" ") }
+    end
+    t = t.gsub(/\]\([^)]*\)/, "]").gsub(%r{</?[a-z][^>]*>}i, " ").gsub(%r{https?://\S+}, " ")
+    t = normalize_lviv(decode_entities(t)).tr("“”‘’", %q(""'')).downcase
+    t.scan(/[\p{L}\p{N}'$%]+/)
+  end
+
+  # Writes tmp/blog-migration/diff/<slug>.diff (unified, one word per line)
+  # and returns { slug => changed-word count }. Uses the system diff.
+  def write_text_diffs(out_dir, files, dest)
+    dir = File.join(out_dir, "diff")
+    FileUtils.mkdir_p(dir)
+    files.to_h do |path|
+      slug = new_slug(path)
+      target = File.join(dest, "#{slug}.md")
+      next [slug, nil] unless File.exist?(target)
+
+      a = File.join(dir, "#{slug}.legacy.txt")
+      b = File.join(dir, "#{slug}.new.txt")
+      fm = YAML.safe_load(File.read(path)[FRONTMATTER_RE, 1]) || {}
+      File.write(a, ([fm["title"], fm["caption"]].compact.join(" ").then { |s| reader_words(s, legacy: true) } +
+                     reader_words(File.read(path), legacy: true)).join("\n") + "\n")
+      out = File.read(target)
+      ofm = YAML.safe_load(out[FRONTMATTER_RE, 1], permitted_classes: [Date]) || {}
+      File.write(b, ([ofm["title"], ofm["caption"]].compact.join(" ").then { |s| reader_words(s, legacy: false) } +
+                     reader_words(out, legacy: false)).join("\n") + "\n")
+      diff = IO.popen(["diff", "-u", a, b], &:read)
+      File.write(File.join(dir, "#{slug}.diff"), diff)
+      File.delete(a, b)
+      [slug, diff.lines.count { |l| l.match?(/\A[-+](?![-+])/) }]
+    end
   end
 
   # One row per unique upload. Two sources under one public ID is a collision.
@@ -603,7 +649,7 @@ module Migrate
     end
   end
 
-  def report(total:, results:, written:, skipped:, failures:, images:, dry_run:, force:, out_dir:)
+  def report(total:, results:, written:, skipped:, diffs:, failures:, images:, dry_run:, force:, out_dir:)
     bar = "=" * 70
     puts bar, "Blog migration #{dry_run ? '(dry run — no posts written)' : 'complete'}", bar
     puts "Guard   : #{force ? 'force (overwrite all)' : 'skip-if-exists'}"
@@ -642,6 +688,8 @@ module Migrate
     section.call("RUSSIA LEFT CAPITALIZED", results.flat_map { |r| r[:russia_kept].map { |k| "#{r[:slug]} #{k}" } })
     section.call("RESIDUAL RAW HTML (worklist)", results.reject { |r| r[:residual].empty? }.map { |r| "#{r[:slug]}: #{r[:residual].join(', ')}" })
     section.call("NOTES", results.flat_map { |r| r[:notes].map { |n| "#{r[:slug]}: #{n}" } })
+    section.call("TEXT CHANGES vs legacy (words; review #{out_dir}/diff/<slug>.diff)",
+                 diffs.select { |_, n| n&.positive? }.map { |slug, n| "#{slug}: #{n}" })
     puts bar
     assertions.all? { |_, pass| pass }
   end
