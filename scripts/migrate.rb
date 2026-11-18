@@ -146,7 +146,8 @@ module Migrate
     "&lsquo;" => "‘", "&rsquo;" => "’", "&#39;" => "’", "&apos;" => "’",
     "&nbsp;" => " ", "&amp;" => "&"
   }.freeze
-  ENTITY_TOKEN = Regexp.union(%r{</?[a-zA-Z][^>\n]*>}, Regexp.union(ENTITIES.keys))
+  HTML_TAG = %r{</?[a-zA-Z][^>\n]*>}
+  ENTITY_TOKEN = Regexp.union(HTML_TAG, Regexp.union(ENTITIES.keys))
 
   def decode_entities(text)
     text.gsub(ENTITY_TOKEN) { |m| ENTITIES.fetch(m, m) }
@@ -160,7 +161,7 @@ module Migrate
   # HTML tags, link destinations and URLs are protected.
   OPENING_BEFORE = /[\s(\[{<“‘—–*_]/
   CURL_TOKEN = Regexp.union(
-    /\{\{[<%].*?[%>]\}\}/, %r{</?[a-zA-Z][^>\n]*>}, /\]\([^)\n]*\)/, %r{https?://\S+}, /['"]/
+    /\{\{[<%].*?[%>]\}\}/, HTML_TAG, /\]\([^)\n]*\)/, %r{https?://\S+}, /['"]/
   )
 
   def curl_char(quote, pre)
@@ -185,11 +186,10 @@ module Migrate
   STATIC_LINKS = {
     "/contact" => "/contact/",
     "/subscribe" => "/subscribe/",
-    "/donate/" => "/give/",
-    "/donate" => "/give/"
+    "/donate/" => "/give/"
   }.freeze
 
-  LEGACY_POST_URL = %r{\A(?:https?://(?:www\.)?euroteamoutreach\.org)?/blog/(\d{4})/(\d{2})/([\w-]+)(?:\.html|/)?\z}
+  LEGACY_POST_URL = %r{\A(?:https?://(?:www\.)?euroteamoutreach\.org)?/blog/(\d{4})/(\d{2})/([\w-]+)/?\z}
 
   # Rewrite a link target that points at a moved page on this site. Links to a
   # legacy post go to its new permalink; `posts` maps "YYYY/MM/title" -> slug.
@@ -339,8 +339,7 @@ module Migrate
     out = out.gsub(VIDEO_RE) do
       url = Regexp.last_match(1)
       caption = Regexp.last_match(2)
-      id = "blog/#{File.basename(url, '.*').downcase}"
-      id = "blog/#{ctx[:date][0, 4]}/#{id.split('/').last}"
+      id = "blog/#{ctx[:date][0, 4]}/#{File.basename(url, '.*').downcase}"
       ctx[:images] << { source: url, public_id: id, type: "video" }
       video_figure(id, caption && prose(caption.strip), ctx[:cloud_base])
     end
@@ -362,8 +361,7 @@ module Migrate
       rel, path = resolve_image(full_rel, ctx[:legacy_root], notes)
       id = public_id(rel)
       ctx[:images] << { source: path, public_id: id, type: "image" }
-      caption = caption && convert_anchors(strip_inline_ials(caption.strip))
-      caption = caption && rewrite_links(prose(caption), ctx[:posts])
+      caption = caption_text(caption, ctx[:posts])
       alt = ctx[:fixes].dig("alts", id)
       ctx[:missing_alt] << id if !present?(caption) && !present?(alt)
       figure(id, image_size(path), caption, alt)
@@ -408,6 +406,11 @@ module Migrate
     text.gsub(/\]\(([^)\s]+)\)/) { "](#{rewrite_href(Regexp.last_match(1), posts)})" }
   end
 
+  # One pipeline for figure and cover captions alike.
+  def caption_text(raw, posts)
+    raw && rewrite_links(prose(convert_anchors(strip_inline_ials(raw.strip))), posts)
+  end
+
   # --- fixes file -------------------------------------------------------------
 
   # Exact-match replacements from the fixes file. Each `from` must occur exactly
@@ -431,14 +434,14 @@ module Migrate
 
   # Lowercase "Russia"/"Russian" mid-sentence. A use at the start of a sentence,
   # a caption or a heading, or inside a quotation, is left and returned for the
-  # report; the fixes file rephrases those or lists them under russia_keep.
+  # report; the fixes file rephrases those, and the run fails while any remain.
   def lowercase_russia(text)
     kept = []
     out = text.each_line.map do |line|
       line.gsub(RUSSIA_RE) do |word|
         pre = Regexp.last_match.pre_match
         bare = pre.sub(/[\s*_“"‘(\[#>-]+\z/, "")
-        initial = bare.empty? || bare.match?(/[.!?:]\z/) || bare.end_with?("caption=") || bare.match?(/\A#+\s*\z/)
+        initial = bare.empty? || bare.match?(/[.!?:]\z/) || bare.end_with?("caption=")
         quoted = pre.count("“") > pre.count("”")
         if initial || quoted
           kept << "#{initial ? 'sentence start' : 'in quotation'}: …#{pre[-50..] || pre}#{word}…"
@@ -451,35 +454,34 @@ module Migrate
     [out, kept]
   end
 
-  # --- description fallback ---------------------------------------------------
-
-  def snippet(body, limit = 160)
-    para = body.split(/\n\s*\n/).find { |p| !p.strip.empty? && !p.start_with?("{{", "#", "<", "_") }.to_s
-    text = para.gsub(/\[([^\]]*)\]\([^)]*\)/, '\1').gsub(/[*_]/, "").gsub(/\s+/, " ").strip
-    text.length <= limit ? text : "#{text[0, limit].sub(/\s+\S*\z/, '')}…"
-  end
-
   # --- per-file pipeline --------------------------------------------------------
 
   FRONTMATTER_RE = /\A---\s*\n(.*?\n)---\s*\n?(.*)\z/m
   SOURCE_NAME_RE = /\A(\d{4})-(\d{2})-([\w-]+)\.html\.markdown\z/
 
+  # A legacy post's key in `posts` ("YYYY/MM/title"), from its file name.
+  def legacy_key(path)
+    m = File.basename(path).match(SOURCE_NAME_RE) or raise "unexpected filename #{File.basename(path)}"
+    m.captures.join("/")
+  end
+
+  def front_matter(text, **opts)
+    YAML.safe_load(text[FRONTMATTER_RE, 1] || "", **opts) || {}
+  end
+
+  # The new slug is the post's exact date plus its legacy title slug.
   def new_slug(path)
-    raw = File.read(path)
-    fm = YAML.safe_load(raw.match(FRONTMATTER_RE)[1]) || {}
-    "#{fm['date']}-#{File.basename(path)[SOURCE_NAME_RE, 3]}"
+    "#{front_matter(File.read(path))['date']}-#{legacy_key(path).split('/').last}"
   end
 
   def process_file(path, posts:, fixes:, legacy_root:, cloud_base:)
-    name = File.basename(path)
-    m = name.match(SOURCE_NAME_RE) or raise "unexpected filename #{name}"
-    year, month, title_slug = m.captures
+    year, month, title_slug = legacy_key(path).split("/")
+    slug = posts.fetch(legacy_key(path))
 
     raw = File.read(path)
     fm_match = raw.match(FRONTMATTER_RE) or raise "no front matter"
-    fm = YAML.safe_load(fm_match[1]) || {}
+    fm = front_matter(raw)
     date = fm["date"].to_s
-    slug = "#{date}-#{title_slug}"
 
     errors = []
     errors << "filename month #{year}-#{month} != date #{date}" unless date.start_with?("#{year}-#{month}")
@@ -497,26 +499,20 @@ module Migrate
     ctx[:images] << { source: cover_path, public_id: cover_id, type: "image" }
 
     title = prose(fm["title"])
-    caption = fm["caption"] && rewrite_links(prose(strip_inline_ials(fm["caption"].strip)), posts)
+    caption = caption_text(fm["caption"], posts)
     caption = apply_replacements(caption, post_fixes["caption"], slug, "caption", errors) if caption
     caption, kept_caption = caption ? lowercase_russia(caption) : [nil, []]
 
-    description = post_fixes["description"]
-    unless present?(description)
-      description = snippet(body)
-      ctx[:notes] << "no hand-written description; generated from the body"
-    end
-    description, kept_desc = lowercase_russia(prose(description))
-
+    # Every description is hand-written in the fixes file; the report fails a
+    # post without one.
+    description, kept_desc = lowercase_russia(prose(post_fixes["description"]))
     kept = kept_body + kept_caption + kept_desc
-    allowed = Array(post_fixes["russia_keep"]).size
-    unreviewed = kept.size - allowed
 
     out = {
       "title" => title,
       "date" => Date.parse(date),
       "author" => fm["author"].to_s.strip,
-      "description" => description,
+      "description" => present?(description) ? description : nil,
       "tags" => [],
       "cover" => cover_id,
       "caption" => caption,
@@ -536,7 +532,6 @@ module Migrate
       residual: RESIDUAL_PATTERNS.select { |_, re| body.match?(re) }.keys,
       missing_alt: ctx[:missing_alt],
       russia_kept: kept,
-      russia_unreviewed: unreviewed,
       figures: body.scan("{{< figure ").size,
       errors: errors,
       notes: ctx[:notes]
@@ -545,15 +540,13 @@ module Migrate
 
   # --- runner -----------------------------------------------------------------
 
-  def run(source:, dest:, legacy_root:, fixes_path:, out_dir:, cloud_base:, dry_run:, force:)
+  def run(dest:, legacy_root:, fixes_path:, out_dir:, cloud_base:, dry_run:, force:)
+    source = File.join(legacy_root, "blog/articles")
     files = Dir.glob(File.join(source, "*.html.markdown")).sort
     abort "No source posts found in #{source}" if files.empty?
 
     fixes = File.exist?(fixes_path) ? (YAML.safe_load_file(fixes_path) || {}) : {}
-    posts = files.to_h do |p|
-      m = File.basename(p).match(SOURCE_NAME_RE)
-      ["#{m[1]}/#{m[2]}/#{m[3]}", new_slug(p)]
-    end
+    posts = files.to_h { |p| [legacy_key(p), new_slug(p)] }
 
     FileUtils.mkdir_p(dest) unless dry_run
     results = []
@@ -577,7 +570,7 @@ module Migrate
 
     images = write_manifest(out_dir, results)
     write_audit(File.join(out_dir, "audit.csv"), results)
-    diffs = write_text_diffs(out_dir, files, dest)
+    diffs = write_text_diffs(out_dir, files.to_h { |p| [posts.fetch(legacy_key(p)), p] }, dest)
     report(total: files.size, results: results, written: written, skipped: skipped, diffs: diffs,
            failures: failures, images: images, dry_run: dry_run, force: force, out_dir: out_dir)
   end
@@ -603,23 +596,27 @@ module Migrate
 
   # Writes tmp/blog-migration/diff/<slug>.diff (unified, one word per line)
   # and returns { slug => changed-word count }. Uses the system diff.
-  def write_text_diffs(out_dir, files, dest)
+  # The words of a post file's title, caption and body, one per line.
+  def word_lines(path, legacy:)
+    text = File.read(path)
+    fm = front_matter(text, permitted_classes: [Date])
+    words = reader_words([fm["title"], fm["caption"]].compact.join(" "), legacy: legacy) +
+            reader_words(text, legacy: legacy)
+    "#{words.join("\n")}\n"
+  end
+
+  # `sources` maps each new slug to its legacy source file.
+  def write_text_diffs(out_dir, sources, dest)
     dir = File.join(out_dir, "diff")
     FileUtils.mkdir_p(dir)
-    files.to_h do |path|
-      slug = new_slug(path)
+    sources.to_h do |slug, path|
       target = File.join(dest, "#{slug}.md")
       next [slug, nil] unless File.exist?(target)
 
       a = File.join(dir, "#{slug}.legacy.txt")
       b = File.join(dir, "#{slug}.new.txt")
-      fm = YAML.safe_load(File.read(path)[FRONTMATTER_RE, 1]) || {}
-      File.write(a, ([fm["title"], fm["caption"]].compact.join(" ").then { |s| reader_words(s, legacy: true) } +
-                     reader_words(File.read(path), legacy: true)).join("\n") + "\n")
-      out = File.read(target)
-      ofm = YAML.safe_load(out[FRONTMATTER_RE, 1], permitted_classes: [Date]) || {}
-      File.write(b, ([ofm["title"], ofm["caption"]].compact.join(" ").then { |s| reader_words(s, legacy: false) } +
-                     reader_words(out, legacy: false)).join("\n") + "\n")
+      File.write(a, word_lines(path, legacy: true))
+      File.write(b, word_lines(target, legacy: false))
       diff = IO.popen(["diff", "-u", a, b], &:read)
       File.write(File.join(dir, "#{slug}.diff"), diff)
       File.delete(a, b)
@@ -665,7 +662,7 @@ module Migrate
       ["Zero conversion gaps", results.all? { |r| r[:gaps].empty? }],
       ["Every figure has a caption or alt", results.all? { |r| r[:missing_alt].empty? }],
       ["Public IDs unique (one source each)", images[:collisions].empty?],
-      ["Every sentence-start/quoted Russia reviewed", results.all? { |r| r[:russia_unreviewed].zero? }],
+      ["Every sentence-start/quoted Russia reviewed", results.all? { |r| r[:russia_kept].empty? }],
       ["Filename months match dates; every fix matched once", errors.empty?]
     ]
     puts "VALIDATION (any FAIL fails the run):"
@@ -700,7 +697,6 @@ if __FILE__ == $PROGRAM_NAME
   legacy = File.expand_path("../legacy/euroteamoutreach.org/source", repo)
   cloud_base = File.read(File.join(repo, "hugo.toml"))[/cloudinaryBase\s*=\s*"([^"]+)"/, 1]
   options = {
-    source: File.join(legacy, "blog/articles"),
     dest: File.join(repo, "content/blog"),
     legacy_root: legacy,
     fixes_path: File.join(repo, "scripts/blog-migration-fixes.yml"),
@@ -711,10 +707,7 @@ if __FILE__ == $PROGRAM_NAME
   }
   OptionParser.new do |o|
     o.banner = "Usage: ruby scripts/migrate.rb [options]"
-    o.on("--legacy PATH", "Legacy Middleman source/ dir") do |v|
-      options[:legacy_root] = File.expand_path(v)
-      options[:source] = File.join(options[:legacy_root], "blog/articles")
-    end
+    o.on("--legacy PATH", "Legacy Middleman source/ dir") { |v| options[:legacy_root] = File.expand_path(v) }
     o.on("--dest PATH", "Hugo content/blog dir") { |v| options[:dest] = File.expand_path(v) }
     o.on("--dry-run", "Transform + validate + report; write no posts") { options[:dry_run] = true }
     o.on("--force", "Overwrite existing posts") { options[:force] = true }

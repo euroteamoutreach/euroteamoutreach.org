@@ -11,8 +11,9 @@
 #     body         exact-match replacements in the converted body; each `from`
 #                  must occur exactly once or the run fails
 #     caption      the same, for the cover caption
-#     russia_keep  uses of "Russia"/"Russian" deliberately left capitalized
-#                  (inside a direct quotation), one entry per use, as a note
+#
+#   A "Russia"/"Russian" the script can't lowercase (a sentence start or a
+#   quotation) fails the run until a body replacement rephrases it.
 
 alts:
   blog/2018/bible-survey-q1: "Chart, 2018 survey, question 1: “Do you have a Bible at home or easy access to a Bible?” Yes 76 (80%), No 19 (20%), of 95 answers."
