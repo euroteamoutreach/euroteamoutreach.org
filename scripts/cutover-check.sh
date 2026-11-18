@@ -10,8 +10,10 @@
 #          cutover the zone is on.
 #   URLs — built pages, the netlify.toml redirects, and legacy paths served
 #          through the fall-through proxy, each with its expected status.
-#   Feed — /feed.xml must be byte-identical to the legacy S3 copy, which keeps
-#          MailChimp's RSS automation from seeing anything "new".
+#          Every legacy blog post URL (each post's `aliases`) must 301 to its
+#          new page in one hop.
+#   Feed — /feed.xml, which MailChimp's RSS campaign reads, must be well-formed
+#          and list the 10 newest posts.
 #
 # Usage: scripts/cutover-check.sh [base-url]   (default https://euroteamoutreach.org)
 set -uo pipefail
@@ -19,7 +21,6 @@ set -uo pipefail
 base="${1:-https://euroteamoutreach.org}"
 base="${base%/}"
 ns="ns-67.awsdns-08.com" # authoritative for the zone (see the snapshot)
-legacy=http://euroteamoutreach.org.s3-website-us-east-1.amazonaws.com
 failures=0
 
 pass() { printf '  \033[32m✓\033[0m %s\n' "$1"; }
@@ -40,7 +41,9 @@ expect_dns() { # name type expected
 echo "DNS (@$ns)"
 expect_dns euroteamoutreach.org MX "1 aspmx.l.google.com. 10 alt3.aspmx.l.google.com. 10 alt4.aspmx.l.google.com. 5 alt1.aspmx.l.google.com. 5 alt2.aspmx.l.google.com."
 expect_dns euroteamoutreach.org NS "ns-1105.awsdns-10.org. ns-1743.awsdns-25.co.uk. ns-650.awsdns-17.net. ns-67.awsdns-08.com."
-expect_dns euroteamoutreach.org TXT '"google-site-verification=yQARd7bJ9hk4P8TU8FkEEqv2OKq69emYUmoWzUByEhw"'
+# Two values: Search Console verification, and SPF for Google Workspace
+# (added 2026-11-17; docs/dns-rollback-snapshot.md "Email authentication records").
+expect_dns euroteamoutreach.org TXT '"google-site-verification=yQARd7bJ9hk4P8TU8FkEEqv2OKq69emYUmoWzUByEhw" "v=spf1 include:_spf.google.com ~all"'
 expect_dns _dmarc.euroteamoutreach.org TXT '"v=DMARC1; p=none; rua=mailto:info@euroteamoutreach.org"'
 expect_dns pm-bounces.euroteamoutreach.org CNAME "pm.mtasv.net."
 expect_dns lens.euroteamoutreach.org A "66.241.125.56"
@@ -53,17 +56,22 @@ fi
 echo "  · apex A: $(answer euroteamoutreach.org A)"
 echo "  · www:    $(answer www.euroteamoutreach.org CNAME) $(answer www.euroteamoutreach.org A)"
 
+expect_url() { # path status [location]
+  local got_status got_location
+  read -r got_status got_location < <(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' "$base$1")
+  got_location="${got_location#"$base"}"
+  if [[ "$got_status" == "$2" && "${3:-}" == "${got_location:-}" ]]; then
+    pass "$2 $1${3:+ → $3}"
+  else
+    fail "$1 — expected $2${3:+ → $3}, got $got_status${got_location:+ → $got_location}"
+  fi
+}
+
 echo
 echo "URLs ($base)"
 while read -r path status location; do
   [[ -z "$path" || "$path" == \#* ]] && continue
-  read -r got_status got_location < <(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' "$base$path")
-  got_location="${got_location#"$base"}"
-  if [[ "$got_status" == "$status" && "${location:-}" == "${got_location:-}" ]]; then
-    pass "$status $path${location:+ → $location}"
-  else
-    fail "$path — expected $status${location:+ → $location}, got $got_status${got_location:+ → $got_location}"
-  fi
+  expect_url "$path" "$status" "${location:-}"
 done <<'EOF'
 # Built pages
 / 200
@@ -75,6 +83,9 @@ done <<'EOF'
 /jesus/ 200
 /team/ 200
 /team/steele/ 200
+/about/ 200
+/approach/ 200
+/blog/ 200
 # netlify.toml redirects
 /donate 301 /give/
 /donate/thanks/ 301 /give/
@@ -83,16 +94,27 @@ done <<'EOF'
 /steele 301 /team/steele/
 /day 301 /team/day/
 # Legacy paths through the fall-through proxy
-/about/ 200
-/approach/ 200
-/blog/ 200
-/blog/2025/08/announcing-ukraine-gospel-outreach/ 200
-/blog/2018/07/go-forward/ 200
 /chepara 302 /chepara/
 /chepara/ 200
 /cmo/ 200
 /biblefirst/ 200
 EOF
+
+# Legacy blog post URLs, read from each post's front matter: the alias is the
+# old URL, the slug gives the new /blog/<slug>/. The old URL must 301 straight
+# to the new one, and the new one must answer 200: one hop.
+echo
+echo "Blog redirects"
+posts=0
+for post in "$(dirname "$0")"/../content/blog/*.md; do
+  slug=$(sed -n 's/^slug: *//p' "$post")
+  alias=$(sed -n 's/^- "\(\/blog\/[^"]*\)"$/\1/p' "$post")
+  [[ -z "$slug" || -z "$alias" ]] && continue
+  expect_url "$alias" 301 "/blog/$slug/"
+  expect_url "/blog/$slug/" 200
+  posts=$((posts + 1))
+done
+((posts)) || fail "no blog posts with aliases found under content/blog/"
 
 # Only meaningful on the live domain: Netlify's www → apex and HTTP → HTTPS
 # redirects, and proof the TLS certificate is served (curl reports 000 on a
@@ -112,10 +134,22 @@ fi
 
 echo
 echo "Feed"
-if cmp -s <(curl -s "$base/feed.xml") <(curl -s "$legacy/feed.xml"); then
-  pass "/feed.xml is byte-identical to legacy"
+feed=$(curl -s "$base/feed.xml")
+if xmllint --noout - <<<"$feed" 2>/dev/null; then
+  pass "/feed.xml is well-formed"
 else
-  fail "/feed.xml differs from legacy ($legacy/feed.xml)"
+  fail "/feed.xml is not well-formed XML"
+fi
+items=$(grep -o '<item>' <<<"$feed" | wc -l | tr -d ' ')
+if [[ "$items" == 10 ]]; then
+  pass "/feed.xml lists 10 items"
+else
+  fail "/feed.xml lists $items items, expected 10"
+fi
+if grep -q "<link>$base/blog/" <<<"$feed"; then
+  pass "/feed.xml items link to $base/blog/"
+else
+  fail "/feed.xml items do not link to $base/blog/"
 fi
 
 echo

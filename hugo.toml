@@ -3,6 +3,11 @@ locale = "en-US"
 title = "Euro Team Outreach"
 enableRobotsTXT = true
 
+# No meta-refresh alias pages. Each alias becomes a real 301 in the generated
+# _redirects file instead (the REDIRECTS output below), so there is one copy
+# of each redirect, served by Netlify before any page.
+disableAliases = true
+
 # Pagination. Nine fills three rows of the blog's three-column grid (page 1
 # adds the featured post above them). No alias stub at page/1/: netlify.toml
 # 301s /blog/page/1/ and /tags/{tag}/page/1/ to the list itself.
@@ -27,42 +32,27 @@ enableRobotsTXT = true
 [outputFormats.RSS]
   baseName = "feed"
 
-# ─────────────────────────────────────────────────────────────────────────────
-# TEMPORARY — the pre-UGO launch track (#21). Remove when the blog migrates.
-#
-# Netlify serves every path this site does not build from the legacy S3 site
-# (the fall-through rule at the end of netlify.toml). The two blocks below keep
-# this site from building the paths legacy still owns.
-#
-# 1. No home RSS. The RSS baseName above makes the home feed /feed.xml — the
-#    exact path MailChimp's RSS automation polls. A new-site feed there would
-#    list this site's pages as items, and MailChimp could email them to the
-#    whole list. Until the blog migrates, /feed.xml must fall through to the
-#    legacy feed unchanged. Restore "rss" here in the blog-migration PR, after
-#    pausing the automation (09-blog-migration.md). Until then, the
-#    development and preview environments turn it back on
-#    (config/{development,preview}/hugo.toml).
-#
-#    The section, taxonomy and term lines are NOT temporary: /feed.xml is the
-#    only feed, as on the legacy site, so the blog section, the other sections
-#    and each tag stay HTML-only. Keep them when the home line changes.
+# Netlify's _redirects file, written at the site root from every page's
+# `aliases` (layouts/index.redirects). An empty suffix list gives a file name
+# with no extension, which Netlify requires.
+[mediaTypes."text/netlify"]
+  suffixes = []
+
+[outputFormats.REDIRECTS]
+  mediaType = "text/netlify"
+  baseName = "_redirects"
+  isPlainText = true
+  notAlternative = true
+
+# /feed.xml is the only feed, as on the legacy site, and MailChimp's "ETO
+# Blog" RSS campaign polls it: the home feed, whose items are the blog posts
+# (layouts/rss.xml). The blog section, the other sections and each tag stay
+# HTML-only, so no second feed can appear.
 [outputs]
-  home = ["html"]
+  home = ["html", "rss", "redirects"]
   section = ["html"]
   taxonomy = ["html"]
   term = ["html"]
-
-# 2. Unbuilt pages stay unrendered, so their legacy versions show instead of an
-#    empty stub. Delete a path from this list in the PR that builds its page.
-#    Anything linking to these (menus, footer) uses a literal url, not pageRef /
-#    GetPage — an unrendered page has an empty permalink. The development and
-#    preview environments replace this cascade, so the blog renders there.
-[[cascade]]
-  [cascade.build]
-    render = "never"
-    list = "never"
-  [cascade.target]
-    path = "{/blog,/blog/**,/tags,/tags/**}"
 
 # Minification. Disable XML so the feed's <content:encoded> keeps its literal
 # <![CDATA[…]]> wrapper (the tdewolff minifier would otherwise rewrite it as
@@ -177,10 +167,8 @@ enableRobotsTXT = true
 # destination items. Give carries button = true so the header styles it as a
 # button, not a plain link (#24) — the header keys off that param and never
 # off the entry's name, so the gold-only-on-giving rule survives a menu edit.
-# Built pages use pageRef, which is what lets the header mark the current
-# section. Pages still falling through to legacy stay out of this bar: the
-# blog, stale and on the old design, is linked from the footer only until it
-# is migrated.
+# Every entry uses pageRef, which is what lets the header mark the current
+# section. Pages still falling through to legacy stay out of this bar.
 [[menus.main]]
   name = "Our Story"
   pageRef = "/about/"
@@ -189,6 +177,10 @@ enableRobotsTXT = true
   name = "UGO"
   pageRef = "/ugo/"
   weight = 20
+[[menus.main]]
+  name = "Blog"
+  pageRef = "/blog/"
+  weight = 30
 [[menus.main]]
   name = "Team"
   pageRef = "/team/"
@@ -233,7 +225,7 @@ enableRobotsTXT = true
   weight = 20
 [[menus.footer]]
   name = "Blog"
-  url = "/blog/"
+  pageRef = "/blog/"
   parent = "about"
   weight = 30
 [[menus.footer]]

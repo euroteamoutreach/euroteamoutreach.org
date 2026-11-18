@@ -35,19 +35,20 @@ jobs:
 
       - run: hugo --gc --minify
 
-      # TEMPORARY — until the blog cutover, production must not build the blog:
-      # the legacy site still serves /blog/, and MailChimp polls /feed.xml.
-      # hugo.toml blocks them; config/{development,preview}/ open them. This
-      # step fails if a config change ever lets them into the production
-      # build. Delete it in the cutover PR.
-      - name: Production build leaves the blog to legacy
+      # Every alias in content/ must reach the generated _redirects file as a
+      # 301: a missing line is a legacy URL that 404s (or, worse, falls
+      # through to the legacy site). The feed must exist and be well-formed,
+      # since MailChimp's RSS campaign reads it.
+      - name: Redirects and feed
         run: |
-          for path in public/blog public/tags public/feed.xml; do
-            if [ -e "$path" ]; then
-              echo "::error::$path is in the production build; the blog is not cut over yet"
-              exit 1
-            fi
-          done
+          aliases=$(grep -rhE '^- "?/' content --include='*.md' | wc -l)
+          rules=$(grep -c ' 301$' public/_redirects)
+          echo "aliases in content: $aliases, 301 rules in _redirects: $rules"
+          if [ "$aliases" -eq 0 ] || [ "$aliases" -ne "$rules" ]; then
+            echo "::error::public/_redirects has $rules rules for $aliases aliases"
+            exit 1
+          fi
+          python3 -c 'import xml.dom.minidom, sys; xml.dom.minidom.parse("public/feed.xml")'
 
   lint:
     name: Lint (markdown + prettier)
