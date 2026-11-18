@@ -1,0 +1,44 @@
+{{/* ---------------------------------------------------------------------
+     Blog (`/blog/`) — docs/prd/05-templates.md §"Blog". Mirrors ofreport's
+     blog/list.html mechanics; the face is this site's.
+         heading → featured post (page 1) → card grid → pagination
+     RULES THIS FILE MUST KEEP:
+     1. FEATURED, THEN AN EVEN GRID. Page 1 leads with the newest post as a
+        wide card. The paginator runs over the posts AFTER it, so every page
+        holds a full grid of pagerSize cards (hugo.toml) with no orphan
+        card, and the featured post never repeats on page 2.
+     2. NEWEST FIRST. Hugo's default page order is date descending; nothing
+        here re-sorts.
+     --------------------------------------------------------------------- */}}
+{{ define "main" }}
+  {{ $section := "mx-auto max-w-5xl px-6" }}
+  {{ $posts := .Pages }}
+  {{ $paginator := .Paginate (after 1 $posts) }}
+  {{ $first := not $paginator.HasPrev }}
+
+  <section class="border-b border-warm-200 bg-white">
+    <div class="{{ $section }} py-12 sm:py-16">
+      <h1 class="text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">{{ .Title }}</h1>
+      {{ with .Description }}
+        <p class="mt-4 max-w-prose text-lede text-warm-800">{{ . }}</p>
+      {{ end }}
+      {{ if not $first }}
+        <p class="mt-2 text-caption text-warm-600">Page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}</p>
+      {{ end }}
+    </div>
+  </section>
+
+  <div class="{{ $section }} py-12 sm:py-16">
+    {{ if and $first $posts }}
+      {{ partial "article-card.html" (dict "page" (index $posts 0) "featured" true) }}
+    {{ end }}
+    {{ with $paginator.Pages }}
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 {{ if $first }}mt-6 md:mt-8{{ end }}">
+        {{ range . }}
+          {{ partial "article-card.html" (dict "page" .) }}
+        {{ end }}
+      </div>
+    {{ end }}
+    {{ partial "pagination.html" . }}
+  </div>
+{{ end }}

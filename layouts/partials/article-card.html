@@ -1,0 +1,47 @@
+{{- /*
+  article-card — one blog post as a linked card: cover, title, date, excerpt.
+  Used by the blog list (blog/list.html) and each tag page (term.html).
+
+  The site's linked-card face (home, /team/, /give/): the <a> sits on the
+  title and stretched-link spreads it over the whole card, so the card is one
+  link with one accessible name. The cover is cropped to 3:2 so a row of
+  cards lines up whatever the originals' shapes; its alt is empty because the
+  title beside it already names the card.
+
+  Params (dict):
+    page      (required) the post
+    featured  (optional) true for page 1's lead post: wider, larger title,
+              cover side by side with the text from md up, loaded eagerly
+*/ -}}
+{{- $page := .page -}}
+{{- $featured := .featured | default false -}}
+{{- $date := $page.Date.Format "January 2, 2006" -}}
+
+<article class="linked-card flex flex-col overflow-hidden bg-white {{ if $featured }}md:flex-row{{ end }}">
+  {{- with $page.Params.cover }}
+    {{ partial "cloudinary-img.html" (dict
+      "src" .
+      "alt" ""
+      "sizes" (cond $featured "(min-width: 1024px) 470px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)" "(min-width: 1024px) 304px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)")
+      "loading" (cond $featured "eager" "lazy")
+      "class" (printf "aspect-3/2 w-full bg-warm-100 object-cover %s" (cond $featured "md:aspect-auto md:w-1/2 md:min-h-72" ""))
+    ) }}
+  {{- end }}
+  <div class="flex grow flex-col p-6 {{ if $featured }}md:justify-center md:p-8{{ end }}">
+    <p class="text-caption text-warm-600">
+      <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $date }}</time>
+    </p>
+    {{- if $featured }}
+      <h2 class="mt-2 text-heading text-ink">
+        <a href="{{ $page.RelPermalink }}" class="stretched-link">{{ $page.Title }}</a>
+      </h2>
+    {{- else }}
+      <h2 class="mt-1 text-xl/snug font-semibold tracking-tight text-ink">
+        <a href="{{ $page.RelPermalink }}" class="stretched-link">{{ $page.Title }}</a>
+      </h2>
+    {{- end }}
+    {{- with $page.Description }}
+      <p class="mt-3 text-warm-800 {{ if $featured }}text-body{{ else }}text-base/relaxed{{ end }}">{{ . }}</p>
+    {{- end }}
+  </div>
+</article>

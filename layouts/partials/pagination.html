@@ -1,0 +1,54 @@
+{{- /*
+  pagination — previous / next and numbered pages for a paginated list (the
+  blog and each tag page). Adapted from ofreport's partial, in this site's
+  colours. Renders nothing until there is a second page.
+
+  Numbers show the current page ± 2, plus the first and last with an ellipsis
+  across any gap; on phones only Previous and Next show. Takes the page
+  context, after the template has called .Paginate.
+*/ -}}
+{{- $paginator := .Paginator -}}
+{{- if gt $paginator.TotalPages 1 -}}
+  {{- $current := $paginator.PageNumber -}}
+  {{- $total := $paginator.TotalPages -}}
+  {{- $start := math.Max 1 (sub $current 2) -}}
+  {{- $end := math.Min $total (add $current 2) -}}
+  {{- $edge := "rounded-eto px-1 pt-4 text-sm font-semibold text-warm-600 transition-colors hover:text-eto-600 focus-ring" -}}
+  {{- $number := "inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-semibold text-warm-600 transition-colors hover:border-warm-300 hover:text-eto-600 focus-ring" -}}
+  {{- $gap := "inline-flex items-center px-4 pt-4 text-sm text-warm-600" -}}
+
+  <nav aria-label="Pagination" class="mt-12 flex items-center justify-between border-t border-warm-200 md:mt-16">
+    <div class="-mt-px flex w-0 flex-1">
+      {{- with $paginator.Prev }}
+        <a href="{{ .URL }}" class="{{ $edge }}"><span aria-hidden="true">&larr;</span> Previous</a>
+      {{- end }}
+    </div>
+
+    <div class="hidden md:-mt-px md:flex">
+      {{- range $paginator.Pagers }}
+        {{- $n := .PageNumber }}
+        {{- if and (eq $n 1) (gt $start 1) }}
+          <a href="{{ .URL }}" class="{{ $number }}">1</a>
+          {{- if gt $start 2 }}<span class="{{ $gap }}">&hellip;</span>{{ end }}
+        {{- end }}
+        {{- if and (ge $n (int $start)) (le $n (int $end)) }}
+          {{- if eq $n $current }}
+            <a href="{{ .URL }}" aria-current="page" class="inline-flex items-center border-t-2 border-eto-600 px-4 pt-4 text-sm font-semibold text-eto-600 focus-ring">{{ $n }}</a>
+          {{- else }}
+            <a href="{{ .URL }}" class="{{ $number }}">{{ $n }}</a>
+          {{- end }}
+        {{- end }}
+        {{- if and (eq $n $total) (lt $end $total) }}
+          {{- if lt $end (sub $total 1) }}<span class="{{ $gap }}">&hellip;</span>{{ end }}
+          <a href="{{ .URL }}" class="{{ $number }}">{{ $total }}</a>
+        {{- end }}
+      {{- end }}
+    </div>
+
+    <div class="-mt-px flex w-0 flex-1 justify-end">
+      {{- with $paginator.Next }}
+        <a href="{{ .URL }}" class="{{ $edge }}">Next <span aria-hidden="true">&rarr;</span></a>
+      {{- end }}
+    </div>
+  </nav>
+{{- end -}}
