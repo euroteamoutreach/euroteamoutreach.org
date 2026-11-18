@@ -61,7 +61,9 @@ We’d like to extend a big thank-you to everyone who has been praying for and s
 ---
 
 “The Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to us-ward, **not willing that any should perish, but that all should come to repentance.**“
+{.text-center}
 
 **2 Peter 3:9**
+{.text-center}
 
 ---

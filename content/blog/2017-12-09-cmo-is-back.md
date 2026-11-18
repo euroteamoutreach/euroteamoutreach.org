@@ -71,6 +71,7 @@ Ready to get started? You know what to do. Click the button!
 
 **“Go ye, therefore, and teach all nations...”\
 Matthew 28:19**
+{.text-center}
 
 ---
 

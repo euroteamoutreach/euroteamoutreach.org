@@ -77,6 +77,11 @@ enableRobotsTXT = true
 [markup.goldmark.renderer]
   unsafe = true
 
+# Block attributes ({.text-center} on the line under a paragraph) let a
+# migrated post centre its callouts, as the legacy Kramdown IALs did.
+[markup.goldmark.parser.attribute]
+  block = true
+
 # Site parameters
 [params]
   description = "Euro Team Outreach — preaching the Gospel, teaching the Bible, discipling men in missions."
