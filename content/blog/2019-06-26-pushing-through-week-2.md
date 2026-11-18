@@ -57,8 +57,6 @@ Monday morning we packed our tents in a drizzle, but that didn’t stop the team
 
 ---
 
-View the full Week 2 photo album on our Facebook page!
-
-{{< button href="https://facebook.com/media/set/?set=a.10156556333552123&type=3" text="Week 2 Photo Album" >}}
+{{< button lead="View the full Week 2 photo album on our Facebook page!" href="https://facebook.com/media/set/?set=a.10156556333552123&type=3" text="Week 2 Photo Album" >}}
 
 ---

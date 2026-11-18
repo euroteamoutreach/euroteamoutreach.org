@@ -56,11 +56,14 @@ Tolik and Nastia are faithful missionaries, and we believe they have the potenti
 **Euro Team Outreach\
 16723 Britford\
 Houston, TX 77084**
+{.text-center}
 
 {{< figure src="blog/2018/zhylavy-family-2" caption="The Zhylavy Family: Tolik, Nastia, Kateryna, Valentyna, Hanna and Lukian" width="2000" height="1375" >}}
 
 ---
 
 **For God is not unrighteous to forget your work and labour of love, which ye have shewed toward his name, in that ye have ministered to the saints, and do minister.”**
+{.text-center}
 
 **Hebrews 6:10**
+{.text-center}

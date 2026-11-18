@@ -48,9 +48,7 @@ So even if you’re not quite finished filling out your application, drop us a l
 ---
 
 Ready to start the application process for CMO 2018?\
-There’s a button for that too!
-
-{{< button href="http://www.cmoproject.org/apply/" text="Apply for CMO 2018" >}}
+{{< button lead="There’s a button for that too!" href="http://www.cmoproject.org/apply/" text="Apply for CMO 2018" >}}
 
 ---
 
@@ -63,7 +61,9 @@ We’d like to extend a big thank-you to everyone who has been praying for and s
 ---
 
 “The Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to us-ward, **not willing that any should perish, but that all should come to repentance.**“
+{.text-center}
 
 **2 Peter 3:9**
+{.text-center}
 
 ---

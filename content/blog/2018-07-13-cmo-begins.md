@@ -26,6 +26,7 @@ If you’ve not already done so, please take a moment to [subscribe to our eRepo
 ---
 
 **And now the fun part — photos!**
+{.text-center}
 
 ---
 

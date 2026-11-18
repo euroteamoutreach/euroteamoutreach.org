@@ -65,9 +65,7 @@ Yes! RMO 2021 will be open to guys and gals alike. 🙂
 
 ---
 
-Ready to answer the call?
-
-{{< button href="https://www.onwardforchrist.org/rocky-mountain-outreach-2021" text="Apply Now for RMO 2021" >}}
+{{< button lead="Ready to answer the call?" href="https://www.onwardforchrist.org/rocky-mountain-outreach-2021" text="Apply Now for RMO 2021" >}}
 
 ---
 

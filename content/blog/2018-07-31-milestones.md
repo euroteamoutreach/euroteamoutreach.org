@@ -71,9 +71,7 @@ The week went by quickly and we are thankful to God for his continued protection
 
 ---
 
-View the full Week 3 photo album on our Facebook page!
-
-{{< button href="https://www.facebook.com/media/set/?set=a.10155848841542123.1073741854.85322297122&type=1&l=f5b6f4b578" text="Week 3 Photo Album" >}}
+{{< button lead="View the full Week 3 photo album on our Facebook page!" href="https://www.facebook.com/media/set/?set=a.10155848841542123.1073741854.85322297122&type=1&l=f5b6f4b578" text="Week 3 Photo Album" >}}
 
 ---
 

@@ -329,8 +329,11 @@ html {
   }
 }
 
+/* Buttons (.btn) are skipped: a button shortcode in a post keeps its own
+   face instead of turning into a blue, underlined text link (blue text on a
+   blue fill). :where() adds no specificity. */
 @utility prose-links {
-  & a {
+  & a:not(:where(.btn)) {
     @apply link;
   }
 }

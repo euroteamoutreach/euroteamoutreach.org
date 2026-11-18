@@ -221,7 +221,10 @@ module Migrate
     (?:(?![ \t]*\n)(?!\{:)([^\n]+)\n\{:[ \t]*\.caption-text[^}\n]*\}[ \t]*(?:\n|\z))?
   ~x
 
+  # A button, with the centred line that introduces it when there is one
+  # ("View the full Week 1 photo album…", marked .article-item-center).
   BUTTON_RE = %r~
+    (?:^([^\n{][^\n]*)\n\{:[^}\n]*\.article-item-center[^}\n]*\}[ \t]*\n\n)?
     ^\[([^\]\n]+)\]\(([^)\s]+)\)\{:[^}\n]*\.article-button[^}\n]*\}[ \t]*\n?
     (?:\{:[^}\n]*\}[ \t]*(?:\n|\z))?
   ~x
@@ -279,7 +282,7 @@ module Migrate
   # joins the one above when both are plain prose or a list item and its
   # continuation; structural lines (headings, quotes, shortcodes, HTML, rules,
   # list markers) and hard breaks (a trailing backslash) never join.
-  STRUCTURAL = %r{\A\s*(?:[#>|<]|\{\{|---|[-*+]\s|\d+\.\s|\z)}
+  STRUCTURAL = %r{\A\s*(?:[#>|<]|\{\{|\{\.|---|[-*+]\s|\d+\.\s|\z)}
 
   def unwrap(text)
     out = []
@@ -345,10 +348,13 @@ module Migrate
     end
 
     out = out.gsub(BUTTON_RE) do
-      label, target = Regexp.last_match.captures
+      lead, label, target = Regexp.last_match.captures
       text = prose(label.strip)
       href = rewrite_href(target, ctx[:posts])
-      "{{< button href=#{quote(href)} text=#{quote(text)} >}}\n"
+      # The shortcode sets the lead in bold itself; it comes first, in
+      # reading order.
+      lead &&= "lead=#{quote(prose(lead.strip.delete_prefix('**').delete_suffix('**')))} "
+      "{{< button #{lead}href=#{quote(href)} text=#{quote(text)} >}}\n"
     end
 
     out = out.gsub(IMAGE_BLOCK_RE) do
@@ -368,8 +374,11 @@ module Migrate
     end
 
     out = strip_inline_ials(out)
-    # A rule's attribute line goes; a rule straight after text would read as a
-    # setext heading, so it gets a blank line above it.
+    # A callout (a verse, an address, a line introducing photos) was centred
+    # with .article-item-center; it keeps that as a Goldmark block attribute.
+    # Every other attribute line goes; a rule straight after text would read
+    # as a setext heading, so it gets a blank line above it.
+    out = out.gsub(/^\{:[ \t]*\.article-item-center[ \t]*\}[ \t]*$/, "{.text-center}")
     out = out.gsub(/^\{:[^}\n]*\}[ \t]*\n?/, "")
     out = out.gsub(/([^\n])\n---[ \t]*\n/, "\\1\n\n---\n")
 
@@ -592,7 +601,8 @@ module Migrate
       t = convert_anchors(t)
     else
       # Keep a shortcode's visible text (caption, button label), drop the rest.
-      t = t.gsub(/\{\{<\s*\w+(.*?)>\}\}/m) { Regexp.last_match(1).scan(/\b(?:caption|text)="((?:[^"\\]|\\.)*)"/).join(" ") }
+      t = t.gsub(/\{\{<\s*\w+(.*?)>\}\}/m) { Regexp.last_match(1).scan(/\b(?:caption|lead|text)="((?:[^"\\]|\\.)*)"/).join(" ") }
+      t = t.gsub(/^\{\.[^}\n]*\}$/, "")
     end
     t = t.gsub(/\]\([^)]*\)/, "]").gsub(%r{</?[a-z][^>]*>}i, " ").gsub(%r{https?://\S+}, " ")
     t = normalize_lviv(decode_entities(t)).tr("“”‘’", %q(""'')).downcase

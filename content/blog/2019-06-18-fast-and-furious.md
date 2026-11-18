@@ -59,8 +59,6 @@ Something cool that happened at the second village we showed the film at was tha
 
 ---
 
-View the full Week 1 photo album on our Facebook page!
-
-{{< button href="https://facebook.com/media/set/?set=a.10156537292882123&type=3" text="Week 1 Photo Album" >}}
+{{< button lead="View the full Week 1 photo album on our Facebook page!" href="https://facebook.com/media/set/?set=a.10156537292882123&type=3" text="Week 1 Photo Album" >}}
 
 ---
