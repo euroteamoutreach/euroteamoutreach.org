@@ -127,8 +127,9 @@
 # Any path this site does not build is served from the legacy Middleman site on
 # S3, as a 200 rewrite on our own domain, so no legacy URL 404s at cutover.
 # Non-forced: Netlify applies it only when no file exists at the path, so every
-# page this site DOES build wins. The hugo.toml cascade decides which paths
-# fall through.
+# page this site DOES build wins. The blog's legacy post URLs never reach it:
+# their 301s are in the generated _redirects file (layouts/index.redirects),
+# which Netlify reads before this file.
 #
 # The S3 website endpoint is HTTP-only; Netlify fetches it server-side, so
 # visitors still see HTTPS. Legacy CSS/JS/images load from its own CloudFront
@@ -137,7 +138,7 @@
 # ⚠️ KEEP THIS THE LAST [[redirects]] RULE. Netlify takes the first match, and a
 # /* catch-all shadows every rule below it. Add new redirects ABOVE this one.
 #
-# Remove when the blog migrates and the full redirect map (Phase 13) lands.
+# Remove when the full redirect map (Phase 13) lands.
 # ─────────────────────────────────────────────────────────────────────────────
 [[redirects]]
   from = "/*"
