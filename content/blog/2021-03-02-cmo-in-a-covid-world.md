@@ -19,7 +19,7 @@ COVID-19 exploded onto the world stage, and we began to realize that our plans w
 
 Despite the cancellation of CMO 2020 in Ukraine, God opened the door to a new project, affectionately known as Colorado Mountain Outreach (CMO) 2020! Led by CMO alumni Ben Sargent and Elliot Shupe, this one-week project was a short, focused outreach executed with many of the same outreach methods we use here. While I was not personally involved in the project, the testimonies we heard were exciting and encouraging.
 
-{{< figure src="blog/2021/colorado-mo" alt="The Rocky Mountain Outreach team, about twenty people, poses on a residential street." width="1024" height="768" >}}
+{{< figure src="blog/2021/colorado-mo" alt="The Colorado Mountain Outreach 2020 team, about twenty people, poses on a residential street." width="1024" height="768" >}}
 
 ## What about CMO in Ukraine?
 
