@@ -3,9 +3,12 @@ locale = "en-US"
 title = "Euro Team Outreach"
 enableRobotsTXT = true
 
-# Pagination
+# Pagination. Nine fills three rows of the blog's three-column grid (page 1
+# adds the featured post above them). No alias stub at page/1/: netlify.toml
+# 301s /blog/page/1/ and /tags/{tag}/page/1/ to the list itself.
 [pagination]
-  pagerSize = 8
+  pagerSize = 9
+  disableAliases = true
 
 # Permalinks — the datestamped blog filename IS the slug, so legacy post URLs
 # are reproducible (2026-05-27-teaching-serving-standing.md → /blog/2026-05-27-teaching-serving-standing/).
@@ -36,14 +39,24 @@ enableRobotsTXT = true
 #    list this site's pages as items, and MailChimp could email them to the
 #    whole list. Until the blog migrates, /feed.xml must fall through to the
 #    legacy feed unchanged. Restore "rss" here in the blog-migration PR, after
-#    pausing the automation (09-blog-migration.md).
+#    pausing the automation (09-blog-migration.md). Until then, the
+#    development and preview environments turn it back on
+#    (config/{development,preview}/hugo.toml).
+#
+#    The section, taxonomy and term lines are NOT temporary: /feed.xml is the
+#    only feed, as on the legacy site, so the blog section, the other sections
+#    and each tag stay HTML-only. Keep them when the home line changes.
 [outputs]
   home = ["html"]
+  section = ["html"]
+  taxonomy = ["html"]
+  term = ["html"]
 
 # 2. Unbuilt pages stay unrendered, so their legacy versions show instead of an
 #    empty stub. Delete a path from this list in the PR that builds its page.
 #    Anything linking to these (menus, footer) uses a literal url, not pageRef /
-#    GetPage — an unrendered page has an empty permalink.
+#    GetPage — an unrendered page has an empty permalink. The development and
+#    preview environments replace this cascade, so the blog renders there.
 [[cascade]]
   [cascade.build]
     render = "never"

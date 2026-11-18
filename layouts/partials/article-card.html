@@ -1,0 +1,43 @@
+{{- /*
+  article-card — one blog post as a linked card: cover, title, date, excerpt.
+  Used by the blog list (blog/list.html) and each tag page (term.html).
+
+  The site's linked-card face (home, /team/, /give/): the <a> sits on the
+  title and stretched-link spreads it over the whole card, so the card is one
+  link with one accessible name. The cover is cropped to 3:2 so a row of
+  cards lines up whatever the originals' shapes; its alt is empty because the
+  title beside it already names the card.
+
+  Params (dict):
+    page      (required) the post
+    featured  (optional) true for page 1's lead post: wider, larger title,
+              cover side by side with the text from md up, loaded eagerly
+*/ -}}
+{{- $page := .page -}}
+{{- $featured := .featured | default false -}}
+
+<article class="linked-card flex flex-col overflow-hidden bg-white {{ if $featured }}md:flex-row{{ end }}">
+  {{- with $page.Params.cover }}
+    {{/* Cloudinary crops to the card's frame (4:3 featured, 3:2 grid), so
+         no card downloads pixels that object-cover would throw away. */}}
+    {{ partial "cloudinary-img.html" (dict
+      "src" .
+      "alt" ""
+      "crop" (printf "ar_%s,c_fill,g_auto" (cond $featured "4:3" "3:2"))
+      "sizes" (printf "(min-width: 1024px) %s, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)" (cond $featured "488px" "309px"))
+      "loading" (cond $featured "eager" "lazy")
+      "class" (printf "aspect-3/2 w-full bg-warm-100 object-cover %s" (cond $featured "md:aspect-4/3 md:w-1/2" ""))
+    ) }}
+  {{- end }}
+  <div class="flex grow flex-col p-6 {{ if $featured }}md:justify-center md:p-8{{ end }}">
+    <p class="text-caption text-warm-600">
+      <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "January 2, 2006" }}</time>
+    </p>
+    <h2 class="{{ cond $featured "mt-2 text-heading" "mt-1 text-xl/snug font-semibold tracking-tight" }} text-ink">
+      <a href="{{ $page.RelPermalink }}" class="stretched-link">{{ $page.Title }}</a>
+    </h2>
+    {{- with $page.Description }}
+      <p class="mt-3 text-warm-800 {{ cond $featured "text-body" "text-base/relaxed" }}">{{ . }}</p>
+    {{- end }}
+  </div>
+</article>

@@ -1,6 +1,4 @@
 ---
 title: "Blog"
-description: ""
+description: "Reports and stories from our work in Ukraine."
 ---
-
-<!-- TODO: blog posts are migrated in Phase 11; structure-only stub. -->

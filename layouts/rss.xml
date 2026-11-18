@@ -1,0 +1,84 @@
+{{- /*
+  rss.xml — the blog feed at /feed.xml, tuned for MailChimp's RSS-to-email
+  campaign ("ETO Blog", ETO Newsletter audience). Adapted from ofreport's
+  layouts/_default/rss.xml (ofreport PR 181). Only the home page outputs RSS
+  (hugo.toml [outputs]), so this is the site's one feed.
+
+  - <description> is the plain-text excerpt (front-matter `description`), so
+    RSS readers and previews stay tidy.
+  - <content:encoded> carries the email body as HTML in a CDATA block: the
+    cover, sized by width only (width="600" + inline height:auto, so no email
+    client can distort it), then the excerpt. The campaign's HTML version
+    reads it with *|RSSITEM:CONTENT_FULL|*. The CDATA survives only because
+    [minify] disableXML = true (hugo.toml).
+  - The cover is a 1200×630 fill (2× the 600px email width, the share-card
+    ratio) with f_auto, as on ofreport: each email client or reader gets a
+    format it says it can show (a client that can't show WebP doesn't ask
+    for it). Unlike seo.html, no forced JPEG: that guards against share
+    crawlers caching one format for every viewer, not against email.
+  - The <enclosure> type is read from the cover's file extension, JPEG when
+    there is none (most Cloudinary public IDs). With f_auto the real format
+    is decided per request, so the type is a hint either way.
+  - Dates are emitted at noon UTC. Posts carry a date only, which Hugo
+    stamps at midnight UTC; read in the Americas that is the evening before.
+    Noon UTC shows the right day from the Americas to Ukraine.
+*/ -}}
+{{- $pages := where site.RegularPages "Section" "blog" -}}
+{{- $limit := site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 -}}
+  {{- $pages = $pages | first $limit -}}
+{{- end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>{{ site.Title | transform.XMLEscape | safeHTML }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ site.Params.description | transform.XMLEscape | safeHTML }}</description>
+    <generator>Hugo</generator>
+    {{- with site.Language.Locale }}
+    <language>{{ . }}</language>
+    {{- end }}
+    {{- with index $pages 0 }}
+    <lastBuildDate>{{ .Date.Format "Mon, 02 Jan 2006" | safeHTML }} 12:00:00 +0000</lastBuildDate>
+    {{- end }}
+    {{- with .OutputFormats.Get "rss" }}
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
+    {{- end }}
+    {{- range $pages }}
+    {{- $excerpt := .Description }}
+    {{- $alt := .Title | transform.XMLEscape }}
+    {{- $cover := "" }}
+    {{- $type := "" }}
+    {{- with .Params.cover }}
+      {{- $cover = printf "%s/image/upload/c_fill,g_auto,f_auto,q_auto,w_1200,h_630/%s" site.Params.cloudinaryBase . }}
+      {{- $type = index (dict ".png" "image/png" ".gif" "image/gif" ".webp" "image/webp" ".avif" "image/avif") (lower (path.Ext .)) | default "image/jpeg" }}
+    {{- end }}
+    <item>
+      <title>{{ .Title | transform.XMLEscape | safeHTML }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006" | safeHTML }} 12:00:00 +0000</pubDate>
+      {{- with .Params.author }}
+      <dc:creator>{{ . | transform.XMLEscape | safeHTML }}</dc:creator>
+      {{- end }}
+      <guid>{{ .Permalink }}</guid>
+      {{- with $excerpt }}
+      <description>{{ . | transform.XMLEscape | safeHTML }}</description>
+      {{- end }}
+      {{- $body := "" }}
+      {{- with $cover }}
+        {{- $style := "display:block;width:100%;max-width:600px;height:auto;border:0" }}
+        {{- $body = printf "<img src=\"%s\" alt=\"%s\" width=\"600\" style=\"%s\" />" . $alt $style }}
+      {{- end }}
+      {{- with $excerpt }}
+        {{- $body = printf "%s<p>%s</p>" $body (. | transform.XMLEscape) }}
+      {{- end }}
+      {{- with $body }}
+      <content:encoded>{{ printf "<![CDATA[%s]]>" . | safeHTML }}</content:encoded>
+      {{- end }}
+      {{- with $cover }}
+      <enclosure url="{{ . }}" length="0" type="{{ $type }}" />
+      {{- end }}
+    </item>
+    {{- end }}
+  </channel>
+</rss>

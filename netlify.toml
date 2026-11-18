@@ -108,6 +108,19 @@
   status = 301
   force = true
 
+# Page 1 of a paginated list → the list itself, as a real 301 (see hugo.toml
+# [pagination]). Above the fall-through, like the rules above.
+[[redirects]]
+  from = "/blog/page/1"
+  to = "/blog/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/tags/:tag/page/1"
+  to = "/tags/:tag/"
+  status = 301
+  force = true
+
 # ─────────────────────────────────────────────────────────────────────────────
 # TEMPORARY — legacy fall-through for the pre-UGO launch track (#21).
 #

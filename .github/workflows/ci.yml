@@ -35,6 +35,20 @@ jobs:
 
       - run: hugo --gc --minify
 
+      # TEMPORARY — until the blog cutover, production must not build the blog:
+      # the legacy site still serves /blog/, and MailChimp polls /feed.xml.
+      # hugo.toml blocks them; config/{development,preview}/ open them. This
+      # step fails if a config change ever lets them into the production
+      # build. Delete it in the cutover PR.
+      - name: Production build leaves the blog to legacy
+        run: |
+          for path in public/blog public/tags public/feed.xml; do
+            if [ -e "$path" ]; then
+              echo "::error::$path is in the production build; the blog is not cut over yet"
+              exit 1
+            fi
+          done
+
   lint:
     name: Lint (markdown + prettier)
     runs-on: ubuntu-latest

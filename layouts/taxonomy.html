@@ -1,0 +1,36 @@
+{{/* ---------------------------------------------------------------------
+     Tag index (`/tags/`) — docs/prd/05-templates.md §"Blog". Every tag as a
+     pill with its post count, alphabetical.
+
+     Hugo builds this page even when no post has tags. Until the first tag
+     it shows a short empty state, seo.html marks it noindex, and nothing
+     links to it (tag pills render only on tagged posts). No template change
+     is needed when tags arrive.
+     --------------------------------------------------------------------- */}}
+{{ define "main" }}
+  <section class="border-b border-warm-200 bg-white">
+    <div class="mx-auto max-w-5xl px-6 py-12 sm:py-16">
+      <h1 class="text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">{{ .Title }}</h1>
+      {{ with .Description }}
+        <p class="mt-4 max-w-prose text-lede text-warm-800">{{ . }}</p>
+      {{ end }}
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-5xl px-6 py-12 sm:py-16">
+    {{ with .Data.Terms.Alphabetical }}
+      <ul class="flex flex-wrap gap-3">
+        {{ range . }}
+          <li>
+            <a href="{{ .Page.RelPermalink }}" class="inline-flex items-center gap-2 rounded-full bg-eto-50 px-4 py-2 font-semibold text-eto-700 transition-colors hover:bg-eto-100 focus-ring">
+              {{ .Term }}
+              <span class="text-sm font-normal text-eto-600">{{ .Count }}</span>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p class="text-body text-warm-800">No posts are tagged yet. <a href="{{ with site.GetPage "/blog" }}{{ .RelPermalink }}{{ end }}" class="link">Read the blog</a>.</p>
+    {{ end }}
+  </div>
+{{ end }}
