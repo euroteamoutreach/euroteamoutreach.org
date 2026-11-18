@@ -24,7 +24,7 @@
       "alt" ""
       "sizes" (cond $featured "(min-width: 1024px) 470px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)" "(min-width: 1024px) 304px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)")
       "loading" (cond $featured "eager" "lazy")
-      "class" (printf "aspect-3/2 w-full bg-warm-100 object-cover %s" (cond $featured "md:aspect-auto md:w-1/2 md:min-h-72" ""))
+      "class" (printf "aspect-3/2 w-full bg-warm-100 object-cover %s" (cond $featured "md:aspect-4/3 md:w-1/2" ""))
     ) }}
   {{- end }}
   <div class="flex grow flex-col p-6 {{ if $featured }}md:justify-center md:p-8{{ end }}">
