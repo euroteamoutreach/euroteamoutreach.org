@@ -19,11 +19,13 @@
 <article class="linked-card flex flex-col overflow-hidden bg-white {{ if $featured }}md:flex-row{{ end }}">
   {{- with $page.Params.cover }}
     {{/* Cloudinary crops to the card's frame (4:3 featured, 3:2 grid), so
-         no card downloads pixels that object-cover would throw away. */}}
+         no card downloads pixels that object-cover would throw away. The
+         crop is centred, not g_auto: covers are landscape headers, often
+         graphics with the subject in the middle, which g_auto pushed aside. */}}
     {{ partial "cloudinary-img.html" (dict
       "src" .
       "alt" ""
-      "crop" (printf "ar_%s,c_fill,g_auto" (cond $featured "4:3" "3:2"))
+      "crop" (printf "ar_%s,c_fill,g_center" (cond $featured "4:3" "3:2"))
       "sizes" (printf "(min-width: 1024px) %s, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)" (cond $featured "488px" "309px"))
       "loading" (cond $featured "eager" "lazy")
       "class" (printf "aspect-3/2 w-full bg-warm-100 object-cover %s" (cond $featured "md:aspect-4/3 md:w-1/2" ""))
