@@ -1,0 +1,41 @@
+{{- /*
+  button — a standalone call to action inside a blog post. Adapted from
+  ofreport's button shortcode, on this site's button system (main.css):
+  `btn` + one fill + the light-ground focus ring.
+
+  Whether it opens a new tab is decided by where it goes, as for every
+  link on the site (partials/external.html), so there is no external
+  param: an off-site button opens a new tab and says so.
+
+  A giving button names its fund instead of a URL. Its link comes from
+  give-cta.html, so the designation stays single-sourced in
+  data/designations.yaml, and it takes the gold fill, which is reserved for
+  giving (DECISIONS.md 64). An unknown fund fails the build.
+
+  Params (named):
+    href     a destination URL (this or fund is required)
+    fund     a designation slug from data/designations.yaml
+    text     (required) visible label
+
+  Usage:
+    {{< button href="/serve/" text="See how it works" >}}
+    {{< button fund="fallen-defender" text="Donate Now" >}}
+*/ -}}
+{{- $href := .Get "href" -}}
+{{- $fund := .Get "fund" -}}
+{{- $text := .Get "text" -}}
+{{- if not (or $href $fund) -}}
+  {{- errorf "button: 'href' or 'fund' is required (%s)" .Position -}}
+{{- end -}}
+{{- if not $text -}}
+  {{- errorf "button: 'text' is required (%s)" .Position -}}
+{{- end -}}
+{{- $fill := "btn-primary" -}}
+{{- with $fund -}}
+  {{- $href = partial "give-cta.html" . -}}
+  {{- $fill = "btn-gold" -}}
+{{- end -}}
+{{- $x := partial "external.html" $href -}}
+<div class="not-prose my-8 text-center">
+  <a href="{{ $href }}" class="btn {{ $fill }} focus-ring" {{ $x.attrs }}>{{ $text }}{{ $x.mark }}</a>
+</div>
