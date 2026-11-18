@@ -108,6 +108,22 @@
   status = 301
   force = true
 
+# Page 1 of a paginated list is the list itself (as on ofreport). hugo.toml's
+# [pagination] disableAliases stops Hugo writing a meta-refresh stub at
+# page/1/; these make it a real 301 instead. Above the fall-through, like the
+# rules above; harmless before the blog cutover, when they land on the legacy
+# /blog/ (legacy had no tag pages).
+[[redirects]]
+  from = "/blog/page/1"
+  to = "/blog/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/tags/:tag/page/1"
+  to = "/tags/:tag/"
+  status = 301
+  force = true
+
 # ─────────────────────────────────────────────────────────────────────────────
 # TEMPORARY — legacy fall-through for the pre-UGO launch track (#21).
 #
