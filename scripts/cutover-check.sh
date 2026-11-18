@@ -41,7 +41,9 @@ expect_dns() { # name type expected
 echo "DNS (@$ns)"
 expect_dns euroteamoutreach.org MX "1 aspmx.l.google.com. 10 alt3.aspmx.l.google.com. 10 alt4.aspmx.l.google.com. 5 alt1.aspmx.l.google.com. 5 alt2.aspmx.l.google.com."
 expect_dns euroteamoutreach.org NS "ns-1105.awsdns-10.org. ns-1743.awsdns-25.co.uk. ns-650.awsdns-17.net. ns-67.awsdns-08.com."
-expect_dns euroteamoutreach.org TXT '"google-site-verification=yQARd7bJ9hk4P8TU8FkEEqv2OKq69emYUmoWzUByEhw"'
+# Two values: Search Console verification, and SPF for Google Workspace
+# (added 2026-11-17; docs/dns-rollback-snapshot.md "Email authentication records").
+expect_dns euroteamoutreach.org TXT '"google-site-verification=yQARd7bJ9hk4P8TU8FkEEqv2OKq69emYUmoWzUByEhw" "v=spf1 include:_spf.google.com ~all"'
 expect_dns _dmarc.euroteamoutreach.org TXT '"v=DMARC1; p=none; rua=mailto:info@euroteamoutreach.org"'
 expect_dns pm-bounces.euroteamoutreach.org CNAME "pm.mtasv.net."
 expect_dns lens.euroteamoutreach.org A "66.241.125.56"
