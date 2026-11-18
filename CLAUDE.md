@@ -148,9 +148,9 @@ Settled site-wide (planning `DECISIONS.md` #41–46). These are deliberate — d
 - Preserved as-is: `/about` · `/approach` · `/jesus` · `/doctrine` · `/contact`
 - `/donate` + `/donations` → `/give`
 - Team bios move to `/team/{slug}/`; legacy root slugs (`/day` `/steele` `/sargent` `/chepara` `/patricia`) 301 to them
-- **Blog:** legacy `/blog/{year}/{month}/{title}.html` → new `/blog/YYYY-MM-DD-slug/`. The exact day comes from each legacy post's front-matter `date:` field. Per-post 301s via Hugo `aliases`.
+- **Blog:** legacy `/blog/YYYY/MM/slug/` → new `/blog/YYYY-MM-DD-slug/`. The legacy site served posts as directories (`directory_indexes`), so the trailing-slash form is the real URL and the `.html` form 404s. The exact day comes from each legacy post's front-matter `date:` field. Each post's `aliases` hold its legacy URL; the build generates `_redirects` from them (true 301s), and Hugo's alias pages are off.
 
-⚠️ **MailChimp RSS is wired to the blog.** Changed permalinks/GUIDs can re-blast old posts to the entire list as "new." **Pause the RSS automation during migration**, verify the feed, then re-enable.
+⚠️ **MailChimp RSS is wired to the blog.** Changed permalinks/GUIDs could in principle re-send old posts; the risk is low, since MailChimp sends only items dated after its last send and migrated posts keep their dates. **Still pause the RSS campaign around the migration deploy**, verify the feed with a test send to Joshua only, then re-enable.
 
 ## Sensitive Content
 
