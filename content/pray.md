@@ -64,12 +64,10 @@ verse:
 
 follow:
   heading: "Follow along"
-  # /blog/ is a literal URL: it is unrendered on the pre-UGO track (hugo.toml
-  # cascade) and falls through to the legacy blog.
   blog:
     text: "Trip reports, stories, and updates from our team and the work across Ukraine."
     label: "Read the blog"
-    href: "/blog/"
+    page: "/blog"
   # Markdown: links to the newsletter's own page.
   subscribe: "Current requests from the field go out by email — [subscribe to our newsletter](/subscribe/)."
   social:
