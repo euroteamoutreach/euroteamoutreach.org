@@ -12,8 +12,8 @@
       {{ with .Parent }}
         <a href="{{ .RelPermalink }}" class="link-standalone text-caption">← All tags</a>
       {{ end }}
-      <h1 class="mt-6 text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">{{ .Title }}</h1>
-      <p class="mt-4 text-lede text-warm-800">{{ $count }} {{ cond (eq $count 1) "post" "posts" }} tagged “{{ .Title }}”{{ if $paginator.HasPrev }} · page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}{{ end }}</p>
+      <h1 class="mt-6 text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">{{ .Data.Term }}</h1>
+      <p class="mt-4 text-lede text-warm-800">{{ $count }} {{ cond (eq $count 1) "post" "posts" }} tagged “{{ .Data.Term }}”{{ if $paginator.HasPrev }} · page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}{{ end }}</p>
     </div>
   </section>
 

@@ -23,7 +23,7 @@
         {{ range . }}
           <li>
             <a href="{{ .Page.RelPermalink }}" class="inline-flex items-center gap-2 rounded-full bg-eto-50 px-4 py-2 font-semibold text-eto-700 transition-colors hover:bg-eto-100 focus-ring">
-              {{ .Page.Title }}
+              {{ .Term }}
               <span class="text-sm font-normal text-eto-600">{{ .Count }}</span>
             </a>
           </li>
