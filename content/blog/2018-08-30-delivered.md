@@ -1,7 +1,7 @@
 ---
 title: Delivered!
 date: 2018-08-30
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: After more than a year of translation, design and logistics, the new Ukrainian edition of Good and Evil arrives in Lviv by the truckload.
 tags: []
 cover: blog/2018/delivered

@@ -1,7 +1,7 @@
 ---
 title: National Missionaries
 date: 2018-01-18
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: Meet Tolik and Nastia Zhylavy, ETO’s first Ukrainian family to join the team as full-time missionaries, and the work they are doing in Lviv.
 tags: []
 cover: blog/2018/zhylavy-family

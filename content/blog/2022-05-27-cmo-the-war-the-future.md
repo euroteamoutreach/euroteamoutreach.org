@@ -1,7 +1,7 @@
 ---
 title: CMO, the War, and the Future
 date: 2022-05-27
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: The war has forced us to cancel CMO 2022. Where our team is now, and how we see the future of the work in Ukraine.
 tags: []
 cover: blog/2022/kyiv-sunset

@@ -1,7 +1,7 @@
 ---
 title: CMO Begins
 date: 2018-07-13
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: CMO 2018 is under way. A first look at the team and a day of inviting two Carpathian villages to Sunday’s film showings.
 tags: []
 cover: blog/2018/cmo-2018-team

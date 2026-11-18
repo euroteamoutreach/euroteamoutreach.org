@@ -1,7 +1,7 @@
 ---
 title: CMO Returns
 date: 2023-03-13
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: After three years of cancellations, CMO returns in 2023. Why we believe western Ukraine is safe enough, and how to pre-register.
 tags: []
 cover: blog/2023/carpathian-7437720

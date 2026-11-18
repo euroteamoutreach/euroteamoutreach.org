@@ -1,7 +1,7 @@
 ---
 title: The Beals Have Left ETO
 date: 2018-10-25
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: Jessie and Teresa Beal have resigned from Euro Team Outreach. A look back at our years of service together, and answers to the obvious questions.
 tags: []
 cover: blog/2018/beal-family

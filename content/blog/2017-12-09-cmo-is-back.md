@@ -1,7 +1,7 @@
 ---
 title: CMO is Back!
 date: 2017-12-09
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: Carpathian Mountain Outreach returns in the summer of 2018 for its eleventh project. The dates, the cost, and how to apply.
 tags: []
 cover: blog/2017/cmo-is-back

@@ -508,10 +508,15 @@ module Migrate
     description, kept_desc = lowercase_russia(prose(post_fixes["description"]))
     kept = kept_body + kept_caption + kept_desc
 
+    # Legacy wrote a linked author as [name, handle, "@tw"], which a Middleman
+    # helper turned into a social link. Authors are plain names now.
+    author = Array(fm["author"]).first.to_s.strip
+    errors << "author is not a plain name: #{author.inspect}" unless author.match?(/\A[\p{L}][\p{L} .'’-]*\z/)
+
     out = {
       "title" => title,
       "date" => Date.parse(date),
-      "author" => fm["author"].to_s.strip,
+      "author" => author,
       "description" => present?(description) ? description : nil,
       "tags" => [],
       "cover" => cover_id,

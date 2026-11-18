@@ -1,7 +1,7 @@
 ---
 title: CMO in a COVID-19 World
 date: 2021-03-02
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: 'COVID-19 cancelled CMO 2020 and delays it again in 2021. Meanwhile, two CMO alumni are leading an outreach in the States: Rocky Mountain Outreach 2021.'
 tags: []
 cover: blog/2021/mountain-pointing

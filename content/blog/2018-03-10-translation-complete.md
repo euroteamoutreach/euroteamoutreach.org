@@ -1,7 +1,7 @@
 ---
 title: Translation Complete!
 date: 2018-03-10
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: 'The new Ukrainian translation of Good and Evil is finished. What remains before the second printing: layout, a second read-through, printing and delivery.'
 tags: []
 cover: blog/2018/ge-shiny

@@ -1,7 +1,7 @@
 ---
 title: Farewell to the Zhylavy’s
 date: 2019-08-26
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: After two years with ETO, the Zhylavy family is leaving the mission. Anatoli explains their decision in his own words.
 tags: []
 cover: blog/2018/zhylavy-family-2

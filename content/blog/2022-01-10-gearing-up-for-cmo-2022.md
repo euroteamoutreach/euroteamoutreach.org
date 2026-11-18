@@ -1,7 +1,7 @@
 ---
 title: Gearing Up for CMO 2022
 date: 2022-01-10
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: We are planning CMO 2022, and for the first time it is open to young ladies. The dates, the details, and our thinking on the situation with russia.
 tags: []
 cover: blog/2022/cmo-2022-ann-cover

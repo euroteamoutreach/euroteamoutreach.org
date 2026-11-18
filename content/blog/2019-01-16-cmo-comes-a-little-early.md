@@ -1,7 +1,7 @@
 ---
 title: CMO Comes a Little Early This Year!
 date: 2019-01-16
-author: '["Joshua Steele", "joshukraine", "@tw"]'
+author: Joshua Steele
 description: Registration is open for CMO 2019, which starts earlier than usual, on June 13. The dates, the cost, and how to apply.
 tags: []
 cover: blog/2019/cmo-2018-team
