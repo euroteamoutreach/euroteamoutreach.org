@@ -335,6 +335,30 @@ html {
   }
 }
 
+/* The typography plugin (`prose`) in the site's colours: warm-800 body, ink
+   headings and bold, the warm rules and markers. Pair with `prose` (and
+   `prose-links` for the house link face). The plugin's own quote marks on
+   blockquotes are dropped: quoted Scripture carries its own (KJV), and the
+   plugin's would double them. */
+@utility prose-eto {
+  --tw-prose-body: var(--color-warm-800);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-quotes: var(--color-warm-800);
+  --tw-prose-quote-borders: var(--color-eto-200);
+  --tw-prose-bullets: var(--color-warm-400);
+  --tw-prose-counters: var(--color-warm-600);
+  --tw-prose-hr: var(--color-warm-200);
+  --tw-prose-captions: var(--color-warm-600);
+  & :is(h1, h2, h3, h4) {
+    letter-spacing: var(--tracking-tight);
+  }
+  & blockquote p::before,
+  & blockquote p::after {
+    content: none;
+  }
+}
+
 /* Captions, quote sources, notes, and fine print: one step below body. */
 @utility text-caption {
   font-size: var(--text-sm);

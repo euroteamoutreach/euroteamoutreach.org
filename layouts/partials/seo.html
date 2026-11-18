@@ -4,8 +4,9 @@
 
      1. ROBOTS: noindex,nofollow everywhere but production (the "preview"
         environment, netlify.toml), on any page with `noindex: true`, and on
-        the tag index while no post has tags (an empty page, linked from
-        nowhere).
+        the tag index before the first tag: an empty page, linked from
+        nowhere. Scoped to taxonomy pages on purpose: a section page with
+        no child pages (a single-page ministry) is real content.
 
      2. CANONICAL is always the production host, built on
         params.canonicalBaseURL: previews build with -b $DEPLOY_PRIME_URL, so
@@ -44,8 +45,8 @@
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $description }}">
 <link rel="canonical" href="{{ $canonical }}">
-{{- $emptyTaxonomy := and (eq .Kind "taxonomy") (not .Data.Terms) -}}
-{{- if and hugo.IsProduction (not .Params.noindex) (not $emptyTaxonomy) }}
+{{- $emptyList := and (eq .Kind "taxonomy") (not .Pages) -}}
+{{- if and hugo.IsProduction (not .Params.noindex) (not $emptyList) }}
 <meta name="robots" content="index,follow">
 {{- else }}
 <meta name="robots" content="noindex,nofollow">

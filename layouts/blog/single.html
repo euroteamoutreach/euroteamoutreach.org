@@ -20,7 +20,7 @@
   {{ $p := .Params }}
   {{ $tags := .GetTerms "tags" }}
   {{/* The cover's alt: the caption as plain text, else the title. */}}
-  {{ $coverAlt := cond (ne $p.caption nil) ($p.caption | markdownify | plainify) .Title }}
+  {{ $coverAlt := or ($p.caption | markdownify | plainify) .Title }}
   {{/* Older and newer in the blog. Hugo's Next/Prev run forward in time:
        NextInSection is the NEWER post, whatever the list order (checked on
        the sample posts; ofreport's template has them the other way round). */}}
@@ -67,9 +67,9 @@
     </header>
 
     <div class="mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20">
-      {{/* Rendered Markdown, styled by the typography plugin in the site's
-           colours: ink headings, warm-800 body, house links (prose-links). */}}
-      <div class="prose mx-auto max-w-prose md:prose-lg prose-links [--tw-prose-body:var(--color-warm-800)] [--tw-prose-bold:var(--color-ink)] [--tw-prose-headings:var(--color-ink)] [--tw-prose-quotes:var(--color-warm-800)] [--tw-prose-quote-borders:var(--color-eto-200)] [--tw-prose-bullets:var(--color-warm-400)] [--tw-prose-counters:var(--color-warm-600)] [--tw-prose-hr:var(--color-warm-200)] [--tw-prose-captions:var(--color-warm-600)] prose-headings:tracking-tight [&_blockquote_p]:before:content-none [&_blockquote_p]:after:content-none">
+      {{/* Rendered Markdown: the typography plugin in the site's colours
+           (prose-eto, main.css) with house links (prose-links). */}}
+      <div class="prose prose-eto mx-auto max-w-prose md:prose-lg prose-links">
         {{ .Content }}
       </div>
 
@@ -81,11 +81,9 @@
                 <span class="text-caption text-warm-600"><span aria-hidden="true">←</span> Previous post</span>
                 <span class="mt-1 block font-semibold text-ink transition-colors group-hover:text-eto-600 group-hover:underline">{{ .Title }}</span>
               </a>
-            {{ else }}
-              <span></span>
             {{ end }}
             {{ with $newer }}
-              <a href="{{ .RelPermalink }}" class="group rounded-eto focus-ring sm:max-w-[45%] sm:text-right">
+              <a href="{{ .RelPermalink }}" class="group rounded-eto focus-ring sm:ml-auto sm:max-w-[45%] sm:text-right">
                 <span class="text-caption text-warm-600">Next post <span aria-hidden="true">→</span></span>
                 <span class="mt-1 block font-semibold text-ink transition-colors group-hover:text-eto-600 group-hover:underline">{{ .Title }}</span>
               </a>

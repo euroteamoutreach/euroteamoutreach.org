@@ -15,33 +15,29 @@
 */ -}}
 {{- $page := .page -}}
 {{- $featured := .featured | default false -}}
-{{- $date := $page.Date.Format "January 2, 2006" -}}
 
 <article class="linked-card flex flex-col overflow-hidden bg-white {{ if $featured }}md:flex-row{{ end }}">
   {{- with $page.Params.cover }}
+    {{/* Cloudinary crops to the card's frame (4:3 featured, 3:2 grid), so
+         no card downloads pixels that object-cover would throw away. */}}
     {{ partial "cloudinary-img.html" (dict
       "src" .
       "alt" ""
-      "sizes" (cond $featured "(min-width: 1024px) 470px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)" "(min-width: 1024px) 304px, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)")
+      "crop" (printf "ar_%s,c_fill,g_auto" (cond $featured "4:3" "3:2"))
+      "sizes" (printf "(min-width: 1024px) %s, (min-width: 768px) calc(50vw - 40px), calc(100vw - 48px)" (cond $featured "488px" "309px"))
       "loading" (cond $featured "eager" "lazy")
       "class" (printf "aspect-3/2 w-full bg-warm-100 object-cover %s" (cond $featured "md:aspect-4/3 md:w-1/2" ""))
     ) }}
   {{- end }}
   <div class="flex grow flex-col p-6 {{ if $featured }}md:justify-center md:p-8{{ end }}">
     <p class="text-caption text-warm-600">
-      <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $date }}</time>
+      <time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "January 2, 2006" }}</time>
     </p>
-    {{- if $featured }}
-      <h2 class="mt-2 text-heading text-ink">
-        <a href="{{ $page.RelPermalink }}" class="stretched-link">{{ $page.Title }}</a>
-      </h2>
-    {{- else }}
-      <h2 class="mt-1 text-xl/snug font-semibold tracking-tight text-ink">
-        <a href="{{ $page.RelPermalink }}" class="stretched-link">{{ $page.Title }}</a>
-      </h2>
-    {{- end }}
+    <h2 class="{{ cond $featured "mt-2 text-heading" "mt-1 text-xl/snug font-semibold tracking-tight" }} text-ink">
+      <a href="{{ $page.RelPermalink }}" class="stretched-link">{{ $page.Title }}</a>
+    </h2>
     {{- with $page.Description }}
-      <p class="mt-3 text-warm-800 {{ if $featured }}text-body{{ else }}text-base/relaxed{{ end }}">{{ . }}</p>
+      <p class="mt-3 text-warm-800 {{ cond $featured "text-body" "text-base/relaxed" }}">{{ . }}</p>
     {{- end }}
   </div>
 </article>

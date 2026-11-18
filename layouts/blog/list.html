@@ -12,8 +12,7 @@
      --------------------------------------------------------------------- */}}
 {{ define "main" }}
   {{ $section := "mx-auto max-w-5xl px-6" }}
-  {{ $posts := .Pages }}
-  {{ $paginator := .Paginate (after 1 $posts) }}
+  {{ $paginator := .Paginate (after 1 .Pages) }}
   {{ $first := not $paginator.HasPrev }}
 
   <section class="border-b border-warm-200 bg-white">
@@ -29,8 +28,8 @@
   </section>
 
   <div class="{{ $section }} py-12 sm:py-16">
-    {{ if and $first $posts }}
-      {{ partial "article-card.html" (dict "page" (index $posts 0) "featured" true) }}
+    {{ if and $first .Pages }}
+      {{ partial "article-card.html" (dict "page" (index .Pages 0) "featured" true) }}
     {{ end }}
     {{ with $paginator.Pages }}
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 {{ if $first }}mt-6 md:mt-8{{ end }}">

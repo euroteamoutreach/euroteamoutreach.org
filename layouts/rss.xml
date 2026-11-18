@@ -4,7 +4,6 @@
   layouts/_default/rss.xml (ofreport PR 181). Only the home page outputs RSS
   (hugo.toml [outputs]), so this is the site's one feed.
 
-  - Blog posts only, newest first, capped at services.rss.limit.
   - <description> is the plain-text excerpt (front-matter `description`), so
     RSS readers and previews stay tidy.
   - <content:encoded> carries the email body as HTML in a CDATA block: the
@@ -23,7 +22,6 @@
   - Dates are emitted at noon UTC. Posts carry a date only, which Hugo
     stamps at midnight UTC; read in the Americas that is the evening before.
     Noon UTC shows the right day from the Americas to Ukraine.
-  - <dc:creator> for the author: RSS's own <author> expects an email.
 */ -}}
 {{- $pages := where site.RegularPages "Section" "blog" -}}
 {{- $limit := site.Config.Services.RSS.Limit -}}
@@ -49,10 +47,11 @@
     {{- range $pages }}
     {{- $excerpt := .Description }}
     {{- $alt := .Title | transform.XMLEscape }}
-    {{- $coverID := .Params.cover }}
     {{- $cover := "" }}
+    {{- $type := "" }}
     {{- with .Params.cover }}
       {{- $cover = printf "%s/image/upload/c_fill,g_auto,f_auto,q_auto,w_1200,h_630/%s" site.Params.cloudinaryBase . }}
+      {{- $type = index (dict ".png" "image/png" ".gif" "image/gif" ".webp" "image/webp" ".avif" "image/avif") (lower (path.Ext .)) | default "image/jpeg" }}
     {{- end }}
     <item>
       <title>{{ .Title | transform.XMLEscape | safeHTML }}</title>
@@ -77,8 +76,6 @@
       <content:encoded>{{ printf "<![CDATA[%s]]>" . | safeHTML }}</content:encoded>
       {{- end }}
       {{- with $cover }}
-      {{- $ext := lower (path.Ext $coverID) }}
-      {{- $type := index (dict ".png" "image/png" ".gif" "image/gif" ".webp" "image/webp" ".avif" "image/avif") $ext | default "image/jpeg" }}
       <enclosure url="{{ . }}" length="0" type="{{ $type }}" />
       {{- end }}
     </item>
