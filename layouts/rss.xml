@@ -13,8 +13,13 @@
     reads it with *|RSSITEM:CONTENT_FULL|*. The CDATA survives only because
     [minify] disableXML = true (hugo.toml).
   - The cover is a 1200×630 fill (2× the 600px email width, the share-card
-    ratio), forced to JPEG like seo.html's share image, so the <enclosure>
-    type is always image/jpeg whatever the original's format.
+    ratio) with f_auto, as on ofreport: each email client or reader gets a
+    format it says it can show (a client that can't show WebP doesn't ask
+    for it). Unlike seo.html, no forced JPEG: that guards against share
+    crawlers caching one format for every viewer, not against email.
+  - The <enclosure> type is read from the cover's file extension, JPEG when
+    there is none (most Cloudinary public IDs). With f_auto the real format
+    is decided per request, so the type is a hint either way.
   - Dates are emitted at noon UTC. Posts carry a date only, which Hugo
     stamps at midnight UTC; read in the Americas that is the evening before.
     Noon UTC shows the right day from the Americas to Ukraine.
@@ -44,9 +49,10 @@
     {{- range $pages }}
     {{- $excerpt := .Description }}
     {{- $alt := .Title | transform.XMLEscape }}
+    {{- $coverID := .Params.cover }}
     {{- $cover := "" }}
     {{- with .Params.cover }}
-      {{- $cover = printf "%s/image/upload/c_fill,g_auto,f_jpg,q_auto,w_1200,h_630/%s" site.Params.cloudinaryBase . }}
+      {{- $cover = printf "%s/image/upload/c_fill,g_auto,f_auto,q_auto,w_1200,h_630/%s" site.Params.cloudinaryBase . }}
     {{- end }}
     <item>
       <title>{{ .Title | transform.XMLEscape | safeHTML }}</title>
@@ -71,7 +77,9 @@
       <content:encoded>{{ printf "<![CDATA[%s]]>" . | safeHTML }}</content:encoded>
       {{- end }}
       {{- with $cover }}
-      <enclosure url="{{ . }}" length="0" type="image/jpeg" />
+      {{- $ext := lower (path.Ext $coverID) }}
+      {{- $type := index (dict ".png" "image/png" ".gif" "image/gif" ".webp" "image/webp" ".avif" "image/avif") $ext | default "image/jpeg" }}
+      <enclosure url="{{ . }}" length="0" type="{{ $type }}" />
       {{- end }}
     </item>
     {{- end }}
