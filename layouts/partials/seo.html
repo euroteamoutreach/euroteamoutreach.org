@@ -3,7 +3,9 @@
      X card (#30, docs/prd/05-templates.md §"seo.html").
 
      1. ROBOTS: noindex,nofollow everywhere but production (the "preview"
-        environment, netlify.toml), and on any page with `noindex: true`.
+        environment, netlify.toml), on any page with `noindex: true`, and on
+        the tag index while no post has tags (an empty page, linked from
+        nowhere).
 
      2. CANONICAL is always the production host, built on
         params.canonicalBaseURL: previews build with -b $DEPLOY_PRIME_URL, so
@@ -23,6 +25,9 @@
         and a crawler advertising WebP or AVIF would cache a format some share
         surfaces don't render.
 
+     4. TYPE: blog posts are og:type article, with their publish date;
+        every other page is website.
+
      X reads og:title, og:description, and og:image, so twitter:card is the
      only twitter: tag needed.
      --------------------------------------------------------------------- */ -}}
@@ -39,14 +44,20 @@
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $description }}">
 <link rel="canonical" href="{{ $canonical }}">
-{{- if and hugo.IsProduction (not .Params.noindex) }}
+{{- $emptyTaxonomy := and (eq .Kind "taxonomy") (not .Data.Terms) -}}
+{{- if and hugo.IsProduction (not .Params.noindex) (not $emptyTaxonomy) }}
 <meta name="robots" content="index,follow">
 {{- else }}
 <meta name="robots" content="noindex,nofollow">
 {{- end }}
 
 {{/* Open Graph */}}
+{{- if and .IsPage (eq .Section "blog") }}
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02" }}">
+{{- else }}
 <meta property="og:type" content="website">
+{{- end }}
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:locale" content="{{ replace site.Language.Locale "-" "_" }}">
 <meta property="og:title" content="{{ $title }}">

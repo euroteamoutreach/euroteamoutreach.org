@@ -1,0 +1,96 @@
+{{/* ---------------------------------------------------------------------
+     Blog post (`/blog/YYYY-MM-DD-slug/`) — docs/prd/05-templates.md
+     §"Blog". Mirrors ofreport's blog/single.html mechanics; the face is
+     this site's.
+         ← Blog · date · title · author · tags → cover + caption → body →
+         previous / next
+     RULES THIS FILE MUST KEEP:
+     1. ONE CENTRED COLUMN (decision 75): the heading block centred, the
+        body left-aligned at the reading measure. The cover runs wider than
+        the text, capped in height so a portrait does not fill the screen.
+     2. TAGS ONLY WHEN SET. A post without tags renders no tag row, so an
+        untagged blog shows no tag UI anywhere. The first tagged post turns
+        it on with no template change.
+     3. NO SIGNUP FORM HERE. The footer carries the newsletter form on every
+        page; a second copy per post was dropped (CHANGELOG 2026-11-18).
+     --------------------------------------------------------------------- */}}
+{{ define "main" }}
+  {{ $p := .Params }}
+  {{ $tags := .GetTerms "tags" }}
+  {{/* The cover's alt: the caption as plain text, else the title. */}}
+  {{ $coverAlt := cond (ne $p.caption nil) ($p.caption | markdownify | plainify) .Title }}
+  {{/* Older and newer in the blog. Hugo's Next/Prev run forward in time:
+       NextInSection is the NEWER post, whatever the list order (checked on
+       the sample posts; ofreport's template has them the other way round). */}}
+  {{ $older := .PrevInSection }}
+  {{ $newer := .NextInSection }}
+
+  <article>
+    <header class="border-b border-warm-200 bg-white">
+      <div class="mx-auto max-w-5xl px-6 pt-6 pb-12 sm:pb-16 md:pt-8">
+        {{ with .Parent }}
+          <a href="{{ .RelPermalink }}" class="link-standalone text-caption">← {{ .Title }}</a>
+        {{ end }}
+        <div class="mx-auto mt-8 max-w-3xl text-center md:mt-10">
+          <p class="text-caption text-warm-600">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+            {{- with $p.author }} <span aria-hidden="true">·</span> {{ . }}{{ end }}
+          </p>
+          <h1 class="mt-3 text-4xl font-black tracking-tight text-pretty text-eto-600 sm:text-5xl">{{ .Title }}</h1>
+          {{ with $tags }}
+            <ul aria-label="Tags" class="mt-5 flex flex-wrap justify-center gap-2">
+              {{ range . }}
+                <li>
+                  <a href="{{ .RelPermalink }}" class="inline-block rounded-full bg-eto-50 px-3 py-1 text-sm font-semibold text-eto-700 transition-colors hover:bg-eto-100 focus-ring">{{ .Title }}</a>
+                </li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </div>
+        {{ with $p.cover }}
+          <figure class="mx-auto mt-10 max-w-3xl md:mt-12">
+            {{ partial "cloudinary-img.html" (dict
+              "src" .
+              "alt" $coverAlt
+              "sizes" "(min-width: 816px) 768px, calc(100vw - 48px)"
+              "loading" "eager"
+              "class" "mx-auto h-auto max-h-[36rem] w-auto max-w-full rounded-eto-lg bg-warm-100"
+            ) }}
+            {{ with $p.caption }}
+              <figcaption class="mx-auto mt-3 max-w-prose text-center text-caption text-warm-600 prose-links">{{ . | markdownify }}</figcaption>
+            {{ end }}
+          </figure>
+        {{ end }}
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-5xl px-6 py-12 sm:py-16 md:py-20">
+      {{/* Rendered Markdown, styled by the typography plugin in the site's
+           colours: ink headings, warm-800 body, house links (prose-links). */}}
+      <div class="prose mx-auto max-w-prose md:prose-lg prose-links [--tw-prose-body:var(--color-warm-800)] [--tw-prose-bold:var(--color-ink)] [--tw-prose-headings:var(--color-ink)] [--tw-prose-quotes:var(--color-warm-800)] [--tw-prose-quote-borders:var(--color-eto-200)] [--tw-prose-bullets:var(--color-warm-400)] [--tw-prose-counters:var(--color-warm-600)] [--tw-prose-hr:var(--color-warm-200)] [--tw-prose-captions:var(--color-warm-600)] prose-headings:tracking-tight">
+        {{ .Content }}
+      </div>
+
+      {{ if or $older $newer }}
+        <nav aria-label="Previous and next posts" class="mx-auto mt-12 max-w-3xl border-t border-warm-200 pt-8 md:mt-16">
+          <div class="flex flex-col gap-6 sm:flex-row sm:justify-between">
+            {{ with $older }}
+              <a href="{{ .RelPermalink }}" class="group rounded-eto focus-ring sm:max-w-[45%]">
+                <span class="text-caption text-warm-600"><span aria-hidden="true">←</span> Previous post</span>
+                <span class="mt-1 block font-semibold text-ink transition-colors group-hover:text-eto-600 group-hover:underline">{{ .Title }}</span>
+              </a>
+            {{ else }}
+              <span></span>
+            {{ end }}
+            {{ with $newer }}
+              <a href="{{ .RelPermalink }}" class="group rounded-eto focus-ring sm:max-w-[45%] sm:text-right">
+                <span class="text-caption text-warm-600">Next post <span aria-hidden="true">→</span></span>
+                <span class="mt-1 block font-semibold text-ink transition-colors group-hover:text-eto-600 group-hover:underline">{{ .Title }}</span>
+              </a>
+            {{ end }}
+          </div>
+        </nav>
+      {{ end }}
+    </div>
+  </article>
+{{ end }}

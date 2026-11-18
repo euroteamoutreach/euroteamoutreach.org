@@ -1,0 +1,43 @@
+{{- /*
+  figure — a captioned Cloudinary photo inside a blog post. Replaces Hugo's
+  built-in figure, so migrated posts and new ones write the same thing.
+  Adapted from ofreport's figure shortcode, without the lightbox: this site
+  has none yet (CHANGELOG 2026-11-18).
+
+  The photo keeps its own shape at the reading-column width, capped in
+  height so a portrait does not fill the screen. not-prose keeps the
+  typography plugin from restyling the figure.
+
+  Params (named):
+    src      (required) Cloudinary public ID
+    alt      (optional) alt text; falls back to the caption as plain text.
+             One of the two is required, so no photo ships undescribed.
+    caption  (optional) shown under the photo; Markdown allowed
+    width    (optional) the original's width, with height, to reserve space
+    height   (optional) the original's height
+
+  Usage:
+    {{< figure src="eto/blog/2025-08-van" caption="Loading the van in Lviv" >}}
+*/ -}}
+{{- $src := .Get "src" -}}
+{{- if not $src -}}
+  {{- errorf "figure: 'src' is required (%s)" .Position -}}
+{{- end -}}
+{{- $caption := .Get "caption" -}}
+{{- $alt := or (.Get "alt") ($caption | markdownify | plainify) -}}
+{{- if not $alt -}}
+  {{- errorf "figure: %q needs an alt or a caption (%s)" $src .Position -}}
+{{- end -}}
+<figure class="not-prose my-8 md:my-10">
+  {{ partial "cloudinary-img.html" (dict
+    "src" $src
+    "alt" $alt
+    "sizes" "(min-width: 768px) 720px, calc(100vw - 48px)"
+    "width" (.Get "width")
+    "height" (.Get "height")
+    "class" "mx-auto h-auto max-h-[36rem] w-auto max-w-full rounded-eto bg-warm-100"
+  ) }}
+  {{- with $caption }}
+    <figcaption class="mx-auto mt-3 max-w-prose text-center text-caption text-warm-600 prose-links">{{ . | markdownify }}</figcaption>
+  {{- end }}
+</figure>
