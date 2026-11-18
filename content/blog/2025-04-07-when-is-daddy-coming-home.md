@@ -2,7 +2,7 @@
 title: When Is Daddy Coming Home?
 date: 2025-04-07
 author: Joshua Steele
-description: Our friend and coworker Serhii Chepara went missing in action defending Ukraine. His story, and a new fund to help the widows and children of fallen defenders.
+description: "“When is Daddy coming home?” This is a question all children ask, and it points to a promise all good parents make."
 tags: []
 cover: blog/2025/chepara-cover
 slug: 2025-04-07-when-is-daddy-coming-home
@@ -28,9 +28,9 @@ It’s now been more than six months since that terrible day, and we still don�
 
 At present, there is nothing we can do to bring this daddy home to his family. We pray, we hope, and we take comfort knowing that Serhii is in God’s hands. But in Serhii’s absence, we can come alongside Nataliia and the children and support them during this time of sorrow.
 
-Today, Euro Team Outreach is launching a special fundraiser to support people like the Chepara family and to help ease the financial burden that widows like Natallia bear alone. If you would like to donate, you can do so by clicking the button below. **Please specify “Fallen Defender Fund” when making your donation.**
+Today, Euro Team Outreach is launching a special fundraiser to support people like the Chepara family and to help ease the financial burden that widows like Natallia bear alone. If you would like to donate, you can do so by clicking the button below.
 
-{{< button href="/give/" text="Donate Now" >}}
+{{< button fund="fallen-defender" text="Donate Now" >}}
 
 Thank you for your compassion and generosity.
 

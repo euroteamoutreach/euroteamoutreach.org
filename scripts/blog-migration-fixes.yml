@@ -115,6 +115,14 @@ posts:
   2023-09-11-music-and-mountains:
     description: "The last week of CMO 2023: singing for wounded soldiers in a Lviv hospital, and the climb to the summit of Mt. Parashka."
   2025-04-07-when-is-daddy-coming-home:
-    description: "Our friend and coworker Serhii Chepara went missing in action defending Ukraine. His story, and a new fund to help the widows and children of fallen defenders."
+    # Lifted word for word from the post, so the card adds no new prose about Serhii.
+    description: "“When is Daddy coming home?” This is a question all children ask, and it points to a promise all good parents make."
+    body:
+      # The button now opens the Givebutter form with the Fallen Defender Fund
+      # pre-selected, so the instruction to name the fund goes.
+      - from: " **Please specify “Fallen Defender Fund” when making your donation.**"
+        to: ""
+      - from: "{{< button href=\"/give/\" text=\"Donate Now\" >}}"
+        to: "{{< button fund=\"fallen-defender\" text=\"Donate Now\" >}}"
   2025-08-31-announcing-ukraine-gospel-outreach:
     description: "After 13 projects over 17 years, we are sunsetting CMO. Introducing our next initiative in evangelism and discipleship: Ukraine Gospel Outreach."
