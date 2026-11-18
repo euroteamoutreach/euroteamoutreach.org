@@ -42,7 +42,7 @@ require "optparse"
 MANIFEST = File.expand_path("../tmp/blog-migration/images.tsv", __dir__)
 CLOUD_BASE = File.read(File.expand_path("../hugo.toml", __dir__))[/cloudinaryBase\s*=\s*"([^"]+)"/, 1]
 
-def rows
+def load_rows
   abort "No manifest at #{MANIFEST}; run scripts/migrate.rb first" unless File.exist?(MANIFEST)
   File.readlines(MANIFEST, chomp: true).map { |line| line.split("\t", 3) }
 end
@@ -53,9 +53,10 @@ def credentials
   { key: m[1], secret: m[2], cloud: m[3] }
 end
 
-# Signed upload. The signature covers every param except file, api_key and
-# the resource type, sorted by name (Cloudinary's signing rules).
-def upload(type, public_id, source, creds)
+# Signed upload over an open connection to api.cloudinary.com. The signature
+# covers every param except file, api_key and the resource type, sorted by
+# name (Cloudinary's signing rules). A URL source is fetched by Cloudinary.
+def upload(http, type, public_id, source, creds)
   params = {
     "asset_folder" => File.dirname(public_id),
     "overwrite" => "false",
@@ -66,20 +67,12 @@ def upload(type, public_id, source, creds)
   params["signature"] = Digest::SHA1.hexdigest(to_sign + creds[:secret])
   params["api_key"] = creds[:key]
 
-  uri = URI("https://api.cloudinary.com/v1_1/#{creds[:cloud]}/#{type}/upload")
-  req = Net::HTTP::Post.new(uri)
+  req = Net::HTTP::Post.new("/v1_1/#{creds[:cloud]}/#{type}/upload")
   file = source.start_with?("http") ? source : File.open(source, "rb")
   req.set_form([["file", file], *params.to_a], "multipart/form-data")
-  res = Net::HTTP.start(uri.host, uri.port, use_ssl: true, read_timeout: 300) { |http| http.request(req) }
+  http.request(req)
+ensure
   file.close if file.respond_to?(:close)
-  res
-end
-
-def delivered?(type, public_id)
-  ext = type == "video" ? ".mp4" : ""
-  uri = URI("#{CLOUD_BASE}/#{type}/upload/#{public_id}#{ext}")
-  res = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http| http.head(uri.request_uri) }
-  res.is_a?(Net::HTTPSuccess)
 end
 
 verify = false
@@ -87,8 +80,16 @@ OptionParser.new do |o|
   o.on("--verify", "Check every public ID delivers from Cloudinary") { verify = true }
 end.parse!
 
+rows = load_rows
+
 if verify
-  missing = rows.reject { |type, id, _| delivered?(type, id) }
+  cdn = URI(CLOUD_BASE)
+  missing = Net::HTTP.start(cdn.host, cdn.port, use_ssl: true) do |http|
+    rows.reject do |type, id, _|
+      ext = type == "video" ? ".mp4" : ""
+      http.head("#{cdn.path}/#{type}/upload/#{id}#{ext}").is_a?(Net::HTTPSuccess)
+    end
+  end
   puts "#{rows.size - missing.size}/#{rows.size} deliver from Cloudinary"
   missing.each { |type, id, _| puts "  MISSING #{type} #{id}" }
   exit(missing.empty? ? 0 : 1)
@@ -96,12 +97,18 @@ end
 
 creds = credentials
 failures = 0
-rows.each_with_index do |(type, id, source), i|
-  res = upload(type, id, source, creds)
-  status = res.is_a?(Net::HTTPSuccess) ? (res.body.include?('"existing":true') ? "exists" : "uploaded") : "FAILED #{res.code} #{res.body[0, 200]}"
-  failures += 1 if status.start_with?("FAILED")
-  puts format("%3d/%d  %-8s %s", i + 1, rows.size, status.split.first, id)
-  puts "        #{status}" if status.start_with?("FAILED")
+Net::HTTP.start("api.cloudinary.com", 443, use_ssl: true, read_timeout: 300) do |http|
+  rows.each_with_index do |(type, id, source), i|
+    res = upload(http, type, id, source, creds)
+    if res.is_a?(Net::HTTPSuccess)
+      status = res.body.include?('"existing":true') ? "exists" : "uploaded"
+      puts format("%3d/%d  %-8s %s", i + 1, rows.size, status, id)
+    else
+      failures += 1
+      puts format("%3d/%d  %-8s %s", i + 1, rows.size, "FAILED", id)
+      puts "        #{res.code} #{res.body[0, 200]}"
+    end
+  end
 end
 puts failures.zero? ? "All #{rows.size} in place." : "#{failures} failed; fix and re-run (existing IDs are skipped)."
 exit(failures.zero? ? 0 : 1)
