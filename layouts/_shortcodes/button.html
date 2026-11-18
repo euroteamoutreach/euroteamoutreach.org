@@ -7,28 +7,38 @@
   link on the site (partials/external.html), so there is no external
   param: an off-site button opens a new tab and says so.
 
-  Not for giving. A donation call to action uses the give-cta partial, so
-  the designation link stays single-sourced in data/designations.yaml.
+  A giving button names its fund instead of a URL. Its link comes from
+  give-cta.html, so the designation stays single-sourced in
+  data/designations.yaml, and it takes the gold fill, which is reserved for
+  giving (DECISIONS.md 64). An unknown fund fails the build.
 
   Params (named):
-    href     (required) destination URL
+    href     a destination URL (this or fund is required)
+    fund     a designation slug from data/designations.yaml
     text     (required) visible label
-    outline  (optional) true renders the secondary, outlined fill
+    outline  (optional) true renders the secondary, outlined fill; ignored
+             for a fund button
 
   Usage:
     {{< button href="/serve/" text="See how it works" >}}
     {{< button href="https://www.facebook.com/…" text="Week 3 photo album" outline=true >}}
+    {{< button fund="fallen-defender" text="Donate Now" >}}
 */ -}}
 {{- $href := .Get "href" -}}
+{{- $fund := .Get "fund" -}}
 {{- $text := .Get "text" -}}
-{{- if not $href -}}
-  {{- errorf "button: 'href' is required (%s)" .Position -}}
+{{- if not (or $href $fund) -}}
+  {{- errorf "button: 'href' or 'fund' is required (%s)" .Position -}}
 {{- end -}}
 {{- if not $text -}}
   {{- errorf "button: 'text' is required (%s)" .Position -}}
 {{- end -}}
 {{- /* Hugo parses an unquoted true as a bool; compare either form. */ -}}
 {{- $fill := cond (eq (printf "%v" (.Get "outline")) "true") "btn-outline" "btn-primary" -}}
+{{- with $fund -}}
+  {{- $href = partial "give-cta.html" . -}}
+  {{- $fill = "btn-gold" -}}
+{{- end -}}
 {{- $x := partial "external.html" $href -}}
 <div class="not-prose my-8 text-center">
   <a href="{{ $href }}" class="btn {{ $fill }} focus-ring" {{ $x.attrs }}>{{ $text }}{{ $x.mark }}</a>
