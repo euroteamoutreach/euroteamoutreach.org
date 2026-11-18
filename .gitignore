@@ -38,3 +38,6 @@ docs/tailwind_plus/
 
 # Claude Code local settings (personal overrides)
 .claude/settings.local.json
+
+# The global gitignore ignores "tags" (ctags files); the blog's tag index is content.
+!/content/tags/

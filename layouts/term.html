@@ -1,0 +1,28 @@
+{{/* ---------------------------------------------------------------------
+     Tag page (`/tags/{tag}/`) — docs/prd/05-templates.md §"Blog". The
+     posts with one tag, newest first, in the blog's card grid and paginated
+     like the blog. No featured card: that is the blog's front page only.
+     --------------------------------------------------------------------- */}}
+{{ define "main" }}
+  {{ $paginator := .Paginate .Pages }}
+  {{ $count := len .Pages }}
+
+  <section class="border-b border-warm-200 bg-white">
+    <div class="mx-auto max-w-5xl px-6 py-12 sm:py-16">
+      {{ with .Parent }}
+        <a href="{{ .RelPermalink }}" class="link-standalone text-caption">← All tags</a>
+      {{ end }}
+      <h1 class="mt-6 text-4xl font-black tracking-tight text-eto-600 sm:text-5xl">{{ .Title }}</h1>
+      <p class="mt-4 text-lede text-warm-800">{{ $count }} {{ cond (eq $count 1) "post" "posts" }} tagged “{{ .Title }}”{{ if $paginator.HasPrev }} · page {{ $paginator.PageNumber }} of {{ $paginator.TotalPages }}{{ end }}</p>
+    </div>
+  </section>
+
+  <div class="mx-auto max-w-5xl px-6 py-12 sm:py-16">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {{ range $paginator.Pages }}
+        {{ partial "article-card.html" (dict "page" .) }}
+      {{ end }}
+    </div>
+    {{ partial "pagination.html" . }}
+  </div>
+{{ end }}
