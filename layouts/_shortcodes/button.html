@@ -1,0 +1,35 @@
+{{- /*
+  button — a standalone call to action inside a blog post. Adapted from
+  ofreport's button shortcode, on this site's button system (main.css):
+  `btn` + one fill + the light-ground focus ring.
+
+  Whether it opens a new tab is decided by where it goes, as for every
+  link on the site (partials/external.html), so there is no external
+  param: an off-site button opens a new tab and says so.
+
+  Not for giving. A donation call to action uses the give-cta partial, so
+  the designation link stays single-sourced in data/designations.yaml.
+
+  Params (named):
+    href     (required) destination URL
+    text     (required) visible label
+    outline  (optional) true renders the secondary, outlined fill
+
+  Usage:
+    {{< button href="/serve/" text="See how it works" >}}
+    {{< button href="https://www.facebook.com/…" text="Week 3 photo album" outline=true >}}
+*/ -}}
+{{- $href := .Get "href" -}}
+{{- $text := .Get "text" -}}
+{{- if not $href -}}
+  {{- errorf "button: 'href' is required (%s)" .Position -}}
+{{- end -}}
+{{- if not $text -}}
+  {{- errorf "button: 'text' is required (%s)" .Position -}}
+{{- end -}}
+{{- /* Hugo parses an unquoted true as a bool; compare either form. */ -}}
+{{- $fill := cond (eq (printf "%v" (.Get "outline")) "true") "btn-outline" "btn-primary" -}}
+{{- $x := partial "external.html" $href -}}
+<div class="not-prose my-8 text-center">
+  <a href="{{ $href }}" class="btn {{ $fill }} focus-ring" {{ $x.attrs }}>{{ $text }}{{ $x.mark }}</a>
+</div>
