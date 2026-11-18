@@ -3,7 +3,7 @@
      §"Blog". Mirrors ofreport's blog/single.html mechanics; the face is
      this site's.
          ← Blog · date · title · author · tags → cover + caption → body →
-         previous / next
+         newer / older
      RULES THIS FILE MUST KEEP:
      1. ONE CENTRED COLUMN (decision 75): the heading block centred, the
         body left-aligned at the reading measure. The cover runs wider than
@@ -22,8 +22,7 @@
   {{/* The cover's alt: the caption as plain text, else the title. */}}
   {{ $coverAlt := or ($p.caption | markdownify | plainify) .Title }}
   {{/* Older and newer in the blog. Hugo's Next/Prev run forward in time:
-       NextInSection is the NEWER post, whatever the list order (checked on
-       the sample posts; ofreport's template has them the other way round). */}}
+       NextInSection is the NEWER post, whatever the list order. */}}
   {{ $older := .PrevInSection }}
   {{ $newer := .NextInSection }}
 
@@ -74,17 +73,21 @@
       </div>
 
       {{ if or $older $newer }}
-        <nav aria-label="Previous and next posts" class="mx-auto mt-12 max-w-3xl border-t border-warm-200 pt-8 md:mt-16">
+        {{/* Labelled Newer and Older, as on ofreport: they say which way in
+             time each link goes, where Previous and Next were ambiguous.
+             Newer on the left, older on the right, matching the blog list,
+             which runs newest first. */}}
+        <nav aria-label="Newer and older posts" class="mx-auto mt-12 max-w-3xl border-t border-warm-200 pt-8 md:mt-16">
           <div class="flex flex-col gap-6 sm:flex-row sm:justify-between">
-            {{ with $older }}
+            {{ with $newer }}
               <a href="{{ .RelPermalink }}" class="group rounded-eto focus-ring sm:max-w-[45%]">
-                <span class="text-caption text-warm-600"><span aria-hidden="true">←</span> Previous post</span>
+                <span class="text-caption text-warm-600"><span aria-hidden="true">←</span> Newer</span>
                 <span class="mt-1 block font-semibold text-ink transition-colors group-hover:text-eto-600 group-hover:underline">{{ .Title }}</span>
               </a>
             {{ end }}
-            {{ with $newer }}
+            {{ with $older }}
               <a href="{{ .RelPermalink }}" class="group rounded-eto focus-ring sm:ml-auto sm:max-w-[45%] sm:text-right">
-                <span class="text-caption text-warm-600">Next post <span aria-hidden="true">→</span></span>
+                <span class="text-caption text-warm-600">Older <span aria-hidden="true">→</span></span>
                 <span class="mt-1 block font-semibold text-ink transition-colors group-hover:text-eto-600 group-hover:underline">{{ .Title }}</span>
               </a>
             {{ end }}
