@@ -84,7 +84,6 @@ done <<'EOF'
 /about/ 200
 /approach/ 200
 /blog/ 200
-/blog/2025-08-31-announcing-ukraine-gospel-outreach/ 200
 # netlify.toml redirects
 /donate 301 /give/
 /donate/thanks/ 301 /give/
@@ -100,7 +99,8 @@ done <<'EOF'
 EOF
 
 # Legacy blog post URLs, read from each post's front matter: the alias is the
-# old URL, the slug gives the new /blog/<slug>/. Run from the repo root.
+# old URL, the slug gives the new /blog/<slug>/. The old URL must 301 straight
+# to the new one, and the new one must answer 200: one hop.
 echo
 echo "Blog redirects"
 posts=0
@@ -109,6 +109,7 @@ for post in "$(dirname "$0")"/../content/blog/*.md; do
   alias=$(sed -n 's/^- "\(\/blog\/[^"]*\)"$/\1/p' "$post")
   [[ -z "$slug" || -z "$alias" ]] && continue
   expect_url "$alias" 301 "/blog/$slug/"
+  expect_url "/blog/$slug/" 200
   posts=$((posts + 1))
 done
 ((posts)) || fail "no blog posts with aliases found under content/blog/"
