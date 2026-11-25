@@ -5,7 +5,10 @@
   (hugo.toml [outputs]), so this is the site's one feed.
 
   - <description> is the plain-text excerpt (front-matter `description`), so
-    RSS readers and previews stay tidy.
+    RSS readers and previews stay tidy. As on ofreport, that description is
+    the curated excerpt the email carries: for a new post, a paragraph
+    (usually the opening), not a one-line summary. See README, "Writing a
+    blog post".
   - <content:encoded> carries the email body as HTML in a CDATA block: the
     cover, sized by width only (width="600" + inline height:auto, so no email
     client can distort it), then the excerpt. The campaign's HTML version
