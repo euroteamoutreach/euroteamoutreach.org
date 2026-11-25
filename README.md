@@ -40,7 +40,7 @@ hugo --gc --minify    # production build
 hugo new content blog/2026-11-24-my-post.md
 ```
 
-The filename's date-and-slug becomes the URL (`/blog/2026-11-24-my-post/`). Fill in `description`, `cover` (a Cloudinary public ID; post images live under `blog/YYYY/`) and an optional `caption`.
+The filename's date-and-slug becomes the URL (`/blog/2026-11-24-my-post/`), and the archetype takes the post's `date` and title from it, so the date in the URL and on the page agree. To move a post to another day, rename the file and change `slug` and `date` to match. Fill in `description`, `cover` (a Cloudinary public ID; post images live under `blog/YYYY/`) and an optional `caption`.
 
 **`description` is the email excerpt.** MailChimp's "ETO Blog" campaign emails each new post as the cover, then the `description`, then a "Read more" button. The same text shows on the post's card on `/blog/` and in link previews. Write it as a paragraph a subscriber would want to read, usually the post's opening paragraph copied in, not a one-line summary. It's plain text: Markdown isn't rendered. This matches ofreport.
 
