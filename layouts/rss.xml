@@ -5,13 +5,13 @@
   (hugo.toml [outputs]), so this is the site's one feed.
 
   - <description> is the plain-text excerpt (front-matter `description`), so
-    RSS readers and previews stay tidy.
+    RSS readers and previews stay tidy. As on ofreport, that description is
+    the curated excerpt the email carries: for a new post, a paragraph
+    (usually the opening), not a one-line summary. See README, "Writing a
+    blog post".
   - <content:encoded> carries the email body as HTML in a CDATA block: the
     cover, sized by width only (width="600" + inline height:auto, so no email
-    client can distort it), then the opening of the post (partials/
-    feed-opening.html: up to <!--more--> when the post has one, else Hugo's
-    automatic summary), falling back to the description when a post opens
-    with nothing but a figure. The campaign's HTML version
+    client can distort it), then the excerpt. The campaign's HTML version
     reads it with *|RSSITEM:CONTENT_FULL|*. The CDATA survives only because
     [minify] disableXML = true (hugo.toml).
   - The cover is a 1200×630 fill (2× the 600px email width, the share-card
@@ -72,13 +72,8 @@
         {{- $style := "display:block;width:100%;max-width:600px;height:auto;border:0" }}
         {{- $body = printf "<img src=\"%s\" alt=\"%s\" width=\"600\" style=\"%s\" />" . $alt $style }}
       {{- end }}
-      {{- $opening := partial "feed-opening.html" . }}
-      {{- with $opening }}
-        {{- $body = printf "%s%s" $body . }}
-      {{- else }}
-        {{- with $excerpt }}
-          {{- $body = printf "%s<p>%s</p>" $body (. | transform.XMLEscape) }}
-        {{- end }}
+      {{- with $excerpt }}
+        {{- $body = printf "%s<p>%s</p>" $body (. | transform.XMLEscape) }}
       {{- end }}
       {{- with $body }}
       <content:encoded>{{ printf "<![CDATA[%s]]>" . | safeHTML }}</content:encoded>
