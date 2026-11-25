@@ -40,9 +40,9 @@ hugo --gc --minify    # production build
 hugo new content blog/2026-11-24-my-post.md
 ```
 
-The filename's date-and-slug becomes the URL (`/blog/2026-11-24-my-post/`). Fill in `description` (one plain sentence for feed readers and link previews), `cover` (a Cloudinary public ID; post images live under `blog/YYYY/`) and an optional `caption`.
+The filename's date-and-slug becomes the URL (`/blog/2026-11-24-my-post/`). Fill in `description`, `cover` (a Cloudinary public ID; post images live under `blog/YYYY/`) and an optional `caption`.
 
-**Choose the email excerpt with `<!--more-->`.** MailChimp's "ETO Blog" campaign emails each new post: the cover, then the opening of the post, then a "Read more" button. Put `<!--more-->` on its own line where the opening should end, usually after the first paragraph or two. Without it, the email takes whole paragraphs up to about 70 words. Keep figures, video and buttons below the divider: the email drops them.
+**`description` is the email excerpt.** MailChimp's "ETO Blog" campaign emails each new post as the cover, then the `description`, then a "Read more" button. The same text shows on the post's card on `/blog/` and in link previews. Write it as a paragraph a subscriber would want to read, usually the post's opening paragraph copied in, not a one-line summary. It's plain text: Markdown isn't rendered. This matches ofreport.
 
 New posts start with `draft: true`. Preview locally with `hugo server -D`, but **set `draft: false` before pushing**, since production and deploy previews both build without `-D`. A future `date` shows on a deploy preview (`--buildFuture`) but stays hidden in production until that date. Once a post is live, MailChimp picks it up on the campaign's next scheduled check of `/feed.xml` and emails the list.
 

@@ -2,7 +2,8 @@
 title: "{{ replace .File.ContentBaseName `-` ` ` | title }}"
 date: {{ .Date }}
 draft: true
-description: ""
+description: >-
+  TODO: The paragraph the email and the article card show, usually the opening paragraph.
 tags: []
 cover: ""
 caption: ""
